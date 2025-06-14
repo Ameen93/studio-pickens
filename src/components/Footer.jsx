@@ -15,7 +15,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-studio-blue">
-      <div className="px-[50px] pt-[50px] pb-[50px]">
+      {/* Desktop Layout */}
+      <div className="hidden md:block px-[50px] pt-[50px] pb-[50px]">
         <div className="flex justify-between items-start mb-8">
           {/* Left Column - Locations */}
           <div className="flex flex-col space-y-4">
@@ -95,19 +96,100 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="flex justify-between items-center mt-8">
-          <p className="font-proxima text-white/60 text-sm">
+          <p className="font-proxima text-white text-sm">
             © Studio Pickens 2025
           </p>
           <div className="flex space-x-6">
             <button
               onClick={() => navigate('/terms')}
-              className="font-proxima text-white/60 text-sm hover:text-white transition-colors duration-200"
+              className="font-proxima text-white text-sm hover:text-white transition-colors duration-200"
             >
               Terms
             </button>
             <button
               onClick={() => navigate('/legal')}
-              className="font-proxima text-white/60 text-sm hover:text-white transition-colors duration-200"
+              className="font-proxima text-white text-sm hover:text-white transition-colors duration-200"
+            >
+              Legal
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Layout */}
+      <div className="md:hidden px-6 pt-12 pb-8">
+        {/* Signature at top */}
+        <div className="flex justify-left mb-12">
+          <img
+            src="/images/footer/footer-signature.png"
+            alt="Studio Pickens Signature"
+            className="h-16 w-auto"
+          />
+        </div>
+
+        {/* Locations */}
+        <div className="space-y-6 mb-12">
+          <button
+            onClick={() => navigate('/locations')}
+            className="block font-proxima-wide font-bold text-white text-2xl tracking-[3%] uppercase"
+          >
+            NEW YORK
+          </button>
+          <button
+            onClick={() => navigate('/locations')}
+            className="block font-proxima-wide font-bold text-white text-2xl tracking-[3%] uppercase"
+          >
+            BEVERLY HILLS
+          </button>
+          <button
+            onClick={() => navigate('/locations')}
+            className="block font-proxima-wide font-bold text-white text-2xl tracking-[3%] uppercase"
+          >
+            LONDON
+          </button>
+        </div>
+
+        {/* Page Links */}
+        <div className="space-y-4 mb-8">
+          {pageLinks.map((link) => (
+            <div key={link.name} className="block">
+              <button
+                onClick={() => navigate(link.href)}
+                className="inline-block font-proxima-wide font-bold text-white text-lg tracking-[3%] uppercase pb-2"
+              >
+                {link.name}
+              </button>
+              <div className="h-0.5 bg-studio-orange" style={{width: `${link.name.length * 0.8}em`}}></div>
+            </div>
+          ))}
+          
+          {/* Instagram Link */}
+          <div className="block">
+            <button
+              onClick={() => window.open('https://instagram.com/studiopickens', '_blank')}
+              className="inline-block font-proxima-wide font-bold text-white text-lg tracking-[3%] uppercase pb-2"
+            >
+              INSTAGRAM
+            </button>
+            <div className="h-0.5 bg-studio-orange" style={{width: '7.2em'}}></div>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="flex justify-between items-center">
+          <p className="font-proxima text-white text-sm">
+            © Studio Pickens 2025
+          </p>
+          <div className="flex space-x-6">
+            <button
+              onClick={() => navigate('/terms')}
+              className="font-proxima text-white text-sm"
+            >
+              Terms
+            </button>
+            <button
+              onClick={() => navigate('/legal')}
+              className="font-proxima text-white text-sm"
             >
               Legal
             </button>
