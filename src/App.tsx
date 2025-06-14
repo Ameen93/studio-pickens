@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import HomePage from './pages/index';
+import WorkPage from './pages/work';
+import ProcessPage from './pages/process';
+import StoryPage from './pages/story';
+import LocationsPage from './pages/locations';
+import ContactPage from './pages/contact';
+import FAQPage from './pages/faq';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const renderPage = () => {
+    switch (currentPath) {
+      case '/':
+        return <HomePage />;
+      case '/work':
+        return <WorkPage />;
+      case '/process':
+        return <ProcessPage />;
+      case '/story':
+        return <StoryPage />;
+      case '/locations':
+        return <LocationsPage />;
+      case '/contact':
+        return <ContactPage />;
+      case '/faq':
+        return <FAQPage />;
+      default:
+        return <HomePage />;
+    }
+  };
+
+  return renderPage();
 }
 
 export default App;
