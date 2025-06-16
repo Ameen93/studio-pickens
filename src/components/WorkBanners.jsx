@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WorkBanners = () => {
+const WorkBanners = ({ onBannerClick }) => {
   const banners = [
     {
       id: 1,
@@ -34,6 +34,7 @@ const WorkBanners = () => {
         <div
           key={banner.id}
           className="relative w-full group cursor-pointer overflow-hidden"
+          onClick={() => onBannerClick && onBannerClick(banner.category)}
           style={{
             height: 'clamp(200px, 22.36vw, 322px)' // 322/1440 = 22.36%
           }}

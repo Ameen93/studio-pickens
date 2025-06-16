@@ -20,7 +20,8 @@ const Navbar = () => {
 
   // Calculate scroll progress for smooth animations
   const scrollProgress = Math.min(Math.max(scrollY - 80, 0) / 80, 1); // Progress from 80px to 160px
-  const showTitle = scrollProgress > 0.5;
+  const isHomePage = currentPath === '/';
+  const showTitle = isHomePage ? scrollProgress > 0.5 : true; // Always show on non-home pages
 
   const { left: leftLinks, right: rightLinks } = NAVIGATION_LINKS;
   const allLinks = [...leftLinks, ...rightLinks];
@@ -57,13 +58,13 @@ const Navbar = () => {
               </button>
             ))}
 
-            {/* Center Title - Only exists when visible */}
-            {scrollProgress > 0 && (
+            {/* Center Title - Show on scroll for home page, always show for other pages */}
+            {(isHomePage ? scrollProgress > 0 : true) && (
               <div 
                 className="transition-all duration-200 ease-out overflow-hidden flex justify-center mx-6"
                 style={{
-                  opacity: scrollProgress,
-                  transform: `scale(${0.75 + scrollProgress * 0.25})`,
+                  opacity: isHomePage ? scrollProgress : 1,
+                  transform: isHomePage ? `scale(${0.75 + scrollProgress * 0.25})` : 'scale(1)',
                 }}
               >
                 <button

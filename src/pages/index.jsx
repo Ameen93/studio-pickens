@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Layout from '../components/Layout';
 import HeroBanner from '../components/HeroBanner';
 import WorkGallery from '../components/WorkGallery';
@@ -7,6 +7,18 @@ import BragBar from '../components/BragBar';
 import { Button, SectionHeader } from '../components/ui';
 
 const HomePage = () => {
+  const galleryRef = useRef(null);
+
+  const handleBannerClick = (category) => {
+    // Scroll to the gallery section
+    if (galleryRef.current) {
+      galleryRef.current.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <Layout title="Studio Pickens - Creative Excellence">
       {/* Hero Banner */}
@@ -44,12 +56,13 @@ const HomePage = () => {
         </div>
       </section>
 
-
       {/* Work Gallery */}
-      <WorkGallery />
+      <div ref={galleryRef}>
+        <WorkGallery />
+      </div>
 
       {/* Work Banners */}
-      <WorkBanners />
+      <WorkBanners onBannerClick={handleBannerClick} />
 
       {/* Brag Bar */}
       <BragBar />
