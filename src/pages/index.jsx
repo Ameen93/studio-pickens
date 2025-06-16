@@ -4,7 +4,7 @@ import HeroBanner from '../components/HeroBanner';
 import WorkGallery from '../components/WorkGallery';
 import WorkBanners from '../components/WorkBanners';
 import BragBar from '../components/BragBar';
-import { Button, SectionHeader } from '../components/ui';
+import { Button } from '../components/ui';
 
 const HomePage = () => {
   const galleryRef = useRef(null);

@@ -21,7 +21,6 @@ const Navbar = () => {
   // Calculate scroll progress for smooth animations
   const scrollProgress = Math.min(Math.max(scrollY - 80, 0) / 80, 1); // Progress from 80px to 160px
   const isHomePage = currentPath === '/';
-  const showTitle = isHomePage ? scrollProgress > 0.5 : true; // Always show on non-home pages
 
   const { left: leftLinks, right: rightLinks } = NAVIGATION_LINKS;
   const allLinks = [...leftLinks, ...rightLinks];
