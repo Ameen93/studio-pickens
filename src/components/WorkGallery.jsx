@@ -95,7 +95,23 @@ const MobileWorkItem = ({ project, content }) => {
   );
 };
 
-const WorkGallery = () => {
+const WorkGallery = ({ filter = 'ALL MEDIA' }) => {
+  // Filter projects based on the selected filter
+  const filteredProjects = filter === 'ALL MEDIA' 
+    ? WORK_PROJECTS 
+    : WORK_PROJECTS.filter(project => {
+        // Map filter names to project categories
+        const filterMap = {
+          'FILM & TV': 'FILM & TV',
+          'THEATER': 'THEATRE',
+          'CONCERT': 'CONCERT',
+          'EDITORIAL': 'EDITORIAL',
+          'MUSIC VIDEO': 'MUSIC VIDEO',
+          'LIVE PERFORMANCE': 'LIVE'
+        };
+        return project.category === filterMap[filter] || project.category === filter;
+      });
+
   const getCirclePosition = (side) => {
     // Position circles on the left for left images, right for right images
     if (side === 'left') return '-left-12';
@@ -154,7 +170,7 @@ const WorkGallery = () => {
             height: 'clamp(2400px, 250vw, 3636px)'
           }}
         >
-          {WORK_PROJECTS.map((project) => (
+          {filteredProjects.map((project) => (
             <div
               key={project.id}
               className="absolute group cursor-pointer"
@@ -253,7 +269,7 @@ const WorkGallery = () => {
 
       {/* Mobile Layout */}
       <div className="md:hidden px-6">
-        {WORK_PROJECTS.map((project) => (
+        {filteredProjects.map((project) => (
           <MobileWorkItem 
             key={project.id}
             project={project}

@@ -53,9 +53,9 @@ export const HERO_IMAGES = [
 ];
 
 export const POLAROID_IMAGES = [
-  '/images/hero/polaroid1.png',
-  '/images/hero/polaroid2.png', 
-  '/images/hero/polaroid3.png'
+  '/images/polaroids/polaroid1.png',
+  '/images/polaroids/polaroid2.png', 
+  '/images/polaroids/polaroid3.png'
 ];
 
 export const LOGO_IMAGES = {
