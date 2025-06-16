@@ -48,19 +48,19 @@ export const NAVIGATION_LINKS = {
 };
 
 export const HERO_IMAGES = [
-  '/images/hero/background1.jpg',
-  '/images/hero/background2.jpg'
+  './images/hero/background1.jpg',
+  './images/hero/background2.jpg'
 ];
 
 export const POLAROID_IMAGES = [
-  '/images/polaroids/polaroid1.png',
-  '/images/polaroids/polaroid2.png', 
-  '/images/polaroids/polaroid3.png'
+  './images/polaroids/polaroid1.png',
+  './images/polaroids/polaroid2.png', 
+  './images/polaroids/polaroid3.png'
 ];
 
 export const LOGO_IMAGES = {
-  default: '/images/hero/Studio Pickens Logo.png',
-  white: '/images/hero/Studio Pickens Logo - white.png'
+  default: './images/hero/Studio Pickens Logo.png',
+  white: './images/hero/Studio Pickens Logo - white.png'
 };
 
 export const RESPONSIVE_BREAKPOINTS = {
@@ -73,7 +73,7 @@ export const RESPONSIVE_BREAKPOINTS = {
 export const WORK_PROJECTS = [
   {
     id: 1,
-    src: '/images/work/editorial.jpg',
+    src: './images/work/editorial.jpg',
     alt: 'Editorial photo',
     left: 132,
     top: 0,
@@ -82,7 +82,7 @@ export const WORK_PROJECTS = [
   },
   {
     id: 2,
-    src: '/images/work/concert.jpg',
+    src: './images/work/concert.jpg',
     alt: 'Concert photo',
     left: 396,
     top: 400,
@@ -91,7 +91,7 @@ export const WORK_PROJECTS = [
   },
   {
     id: 3,
-    src: '/images/work/filmandtv.jpg',
+    src: './images/work/filmandtv.jpg',
     alt: 'Film and TV photo',
     left: 625,
     top: 800,
@@ -100,7 +100,7 @@ export const WORK_PROJECTS = [
   },
   {
     id: 4,
-    src: '/images/work/editorial2.png',
+    src: './images/work/editorial2.png',
     alt: 'Editorial photo 2',
     left: 132,
     top: 1200,
@@ -109,7 +109,7 @@ export const WORK_PROJECTS = [
   },
   {
     id: 5,
-    src: '/images/work/theatre.png',
+    src: './images/work/theatre.png',
     alt: 'Theatre photo',
     left: 625,
     top: 1600,
@@ -118,7 +118,7 @@ export const WORK_PROJECTS = [
   },
   {
     id: 6,
-    src: '/images/work/musicvideo.jpg',
+    src: './images/work/musicvideo.jpg',
     alt: 'Music video photo',
     left: 396,
     top: 2000,
@@ -127,7 +127,7 @@ export const WORK_PROJECTS = [
   },
   {
     id: 7,
-    src: '/images/work/filmandtv2.png',
+    src: './images/work/filmandtv2.png',
     alt: 'Film and TV photo 2',
     left: 132,
     top: 2400,
@@ -136,7 +136,7 @@ export const WORK_PROJECTS = [
   },
   {
     id: 8,
-    src: '/images/work/editorial3.jpg',
+    src: './images/work/editorial3.jpg',
     alt: 'Editorial photo 3',
     left: 625,
     top: 2800,
@@ -145,7 +145,7 @@ export const WORK_PROJECTS = [
   },
   {
     id: 9,
-    src: '/images/work/live.jpg',
+    src: './images/work/live.jpg',
     alt: 'Live photo',
     left: 396,
     top: 3200,

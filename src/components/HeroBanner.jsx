@@ -162,7 +162,7 @@ const HeroBanner = () => {
         }}
       >
         <img
-          src="/images/polaroids/polaroid1.png"
+          src="./images/polaroids/polaroid1.png"
           alt="Behind the scenes"
           className="w-full h-full object-cover"
         />
@@ -181,7 +181,7 @@ const HeroBanner = () => {
         }}
       >
         <img
-          src="/images/polaroids/polaroid1.png"
+          src="./images/polaroids/polaroid1.png"
           alt="Behind the scenes"
           className="w-full h-full object-cover"
         />
@@ -201,7 +201,7 @@ const HeroBanner = () => {
         }}
       >
         <img
-          src="/images/polaroids/polaroid2.png"
+          src="./images/polaroids/polaroid2.png"
           alt="Creative process"
           className="w-full h-full object-cover"
         />
@@ -221,7 +221,7 @@ const HeroBanner = () => {
         }}
       >
         <img
-          src="/images/polaroids/polaroid2.png"
+          src="./images/polaroids/polaroid2.png"
           alt="Creative process"
           className="w-full h-full object-cover"
         />
@@ -242,7 +242,7 @@ const HeroBanner = () => {
         }}
       >
         <img
-          src="/images/polaroids/polaroid3.png"
+          src="./images/polaroids/polaroid3.png"
           alt="Studio work"
           className="w-full h-full object-cover"
         />
@@ -262,7 +262,7 @@ const HeroBanner = () => {
         }}
       >
         <img
-          src="/images/polaroids/polaroid3.png"
+          src="./images/polaroids/polaroid3.png"
           alt="Studio work"
           className="w-full h-full object-cover"
         />

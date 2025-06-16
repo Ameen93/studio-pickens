@@ -23,7 +23,7 @@ const ProcessPage = () => {
           }}
         >
           <img
-            src="/images/process/banner/banner4.png"
+            src="./images/process/banner/banner4.png"
             alt="Process background element"
             className="w-full h-full object-cover"
           />
@@ -40,7 +40,7 @@ const ProcessPage = () => {
           }}
         >
           <img
-            src="/images/process/banner/banner5.png"
+            src="./images/process/banner/banner5.png"
             alt="Process background element 2"
             className="w-full h-full object-cover"
           />
