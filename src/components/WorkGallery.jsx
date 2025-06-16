@@ -97,7 +97,7 @@ const MobileWorkItem = ({ project, content }) => {
 
 const WorkGallery = ({ filter = 'ALL MEDIA' }) => {
   // Filter projects based on the selected filter
-  const filteredProjects = filter === 'ALL MEDIA' 
+  const rawFilteredProjects = filter === 'ALL MEDIA' 
     ? WORK_PROJECTS 
     : WORK_PROJECTS.filter(project => {
         // Map filter names to project categories
@@ -111,6 +111,36 @@ const WorkGallery = ({ filter = 'ALL MEDIA' }) => {
         };
         return project.category === filterMap[filter] || project.category === filter;
       });
+
+  // Reposition filtered projects using the original staggered layout pattern
+  const filteredProjects = filter === 'ALL MEDIA' 
+    ? WORK_PROJECTS 
+    : rawFilteredProjects.map((project, index) => {
+        // Original layout pattern: left(132), center(396), right(625) with 400px vertical spacing
+        const positions = [
+          { left: 132, side: 'left' },
+          { left: 396, side: 'center' },
+          { left: 625, side: 'right' }
+        ];
+        
+        const positionIndex = index % 3;
+        const position = positions[positionIndex];
+        const top = index * 400;
+        
+        return {
+          ...project,
+          left: position.left,
+          top: top,
+          side: position.side
+        };
+      });
+
+  // Calculate gallery height based on filtered projects
+  const galleryHeight = filter === 'ALL MEDIA' 
+    ? 'clamp(2400px, 250vw, 3636px)' // Original height
+    : filteredProjects.length > 0 
+      ? `clamp(${Math.max((filteredProjects.length - 1) * 400 + 600, 800)}px, ${(filteredProjects.length - 1) * 27.78 + 41.67}vw, ${(filteredProjects.length - 1) * 400 + 972}px)`
+      : 'clamp(800px, 55.56vw, 800px)';
 
   const getCirclePosition = (side) => {
     // Position circles on the left for left images, right for right images
@@ -167,7 +197,7 @@ const WorkGallery = ({ filter = 'ALL MEDIA' }) => {
         <div 
           className="relative w-full"
           style={{ 
-            height: 'clamp(2400px, 250vw, 3636px)'
+            height: galleryHeight
           }}
         >
           {filteredProjects.map((project) => (
