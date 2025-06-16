@@ -136,20 +136,20 @@ export const WORK_PROJECTS = [
   },
   {
     id: 8,
-    src: '/images/work/filmandtv.jpg',
-    alt: 'Film and TV photo 3',
+    src: '/images/work/editorial3.jpg',
+    alt: 'Editorial photo 3',
     left: 625,
     top: 2800,
-    category: 'FILM & TV',
+    category: 'EDITORIAL',
     side: 'right'
   },
   {
     id: 9,
-    src: '/images/work/concert.jpg',
-    alt: 'Concert photo 2',
+    src: '/images/work/live.jpg',
+    alt: 'Live photo',
     left: 396,
     top: 3200,
-    category: 'CONCERT',
+    category: 'LIVE',
     side: 'center'
   }
 ];

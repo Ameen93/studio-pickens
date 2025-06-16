@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NAVIGATION_LINKS } from '../constants';
 
 const navigate = (path) => {
@@ -10,6 +10,17 @@ const Navbar = () => {
   // Get current pathname for active state
   const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Calculate scroll progress for smooth animations
+  const scrollProgress = Math.min(Math.max(scrollY - 80, 0) / 80, 1); // Progress from 80px to 160px
+  const showTitle = scrollProgress > 0.5;
 
   const { left: leftLinks, right: rightLinks } = NAVIGATION_LINKS;
   const allLinks = [...leftLinks, ...rightLinks];
@@ -25,17 +36,17 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-studio-bg">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-studio-bg w-full">
       <div className="max-w-screen-xl mx-auto px-4">
         {/* Desktop Layout */}
         <div className="hidden lg:flex items-center justify-center py-6">
-          <div className="flex items-center gap-12">
-            {/* Left Links */}
+          <div className="flex items-center justify-center">
+            {/* All Links with Conditional Center Title */}
             {leftLinks.map((link) => (
               <button
                 key={link.name}
                 onClick={() => navigate(link.href)}
-                className="relative text-nav font-proxima-wide text-nav-blue uppercase min-h-[44px] flex items-center text-center group"
+                className="relative text-nav font-proxima-wide text-nav-blue uppercase min-h-[44px] flex items-center text-center group mx-6"
               >
                 <span className="relative">
                   {link.name}
@@ -46,22 +57,29 @@ const Navbar = () => {
               </button>
             ))}
 
-            {/* Center Logo */}
-            <div className="mx-12">
-              <button
-                onClick={() => navigate('/')}
-                className="text-nav-logo font-proxima-wide text-nav-blue uppercase text-center whitespace-nowrap"
+            {/* Center Title - Only exists when visible */}
+            {scrollProgress > 0 && (
+              <div 
+                className="transition-all duration-200 ease-out overflow-hidden flex justify-center mx-6"
+                style={{
+                  opacity: scrollProgress,
+                  transform: `scale(${0.75 + scrollProgress * 0.25})`,
+                }}
               >
-                STUDIO PICKENS
-              </button>
-            </div>
+                <button
+                  onClick={() => navigate('/')}
+                  className="text-nav-logo font-proxima-wide text-nav-blue uppercase text-center whitespace-nowrap"
+                >
+                  STUDIO PICKENS
+                </button>
+              </div>
+            )}
 
-            {/* Right Links */}
             {rightLinks.map((link) => (
               <button
                 key={link.name}
                 onClick={() => navigate(link.href)}
-                className="relative text-nav font-proxima-wide text-nav-blue uppercase min-h-[44px] flex items-center text-center group"
+                className="relative text-nav font-proxima-wide text-nav-blue uppercase min-h-[44px] flex items-center text-center group mx-6"
               >
                 <span className="relative">
                   {link.name}

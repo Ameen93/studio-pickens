@@ -10,7 +10,7 @@ const Layout = ({ children, title = 'Studio Pickens', showFooter = true }) => {
   return (
     <div className="min-h-screen bg-studio-bg w-full overflow-x-hidden">
       <Navbar />
-      <main className="min-h-screen w-full overflow-x-hidden">
+      <main className="min-h-screen w-full overflow-x-hidden pt-20">
         {children}
       </main>
       {showFooter && <Footer />}

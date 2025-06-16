@@ -19,13 +19,13 @@ const Footer = () => {
       <div className="hidden md:block px-[50px] pt-[50px] pb-[50px]">
         <div className="flex justify-between items-start mb-8">
           {/* Left Column - Locations */}
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 w-[400px] flex-shrink-0">
             <button
               onClick={() => navigate('/locations')}
               className="flex items-center space-x-3 group"
             >
               <div className="w-6 h-6 rounded-full border-2 border-studio-orange group-hover:bg-studio-orange transition-colors duration-200"></div>
-              <span className="font-proxima-wide font-bold group-hover:font-normal text-white text-[40px] leading-[110%] tracking-[6%] uppercase transition-all duration-200">
+              <span className="font-proxima-wide font-bold group-hover:font-normal text-white text-[40px] leading-[110%] tracking-[6%] uppercase transition-all duration-200 inline-block min-w-[200px]">
                 NEW YORK
               </span>
             </button>
@@ -34,7 +34,7 @@ const Footer = () => {
               className="flex items-center space-x-3 group"
             >
               <div className="w-6 h-6 rounded-full border-2 border-studio-orange group-hover:bg-studio-orange transition-colors duration-200"></div>
-              <span className="font-proxima-wide font-bold group-hover:font-normal text-white text-[40px] leading-[110%] tracking-[6%] uppercase transition-all duration-200">
+              <span className="font-proxima-wide font-bold group-hover:font-normal text-white text-[40px] leading-[110%] tracking-[6%] uppercase transition-all duration-200 inline-block min-w-[280px]">
                 BEVERLY HILLS
               </span>
             </button>
@@ -43,7 +43,7 @@ const Footer = () => {
               className="flex items-center space-x-3 group"
             >
               <div className="w-6 h-6 rounded-full border-2 border-studio-orange group-hover:bg-studio-orange transition-colors duration-200"></div>
-              <span className="font-proxima-wide font-bold group-hover:font-normal text-white text-[40px] leading-[110%] tracking-[6%] uppercase transition-all duration-200">
+              <span className="font-proxima-wide font-bold group-hover:font-normal text-white text-[40px] leading-[110%] tracking-[6%] uppercase transition-all duration-200 inline-block min-w-[160px]">
                 LONDON
               </span>
             </button>
@@ -69,7 +69,7 @@ const Footer = () => {
             className="group cursor-pointer"
           >
             <div className="w-[126px] h-[126px] rounded-full border-[2.21px] border-studio-orange flex items-center justify-center group-hover:bg-studio-orange transition-colors duration-200">
-              <span className="font-proxima font-normal text-studio-orange group-hover:text-studio-blue text-[20px] leading-[110%] tracking-[3%] text-center uppercase">
+              <span className="font-proxima-wide font-bold text-studio-orange group-hover:text-studio-blue text-[20px] leading-[110%] tracking-[3%] text-center uppercase">
                 BACK<br />TO TOP
               </span>
             </div>

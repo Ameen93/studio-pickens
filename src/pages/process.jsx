@@ -2,162 +2,104 @@ import React from 'react';
 import Layout from '../components/Layout';
 
 const ProcessPage = () => {
-  const processSteps = [
-    {
-      id: 1,
-      title: 'DISCOVERY & STRATEGY',
-      image: '/images/process/discovery.jpg',
-      description: 'We begin every project with deep discovery sessions to understand your vision, goals, and creative challenges. Our strategic approach ensures alignment between creative excellence and business objectives.',
-      details: [
-        'Creative briefing sessions',
-        'Market research and analysis',
-        'Stakeholder alignment',
-        'Strategic planning'
-      ]
-    },
-    {
-      id: 2,
-      title: 'CONCEPT DEVELOPMENT',
-      image: '/images/process/concept.jpg',
-      description: 'Our creative team develops innovative concepts that push boundaries while staying true to your brand. We explore multiple creative directions to find the perfect solution.',
-      details: [
-        'Ideation workshops',
-        'Concept visualization',
-        'Creative presentations',
-        'Feedback integration'
-      ]
-    },
-    {
-      id: 3,
-      title: 'PRE-PRODUCTION',
-      image: '/images/process/preproduction.jpg',
-      description: 'Meticulous planning and preparation ensure smooth execution. We handle all aspects of pre-production with precision and attention to detail.',
-      details: [
-        'Production planning',
-        'Casting and crew selection',
-        'Location scouting',
-        'Technical preparation'
-      ]
-    },
-    {
-      id: 4,
-      title: 'PRODUCTION',
-      image: '/images/process/production.jpg',
-      description: 'Our experienced production team brings concepts to life with cutting-edge technology and creative expertise. We maintain the highest standards throughout the production process.',
-      details: [
-        'Expert crew management',
-        'Quality control',
-        'Real-time collaboration',
-        'Creative problem solving'
-      ]
-    },
-    {
-      id: 5,
-      title: 'POST-PRODUCTION',
-      image: '/images/process/postproduction.jpg',
-      description: 'Our post-production specialists refine and perfect every element to create the final masterpiece. We use the latest technology to achieve stunning results.',
-      details: [
-        'Editorial excellence',
-        'Color grading',
-        'Sound design',
-        'Visual effects'
-      ]
-    }
-  ];
-
   return (
-    <Layout title="Studio Pickens - Our Process">
-      {/* Header Section */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-screen-xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h1 className="font-proxima font-bold text-4xl md:text-6xl text-studio-blue tracking-studio uppercase mb-8">
-              OUR PROCESS
-            </h1>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-studio-orange to-studio-orange mx-auto mb-8"></div>
-            <p className="text-lg text-studio-blue/80 leading-relaxed max-w-2xl mx-auto">
-              Our proven methodology ensures exceptional results through strategic planning, creative excellence, and meticulous execution.
-            </p>
+    <Layout title="Studio Pickens - Process">
+      <div className="min-h-screen bg-[#F8F7F7] relative overflow-hidden">
+        {/* Arabic Text - Top Left */}
+        <div className="absolute top-16 left-8 text-right text-gray-800 text-sm leading-relaxed">
+          <div className="mb-2">أمثلة من الشعر المورثاني التقليدي</div>
+          <div className="mb-2">1و2و4و6 نماذج خطية مع البصير التسني بأوراقه</div>
+          <div>في بعض الحالات فصحت هذا الشعر، بيتين الشعر أن أطوال الجذر المدفق الأول، والأحداث</div>
+        </div>
+
+        {/* Hair texture samples - Top area */}
+        <div className="absolute top-12 left-1/4 w-24 h-16 bg-gray-300 rounded shadow-md">
+          <img src="/images/process/process-page1.jpg" alt="Hair texture 1" className="w-full h-full object-cover rounded" />
+        </div>
+        <div className="absolute top-8 left-1/3 w-24 h-16 bg-gray-300 rounded shadow-md">
+          <img src="/images/process/process-page2.jpg" alt="Hair texture 2" className="w-full h-full object-cover rounded" />
+        </div>
+        <div className="absolute top-20 left-[42%] w-24 h-16 bg-gray-300 rounded shadow-md">
+          <img src="/images/process/process-page3.jpg" alt="Hair texture 3" className="w-full h-full object-cover rounded" />
+        </div>
+
+        {/* Second row of samples - Middle left */}
+        <div className="absolute top-32 left-8 w-20 h-20 bg-gray-300 rounded shadow-md">
+          <img src="/images/process/process-page4.jpg" alt="Hair texture 4" className="w-full h-full object-cover rounded" />
+        </div>
+        <div className="absolute top-40 left-32 w-20 h-20 bg-gray-300 rounded shadow-md">
+          <img src="/images/process/process-page5.jpg" alt="Hair texture 5" className="w-full h-full object-cover rounded" />
+        </div>
+        <div className="absolute top-44 left-56 w-28 h-12 bg-gray-300 rounded shadow-md">
+          <img src="/images/process/process-page6.png" alt="Hair texture 6" className="w-full h-full object-cover rounded" />
+        </div>
+
+        {/* Hair styling illustrations - Left side */}
+        <div className="absolute bottom-24 left-8 w-48 h-64">
+          <img src="/images/process/inner-circle1.jpg" alt="Hair styling illustrations" className="w-full h-full object-cover rounded shadow-md" />
+        </div>
+
+        {/* Central PROCESS title */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <h1 className="font-proxima font-bold text-6xl md:text-8xl text-[#0025B8] tracking-[0.03em] uppercase">
+            PROCESS
+          </h1>
+        </div>
+
+        {/* Curved dotted line */}
+        <svg className="absolute top-1/4 left-1/4 w-3/4 h-3/4 pointer-events-none" viewBox="0 0 800 600">
+          <path
+            d="M50,300 Q200,100 400,200 T750,300 Q600,500 400,400 T50,300"
+            stroke="#0025B8"
+            strokeWidth="2"
+            strokeDasharray="8,8"
+            fill="none"
+            opacity="0.6"
+          />
+        </svg>
+
+        {/* Phrenology head diagram - Right side */}
+        <div className="absolute top-16 right-16 w-56 h-64">
+          <img src="/images/process/inner-circle2.jpg" alt="Phrenology head diagram" className="w-full h-full object-cover rounded shadow-md" />
+        </div>
+
+        {/* Additional scattered elements - Right side */}
+        <div className="absolute top-80 right-32 w-20 h-20 bg-gray-300 rounded-full shadow-md">
+          <img src="/images/process/banner/banner1.png" alt="Process element 1" className="w-full h-full object-cover rounded-full" />
+        </div>
+        <div className="absolute top-96 right-8 w-24 h-16 bg-gray-300 rounded shadow-md">
+          <img src="/images/process/banner/banner2.png" alt="Process element 2" className="w-full h-full object-cover rounded" />
+        </div>
+        <div className="absolute bottom-32 right-20 w-28 h-20 bg-gray-300 rounded shadow-md">
+          <img src="/images/process/banner/banner3.png" alt="Process element 3" className="w-full h-full object-cover rounded" />
+        </div>
+
+        {/* Bottom right scattered elements */}
+        <div className="absolute bottom-16 right-48 w-20 h-20 bg-gray-300 rounded shadow-md">
+          <img src="/images/process/banner/banner4.png" alt="Process element 4" className="w-full h-full object-cover rounded" />
+        </div>
+        <div className="absolute bottom-40 right-72 w-24 h-16 bg-gray-300 rounded shadow-md">
+          <img src="/images/process/banner/banner5.png" alt="Process element 5" className="w-full h-full object-cover rounded" />
+        </div>
+        <div className="absolute bottom-64 right-96 w-20 h-20 bg-gray-300 rounded shadow-md">
+          <img src="/images/process/banner/banner6.png" alt="Process element 6" className="w-full h-full object-cover rounded" />
+        </div>
+
+        {/* Medical/Scientific diagrams - Far right */}
+        <div className="absolute top-1/2 right-8 w-40 h-48 transform -translate-y-1/2">
+          <div className="text-xs text-gray-600 leading-tight">
+            <div className="mb-2 font-bold">Hyaline layer</div>
+            <div className="mb-1">Cortex</div>
+            <div className="mb-1">Medulla</div>
+            <div className="mb-1">of hair</div>
+            <div className="mb-2">Henley's</div>
+            <div className="mb-1">layer</div>
+            <div className="mb-1">Henley's layer</div>
+            <div className="mb-1">Outer or</div>
+            <div>dermic coat</div>
           </div>
         </div>
-      </section>
-
-      {/* Process Steps */}
-      <section className="pb-16 md:pb-24">
-        <div className="max-w-screen-xl mx-auto px-4">
-          <div className="space-y-24">
-            {processSteps.map((step, index) => (
-              <div
-                key={step.id}
-                className={`flex flex-col ${
-                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                } items-center gap-12 lg:gap-16`}
-              >
-                {/* Image */}
-                <div className="w-full lg:w-1/2">
-                  <div className="aspect-[4/3] rounded-lg overflow-hidden bg-gray-200">
-                    <img
-                      src={step.image}
-                      alt={step.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="w-full lg:w-1/2 space-y-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-studio-orange flex items-center justify-center">
-                      <span className="font-proxima font-bold text-white text-lg">
-                        {step.id}
-                      </span>
-                    </div>
-                    <h2 className="font-proxima font-bold text-2xl md:text-3xl text-studio-blue tracking-studio uppercase">
-                      {step.title}
-                    </h2>
-                  </div>
-
-                  <p className="text-studio-blue/80 leading-relaxed text-lg">
-                    {step.description}
-                  </p>
-
-                  <div className="space-y-3">
-                    {step.details.map((detail, detailIndex) => (
-                      <div key={detailIndex} className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-studio-orange rounded-full flex-shrink-0"></div>
-                        <span className="font-proxima font-bold text-studio text-studio-blue tracking-studio uppercase">
-                          {detail}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-16 md:py-24 bg-studio-blue">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h3 className="font-proxima font-bold text-3xl md:text-4xl text-white tracking-studio uppercase mb-8">
-            READY TO START YOUR PROJECT?
-          </h3>
-          <p className="text-lg text-white/80 leading-relaxed mb-12">
-            Let's discuss how our proven process can bring your creative vision to life.
-          </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center font-proxima font-bold text-studio text-studio-blue tracking-studio uppercase bg-white hover:bg-gray-100 px-8 py-4 transition-colors duration-300"
-          >
-            GET STARTED
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-      </section>
+      </div>
     </Layout>
   );
 };

@@ -51,7 +51,7 @@ const BragBar = () => {
         className="flex absolute top-0 left-0"
         style={{
           width: `${duplicatedLogos.length * 200}px`,
-          animation: 'scroll 30s linear infinite',
+          animation: 'scroll 15s linear infinite',
           animationPlayState: 'running',
           height: '120px'
         }}
@@ -61,9 +61,9 @@ const BragBar = () => {
         {duplicatedLogos.map((logo, index) => (
           <div
             key={`${logo.id}-${index}`}
-            className="flex justify-center items-center mx-8"
+            className="flex justify-center items-center"
             style={{ 
-              minWidth: '160px',
+              width: '200px',
               height: '120px',
               paddingTop: '30px',
               paddingBottom: '30px'
