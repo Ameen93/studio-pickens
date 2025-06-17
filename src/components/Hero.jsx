@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Hero = ({ 
-  imageSrc = '/images/hero/hero-main.jpg', 
+  imageSrc = `${process.env.PUBLIC_URL}/images/hero/background1.jpg`, 
   imageAlt = 'Studio Pickens Hero Image',
   headline = 'CREATIVE EXCELLENCE',
   subheadline = 'CRAFTING MEMORABLE EXPERIENCES',

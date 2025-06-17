@@ -4,37 +4,37 @@ const PolaroidGrid = () => {
   const polaroids = [
     {
       id: 1,
-      src: '/images/polaroids/polaroid4.JPG',
+      src: `${process.env.PUBLIC_URL}/images/polaroids/polaroid4.JPG`,
       alt: 'Behind the scenes shot 1',
       caption: 'ON SET'
     },
     {
       id: 2,
-      src: '/images/polaroids/polaroid5.JPG',
+      src: `${process.env.PUBLIC_URL}/images/polaroids/polaroid5.JPG`,
       alt: 'Behind the scenes shot 2',
       caption: 'CREATIVE PROCESS'
     },
     {
       id: 3,
-      src: '/images/polaroids/polaroid6.JPG',
+      src: `${process.env.PUBLIC_URL}/images/polaroids/polaroid6.JPG`,
       alt: 'Behind the scenes shot 3',
       caption: 'COLLABORATION'
     },
     {
       id: 4,
-      src: '/images/polaroids/polaroid7.JPG',
+      src: `${process.env.PUBLIC_URL}/images/polaroids/polaroid7.JPG`,
       alt: 'Behind the scenes shot 4',
       caption: 'FINAL RESULT'
     },
     {
       id: 5,
-      src: '/images/polaroids/polaroid8.JPG',
+      src: `${process.env.PUBLIC_URL}/images/polaroids/polaroid8.JPG`,
       alt: 'Behind the scenes shot 5',
       caption: 'TEAM WORK'
     },
     {
       id: 6,
-      src: '/images/polaroids/polaroid9.JPG',
+      src: `${process.env.PUBLIC_URL}/images/polaroids/polaroid9.JPG`,
       alt: 'Behind the scenes shot 6',
       caption: 'INNOVATION'
     }

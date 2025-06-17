@@ -81,12 +81,12 @@ const Footer = () => {
           <div></div>
           <div className="flex justify-center ml-80 group cursor-pointer">
             <img
-              src="/images/footer/footer-signature.png"
+              src={`${process.env.PUBLIC_URL}/images/footer/footer-signature.png`}
               alt="Studio Pickens Signature"
               className="h-16 md:h-20 w-auto group-hover:hidden"
             />
             <img
-              src="/images/footer/footer-signature-white.png"
+              src={`${process.env.PUBLIC_URL}/images/footer/footer-signature-white.png`}
               alt="Studio Pickens Signature"
               className="h-16 md:h-20 w-auto hidden group-hover:block"
             />
@@ -121,7 +121,7 @@ const Footer = () => {
         {/* Signature at top */}
         <div className="flex justify-left mb-12">
           <img
-            src="/images/footer/footer-signature.png"
+            src={`${process.env.PUBLIC_URL}/images/footer/footer-signature.png`}
             alt="Studio Pickens Signature"
             className="h-16 w-auto"
           />

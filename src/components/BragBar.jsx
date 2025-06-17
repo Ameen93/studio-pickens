@@ -4,37 +4,37 @@ const BragBar = () => {
   const logos = [
     {
       id: 1,
-      src: '/images/work/brag-bar/warnerbros-brag.png',
+      src: `${process.env.PUBLIC_URL}/images/work/brag-bar/warnerbros-brag.png`,
       alt: 'Warner Bros'
     },
     {
       id: 2,
-      src: '/images/work/brag-bar/vanityfair-brag.png',
+      src: `${process.env.PUBLIC_URL}/images/work/brag-bar/vanityfair-brag.png`,
       alt: 'Vanity Fair'
     },
     {
       id: 3,
-      src: '/images/work/brag-bar/hbo-brag.png',
+      src: `${process.env.PUBLIC_URL}/images/work/brag-bar/hbo-brag.png`,
       alt: 'HBO'
     },
     {
       id: 4,
-      src: '/images/work/brag-bar/bazaar-brag.png',
+      src: `${process.env.PUBLIC_URL}/images/work/brag-bar/bazaar-brag.png`,
       alt: 'Bazaar'
     },
     {
       id: 5,
-      src: '/images/work/brag-bar/vogue-brag.png',
+      src: `${process.env.PUBLIC_URL}/images/work/brag-bar/vogue-brag.png`,
       alt: 'Vogue'
     },
     {
       id: 6,
-      src: '/images/work/brag-bar/paramount-brag.png',
+      src: `${process.env.PUBLIC_URL}/images/work/brag-bar/paramount-brag.png`,
       alt: 'Paramount'
     },
     {
       id: 7,
-      src: '/images/work/brag-bar/appletv-brag.png',
+      src: `${process.env.PUBLIC_URL}/images/work/brag-bar/appletv-brag.png`,
       alt: 'Apple TV'
     }
   ];

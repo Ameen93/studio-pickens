@@ -4,25 +4,25 @@ const WorkBanners = ({ onBannerClick }) => {
   const banners = [
     {
       id: 1,
-      src: '/images/work/filmandtvbanner.jpg',
+      src: `${process.env.PUBLIC_URL}/images/work/filmandtvbanner.jpg`,
       alt: 'Film & TV Banner',
       category: 'FILM & TV'
     },
     {
       id: 2,
-      src: '/images/work/musicbanner.png',
+      src: `${process.env.PUBLIC_URL}/images/work/musicbanner.png`,
       alt: 'Music Banner',
       category: 'MUSIC'
     },
     {
       id: 3,
-      src: '/images/work/theatrebanner.jpg',
+      src: `${process.env.PUBLIC_URL}/images/work/theatrebanner.jpg`,
       alt: 'Theater Banner',
       category: 'THEATER'
     },
     {
       id: 4,
-      src: '/images/work/editorialbanner.jpg',
+      src: `${process.env.PUBLIC_URL}/images/work/editorialbanner.jpg`,
       alt: 'Editorial Banner',
       category: 'EDITORIAL'
     }

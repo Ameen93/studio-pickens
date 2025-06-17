@@ -119,7 +119,7 @@ const LocationsPage = () => {
                 onClick={() => window.open('https://maps.google.com/?q=283+Wythe+Avenue+Brooklyn+NY+11249+USA', '_blank')}
               >
                 <img
-                  src="./images/locations/locations-new-york.png"
+                  src={`${process.env.PUBLIC_URL}/images/locations/locations-new-york.png`}
                   alt="New York Studio"
                   className="w-full h-full object-cover"
                 />
@@ -171,7 +171,7 @@ const LocationsPage = () => {
                 onClick={() => window.open('https://maps.google.com/?q=17+Langley+Court+Covent+Garden+London+WC2E+9JY+United+Kingdom', '_blank')}
               >
                 <img
-                  src="./images/locations/locations-beverley-hills.png"
+                  src={`${process.env.PUBLIC_URL}/images/locations/locations-beverley-hills.png`}
                   alt="Beverly Hills Studio"
                   className="w-full h-full object-cover"
                 />
@@ -223,7 +223,7 @@ const LocationsPage = () => {
                 onClick={() => window.open('https://maps.google.com/?q=17+Langley+Court+Covent+Garden+London+WC2E+9JY+United+Kingdom', '_blank')}
               >
                 <img
-                  src="./images/locations/locations-london.png"
+                  src={`${process.env.PUBLIC_URL}/images/locations/locations-london.png`}
                   alt="London Studio"
                   className="w-full h-full object-cover"
                 />
