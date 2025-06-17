@@ -191,7 +191,7 @@ const WorkGallery = ({ filter = 'ALL MEDIA' }) => {
   };
 
   return (
-    <section className="bg-studio-bg py-16 relative w-full overflow-visible">
+    <section className="bg-studio-bg pt-16 pb-0 relative w-full overflow-visible">
       {/* Desktop Layout */}
       <div className="hidden md:block max-w-[1440px] mx-auto">
         <div 

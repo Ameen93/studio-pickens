@@ -37,7 +37,7 @@ const WorkPage = () => {
         {/* Center Content */}
         <div className="text-center max-w-2xl mx-auto px-4 z-10">
           <div className="md:bg-transparent bg-studio-bg md:p-0 p-6 md:w-auto w-[270px] mx-auto">
-            <h1 className="text-h1-mobile md:text-h1 font-proxima-wide font-bold text-studio-blue uppercase mb-6">
+            <h1 className="font-proxima-wide font-bold text-studio-blue uppercase mb-6" style={{ fontSize: '55px' }}>
               Selected Work
             </h1>
             <p className="text-body-mobile md:text-body font-proxima text-studio-blue">

@@ -62,7 +62,7 @@ const ProcessPage = () => {
 
         {/* Center Content */}
         <div className="text-center z-20" style={{ position: 'absolute', top: '60%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-          <h1 className="text-h1-mobile md:text-h1 font-proxima-wide font-bold text-studio-blue uppercase">
+          <h1 className="font-proxima-wide font-bold text-studio-blue uppercase" style={{ fontSize: '55px' }}>
             Process
           </h1>
         </div>
