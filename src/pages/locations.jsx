@@ -86,15 +86,17 @@ const LocationsPage = () => {
                 }}
                 onClick={() => window.open('https://maps.google.com/?q=283+Wythe+Avenue+Brooklyn+NY+11249+USA', '_blank')}
               >
-                {/* Location Icon */}
-                <div className="w-12 h-12">
-                  <svg className="w-full h-full text-studio-orange" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                  </svg>
-                </div>
+                <div></div>
                 
                 {/* Bottom Content */}
                 <div>
+                  {/* Location Icon */}
+                  <div className="w-12 h-12 mb-4 -ml-2">
+                    <svg className="w-full h-full text-studio-orange" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                  </div>
+                  
                   {/* City Name */}
                   <h3 className="font-proxima-wide font-bold text-studio-blue md:group-hover:text-studio-bg transition-colors duration-300 uppercase text-xl md:text-2xl mb-2 md:mb-4">
                     New York
@@ -137,15 +139,17 @@ const LocationsPage = () => {
                 }}
                 onClick={() => window.open('https://maps.google.com/?q=17+Langley+Court+Covent+Garden+London+WC2E+9JY+United+Kingdom', '_blank')}
               >
-                {/* Location Icon */}
-                <div className="w-12 h-12">
-                  <svg className="w-full h-full text-studio-orange" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                  </svg>
-                </div>
+                <div></div>
                 
                 {/* Bottom Content */}
                 <div>
+                  {/* Location Icon */}
+                  <div className="w-12 h-12 mb-4 -ml-2">
+                    <svg className="w-full h-full text-studio-orange" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                  </div>
+                  
                   {/* City Name */}
                   <h3 className="font-proxima-wide font-bold text-studio-blue md:group-hover:text-studio-bg transition-colors duration-300 uppercase text-xl md:text-2xl mb-2 md:mb-4">
                     Beverly Hills
@@ -189,15 +193,17 @@ const LocationsPage = () => {
                 }}
                 onClick={() => window.open('https://maps.google.com/?q=17+Langley+Court+Covent+Garden+London+WC2E+9JY+United+Kingdom', '_blank')}
               >
-                {/* Location Icon */}
-                <div className="w-12 h-12">
-                  <svg className="w-full h-full text-studio-orange" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                  </svg>
-                </div>
+                <div></div>
                 
                 {/* Bottom Content */}
                 <div>
+                  {/* Location Icon */}
+                  <div className="w-12 h-12 mb-4 -ml-2">
+                    <svg className="w-full h-full text-studio-orange" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                  </div>
+                  
                   {/* City Name */}
                   <h3 className="font-proxima-wide font-bold text-studio-blue md:group-hover:text-studio-bg transition-colors duration-300 uppercase text-xl md:text-2xl mb-2 md:mb-4">
                     London

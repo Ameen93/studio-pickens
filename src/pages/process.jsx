@@ -8,51 +8,23 @@ const ProcessPage = () => {
       <section 
         className="relative bg-studio-bg flex items-center justify-center w-full overflow-hidden" 
         style={{ 
-          height: 'clamp(400px, 45vw, 800px)',
+          height: 'clamp(700px, 70vw, 1200px)',
         }}
       >
-        {/* Background Image - banner4.png */}
-        <div 
-          className="absolute z-0"
-          style={{
-            top: '60%',
-            left: '50%',
-            transform: 'translate(-50%, -50%) translate(200px, -200px)',
-            width: 'clamp(100px, 13.89vw, 200px)',
-            height: 'clamp(100px, 13.89vw, 200px)'
-          }}
-        >
-          <img
-            src={`${process.env.PUBLIC_URL}/images/process/banner/banner4.png`}
-            alt="Process background element"
-            className="w-full h-full object-cover"
-          />
-        </div>
-
-        {/* Background Image - banner5.png */}
-        <div 
-          className="absolute z-0 right-0"
-          style={{
-            top: 'clamp(3px, 0.35vw, 5px)',
-            transform: 'translateX(50px)',
-            width: 'clamp(129px, 17.91vw, 258px)',
-            height: 'clamp(188px, 26.18vw, 377px)'
-          }}
-        >
-          <img
-            src={`${process.env.PUBLIC_URL}/images/process/banner/banner5.png`}
-            alt="Process background element 2"
-            className="w-full h-full object-cover"
-          />
-        </div>
+        {/* Background Image */}
+        <img
+          src={`${process.env.PUBLIC_URL}/images/process/banner/process-Hero-Banner-Grouped.png`}
+          alt="Process banner background"
+          className="absolute inset-0 w-full h-full object-contain z-0"
+        />
 
         {/* Rotating Dashed Circle */}
-        <div className="absolute w-full flex justify-center z-10" style={{ top: '60%', transform: 'translateY(-50%)' }}>
+        <div className="absolute w-full flex justify-center z-10" style={{ top: '50%', transform: 'translateY(-50%)' }}>
           <div 
             className="rounded-full border-2 border-dashed border-studio-blue animate-spin"
             style={{
-              width: 'clamp(300px, 35.76vw, 515px)',
-              height: 'clamp(300px, 35.76vw, 515px)',
+              width: 'clamp(360px, 42.91vw, 618px)',
+              height: 'clamp(360px, 42.91vw, 618px)',
               animationDuration: '60s',
               animationTimingFunction: 'linear',
               animationIterationCount: 'infinite'
@@ -61,10 +33,286 @@ const ProcessPage = () => {
         </div>
 
         {/* Center Content */}
-        <div className="text-center z-20" style={{ position: 'absolute', top: '60%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+        <div className="text-center z-20" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
           <h1 className="font-proxima-wide font-bold text-studio-blue uppercase" style={{ fontSize: '55px' }}>
             Process
           </h1>
+        </div>
+      </section>
+
+      {/* Process Gallery Section */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        {/* Item 1: 90% science / 10% wigmaking */}
+        <div className="flex flex-col lg:flex-row items-end mb-16 gap-8">
+          <div className="lg:w-1/2">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/process/process-page2.jpg`}
+              alt="90% science / 10% wigmaking"
+              className="w-full object-cover rounded-lg"
+              style={{ aspectRatio: '4/3' }}
+            />
+          </div>
+          <div className="lg:w-1/2 lg:pl-8">
+            <h5 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
+              90% science / 10% wigmaking
+            </h5>
+            <p className="font-proxima text-studio-blue text-base leading-relaxed">
+              Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
+            </p>
+          </div>
+        </div>
+
+        {/* Item 2: Consultation */}
+        <div className="flex flex-col lg:flex-row-reverse items-end mb-16 gap-8">
+          <div className="lg:w-1/2">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/process/process-page3.jpg`}
+              alt="Consultation"
+              className="w-full object-cover rounded-lg"
+              style={{ aspectRatio: '4/3' }}
+            />
+          </div>
+          <div className="lg:w-1/2 lg:pr-8">
+            <h5 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
+              Consultation
+            </h5>
+            <p className="font-proxima text-studio-blue text-base leading-relaxed">
+              Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
+            </p>
+          </div>
+        </div>
+
+        {/* Item 3: mapping the head */}
+        <div className="flex flex-col lg:flex-row items-end mb-16 gap-8">
+          <div className="lg:w-1/2">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/process/process-page4.jpg`}
+              alt="mapping the head"
+              className="w-full object-cover rounded-lg"
+              style={{ aspectRatio: '4/3' }}
+            />
+          </div>
+          <div className="lg:w-1/2 lg:pl-8">
+            <h5 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
+              mapping the head
+            </h5>
+            <p className="font-proxima text-studio-blue text-base leading-relaxed">
+              Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
+            </p>
+          </div>
+        </div>
+
+        {/* Item 4: treatment */}
+        <div className="flex flex-col lg:flex-row-reverse items-end mb-16 gap-8">
+          <div className="lg:w-1/2">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/process/process-page5.jpg`}
+              alt="treatment"
+              className="w-full object-cover rounded-lg"
+              style={{ aspectRatio: '4/3' }}
+            />
+          </div>
+          <div className="lg:w-1/2 lg:pr-8">
+            <h5 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
+              treatment
+            </h5>
+            <p className="font-proxima text-studio-blue text-base leading-relaxed">
+              Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
+            </p>
+          </div>
+        </div>
+
+        {/* Item 5: approval */}
+        <div className="flex flex-col lg:flex-row items-end mb-16 gap-8">
+          <div className="lg:w-1/2">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/process/process-page6.png`}
+              alt="approval"
+              className="w-full object-cover rounded-lg"
+              style={{ aspectRatio: '4/3' }}
+            />
+          </div>
+          <div className="lg:w-1/2 lg:pl-8">
+            <h5 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
+              approval
+            </h5>
+            <p className="font-proxima text-studio-blue text-base leading-relaxed">
+              Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Polaroid Carousel Section */}
+      <section className="py-16 bg-studio-bg overflow-hidden">
+        <div className="relative">
+          <div className="flex animate-scroll space-x-8 hover:pause-animation">
+            {/* First set of polaroids */}
+            <div className="flex space-x-8 flex-shrink-0">
+              {[
+                'polaroid1.png', 'polaroid2.png', 'polaroid3.png', 'polaroid4.JPG',
+                'polaroid5.JPG', 'polaroid6.JPG', 'polaroid7.JPG', 'polaroid8.JPG',
+                'polaroid9.JPG', 'polaroid10.JPG', 'polaroid11.JPG', 'polaroid12.JPG', 'polaroid13.JPG'
+              ].map((filename, index) => {
+                const isHorizontal = filename === 'polaroid1.png' || filename === 'polaroid3.png';
+                return (
+                  <div key={`polaroid-${index}`} className="flex-shrink-0 w-48 flex justify-center items-center">
+                    <img
+                      src={`${process.env.PUBLIC_URL}/images/polaroids/${filename}`}
+                      alt={`Polaroid ${index + 1}`}
+                      className={`h-64 w-auto object-contain ${isHorizontal ? 'rotate-90' : ''}`}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            {/* Duplicate set for seamless loop */}
+            <div className="flex space-x-8 flex-shrink-0">
+              {[
+                'polaroid1.png', 'polaroid2.png', 'polaroid3.png', 'polaroid4.JPG',
+                'polaroid5.JPG', 'polaroid6.JPG', 'polaroid7.JPG', 'polaroid8.JPG',
+                'polaroid9.JPG', 'polaroid10.JPG', 'polaroid11.JPG', 'polaroid12.JPG', 'polaroid13.JPG'
+              ].map((filename, index) => {
+                const isHorizontal = filename === 'polaroid1.png' || filename === 'polaroid3.png';
+                return (
+                  <div key={`polaroid-duplicate-${index}`} className="flex-shrink-0 w-48 flex justify-center items-center">
+                    <img
+                      src={`${process.env.PUBLIC_URL}/images/polaroids/${filename}`}
+                      alt={`Polaroid ${index + 1}`}
+                      className={`h-64 w-auto object-contain ${isHorizontal ? 'rotate-90' : ''}`}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            {/* Third set for seamless loop */}
+            <div className="flex space-x-8 flex-shrink-0">
+              {[
+                'polaroid1.png', 'polaroid2.png', 'polaroid3.png', 'polaroid4.JPG',
+                'polaroid5.JPG', 'polaroid6.JPG', 'polaroid7.JPG', 'polaroid8.JPG',
+                'polaroid9.JPG', 'polaroid10.JPG', 'polaroid11.JPG', 'polaroid12.JPG', 'polaroid13.JPG'
+              ].map((filename, index) => {
+                const isHorizontal = filename === 'polaroid1.png' || filename === 'polaroid3.png';
+                return (
+                  <div key={`polaroid-triple-${index}`} className="flex-shrink-0 w-48 flex justify-center items-center">
+                    <img
+                      src={`${process.env.PUBLIC_URL}/images/polaroids/${filename}`}
+                      alt={`Polaroid ${index + 1}`}
+                      className={`h-64 w-auto object-contain ${isHorizontal ? 'rotate-90' : ''}`}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <style jsx>{`
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-33.333%);
+            }
+          }
+          
+          .animate-scroll {
+            animation: scroll 45s linear infinite;
+          }
+          
+          .hover\\:pause-animation:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-16 px-4 max-w-6xl mx-auto relative" style={{ minHeight: '800px' }}>
+        {/* Decorative Circles - fixed position */}
+        <div className="absolute inset-0 pointer-events-none z-20">
+          <div className="absolute" style={{ 
+            top: '300px', 
+            left: '50%', 
+            transform: 'translate(-50%, -50%)' 
+          }}>
+            {/* Small circle */}
+            <div className="absolute rounded-full border-2 border-studio-blue" style={{ 
+              width: '280px', 
+              height: '280px',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)'
+            }}></div>
+            
+            {/* Medium circle */}
+            <div className="absolute rounded-full border-2 border-studio-blue" style={{ 
+              width: '380px', 
+              height: '380px',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)'
+            }}></div>
+            
+            {/* Large circle */}
+            <div className="absolute rounded-full border-2 border-studio-blue" style={{ 
+              width: '480px', 
+              height: '480px',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)'
+            }}></div>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-0">
+          {/* Title */}
+          <h1 className="font-proxima-wide font-bold text-studio-blue uppercase text-left mb-12" style={{ fontSize: '48px', lineHeight: '1.1' }}>
+            meet our<br />inner circle
+          </h1>
+          
+          {/* Images and Subheading */}
+          <div className="flex flex-col lg:flex-row items-start gap-8">
+            {/* Left Inner Circle Image */}
+            <div className="lg:w-1/2 flex justify-center lg:justify-end">
+              <div style={{ maxWidth: '675px', width: '100%' }}>
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/process/inner-circle1.jpg`}
+                  alt="Inner circle team member 1"
+                  className="w-full object-cover rounded-lg"
+                />
+                <div className="bg-studio-blue p-6 text-left" style={{ height: '150px' }}>
+                  <h3 className="text-studio-orange font-lovtony text-3xl mb-2">katie gell</h3>
+                  <h4 className="text-white font-bold text-lg mb-1">East Coast Operations</h4>
+                  <p className="text-white text-base">Wigmaker + Designer + Makeup Artist</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Center Subheading */}
+            <div className="lg:w-1/4 text-center" style={{ paddingTop: '30px' }}>
+              <p className="font-proxima text-studio-blue text-center uppercase" style={{ fontWeight: 600, fontSize: '24px', lineHeight: '125%', letterSpacing: '4%' }}>
+                The trusted<br />hands behind<br />every strand
+              </p>
+            </div>
+
+            {/* Right Inner Circle Image */}
+            <div className="lg:w-1/2 flex justify-center lg:justify-start">
+              <div style={{ maxWidth: '675px', width: '100%' }}>
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/process/inner-circle2.jpg`}
+                  alt="Inner circle team member 2"
+                  className="w-full object-cover rounded-lg"
+                />
+                <div className="bg-studio-blue p-6 text-left" style={{ height: '150px' }}>
+                  <h3 className="text-studio-orange font-lovtony text-3xl mb-2">mandy lyons</h3>
+                  <h4 className="text-white font-bold text-lg mb-1">West Coast Operations</h4>
+                  <p className="text-white text-base">Wigmaker + Hairstylist</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </Layout>

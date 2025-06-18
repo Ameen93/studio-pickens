@@ -19,6 +19,10 @@ function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPath]);
+
   const renderPage = () => {
     switch (currentPath) {
       case '/':
