@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/studio-pickens/static/css/main.59b257d2.css",
-    "main.js": "/studio-pickens/static/js/main.6cdb9742.js",
+    "main.css": "/studio-pickens/static/css/main.2fc2f186.css",
+    "main.js": "/studio-pickens/static/js/main.5c663a93.js",
     "static/js/453.eedfe90d.chunk.js": "/studio-pickens/static/js/453.eedfe90d.chunk.js",
     "index.html": "/studio-pickens/index.html",
-    "main.59b257d2.css.map": "/studio-pickens/static/css/main.59b257d2.css.map",
-    "main.6cdb9742.js.map": "/studio-pickens/static/js/main.6cdb9742.js.map",
+    "main.2fc2f186.css.map": "/studio-pickens/static/css/main.2fc2f186.css.map",
+    "main.5c663a93.js.map": "/studio-pickens/static/js/main.5c663a93.js.map",
     "453.eedfe90d.chunk.js.map": "/studio-pickens/static/js/453.eedfe90d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.59b257d2.css",
-    "static/js/main.6cdb9742.js"
+    "static/css/main.2fc2f186.css",
+    "static/js/main.5c663a93.js"
   ]
 }
