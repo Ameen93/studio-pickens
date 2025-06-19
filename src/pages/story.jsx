@@ -152,7 +152,8 @@ const StoryPage = () => {
                 style={{
                   bottom: '5%',
                   left: '45%',
-                  transform: 'translate(-50%, 50%)'
+                  transform: 'translate(-50%, 50%)',
+                  zIndex: 20
                 }}
               >
                 <div className="relative">
