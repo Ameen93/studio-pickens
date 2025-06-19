@@ -71,7 +71,7 @@ const HeroBanner = () => {
       alt: "Creative process",
       position: {
         bottom: 'clamp(-100px, -13.89vw, -200px)',
-        left: '50%'
+        left: '45%'
       },
       size: {
         width: 'clamp(88.5px, 12.34vw, 177.61px)',
@@ -89,7 +89,7 @@ const HeroBanner = () => {
       alt: "Creative process",
       position: {
         top: '50%',
-        right: 'clamp(-10px, -2.78vw, -20px)'
+        left: '40%'
       },
       size: {
         width: 'clamp(86px, 23.89vw, 171.97px)',
