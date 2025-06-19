@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NAVIGATION_LINKS } from '../constants';
 import { TYPOGRAPHY_CLASSES } from '../constants/typography';
+import NavLink from './common/NavLink';
 
 const navigate = (path) => {
   window.history.pushState({}, '', path);
@@ -43,20 +44,15 @@ const Navbar = () => {
         {/* Desktop Layout */}
         <div className="hidden lg:flex items-center justify-center py-6">
           <div className="flex items-center justify-center">
-            {/* All Links with Conditional Center Title */}
+            {/* Left Navigation Links */}
             {leftLinks.map((link) => (
-              <button
+              <NavLink
                 key={link.name}
-                onClick={() => navigate(link.href)}
-                className="relative text-nav font-proxima-wide text-nav-blue uppercase min-h-[44px] flex items-center text-center group mx-6"
-              >
-                <span className="relative">
-                  {link.name}
-                  <span className={`absolute top-full left-0 h-0.5 bg-nav-orange transition-all duration-300 ${
-                    isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`}></span>
-                </span>
-              </button>
+                link={link}
+                isActive={isActive(link.href)}
+                onClick={navigate}
+                variant="desktop"
+              />
             ))}
 
             {/* Center Title - Show on scroll for home page, always show for other pages */}
@@ -77,19 +73,15 @@ const Navbar = () => {
               </div>
             )}
 
+            {/* Right Navigation Links */}
             {rightLinks.map((link) => (
-              <button
+              <NavLink
                 key={link.name}
-                onClick={() => navigate(link.href)}
-                className="relative text-nav font-proxima-wide text-nav-blue uppercase min-h-[44px] flex items-center text-center group mx-6"
-              >
-                <span className="relative">
-                  {link.name}
-                  <span className={`absolute top-full left-0 h-0.5 bg-nav-orange transition-all duration-300 ${
-                    isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`}></span>
-                </span>
-              </button>
+                link={link}
+                isActive={isActive(link.href)}
+                onClick={navigate}
+                variant="desktop"
+              />
             ))}
           </div>
         </div>
@@ -134,23 +126,19 @@ const Navbar = () => {
           {/* Mobile Menu Dropdown */}
           {isMobileMenuOpen && (
             <div className="border-t border-studio-blue/10 py-4">
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-2">
                 {allLinks.map((link) => (
-                  <button
+                  <NavLink
                     key={link.name}
-                    onClick={() => {
-                      navigate(link.href);
+                    link={link}
+                    isActive={isActive(link.href)}
+                    onClick={(href) => {
+                      navigate(href);
                       setIsMobileMenuOpen(false);
                     }}
-                    className="relative text-nav font-proxima-wide text-nav-blue uppercase text-center py-2 group"
-                  >
-                    <span className="relative">
-                      {link.name}
-                      <span className={`absolute top-full left-1/2 transform -translate-x-1/2 h-0.5 bg-nav-orange transition-all duration-300 ${
-                        isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
-                      }`}></span>
-                    </span>
-                  </button>
+                    variant="mobile"
+                    className="text-center"
+                  />
                 ))}
               </div>
             </div>

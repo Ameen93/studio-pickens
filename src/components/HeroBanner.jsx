@@ -137,14 +137,14 @@ const HeroBanner = () => {
         <div className="w-1/2 h-full relative">
           <img
             src={HERO_IMAGES[0]}
-            alt="Studio Background"
+            alt="Studio Pickens creative workspace showcasing film and television production equipment"
             className="w-full h-full object-cover transform scale-x-[-1]"
           />
         </div>
         <div className="w-1/2 h-full relative">
           <img
             src={HERO_IMAGES[1]}
-            alt="Studio Background"
+            alt="Behind the scenes view of Studio Pickens creative process and artistic environment"
             className="w-full h-full object-cover"
           />
         </div>

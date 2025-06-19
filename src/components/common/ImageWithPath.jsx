@@ -1,11 +1,12 @@
 import React from 'react';
 
-const ImageWithPath = ({ 
+const ImageWithPath = React.memo(({ 
   category, 
   filename, 
   alt, 
   className = "",
   style,
+  loading = "lazy",
   ...props 
 }) => {
   const src = `${process.env.PUBLIC_URL}/images/${category}/${filename}`;
@@ -16,9 +17,12 @@ const ImageWithPath = ({
       alt={alt}
       className={className}
       style={style}
+      loading={loading}
       {...props}
     />
   );
-};
+});
+
+ImageWithPath.displayName = 'ImageWithPath';
 
 export default ImageWithPath;

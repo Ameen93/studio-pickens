@@ -1,54 +1,71 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { WORK_PROJECTS } from '../constants';
 import WorkItem from './common/WorkItem';
 import MobileWorkItem from './common/MobileWorkItem';
 
-const WorkGallery = ({ filter = 'ALL MEDIA' }) => {
-  // Filter projects based on the selected filter
-  const rawFilteredProjects = filter === 'ALL MEDIA' 
-    ? WORK_PROJECTS 
-    : WORK_PROJECTS.filter(project => {
-        // Map filter names to project categories
-        const filterMap = {
-          'FILM & TV': 'FILM & TV',
-          'THEATER': 'THEATRE',
-          'CONCERT': 'CONCERT',
-          'EDITORIAL': 'EDITORIAL',
-          'MUSIC VIDEO': 'MUSIC VIDEO',
-          'LIVE PERFORMANCE': 'LIVE'
-        };
-        return project.category === filterMap[filter] || project.category === filter;
-      });
+const WorkGallery = React.memo(({ filter = 'ALL MEDIA' }) => {
+  // Memoize filter mapping to avoid recreation on each render
+  const filterMap = useMemo(() => ({
+    'FILM & TV': 'FILM & TV',
+    'THEATER': 'THEATRE',
+    'CONCERT': 'CONCERT',
+    'EDITORIAL': 'EDITORIAL',
+    'MUSIC VIDEO': 'MUSIC VIDEO',
+    'LIVE PERFORMANCE': 'LIVE'
+  }), []);
 
-  // Reposition filtered projects using the original staggered layout pattern
-  const filteredProjects = filter === 'ALL MEDIA' 
-    ? WORK_PROJECTS 
-    : rawFilteredProjects.map((project, index) => {
-        // Original layout pattern: left(132), center(396), right(625) with 400px vertical spacing
-        const positions = [
-          { left: 132, side: 'left' },
-          { left: 396, side: 'center' },
-          { left: 625, side: 'right' }
-        ];
-        
-        const positionIndex = index % 3;
-        const position = positions[positionIndex];
-        const top = index * 400;
-        
-        return {
-          ...project,
-          left: position.left,
-          top: top,
-          side: position.side
-        };
-      });
+  // Memoize filtered projects calculation
+  const rawFilteredProjects = useMemo(() => {
+    return filter === 'ALL MEDIA' 
+      ? WORK_PROJECTS 
+      : WORK_PROJECTS.filter(project => {
+          return project.category === filterMap[filter] || project.category === filter;
+        });
+  }, [filter, filterMap]);
 
-  // Calculate gallery height based on filtered projects
-  const galleryHeight = filter === 'ALL MEDIA' 
-    ? 'clamp(2400px, 250vw, 3636px)' // Original height
-    : filteredProjects.length > 0 
-      ? `clamp(${Math.max((filteredProjects.length - 1) * 400 + 600, 800)}px, ${(filteredProjects.length - 1) * 27.78 + 41.67}vw, ${(filteredProjects.length - 1) * 400 + 972}px)`
-      : 'clamp(800px, 55.56vw, 800px)';
+  // Memoize position calculations to avoid expensive recalculations
+  const filteredProjects = useMemo(() => {
+    if (filter === 'ALL MEDIA') {
+      return WORK_PROJECTS;
+    }
+    
+    // Original layout pattern: left(132), center(396), right(625) with 400px vertical spacing
+    const positions = [
+      { left: 132, side: 'left' },
+      { left: 396, side: 'center' },
+      { left: 625, side: 'right' }
+    ];
+    
+    return rawFilteredProjects.map((project, index) => {
+      const positionIndex = index % 3;
+      const position = positions[positionIndex];
+      const top = index * 400;
+      
+      return {
+        ...project,
+        left: position.left,
+        top: top,
+        side: position.side
+      };
+    });
+  }, [filter, rawFilteredProjects]);
+
+  // Memoize gallery height calculation
+  const galleryHeight = useMemo(() => {
+    if (filter === 'ALL MEDIA') {
+      return 'clamp(2400px, 250vw, 3636px)'; // Original height
+    }
+    
+    if (filteredProjects.length === 0) {
+      return 'clamp(800px, 55.56vw, 800px)';
+    }
+    
+    const minHeight = Math.max((filteredProjects.length - 1) * 400 + 600, 800);
+    const vwHeight = (filteredProjects.length - 1) * 27.78 + 41.67;
+    const maxHeight = (filteredProjects.length - 1) * 400 + 972;
+    
+    return `clamp(${minHeight}px, ${vwHeight}vw, ${maxHeight}px)`;
+  }, [filter, filteredProjects.length]);
 
   // Utility functions for positioning
   const getCirclePosition = (side) => {
@@ -129,6 +146,8 @@ const WorkGallery = ({ filter = 'ALL MEDIA' }) => {
       </div>
     </section>
   );
-};
+});
+
+WorkGallery.displayName = 'WorkGallery';
 
 export default WorkGallery;

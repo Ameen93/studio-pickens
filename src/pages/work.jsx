@@ -27,7 +27,10 @@ const WorkPage = () => {
   };
 
   return (
-    <Layout title="Studio Pickens - Our Work">
+    <Layout 
+      title="Studio Pickens - Our Work"
+      description="Explore Studio Pickens portfolio of creative work across film, television, theater, concerts, and editorial projects. Premium creative solutions with innovative storytelling."
+    >
       {/* Work Page Banner */}
       <PageBanner 
         backgroundImage="work/Hero Banner Grouped.png"

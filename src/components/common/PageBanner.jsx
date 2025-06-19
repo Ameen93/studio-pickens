@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PageBanner = ({ 
+const PageBanner = React.memo(({ 
   backgroundImage, 
   altText = "Page banner background",
   height = 'clamp(400px, 45vw, 800px)',
@@ -30,6 +30,8 @@ const PageBanner = ({
       </div>
     </section>
   );
-};
+});
+
+PageBanner.displayName = 'PageBanner';
 
 export default PageBanner;

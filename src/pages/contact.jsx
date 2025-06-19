@@ -80,20 +80,23 @@ const ContactPage = () => {
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-      console.log('Form submitted:', formData);
+      // Form submitted - replace with actual submission logic
     }, 1000);
   };
 
   const copyToClipboard = (email) => {
     navigator.clipboard.writeText(email).then(() => {
-      console.log('Email copied to clipboard:', email);
+      // Email copied to clipboard successfully
     }).catch(err => {
       console.error('Failed to copy email: ', err);
     });
   };
 
   return (
-    <Layout title="Studio Pickens - Contact">
+    <Layout 
+      title="Studio Pickens - Contact"
+      description="Contact Studio Pickens for your next creative project. Professional consultation for film, television, theater, and artistic collaborations."
+    >
       <style jsx>{`
         ${ANIMATIONS.keyframes.shake}
       `}</style>
@@ -194,10 +197,10 @@ const ContactPage = () => {
                   PRESS
                 </h2>
                 <button 
-                  onClick={() => copyToClipboard('brooklyn@studiopickens.com')}
+                  onClick={() => copyToClipboard('press@studiopickens.com')}
                   className="text-studio-blue hover:text-studio-orange transition-colors duration-300 cursor-pointer"
                 >
-                  brooklyn@studiopickens.com
+                  press@studiopickens.com
                 </button>
               </div>
             </div>

@@ -54,9 +54,9 @@ const ProcessPage = () => {
             />
           </div>
           <div className="lg:w-1/2 lg:pl-8">
-            <h5 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
+            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               90% science / 10% wigmaking
-            </h5>
+            </h2>
             <p className="font-proxima text-studio-blue text-base leading-relaxed">
               Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
             </p>
@@ -74,9 +74,9 @@ const ProcessPage = () => {
             />
           </div>
           <div className="lg:w-1/2 lg:pr-8">
-            <h5 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
+            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               Consultation
-            </h5>
+            </h2>
             <p className="font-proxima text-studio-blue text-base leading-relaxed">
               Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
             </p>
@@ -94,9 +94,9 @@ const ProcessPage = () => {
             />
           </div>
           <div className="lg:w-1/2 lg:pl-8">
-            <h5 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
+            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               mapping the head
-            </h5>
+            </h2>
             <p className="font-proxima text-studio-blue text-base leading-relaxed">
               Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
             </p>
@@ -114,9 +114,9 @@ const ProcessPage = () => {
             />
           </div>
           <div className="lg:w-1/2 lg:pr-8">
-            <h5 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
+            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               treatment
-            </h5>
+            </h2>
             <p className="font-proxima text-studio-blue text-base leading-relaxed">
               Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
             </p>
@@ -134,9 +134,9 @@ const ProcessPage = () => {
             />
           </div>
           <div className="lg:w-1/2 lg:pl-8">
-            <h5 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
+            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               approval
-            </h5>
+            </h2>
             <p className="font-proxima text-studio-blue text-base leading-relaxed">
               Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
             </p>

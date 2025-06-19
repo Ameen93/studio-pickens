@@ -1,6 +1,17 @@
-// Studio Pickens Typography System
-// Centralized typography classes for consistent styling
+/**
+ * Studio Pickens Typography System
+ * Centralized typography classes for consistent styling across the application
+ * 
+ * Usage patterns:
+ * - headingPrimary: Most used heading pattern (33 occurrences)
+ * - bodyText: Most used text pattern (46 occurrences)
+ * - scriptText: Decorative accents (11 occurrences)
+ */
 
+/**
+ * Main typography classes object containing all text styling definitions
+ * @type {Object}
+ */
 export const TYPOGRAPHY_CLASSES = {
   // Primary Headings - Most used pattern (33 occurrences)
   headingPrimary: "font-proxima-wide font-bold text-studio-blue uppercase",
@@ -77,12 +88,21 @@ export const TYPOGRAPHY_CLASSES = {
   }
 };
 
-// Helper function to combine typography classes
+/**
+ * Helper function to combine typography classes safely
+ * Filters out falsy values and joins with spaces
+ * @param {...string} classes - Typography class strings to combine
+ * @returns {string} Combined class string
+ */
 export const combineTypography = (...classes) => {
   return classes.filter(Boolean).join(' ');
 };
 
-// Commonly used combinations for quick access
+/**
+ * Commonly used typography combinations for quick access
+ * Pre-defined combinations for consistent page elements
+ * @type {Object}
+ */
 export const COMMON_COMBINATIONS = {
   pageTitle: combineTypography(TYPOGRAPHY_CLASSES.headingPrimary, "text-4xl md:text-5xl"),
   sectionTitle: combineTypography(TYPOGRAPHY_CLASSES.headingPrimary, "text-2xl md:text-3xl"),

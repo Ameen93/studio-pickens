@@ -1,6 +1,13 @@
-// Studio Pickens Animation System
-// Centralized animations and transitions for consistent motion
+/**
+ * Studio Pickens Animation System
+ * Centralized animations and transitions for consistent motion across the application
+ * Extracted from inline CSS to improve maintainability and reusability
+ */
 
+/**
+ * Animation constants including keyframes, transitions, and timing functions
+ * @type {Object}
+ */
 export const ANIMATIONS = {
   // Keyframe Animations (extracted from inline CSS)
   keyframes: {
