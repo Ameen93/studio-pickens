@@ -94,7 +94,7 @@ const Navbar = () => {
             <div className="flex-1 flex justify-center">
               <button
                 onClick={() => navigate('/')}
-                className="text-nav-logo font-proxima-wide text-nav-blue uppercase text-center"
+                className="text-nav-logo font-proxima-wide font-normal text-nav-blue uppercase text-center"
               >
                 STUDIO PICKENS
               </button>

@@ -48,11 +48,7 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
 
       {/* Content Panel - Only visible on hover */}
       <div 
-        className={`absolute top-0 ${getContentPosition(project.side)} bg-studio-bg p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10`}
-        style={{
-          width: 'clamp(300px, 45.83vw, 660px)',
-          height: 'clamp(169px, 25.83vw, 372px)',
-        }}
+        className={`absolute top-0 ${getContentPosition(project.side)} bg-studio-bg p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 w-full h-full`}
       >
         {/* Title */}
         <h5 className="font-proxima-wide font-bold text-studio-blue text-xl uppercase tracking-wide mb-6">

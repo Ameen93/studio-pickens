@@ -33,7 +33,7 @@ export const TYPOGRAPHY_CLASSES = {
   // Navigation and UI Elements
   navLink: "font-proxima-wide font-bold text-white text-sm tracking-wide uppercase",
   navLinkMobile: "font-proxima-wide font-bold text-white text-2xl tracking-[3%] uppercase",
-  navLogo: "font-proxima-wide text-studio-blue uppercase text-center whitespace-nowrap",
+  navLogo: "font-proxima-wide font-normal text-studio-blue uppercase text-center whitespace-nowrap",
   
   // Button Styles
   buttonPrimary: "font-proxima text-white bg-studio-blue uppercase",

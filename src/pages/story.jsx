@@ -45,7 +45,8 @@ const StoryPage = () => {
                   height: 'min(1050px, 90vw)',
                   transform: `rotate(${scrollY * 0.1}deg)`,
                   borderStyle: 'dashed',
-                  borderDashArray: '40px 20px',
+                  borderDashArray: '200px 150px',
+                  WebkitBorderDashArray: '200px 150px',
                   willChange: 'transform'
                 }}
               />
@@ -65,7 +66,7 @@ const StoryPage = () => {
                     alt="Polaroid 7"
                     className="w-80 h-auto object-contain"
                   />
-                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2017</span>
                   </div>
                 </div>
@@ -86,7 +87,7 @@ const StoryPage = () => {
                     alt="Polaroid 7"
                     className="w-80 h-auto object-contain"
                   />
-                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2017</span>
                   </div>
                 </div>
@@ -101,7 +102,7 @@ const StoryPage = () => {
                   transform: 'translate(50%, -50%)'
                 }}
               >
-                <span className="font-lovtony text-studio-blue text-4xl">process 2017</span>
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px' }}>process 2017</span>
               </div>
               
               {/* Word of mouth spreads text at 7:20 */}
@@ -113,7 +114,10 @@ const StoryPage = () => {
                   transform: 'translate(-50%, 50%) rotate(-8deg)'
                 }}
               >
-                <span className="font-lovtony text-studio-blue text-4xl">Word of mouth<br />spreads</span>
+                <div className="flex flex-col items-center">
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px', lineHeight: '0.5' }}>word of mouth</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px', lineHeight: '0.5' }}>spreads</span>
+                </div>
               </div>
               
               {/* Center Content - positioned absolutely to avoid rotation */}
@@ -157,7 +161,7 @@ const StoryPage = () => {
                     alt="Polaroid 6"
                     className="w-80 h-auto object-contain"
                   />
-                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2018</span>
                   </div>
                 </div>
@@ -196,7 +200,7 @@ const StoryPage = () => {
                   transform: 'translate(-50%, 50%) rotate(7.56deg)'
                 }}
               >
-                <span className="font-lovtony text-studio-blue text-4xl">first milestone order</span>
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px' }}>first milestone order</span>
               </div>
             </div>
           </div>
@@ -212,7 +216,8 @@ const StoryPage = () => {
                   height: 'min(1050px, 90vw)',
                   transform: `rotate(${scrollY * 0.1}deg)`,
                   borderStyle: 'dashed',
-                  borderDashArray: '40px 20px',
+                  borderDashArray: '200px 150px',
+                  WebkitBorderDashArray: '200px 150px',
                   willChange: 'transform'
                 }}
               />
@@ -232,7 +237,7 @@ const StoryPage = () => {
                     alt="Polaroid 9"
                     className="w-80 h-auto object-contain"
                   />
-                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2020</span>
                   </div>
                 </div>
@@ -253,7 +258,7 @@ const StoryPage = () => {
                     alt="Polaroid 9"
                     className="w-80 h-auto object-contain"
                   />
-                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2020</span>
                   </div>
                 </div>
@@ -265,7 +270,8 @@ const StoryPage = () => {
                 style={{
                   bottom: '-5%',
                   left: '50%',
-                  transform: 'translate(-50%, 50%)'
+                  transform: 'translate(-50%, 50%)',
+                  zIndex: 10
                 }}
               >
                 <div className="relative">
@@ -275,7 +281,7 @@ const StoryPage = () => {
                     className="h-auto object-contain"
                     style={{ width: '416px' }}
                   />
-                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2024</span>
                   </div>
                 </div>
@@ -297,7 +303,7 @@ const StoryPage = () => {
 
           {/* Sixth Circle - 15% bigger than circle 4, below circle 5 */}
           <div className="flex justify-center w-full" style={{ marginTop: '100px' }}>
-            <div className="relative flex items-center justify-center">
+            <div className="relative flex items-center justify-center" style={{ zIndex: 1 }}>
               {/* Blue Outline Circle */}
               <div 
                 className="rounded-full border-2 border-studio-blue flex items-center justify-center"
@@ -326,35 +332,49 @@ const StoryPage = () => {
                   transform: 'translate(-50%, -50%) rotate(-7.5deg)'
                 }}
               >
-                <span className="font-lovtony text-studio-blue text-4xl">requested by<br />name</span>
+                <div className="flex flex-col items-center">
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px', lineHeight: '0.5' }}>requested by</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px', lineHeight: '0.5' }}>name</span>
+                </div>
               </div>
               
               {/* Custom visions and requests text at 5:30 o'clock */}
               <div 
-                className="absolute text-center whitespace-nowrap"
+                className="absolute text-center"
                 style={{
-                  bottom: '15%',
+                  bottom: '10%',
                   left: '75%',
-                  transform: 'translate(-50%, 50%) rotate(7.5deg)'
+                  transform: 'translate(-50%, 50%) rotate(-1.64deg)',
+                  width: '800px'
                 }}
               >
-                <span className="font-lovtony text-studio-blue text-4xl">custom visions and<br />requests</span>
+                <div className="flex flex-col items-center">
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px', lineHeight: '0.5' }}>custom visions</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px', lineHeight: '0.5' }}>and requests</span>
+                </div>
               </div>
               
-              {/* Contact badge at 6 o'clock */}
+              {/* Contact button at 6 o'clock */}
               <div 
                 className="absolute"
                 style={{
-                  bottom: '2%',
+                  bottom: '-48px',
                   left: '50%',
-                  transform: 'translate(-50%, 50%)'
+                  transform: 'translate(-50%, 0%)'
                 }}
               >
-                <div className="bg-studio-blue px-6 py-3 rounded-full">
-                  <span className="font-proxima text-studio-orange font-bold uppercase" style={{ fontSize: '18px' }}>
+                <button
+                  onClick={() => {
+                    window.history.pushState({}, '', '/contact');
+                    window.dispatchEvent(new PopStateEvent('popstate'));
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="bg-studio-blue w-24 h-24 rounded-full flex items-center justify-center hover:bg-studio-orange transition-colors duration-300"
+                >
+                  <span className="font-proxima text-studio-orange hover:text-studio-blue font-bold uppercase transition-colors duration-300" style={{ fontSize: '14px' }}>
                     Contact
                   </span>
-                </div>
+                </button>
               </div>
             </div>
           </div>
