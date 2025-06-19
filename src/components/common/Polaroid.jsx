@@ -1,7 +1,10 @@
 import React from 'react';
+import ImageWithPath from './ImageWithPath';
 
 const Polaroid = ({ 
   src, 
+  category = "polaroids",
+  filename,
   alt, 
   isLoaded, 
   position,
@@ -28,11 +31,20 @@ const Polaroid = ({
         zIndex
       }}
     >
-      <img
-        src={src}
-        alt={alt}
-        className="w-full h-full object-cover"
-      />
+      {filename ? (
+        <ImageWithPath
+          category={category}
+          filename={filename}
+          alt={alt}
+          className="w-full h-full object-cover"
+        />
+      ) : (
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover"
+        />
+      )}
     </div>
   );
 };

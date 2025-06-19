@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import WorkGallery from '../components/WorkGallery';
 import WorkBanners from '../components/WorkBanners';
 import WorkFilterNav from '../components/WorkFilterNav';
+import PageBanner from '../components/common/PageBanner';
 
 const WorkPage = () => {
   const galleryRef = useRef(null);
@@ -28,21 +29,13 @@ const WorkPage = () => {
   return (
     <Layout title="Studio Pickens - Our Work">
       {/* Work Page Banner */}
-      <section 
-        className="relative bg-studio-bg flex items-center justify-center w-full overflow-hidden" 
-        style={{ 
-          height: 'clamp(400px, 45vw, 800px)',
-        }}
+      <PageBanner 
+        backgroundImage="work/Hero Banner Grouped.png"
+        altText="Work banner background"
+        objectFit="contain"
       >
-        {/* Background Image */}
-        <img
-          src={`${process.env.PUBLIC_URL}/images/work/Hero Banner Grouped.png`}
-          alt="Work banner background"
-          className="absolute inset-0 w-full h-full object-contain z-0"
-        />
-        
         {/* Center Content */}
-        <div className="text-center max-w-2xl mx-auto px-4 z-10 relative">
+        <div className="text-center max-w-2xl mx-auto px-4 relative">
           <div className="md:bg-transparent bg-studio-bg md:p-0 p-6 md:w-auto w-[270px] mx-auto">
             <h1 className="font-proxima-wide font-bold text-studio-blue uppercase mb-6" style={{ fontSize: '55px' }}>
               Selected Work
@@ -52,7 +45,7 @@ const WorkPage = () => {
             </p>
           </div>
         </div>
-      </section>
+      </PageBanner>
 
       {/* Work Filter Navigation */}
       <WorkFilterNav 

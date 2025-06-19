@@ -1,5 +1,6 @@
 import React from 'react';
 import { NAVIGATION_LINKS } from '../constants';
+import LocationButton from './common/LocationButton';
 
 const navigate = (path) => {
   window.history.pushState({}, '', path);
@@ -21,33 +22,21 @@ const Footer = () => {
         <div className="flex justify-between items-start mb-8">
           {/* Left Column - Locations */}
           <div className="flex flex-col space-y-4 w-[400px] flex-shrink-0">
-            <button
-              onClick={() => navigate('/locations')}
-              className="flex items-center space-x-3 group"
-            >
-              <div className="w-6 h-6 rounded-full border-2 border-studio-orange group-hover:bg-studio-orange transition-colors duration-200"></div>
-              <span className="font-proxima-wide font-bold group-hover:font-normal text-white text-[40px] leading-[110%] tracking-[6%] uppercase transition-all duration-200 inline-block min-w-[200px]">
-                NEW YORK
-              </span>
-            </button>
-            <button
-              onClick={() => navigate('/locations')}
-              className="flex items-center space-x-3 group"
-            >
-              <div className="w-6 h-6 rounded-full border-2 border-studio-orange group-hover:bg-studio-orange transition-colors duration-200"></div>
-              <span className="font-proxima-wide font-bold group-hover:font-normal text-white text-[40px] leading-[110%] tracking-[6%] uppercase transition-all duration-200 inline-block min-w-[280px]">
-                BEVERLY HILLS
-              </span>
-            </button>
-            <button
-              onClick={() => navigate('/locations')}
-              className="flex items-center space-x-3 group"
-            >
-              <div className="w-6 h-6 rounded-full border-2 border-studio-orange group-hover:bg-studio-orange transition-colors duration-200"></div>
-              <span className="font-proxima-wide font-bold group-hover:font-normal text-white text-[40px] leading-[110%] tracking-[6%] uppercase transition-all duration-200 inline-block min-w-[160px]">
-                LONDON
-              </span>
-            </button>
+            <LocationButton 
+              location="brooklyn" 
+              onClick={() => navigate('/locations')} 
+              variant="desktop"
+            />
+            <LocationButton 
+              location="beverlyhills" 
+              onClick={() => navigate('/locations')} 
+              variant="desktop"
+            />
+            <LocationButton 
+              location="london" 
+              onClick={() => navigate('/locations')} 
+              variant="desktop"
+            />
           </div>
 
           {/* Center Column - Page Links in 2x3 Grid */}
@@ -130,24 +119,21 @@ const Footer = () => {
 
         {/* Locations */}
         <div className="space-y-6 mb-12">
-          <button
-            onClick={() => navigate('/locations')}
-            className="block font-proxima-wide font-bold text-white text-2xl tracking-[3%] uppercase"
-          >
-            NEW YORK
-          </button>
-          <button
-            onClick={() => navigate('/locations')}
-            className="block font-proxima-wide font-bold text-white text-2xl tracking-[3%] uppercase"
-          >
-            BEVERLY HILLS
-          </button>
-          <button
-            onClick={() => navigate('/locations')}
-            className="block font-proxima-wide font-bold text-white text-2xl tracking-[3%] uppercase"
-          >
-            LONDON
-          </button>
+          <LocationButton 
+            location="brooklyn" 
+            onClick={() => navigate('/locations')} 
+            variant="mobile"
+          />
+          <LocationButton 
+            location="beverlyhills" 
+            onClick={() => navigate('/locations')} 
+            variant="mobile"
+          />
+          <LocationButton 
+            location="london" 
+            onClick={() => navigate('/locations')} 
+            variant="mobile"
+          />
         </div>
 
         {/* Page Links */}

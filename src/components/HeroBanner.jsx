@@ -31,7 +31,7 @@ const HeroBanner = () => {
   const polaroidConfigs = [
     // Polaroid 1 - Desktop
     {
-      src: `${process.env.PUBLIC_URL}/images/polaroids/polaroid1.png`,
+      filename: "polaroid1.png",
       alt: "Behind the scenes",
       position: {
         top: 'clamp(10px, 1.39vw, 20px)',
@@ -47,7 +47,7 @@ const HeroBanner = () => {
     },
     // Polaroid 1 - Mobile
     {
-      src: `${process.env.PUBLIC_URL}/images/polaroids/polaroid1.png`,
+      filename: "polaroid1.png",
       alt: "Behind the scenes",
       position: {
         top: 'clamp(10px, 2.78vw, 20px)',
@@ -63,7 +63,7 @@ const HeroBanner = () => {
     },
     // Polaroid 2 - Desktop
     {
-      src: `${process.env.PUBLIC_URL}/images/polaroids/polaroid2.png`,
+      filename: "polaroid2.png",
       alt: "Creative process",
       position: {
         bottom: 'clamp(-100px, -13.89vw, -200px)',
@@ -79,7 +79,7 @@ const HeroBanner = () => {
     },
     // Polaroid 2 - Mobile
     {
-      src: `${process.env.PUBLIC_URL}/images/polaroids/polaroid2.png`,
+      filename: "polaroid2.png",
       alt: "Creative process",
       position: {
         top: '50%',
@@ -95,7 +95,7 @@ const HeroBanner = () => {
     },
     // Polaroid 3 - Desktop
     {
-      src: `${process.env.PUBLIC_URL}/images/polaroids/polaroid3.png`,
+      filename: "polaroid3.png",
       alt: "Studio work",
       position: {
         bottom: 'clamp(40px, 5.56vw, 80px)',
@@ -111,7 +111,7 @@ const HeroBanner = () => {
     },
     // Polaroid 3 - Mobile
     {
-      src: `${process.env.PUBLIC_URL}/images/polaroids/polaroid3.png`,
+      filename: "polaroid3.png",
       alt: "Studio work",
       position: {
         bottom: 'clamp(-30px, -8.33vw, -60px)',
@@ -196,7 +196,7 @@ const HeroBanner = () => {
       {polaroidConfigs.map((config, index) => (
         <Polaroid
           key={index}
-          src={config.src}
+          filename={config.filename}
           alt={config.alt}
           isLoaded={isLoaded}
           position={config.position}
