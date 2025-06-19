@@ -50,20 +50,34 @@ const Footer = () => {
 
         {/* Bottom Section - Signature positioned under links */}
         <div className="flex justify-between">
-          <div></div>
-          <div className="flex justify-center ml-80 group cursor-pointer">
+          <div className="w-[600px]"></div> {/* Match left column width */}
+          <div 
+            className="flex justify-center group cursor-pointer"
+            onClick={() => navigate('/story')}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                navigate('/story');
+              }
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label="Navigate to story page"
+          >
             <img
               src={`${process.env.PUBLIC_URL}/images/footer/footer-signature.png`}
               alt="Studio Pickens Signature"
-              className="h-16 md:h-20 w-auto group-hover:hidden"
+              className="w-auto group-hover:hidden"
+              style={{ height: '80px' }}
             />
             <img
               src={`${process.env.PUBLIC_URL}/images/footer/footer-signature-white.png`}
               alt="Studio Pickens Signature"
-              className="h-16 md:h-20 w-auto hidden group-hover:block"
+              className="w-auto hidden group-hover:block"
+              style={{ height: '80px' }}
             />
           </div>
-          <div></div>
+          <div className="w-[126px]"></div> {/* Match right column width */}
         </div>
 
         {/* Copyright */}

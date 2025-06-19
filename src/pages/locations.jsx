@@ -29,12 +29,14 @@ const LocationsPage = () => {
       >
         {/* Animated Outline Circles */}
         {[...Array(6)].map((_, index) => {
-          const isLeft = index < 3;
-          // Left circles: -400px, -280px, -160px
-          // Right circles: +160px, +280px, +400px
-          const translateX = isLeft 
-            ? -400 + (index * 120) 
-            : 160 + ((index - 3) * 120);
+          // All circles start from center and move out to the left in sets of 2
+          // Set 1: -150px, -200px | Set 2: -350px, -400px | Set 3: -550px, -600px
+          const pairIndex = Math.floor(index / 2);
+          const positionInPair = index % 2;
+          const setStartPosition = -150 - (pairIndex * 200); // Start positions: -150, -350, -550
+          const finalPosition = setStartPosition - (positionInPair * 50); // 50px apart within each pair
+          // Stagger animation: pairs move together
+          const animationDelay = pairIndex * 200; // 200ms delay between pairs
           
           return (
             <div 
@@ -43,13 +45,15 @@ const LocationsPage = () => {
               style={{ top: '60%', transform: 'translateY(-50%)' }}
             >
               <div 
-                className="rounded-full border-2 border-studio-blue transition-transform duration-1000 ease-out"
+                className="rounded-full border-2 border-studio-blue transition-transform ease-out"
                 style={{
                   width: 'clamp(300px, 35.76vw, 515px)',
                   height: 'clamp(300px, 35.76vw, 515px)',
                   transform: animationStarted 
-                    ? `translateX(${translateX}px)` 
-                    : 'translateX(0px)'
+                    ? `translateX(${finalPosition}px)` 
+                    : 'translateX(0px)',
+                  transitionDuration: '800ms',
+                  transitionDelay: animationStarted ? `${animationDelay}ms` : '0ms'
                 }}
               />
             </div>
