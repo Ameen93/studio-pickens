@@ -10,7 +10,6 @@ const ContactPage = () => {
   });
 
   const [hoveredLocation, setHoveredLocation] = useState(null);
-  const [hoveredPress, setHoveredPress] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
