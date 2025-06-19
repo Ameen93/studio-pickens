@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/studio-pickens/static/css/main.d839cbda.css",
-    "main.js": "/studio-pickens/static/js/main.9bee0d62.js",
-    "static/js/453.eedfe90d.chunk.js": "/studio-pickens/static/js/453.eedfe90d.chunk.js",
-    "index.html": "/studio-pickens/index.html",
-    "main.d839cbda.css.map": "/studio-pickens/static/css/main.d839cbda.css.map",
-    "main.9bee0d62.js.map": "/studio-pickens/static/js/main.9bee0d62.js.map",
-    "453.eedfe90d.chunk.js.map": "/studio-pickens/static/js/453.eedfe90d.chunk.js.map"
+    "main.css": "/static/css/main.d839cbda.css",
+    "main.js": "/static/js/main.c1cf39bf.js",
+    "static/js/453.eedfe90d.chunk.js": "/static/js/453.eedfe90d.chunk.js",
+    "index.html": "/index.html",
+    "main.d839cbda.css.map": "/static/css/main.d839cbda.css.map",
+    "main.c1cf39bf.js.map": "/static/js/main.c1cf39bf.js.map",
+    "453.eedfe90d.chunk.js.map": "/static/js/453.eedfe90d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d839cbda.css",
-    "static/js/main.9bee0d62.js"
+    "static/js/main.c1cf39bf.js"
   ]
 }
