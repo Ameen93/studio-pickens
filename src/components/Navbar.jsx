@@ -56,17 +56,21 @@ const Navbar = () => {
             ))}
 
             {/* Center Title - Show on scroll for home page, always show for other pages */}
-            {(isHomePage ? scrollProgress > 0 : true) && (
+            {(isHomePage ? scrollProgress > 0.6 : true) && (
               <div 
-                className="transition-all duration-200 ease-out overflow-hidden flex justify-center mx-6"
+                className="transition-all duration-500 ease-out overflow-hidden flex justify-center mx-6"
                 style={{
-                  opacity: isHomePage ? scrollProgress : 1,
-                  transform: isHomePage ? `scale(${0.75 + scrollProgress * 0.25})` : 'scale(1)',
+                  opacity: isHomePage ? Math.min((scrollProgress - 0.6) * 2.5, 1) : 1,
+                  transform: isHomePage ? `translateY(${(1 - Math.min((scrollProgress - 0.6) * 2.5, 1)) * 30}px) scale(${0.6 + Math.min((scrollProgress - 0.6) * 2.5, 1) * 0.4})` : 'scale(1)',
                 }}
               >
                 <button
                   onClick={() => navigate('/')}
-                  className={`text-nav-logo ${TYPOGRAPHY_CLASSES.navLogo} text-nav-blue text-center whitespace-nowrap`}
+                  className={`font-proxima-wide font-normal text-nav-blue text-center whitespace-nowrap uppercase`}
+                  style={{
+                    fontSize: '27px',
+                    letterSpacing: '0.03em'
+                  }}
                 >
                   STUDIO PICKENS
                 </button>

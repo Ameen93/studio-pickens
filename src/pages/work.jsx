@@ -36,6 +36,7 @@ const WorkPage = () => {
         backgroundImage="work/Hero Banner Grouped.png"
         altText="Work banner background"
         objectFit="contain"
+        height="clamp(500px, 60vw, 900px)"
       >
         {/* Center Content */}
         <div className="flex items-center justify-center h-full w-full">

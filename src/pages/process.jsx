@@ -42,10 +42,10 @@ const ProcessPage = () => {
       </section>
 
       {/* Process Gallery Section */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
+      <section className="py-16 px-4 max-w-7xl mx-auto">
         {/* Item 1: 90% science / 10% wigmaking */}
-        <div className="flex flex-col lg:flex-row items-end mb-16 gap-8">
-          <div className="lg:w-1/2">
+        <div className="flex flex-col lg:flex-row items-end mb-16 gap-4">
+          <div className="lg:w-[60%] lg:pr-4">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page2.jpg`}
               alt="90% science / 10% wigmaking"
@@ -53,7 +53,7 @@ const ProcessPage = () => {
               style={{ aspectRatio: '4/3' }}
             />
           </div>
-          <div className="lg:w-1/2 lg:pl-8">
+          <div className="lg:w-[40%] lg:pl-4">
             <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               90% science / 10% wigmaking
             </h2>
@@ -64,8 +64,8 @@ const ProcessPage = () => {
         </div>
 
         {/* Item 2: Consultation */}
-        <div className="flex flex-col lg:flex-row-reverse items-end mb-16 gap-8">
-          <div className="lg:w-1/2">
+        <div className="flex flex-col lg:flex-row-reverse items-end mb-16 gap-4">
+          <div className="lg:w-[60%] lg:pl-4">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page3.jpg`}
               alt="Consultation"
@@ -73,7 +73,7 @@ const ProcessPage = () => {
               style={{ aspectRatio: '4/3' }}
             />
           </div>
-          <div className="lg:w-1/2 lg:pr-8">
+          <div className="lg:w-[40%] lg:pr-4">
             <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               Consultation
             </h2>
@@ -84,8 +84,8 @@ const ProcessPage = () => {
         </div>
 
         {/* Item 3: mapping the head */}
-        <div className="flex flex-col lg:flex-row items-end mb-16 gap-8">
-          <div className="lg:w-1/2">
+        <div className="flex flex-col lg:flex-row items-end mb-16 gap-4">
+          <div className="lg:w-[60%] lg:pr-4">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page4.jpg`}
               alt="mapping the head"
@@ -93,7 +93,7 @@ const ProcessPage = () => {
               style={{ aspectRatio: '4/3' }}
             />
           </div>
-          <div className="lg:w-1/2 lg:pl-8">
+          <div className="lg:w-[40%] lg:pl-4">
             <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               mapping the head
             </h2>
@@ -104,8 +104,8 @@ const ProcessPage = () => {
         </div>
 
         {/* Item 4: treatment */}
-        <div className="flex flex-col lg:flex-row-reverse items-end mb-16 gap-8">
-          <div className="lg:w-1/2">
+        <div className="flex flex-col lg:flex-row-reverse items-end mb-16 gap-4">
+          <div className="lg:w-[60%] lg:pl-4">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page5.jpg`}
               alt="treatment"
@@ -113,7 +113,7 @@ const ProcessPage = () => {
               style={{ aspectRatio: '4/3' }}
             />
           </div>
-          <div className="lg:w-1/2 lg:pr-8">
+          <div className="lg:w-[40%] lg:pr-4">
             <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               treatment
             </h2>
@@ -124,8 +124,8 @@ const ProcessPage = () => {
         </div>
 
         {/* Item 5: approval */}
-        <div className="flex flex-col lg:flex-row items-end mb-16 gap-8">
-          <div className="lg:w-1/2">
+        <div className="flex flex-col lg:flex-row items-end mb-16 gap-4">
+          <div className="lg:w-[60%] lg:pr-4">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page6.png`}
               alt="approval"
@@ -133,7 +133,7 @@ const ProcessPage = () => {
               style={{ aspectRatio: '4/3' }}
             />
           </div>
-          <div className="lg:w-1/2 lg:pl-8">
+          <div className="lg:w-[40%] lg:pl-4">
             <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               approval
             </h2>
@@ -276,10 +276,10 @@ const ProcessPage = () => {
                   alt="Inner circle team member 1"
                   className="w-full object-cover rounded-lg"
                 />
-                <div className="bg-studio-blue p-6 text-left" style={{ height: '150px' }}>
-                  <h3 className="text-studio-orange font-lovtony text-3xl mb-2">katie gell</h3>
-                  <h4 className="text-white font-bold text-lg mb-1">East Coast Operations</h4>
-                  <p className="text-white text-base">Wigmaker + Designer + Makeup Artist</p>
+                <div className="bg-studio-blue px-6 pb-6 pt-8 text-left" style={{ height: '160px' }}>
+                  <h3 className="text-studio-orange font-lovtony -mb-4 -mt-4" style={{ fontSize: '108px', lineHeight: '0.7' }}>katie gell</h3>
+                  <h4 className="text-white font-bold text-lg mb-1 mt-2">East Coast Operations</h4>
+                  <p className="text-white text-base mt-2">Wigmaker + Designer + Makeup Artist</p>
                 </div>
               </div>
             </div>
@@ -299,10 +299,10 @@ const ProcessPage = () => {
                   alt="Inner circle team member 2"
                   className="w-full object-cover rounded-lg"
                 />
-                <div className="bg-studio-blue p-6 text-left" style={{ height: '150px' }}>
-                  <h3 className="text-studio-orange font-lovtony text-3xl mb-2">mandy lyons</h3>
-                  <h4 className="text-white font-bold text-lg mb-1">West Coast Operations</h4>
-                  <p className="text-white text-base">Wigmaker + Hairstylist</p>
+                <div className="bg-studio-blue px-6 pb-6 pt-8 text-left" style={{ height: '160px' }}>
+                  <h3 className="text-studio-orange font-lovtony -mb-4 -mt-4" style={{ fontSize: '108px', lineHeight: '0.7' }}>mandy lyons</h3>
+                  <h4 className="text-white font-bold text-lg mb-1 mt-2">West Coast Operations</h4>
+                  <p className="text-white text-base mt-2">Wigmaker + Hairstylist</p>
                 </div>
               </div>
             </div>

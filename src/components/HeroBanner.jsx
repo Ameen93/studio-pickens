@@ -177,26 +177,31 @@ const HeroBanner = () => {
           <img
             src={LOGO_IMAGES.default}
             alt="Studio Pickens Logo"
-            className="hidden xl:block mx-auto mb-4"
+            className="hidden xl:block mx-auto mb-4 transition-all duration-1000 ease-out"
             style={{
               width: 'clamp(112.5px, 13.33vw, 192px)',
-              height: 'auto'
+              height: 'auto',
+              opacity: isLoaded ? 1 : 0,
+              transform: `translateY(${isLoaded ? 0 : 30}px) scale(${isLoaded ? 1 : 0.8})`
             }}
           />
           <img
             src={LOGO_IMAGES.white}
             alt="Studio Pickens Logo"
-            className="block xl:hidden mx-auto mb-4"
+            className="block xl:hidden mx-auto mb-4 transition-all duration-1000 ease-out"
             style={{
               width: 'clamp(112.5px, 13.33vw, 192px)',
-              height: 'auto'
+              height: 'auto',
+              opacity: isLoaded ? 1 : 0,
+              transform: `translateY(${isLoaded ? 0 : 30}px) scale(${isLoaded ? 1 : 0.8})`
             }}
           />
           <h1 
-            className="text-nav-logo font-proxima-wide text-studio-blue uppercase text-center whitespace-nowrap transition-all duration-200 ease-out"
+            className="font-proxima-wide font-normal text-studio-blue uppercase text-center whitespace-nowrap transition-all duration-1000 ease-out"
             style={{
-              opacity: 1 - scrollProgress,
-              transform: `translateY(${scrollProgress * -30}px) scale(${1 - scrollProgress * 0.05})`
+              fontSize: `${60 - scrollProgress * 33}px`,
+              opacity: isLoaded ? Math.max(1 - scrollProgress * 1.67, 0) : 0,
+              transform: `translateY(${isLoaded ? (scrollProgress * -120) : 40}px) translateX(${scrollProgress * 0}px) scale(${isLoaded ? (1 - scrollProgress * 0.3) : 0.8})`
             }}
           >
             STUDIO PICKENS

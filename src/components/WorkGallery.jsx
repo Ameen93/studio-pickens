@@ -25,21 +25,18 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA' }) => {
 
   // Memoize position calculations to avoid expensive recalculations
   const filteredProjects = useMemo(() => {
-    if (filter === 'ALL MEDIA') {
-      return WORK_PROJECTS;
-    }
-    
-    // Original layout pattern: left(132), center(396), right(625) with 400px vertical spacing
+    // Simplified layout pattern: alternating left and right for all views
     const positions = [
-      { left: 132, side: 'left' },
-      { left: 396, side: 'center' },
-      { left: 625, side: 'right' }
+      { left: 50, side: 'left' },
+      { left: 750, side: 'right' }
     ];
     
-    return rawFilteredProjects.map((project, index) => {
-      const positionIndex = index % 3;
+    const projectsToPosition = filter === 'ALL MEDIA' ? WORK_PROJECTS : rawFilteredProjects;
+    
+    return projectsToPosition.map((project, index) => {
+      const positionIndex = index % 2;
       const position = positions[positionIndex];
-      const top = index * 400;
+      const top = index * 425;
       
       return {
         ...project,
@@ -52,20 +49,16 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA' }) => {
 
   // Memoize gallery height calculation
   const galleryHeight = useMemo(() => {
-    if (filter === 'ALL MEDIA') {
-      return 'clamp(2400px, 250vw, 3636px)'; // Original height
-    }
-    
     if (filteredProjects.length === 0) {
-      return 'clamp(800px, 55.56vw, 800px)';
+      return 'clamp(600px, 45vw, 600px)';
     }
     
-    const minHeight = Math.max((filteredProjects.length - 1) * 400 + 600, 800);
-    const vwHeight = (filteredProjects.length - 1) * 27.78 + 41.67;
-    const maxHeight = (filteredProjects.length - 1) * 400 + 972;
+    const minHeight = Math.max((filteredProjects.length - 1) * 425 + 400, 600);
+    const vwHeight = (filteredProjects.length - 1) * 29.51 + 30;
+    const maxHeight = (filteredProjects.length - 1) * 425 + 600;
     
     return `clamp(${minHeight}px, ${vwHeight}vw, ${maxHeight}px)`;
-  }, [filter, filteredProjects.length]);
+  }, [filteredProjects.length]);
 
   // Utility functions for positioning
   const getCirclePosition = (side) => {
@@ -84,12 +77,6 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA' }) => {
     if (side === 'left') return 'group-hover:rotate(-35deg)';
     if (side === 'right') return 'group-hover:rotate(35deg)';
     return 'group-hover:rotate(-35deg)';
-  };
-
-  const getImageShift = (side) => {
-    if (side === 'left') return '-translate-x-1/2';
-    if (side === 'right') return 'translate-x-1/2';
-    return '-translate-x-1/2';
   };
 
   const getContentPosition = (side) => {
@@ -127,7 +114,6 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA' }) => {
               getCirclePosition={getCirclePosition}
               getTextRotation={getTextRotation}
               getTextHoverRotation={getTextHoverRotation}
-              getImageShift={getImageShift}
               getContentPosition={getContentPosition}
             />
           ))}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTextHoverRotation, getImageShift, getContentPosition }) => {
+const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTextHoverRotation, getContentPosition }) => {
   return (
     <div
       className="absolute group cursor-pointer"
@@ -11,23 +11,25 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
         height: 'clamp(169px, 25.83vw, 372px)',
       }}
     >
-      {/* Project Image */}
-      <img
-        src={project.src}
-        alt={project.alt}
-        className={`w-full h-full object-cover shadow-lg transition-transform duration-500 ease-out group-hover:${getImageShift(project.side)}`}
-        style={{
-          objectPosition: project.src.includes('editorial2') || project.src.includes('editorial3') ? 'center top' : 'center center'
-        }}
-      />
-      
-      {/* Category Label Circle */}
-      <div 
-        className={`absolute top-1/2 ${getCirclePosition(project.side)} bg-studio-blue group-hover:bg-transparent border-2 border-studio-blue rounded-full flex items-center justify-center transition-all duration-300`}
-        style={{
-          width: 'clamp(64px, 6.69vw, 96px)',
-          height: 'clamp(64px, 6.69vw, 96px)',
-          transform: 'translateY(-50%)',
+      {/* Image and Circle Container */}
+      <div className="relative w-full h-full">
+        {/* Project Image */}
+        <img
+          src={project.src}
+          alt={project.alt}
+          className="w-full h-full object-cover shadow-lg"
+          style={{
+            objectPosition: project.src.includes('editorial2') || project.src.includes('editorial3') ? 'center top' : 'center center'
+          }}
+        />
+        
+        {/* Category Label Circle - positioned relative to image */}
+        <div 
+          className={`absolute top-1/2 ${getCirclePosition(project.side)} bg-studio-blue group-hover:bg-transparent border-2 border-studio-blue rounded-full flex items-center justify-center transition-all duration-500`}
+          style={{
+            width: 'clamp(64px, 6.69vw, 96px)',
+            height: 'clamp(64px, 6.69vw, 96px)',
+            transform: 'translateY(-50%)',
           paddingTop: 'clamp(29px, 3.06vw, 44px)',
           paddingBottom: 'clamp(29px, 3.06vw, 44px)',
           paddingLeft: 'clamp(6px, 0.63vw, 9px)',
@@ -45,10 +47,14 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
           {project.category}
         </span>
       </div>
+      </div>
 
-      {/* Content Panel - Only visible on hover */}
+      {/* Content Panel - Slides out on hover */}
       <div 
-        className={`absolute top-0 ${getContentPosition(project.side)} bg-studio-bg p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 w-full h-full`}
+        className={`absolute top-0 ${getContentPosition(project.side)} bg-studio-bg p-8 transition-all duration-500 ease-out z-10 w-full h-full shadow-lg
+          ${project.side === 'left' ? 'opacity-0 -translate-x-full group-hover:opacity-100 group-hover:translate-x-0' : ''}
+          ${project.side === 'right' ? 'opacity-0 translate-x-full group-hover:opacity-100 group-hover:translate-x-0' : ''}
+        `}
       >
         {/* Title */}
         <h5 className="font-proxima-wide font-bold text-studio-blue text-3xl uppercase tracking-wide mb-6">
