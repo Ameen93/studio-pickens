@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout';
+import { ANIMATIONS } from '../constants/animations';
 
 const ProcessPage = () => {
   return (
@@ -208,14 +209,7 @@ const ProcessPage = () => {
         </div>
 
         <style jsx>{`
-          @keyframes scroll {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-33.333%);
-            }
-          }
+          ${ANIMATIONS.keyframes.scroll}
           
           .animate-scroll {
             animation: scroll 45s linear infinite;

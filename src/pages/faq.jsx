@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import FAQSection from '../components/FAQSection';
 import PageBanner from '../components/common/PageBanner';
+import { TYPOGRAPHY_CLASSES } from '../constants/typography';
 
 const FAQPage = () => {
 
@@ -16,12 +17,12 @@ const FAQPage = () => {
       >
         {/* F A Q Letters */}
         {/* F - Top Left */}
-        <div className="absolute top-8 left-8 text-studio-blue font-proxima-wide font-bold uppercase" style={{ fontSize: 'clamp(64px, 9.6vw, 160px)' }}>
+        <div className={`absolute top-8 left-8 ${TYPOGRAPHY_CLASSES.headingPrimary}`} style={{ fontSize: 'clamp(64px, 9.6vw, 160px)' }}>
           F
         </div>
         
         {/* A - Below F, offset right past center */}
-        <div className="absolute text-studio-blue font-proxima-wide font-bold uppercase" style={{ 
+        <div className={`absolute ${TYPOGRAPHY_CLASSES.headingPrimary}`} style={{ 
           fontSize: 'clamp(64px, 9.6vw, 160px)',
           top: '35%',
           left: '65%',
@@ -31,7 +32,7 @@ const FAQPage = () => {
         </div>
         
         {/* Q - Between F and A horizontally, at bottom */}
-        <div className="absolute text-studio-blue font-proxima-wide font-bold uppercase" style={{ 
+        <div className={`absolute ${TYPOGRAPHY_CLASSES.headingPrimary}`} style={{ 
           fontSize: 'clamp(64px, 9.6vw, 160px)',
           bottom: '15%',
           left: '40%',

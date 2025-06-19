@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NAVIGATION_LINKS } from '../constants';
+import { TYPOGRAPHY_CLASSES } from '../constants/typography';
 
 const navigate = (path) => {
   window.history.pushState({}, '', path);
@@ -69,7 +70,7 @@ const Navbar = () => {
               >
                 <button
                   onClick={() => navigate('/')}
-                  className="text-nav-logo font-proxima-wide text-nav-blue uppercase text-center whitespace-nowrap"
+                  className={`text-nav-logo ${TYPOGRAPHY_CLASSES.navLogo} text-nav-blue text-center whitespace-nowrap`}
                 >
                   STUDIO PICKENS
                 </button>

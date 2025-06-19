@@ -92,5 +92,140 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities, addBase }) {
+      // Add custom typography utilities
+      addUtilities({
+        // Primary Typography Classes
+        '.heading-primary': {
+          '@apply font-proxima-wide font-bold text-studio-blue uppercase': {},
+        },
+        '.heading-secondary': {
+          '@apply font-proxima-wide font-bold text-studio-blue': {},
+        },
+        '.heading-tertiary': {
+          '@apply font-proxima-wide font-semibold text-studio-blue uppercase': {},
+        },
+        
+        // Body Text Classes
+        '.body-text': {
+          '@apply font-proxima text-studio-blue': {},
+        },
+        '.body-text-large': {
+          '@apply font-proxima text-studio-blue text-lg': {},
+        },
+        '.body-text-small': {
+          '@apply font-proxima text-studio-blue text-sm': {},
+        },
+        
+        // Script Text Classes
+        '.script-text': {
+          '@apply font-lovtony text-studio-blue': {},
+        },
+        '.script-text-large': {
+          '@apply font-lovtony font-normal italic lowercase text-studio-blue': {},
+        },
+        
+        // Layout Classes
+        '.section-banner': {
+          '@apply relative bg-studio-bg flex items-center justify-center w-full overflow-hidden': {},
+        },
+        
+        // Navigation Classes
+        '.nav-link': {
+          '@apply font-proxima-wide font-bold text-white text-sm tracking-wide uppercase': {},
+        },
+        '.nav-link-mobile': {
+          '@apply font-proxima-wide font-bold text-white text-2xl tracking-wide uppercase': {},
+        },
+        
+        // Button Classes
+        '.btn-primary': {
+          '@apply font-proxima text-white bg-studio-blue uppercase px-6 py-3 transition-all duration-200': {},
+        },
+        '.btn-secondary': {
+          '@apply font-proxima text-studio-blue border-2 border-studio-blue uppercase px-6 py-3 transition-all duration-200 hover:bg-studio-blue hover:text-white': {},
+        },
+        '.btn-link': {
+          '@apply font-proxima text-studio-blue underline decoration-studio-orange decoration-2 underline-offset-4 transition-colors duration-300': {},
+        },
+        
+        // Form Classes
+        '.form-label': {
+          '@apply font-proxima-wide font-bold text-studio-blue uppercase tracking-wide text-sm': {},
+        },
+        '.form-input': {
+          '@apply w-full px-4 py-3 border bg-white text-studio-blue placeholder-gray-400 focus:outline-none transition-all duration-200': {},
+        },
+        '.form-input-error': {
+          '@apply border-studio-orange': {},
+        },
+        '.form-input-normal': {
+          '@apply border-gray-300 focus:border-studio-blue': {},
+        },
+        
+        // Animation Classes
+        '.transition-fast': {
+          '@apply transition-all duration-200': {},
+        },
+        '.transition-medium': {
+          '@apply transition-all duration-300': {},
+        },
+        '.transition-slow': {
+          '@apply transition-all duration-500': {},
+        },
+        
+        // Common Hover Effects
+        '.hover-grow': {
+          '@apply transition-transform duration-300 hover:scale-105': {},
+        },
+        '.hover-orange': {
+          '@apply transition-colors duration-300 hover:text-studio-orange': {},
+        },
+        
+        // Focus States
+        '.focus-ring': {
+          '@apply focus:ring-2 focus:ring-studio-orange focus:ring-offset-2': {},
+        },
+      });
+
+      // Add custom keyframe animations
+      addBase({
+        '@keyframes shake': {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '10%, 30%, 50%, 70%, 90%': { transform: 'translateX(-2px)' },
+          '20%, 40%, 60%, 80%': { transform: 'translateX(2px)' },
+        },
+        '@keyframes scroll': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-33.333%)' },
+        },
+        '@keyframes float': {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        '@keyframes fadeIn': {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        
+        // Animation utility classes
+        '.animate-shake': {
+          animation: 'shake 0.6s ease-in-out',
+        },
+        '.animate-scroll': {
+          animation: 'scroll 45s linear infinite',
+        },
+        '.animate-float': {
+          animation: 'float 3s ease-in-out infinite',
+        },
+        '.animate-fade-in': {
+          animation: 'fadeIn 0.6s ease-out',
+        },
+        '.pause-on-hover:hover': {
+          'animation-play-state': 'paused',
+        },
+      });
+    }
+  ],
 }

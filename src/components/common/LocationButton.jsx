@@ -1,4 +1,5 @@
 import React from 'react';
+import { TYPOGRAPHY_CLASSES } from '../../constants/typography';
 
 const LocationButton = ({ 
   location, 
@@ -29,7 +30,7 @@ const LocationButton = ({
     return (
       <button
         onClick={onClick}
-        className={`block font-proxima-wide font-bold text-white text-2xl tracking-[3%] uppercase ${className}`}
+        className={`block ${TYPOGRAPHY_CLASSES.navLinkMobile} ${className}`}
       >
         {getLocationName(location)}
       </button>
@@ -46,7 +47,7 @@ const LocationButton = ({
           <div className={`w-6 h-6 rounded-full border-2 mr-3 transition-all duration-300 ${
             isActive ? 'border-studio-orange bg-studio-orange' : 'border-studio-orange'
           }`}></div>
-          <h2 className="font-proxima-wide font-bold text-2xl text-white uppercase tracking-wide">
+          <h2 className={`${TYPOGRAPHY_CLASSES.contactLocation} text-2xl`}>
             {getLocationName(location)}
           </h2>
         </div>
@@ -61,7 +62,7 @@ const LocationButton = ({
       className={`flex items-center space-x-3 group ${className}`}
     >
       <div className="w-6 h-6 rounded-full border-2 border-studio-orange group-hover:bg-studio-orange transition-colors duration-200"></div>
-      <span className={`font-proxima-wide font-bold group-hover:font-normal text-white text-[40px] leading-[110%] tracking-[6%] uppercase transition-all duration-200 inline-block ${getMinWidth(location)}`}>
+      <span className={`${TYPOGRAPHY_CLASSES.footerLocationDesktop} inline-block ${getMinWidth(location)}`}>
         {getLocationName(location)}
       </span>
     </button>

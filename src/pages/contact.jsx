@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
+import { TYPOGRAPHY_CLASSES } from '../constants/typography';
+import { ANIMATIONS } from '../constants/animations';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -93,16 +95,12 @@ const ContactPage = () => {
   return (
     <Layout title="Studio Pickens - Contact">
       <style jsx>{`
-        @keyframes shake {
-          0%, 100% { transform: translateX(0); }
-          10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
-          20%, 40%, 60%, 80% { transform: translateX(2px); }
-        }
+        ${ANIMATIONS.keyframes.shake}
       `}</style>
       {/* Header Section */}
       <section className="bg-studio-bg pt-64 pb-12">
         <div className="max-w-screen-xl mx-auto px-4">
-          <h1 className="font-proxima-wide font-bold text-4xl md:text-5xl text-studio-blue uppercase tracking-wide">
+          <h1 className={`${TYPOGRAPHY_CLASSES.headingPrimary} text-4xl md:text-5xl tracking-wide`}>
             GET IN TOUCH
           </h1>
         </div>
@@ -123,7 +121,7 @@ const ContactPage = () => {
                 <div className={`w-6 h-6 rounded-full border-2 mr-3 transition-all duration-300 ${
                   hoveredLocation === 'brooklyn' ? 'border-studio-orange bg-studio-orange' : 'border-studio-orange'
                 }`}></div>
-                <h2 className="font-proxima-wide font-bold text-2xl text-white uppercase tracking-wide">
+                <h2 className={`${TYPOGRAPHY_CLASSES.contactLocation} text-2xl`}>
                   BROOKLYN
                 </h2>
               </div>
@@ -146,7 +144,7 @@ const ContactPage = () => {
                 <div className={`w-6 h-6 rounded-full border-2 mr-3 transition-all duration-300 ${
                   hoveredLocation === 'beverlyhills' ? 'border-studio-orange bg-studio-orange' : 'border-studio-orange'
                 }`}></div>
-                <h2 className="font-proxima-wide font-bold text-2xl text-white uppercase tracking-wide">
+                <h2 className={`${TYPOGRAPHY_CLASSES.contactLocation} text-2xl`}>
                   BEVERLY HILLS
                 </h2>
               </div>
@@ -169,7 +167,7 @@ const ContactPage = () => {
                 <div className={`w-6 h-6 rounded-full border-2 mr-3 transition-all duration-300 ${
                   hoveredLocation === 'london' ? 'border-studio-orange bg-studio-orange' : 'border-studio-orange'
                 }`}></div>
-                <h2 className="font-proxima-wide font-bold text-2xl text-white uppercase tracking-wide">
+                <h2 className={`${TYPOGRAPHY_CLASSES.contactLocation} text-2xl`}>
                   LONDON
                 </h2>
               </div>

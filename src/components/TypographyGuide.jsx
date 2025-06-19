@@ -1,6 +1,7 @@
 import React from 'react';
 import TypeSection from './sections/TypeSection';
 import TypeExample from './sections/TypeExample';
+import { TYPOGRAPHY_CLASSES, COMMON_COMBINATIONS } from '../constants/typography';
 
 const TypographyGuide = () => {
   return (
@@ -9,10 +10,10 @@ const TypographyGuide = () => {
         
         {/* Header */}
         <div className="text-center">
-          <h1 className="text-h1 md:text-h1 sm:text-h1-mobile font-proxima-wide text-studio-blue uppercase mb-4">
+          <h1 className={`${COMMON_COMBINATIONS.pageTitle} text-h1 md:text-h1 sm:text-h1-mobile mb-4`}>
             Typography System
           </h1>
-          <p className="text-body-lg md:text-body-lg sm:text-body-lg-mobile font-proxima text-studio-blue">
+          <p className={`${TYPOGRAPHY_CLASSES.bodyText} text-body-lg md:text-body-lg sm:text-body-lg-mobile`}>
             Complete typography scale for Studio Pickens brand identity
           </p>
         </div>

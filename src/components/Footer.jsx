@@ -1,5 +1,6 @@
 import React from 'react';
 import { NAVIGATION_LINKS } from '../constants';
+import { TYPOGRAPHY_CLASSES } from '../constants/typography';
 import LocationButton from './common/LocationButton';
 
 const navigate = (path) => {
@@ -45,7 +46,7 @@ const Footer = () => {
               <button
                 key={link.name}
                 onClick={() => navigate(link.href)}
-                className="relative font-proxima-wide font-bold text-white text-sm tracking-wide uppercase hover:text-studio-orange transition-colors duration-200 text-left"
+                className={`relative ${TYPOGRAPHY_CLASSES.navLink} hover:text-studio-orange transition-colors duration-200 text-left`}
               >
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-studio-orange to-studio-orange transition-all duration-300 hover:w-full"></span>
