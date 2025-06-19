@@ -9,7 +9,7 @@ const HeroBanner = () => {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 100);
+    const timer = setTimeout(() => setIsLoaded(true), 1500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -41,7 +41,9 @@ const HeroBanner = () => {
         width: 'clamp(88.5px, 12.34vw, 177.61px)',
         height: 'clamp(133px, 18.5vw, 266.48px)'
       },
-      rotation: 80,
+      rotation: 100,
+      animationDuration: 3200,
+      initialOffset: { x: -120, y: -80 },
       zIndex: 100,
       className: "hidden xl:block"
     },
@@ -57,7 +59,9 @@ const HeroBanner = () => {
         width: 'clamp(86px, 24vw, 172.76px)',
         height: 'clamp(129px, 36vw, 259.21px)'
       },
-      rotation: 71.69,
+      rotation: 108.31,
+      animationDuration: 2800,
+      initialOffset: { x: -80, y: -60 },
       zIndex: 100,
       className: "block xl:hidden"
     },
@@ -73,7 +77,9 @@ const HeroBanner = () => {
         width: 'clamp(88.5px, 12.34vw, 177.61px)',
         height: 'clamp(133px, 18.5vw, 266.48px)'
       },
-      rotation: -8.33,
+      rotation: 8.33,
+      animationDuration: 2000,
+      initialOffset: { x: 0, y: 120 },
       zIndex: 40,
       className: "hidden xl:block"
     },
@@ -89,7 +95,9 @@ const HeroBanner = () => {
         width: 'clamp(86px, 23.89vw, 171.97px)',
         height: 'clamp(129px, 35.84vw, 258.02px)'
       },
-      rotation: -8.33,
+      rotation: 8.33,
+      animationDuration: 2200,
+      initialOffset: { x: 0, y: 80 },
       zIndex: 40,
       className: "block xl:hidden"
     },
@@ -105,7 +113,9 @@ const HeroBanner = () => {
         width: 'clamp(88.5px, 12.34vw, 177.61px)',
         height: 'clamp(133px, 18.5vw, 266.48px)'
       },
-      rotation: 100,
+      rotation: 80,
+      animationDuration: 2800,
+      initialOffset: { x: 130, y: -90 },
       zIndex: 40,
       className: "hidden xl:block"
     },
@@ -121,7 +131,9 @@ const HeroBanner = () => {
         width: 'clamp(80px, 22.31vw, 160.65px)',
         height: 'clamp(120px, 33.48vw, 241.03px)'
       },
-      rotation: 100.46,
+      rotation: 79.54,
+      animationDuration: 2400,
+      initialOffset: { x: 90, y: -70 },
       zIndex: 40,
       className: "block xl:hidden"
     }
@@ -202,6 +214,8 @@ const HeroBanner = () => {
           position={config.position}
           size={config.size}
           rotation={config.rotation}
+          animationDuration={config.animationDuration}
+          initialOffset={config.initialOffset}
           zIndex={config.zIndex}
           className={config.className}
         />

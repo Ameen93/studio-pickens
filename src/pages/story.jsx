@@ -45,8 +45,8 @@ const StoryPage = () => {
                   height: 'min(1050px, 90vw)',
                   transform: `rotate(${scrollY * 0.1}deg)`,
                   borderStyle: 'dashed',
-                  borderDashArray: '200px 150px',
-                  WebkitBorderDashArray: '200px 150px',
+                  borderDashArray: '100px 150px',
+                  WebkitBorderDashArray: '100px 150px',
                   willChange: 'transform'
                 }}
               />
@@ -216,8 +216,8 @@ const StoryPage = () => {
                   height: 'min(1050px, 90vw)',
                   transform: `rotate(${scrollY * 0.1}deg)`,
                   borderStyle: 'dashed',
-                  borderDashArray: '200px 150px',
-                  WebkitBorderDashArray: '200px 150px',
+                  borderDashArray: '100px 150px',
+                  WebkitBorderDashArray: '100px 150px',
                   willChange: 'transform'
                 }}
               />
@@ -337,7 +337,51 @@ const StoryPage = () => {
                   <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px', lineHeight: '0.5' }}>name</span>
                 </div>
               </div>
+
+              {/* Polaroid at 9:15 - 2024 */}
+              <div 
+                className="absolute"
+                style={{
+                  top: '45%',
+                  left: '-35%',
+                  transform: 'translate(-50%, -50%)',
+                  zIndex: 10
+                }}
+              >
+                <div className="relative">
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid13.JPG`}
+                    alt="Polaroid 13"
+                    className="w-80 h-auto object-contain"
+                  />
+                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+                    <span className="font-proxima text-studio-blue text-2xl font-bold">2024</span>
+                  </div>
+                </div>
+              </div>
               
+              {/* Polaroid at 3:15 - 2024 */}
+              <div 
+                className="absolute"
+                style={{
+                  top: '55%',
+                  right: '-35%',
+                  transform: 'translate(50%, -50%)',
+                  zIndex: 10
+                }}
+              >
+                <div className="relative">
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid13.JPG`}
+                    alt="Polaroid 13"
+                    className="w-80 h-auto object-contain"
+                  />
+                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+                    <span className="font-proxima text-studio-blue text-2xl font-bold">2024</span>
+                  </div>
+                </div>
+              </div>
+
               {/* Custom visions and requests text at 5:30 o'clock */}
               <div 
                 className="absolute text-center"

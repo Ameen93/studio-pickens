@@ -15,7 +15,7 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
       <img
         src={project.src}
         alt={project.alt}
-        className={`w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-500 ease-out group-hover:${getImageShift(project.side)}`}
+        className={`w-full h-full object-cover shadow-lg transition-transform duration-500 ease-out group-hover:${getImageShift(project.side)}`}
         style={{
           objectPosition: project.src.includes('editorial2') || project.src.includes('editorial3') ? 'center top' : 'center center'
         }}
@@ -23,7 +23,7 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
       
       {/* Category Label Circle */}
       <div 
-        className={`absolute top-1/2 ${getCirclePosition(project.side)} bg-studio-blue group-hover:bg-studio-orange rounded-full flex items-center justify-center transition-colors duration-300`}
+        className={`absolute top-1/2 ${getCirclePosition(project.side)} bg-studio-blue group-hover:bg-transparent border-2 border-studio-blue rounded-full flex items-center justify-center transition-all duration-300`}
         style={{
           width: 'clamp(64px, 6.69vw, 96px)',
           height: 'clamp(64px, 6.69vw, 96px)',
@@ -51,7 +51,7 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
         className={`absolute top-0 ${getContentPosition(project.side)} bg-studio-bg p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 w-full h-full`}
       >
         {/* Title */}
-        <h5 className="font-proxima-wide font-bold text-studio-blue text-xl uppercase tracking-wide mb-6">
+        <h5 className="font-proxima-wide font-bold text-studio-blue text-3xl uppercase tracking-wide mb-6">
           {content?.title}
         </h5>
 
@@ -60,10 +60,10 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
           <h6 className="font-proxima-wide font-bold text-studio-blue text-sm uppercase tracking-wide mb-1">
             STYLIST
           </h6>
-          <p className="font-lovtony font-normal italic lowercase text-[40px] leading-[50%] text-studio-blue">
+          <p className="font-lovtony font-normal italic lowercase text-[80px] leading-[50%] text-studio-blue pl-4">
             {content?.stylist}
           </p>
-          <div className="w-full h-px border-b border-dotted border-studio-blue mt-2"></div>
+          <div className="w-5/8 h-px border-b border-dotted border-studio-blue mt-2"></div>
         </div>
 
         {/* Photographer Section */}
@@ -71,10 +71,10 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
           <h6 className="font-proxima-wide font-bold text-studio-blue text-sm uppercase tracking-wide mb-1">
             PHOTOGRAPHER
           </h6>
-          <p className="font-lovtony font-normal italic lowercase text-[40px] leading-[50%] text-studio-blue">
+          <p className="font-lovtony font-normal italic lowercase text-[80px] leading-[50%] text-studio-blue pl-4">
             {content?.photographer}
           </p>
-          <div className="w-full h-px border-b border-dotted border-studio-blue mt-2"></div>
+          <div className="w-5/8 h-px border-b border-dotted border-studio-blue mt-2"></div>
         </div>
 
         {/* Date Section */}
@@ -82,10 +82,10 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
           <h6 className="font-proxima-wide font-bold text-studio-blue text-sm uppercase tracking-wide mb-1">
             DATE
           </h6>
-          <p className="font-lovtony font-normal italic lowercase text-[40px] leading-[50%] text-studio-blue">
+          <p className="font-lovtony font-normal italic lowercase text-[80px] leading-[50%] text-studio-blue pl-4">
             {content?.date}
           </p>
-          <div className="w-full h-px border-b border-dotted border-studio-blue mt-2"></div>
+          <div className="w-5/8 h-px border-b border-dotted border-studio-blue mt-2"></div>
         </div>
       </div>
     </div>

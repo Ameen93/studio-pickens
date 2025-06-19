@@ -10,6 +10,8 @@ const Polaroid = ({
   position,
   size,
   rotation,
+  animationDuration = 2400,
+  initialOffset = { x: 0, y: 0 },
   zIndex = 40,
   className = ""
 }) => {
@@ -18,7 +20,7 @@ const Polaroid = ({
 
   return (
     <div 
-      className={`absolute transition-all duration-[2400ms] ease-out ${className}`}
+      className={`absolute transition-all ease-out ${className}`}
       style={{
         top: isLoaded ? top : '50%',
         bottom,
@@ -26,8 +28,9 @@ const Polaroid = ({
         right,
         width,
         height,
-        transform: `${isLoaded ? (left || right ? '' : 'translate(-50%, 0)') : 'translate(-50%, -50%)'} rotate(${isLoaded ? rotation : 0}deg) scale(${isLoaded ? 1 : 2})`,
+        transform: `${isLoaded ? (left || right ? '' : 'translate(-50%, 0)') : `translate(calc(-50% + ${initialOffset.x}px), calc(-50% + ${initialOffset.y}px))`} rotate(${rotation}deg) scale(${isLoaded ? 1 : 2})`,
         transformOrigin: 'center center',
+        transitionDuration: `${animationDuration}ms`,
         zIndex
       }}
     >

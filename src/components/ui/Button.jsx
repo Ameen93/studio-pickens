@@ -20,7 +20,7 @@ const Button = ({
     outline: 'border-2 border-studio-blue text-studio-blue hover:bg-studio-blue hover:text-white focus:ring-studio-blue',
     'outline-white': 'border-2 border-white text-white hover:bg-white hover:text-studio-blue focus:ring-white',
     ghost: 'text-studio-blue hover:bg-studio-blue/10 focus:ring-studio-blue',
-    link: 'text-studio-orange hover:text-studio-orange/80 underline decoration-studio-orange decoration-2 underline-offset-4 focus:ring-studio-orange bg-transparent p-0',
+    link: 'text-studio-orange hover:text-studio-orange/80 focus:ring-studio-orange bg-transparent p-0',
     'nav-link': `${TYPOGRAPHY_CLASSES.navLink} text-studio-blue hover:text-studio-orange bg-transparent p-0 relative`,
     'location': 'bg-white text-studio-blue hover:bg-studio-blue hover:text-white border-2 border-transparent hover:border-studio-blue focus:ring-studio-blue',
     'back-to-top': 'w-[126px] h-[126px] rounded-full border-[2.21px] border-studio-orange text-studio-orange hover:bg-studio-orange hover:text-studio-blue focus:ring-studio-orange'
@@ -54,6 +54,27 @@ const Button = ({
       </Element>
     );
   }
+
+  // Link variant has custom underline that extends under arrow
+  if (variant === 'link') {
+    const Element = href ? 'a' : 'button';
+    return (
+      <Element 
+        {...(href ? { href } : { onClick })}
+        className={classes}
+        disabled={disabled}
+        {...props}
+      >
+        <span className="relative inline-flex items-center">
+          {children}
+          <svg className="ml-2 w-4 h-4 text-studio-orange" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M5 12h14m-6-6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+          </svg>
+          <span className="absolute left-0 right-0 h-px bg-studio-orange" style={{ top: 'calc(100% + 2px)' }}></span>
+        </span>
+      </Element>
+    );
+  }
   
   // Back to top variant has special circular layout
   if (variant === 'back-to-top') {
@@ -82,7 +103,6 @@ const Button = ({
       {...props}
     >
       {children}
-      {variant === 'link' && ' →'}
       {icon && (variant === 'primary' || variant === 'secondary' || variant === 'outline') && (
         <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

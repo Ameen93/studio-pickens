@@ -5,7 +5,7 @@ const FooterLocations = ({ variant = 'desktop', onLocationClick }) => {
   const locations = ['brooklyn', 'beverlyhills', 'london'];
   
   const containerClass = variant === 'desktop' 
-    ? 'flex flex-col space-y-4 w-[400px] flex-shrink-0'
+    ? 'flex flex-col space-y-4 w-[600px] flex-shrink-0'
     : 'space-y-6 mb-12';
 
   return (
