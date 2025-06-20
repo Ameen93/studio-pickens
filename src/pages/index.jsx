@@ -31,8 +31,8 @@ const HomePage = () => {
           height: 'clamp(280px, 29.17vw, 420px)'
         }}
       >
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="flex flex-col items-center">
+        <div className="max-w-screen-xl mx-auto px-4 text-center">
+          <div className="flex flex-col items-center max-w-4xl mx-auto">
             <h2 
               className="text-atelier-heading-mobile md:text-h3 font-proxima-wide uppercase mb-6 md:whitespace-nowrap text-center text-studio-bg"
             >
@@ -48,7 +48,7 @@ const HomePage = () => {
             <Button 
               href="/atelier-wigs" 
               variant="link"
-              className="text-button-link md:text-button-link sm:text-atelier-link-mobile"
+              className="text-button-link md:text-button-link sm:text-atelier-link-mobile font-proxima-semibold"
             >
               LEARN MORE
             </Button>

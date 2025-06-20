@@ -22,7 +22,7 @@ const NavLink = React.memo(({
   return (
     <button
       onClick={() => onClick(link.href)}
-      className={`relative text-nav font-proxima-wide text-nav-blue uppercase min-h-[44px] flex items-center text-center group mx-6 ${className}`}
+      className={`relative text-nav font-proxima-wide font-bold text-nav-blue uppercase min-h-[44px] flex items-center text-center group mx-6 ${className}`}
     >
       <span className="relative">
         {link.name}

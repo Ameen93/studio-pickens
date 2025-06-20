@@ -25,16 +25,26 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA' }) => {
 
   // Memoize position calculations to avoid expensive recalculations
   const filteredProjects = useMemo(() => {
-    // Simplified layout pattern: alternating left and right for all views
+    // Enhanced layout pattern with proper centering for center-positioned projects
     const positions = [
       { left: 50, side: 'left' },
-      { left: 750, side: 'right' }
+      { left: 750, side: 'right' },
+      { left: 390, side: 'center' }
     ];
     
     const projectsToPosition = filter === 'ALL MEDIA' ? WORK_PROJECTS : rawFilteredProjects;
     
     return projectsToPosition.map((project, index) => {
-      const positionIndex = index % 2;
+      // Use original side from project data for better layout control
+      let positionIndex;
+      if (project.side === 'center') {
+        positionIndex = 2;
+      } else if (project.side === 'left') {
+        positionIndex = 0;
+      } else {
+        positionIndex = 1;
+      }
+      
       const position = positions[positionIndex];
       const top = index * 425;
       
@@ -42,7 +52,7 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA' }) => {
         ...project,
         left: position.left,
         top: top,
-        side: position.side
+        side: project.side || position.side
       };
     });
   }, [filter, rawFilteredProjects]);
@@ -64,24 +74,28 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA' }) => {
   const getCirclePosition = (side) => {
     if (side === 'left') return '-left-12';
     if (side === 'right') return '-right-12';
+    if (side === 'center') return '-left-12';
     return '-left-12';
   };
 
   const getTextRotation = (side) => {
     if (side === 'left') return 'rotate(-25deg)';
     if (side === 'right') return 'rotate(25deg)';
+    if (side === 'center') return 'rotate(0deg)';
     return 'rotate(-25deg)';
   };
 
   const getTextHoverRotation = (side) => {
     if (side === 'left') return 'group-hover:rotate(-35deg)';
     if (side === 'right') return 'group-hover:rotate(35deg)';
+    if (side === 'center') return 'group-hover:rotate(0deg)';
     return 'group-hover:rotate(-35deg)';
   };
 
   const getContentPosition = (side) => {
     if (side === 'left') return 'left-full ml-4';
     if (side === 'right') return 'right-full mr-4';
+    if (side === 'center') return 'left-full ml-4';
     return 'left-full ml-4';
   };
 

@@ -66,7 +66,7 @@ const Navbar = () => {
               >
                 <button
                   onClick={() => navigate('/')}
-                  className={`font-proxima-wide font-normal text-nav-blue text-center whitespace-nowrap uppercase`}
+                  className={`font-proxima-wide font-semibold text-nav-blue text-center whitespace-nowrap uppercase`}
                   style={{
                     fontSize: '27px',
                     letterSpacing: '0.03em'
@@ -98,7 +98,7 @@ const Navbar = () => {
             <div className="flex-1 flex justify-center">
               <button
                 onClick={() => navigate('/')}
-                className="text-nav-logo font-proxima-wide font-normal text-nav-blue uppercase text-center"
+                className="text-nav-logo font-proxima-wide font-semibold text-nav-blue uppercase text-center"
               >
                 STUDIO PICKENS
               </button>

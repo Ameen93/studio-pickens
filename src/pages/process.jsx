@@ -7,9 +7,9 @@ const ProcessPage = () => {
     <Layout title="Studio Pickens - Process">
       {/* Process Page Banner */}
       <section 
-        className="relative bg-studio-bg flex items-center justify-center w-full overflow-hidden" 
+        className="relative bg-studio-bg flex items-center justify-center w-full overflow-hidden -mt-16" 
         style={{ 
-          height: 'clamp(700px, 70vw, 1200px)',
+          height: 'clamp(600px, 60vw, 1000px)',
         }}
       >
         {/* Background Image */}
@@ -22,10 +22,10 @@ const ProcessPage = () => {
         {/* Rotating Dashed Circle */}
         <div className="absolute w-full flex justify-center z-10" style={{ top: '50%', transform: 'translateY(-50%)' }}>
           <div 
-            className="rounded-full border-2 border-dashed border-studio-blue animate-spin"
+            className="rounded-full border border-dashed border-studio-blue animate-spin"
             style={{
-              width: 'clamp(360px, 42.91vw, 618px)',
-              height: 'clamp(360px, 42.91vw, 618px)',
+              width: 'clamp(280px, 32vw, 460px)',
+              height: 'clamp(280px, 32vw, 460px)',
               animationDuration: '60s',
               animationTimingFunction: 'linear',
               animationIterationCount: 'infinite'
@@ -42,102 +42,102 @@ const ProcessPage = () => {
       </section>
 
       {/* Process Gallery Section */}
-      <section className="py-16 px-4 max-w-7xl mx-auto">
+      <section className="pt-0 pb-10 px-10 max-w-full mx-auto">
         {/* Item 1: 90% science / 10% wigmaking */}
-        <div className="flex flex-col lg:flex-row items-end mb-16 gap-4">
-          <div className="lg:w-[60%] lg:pr-4">
+        <div className="flex flex-col lg:flex-row items-end mb-10 gap-4">
+          <div className="lg:w-[55%] lg:pr-3">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page2.jpg`}
               alt="90% science / 10% wigmaking"
-              className="w-full object-cover rounded-lg"
+              className="w-full object-cover"
               style={{ aspectRatio: '4/3' }}
             />
           </div>
-          <div className="lg:w-[40%] lg:pl-4">
+          <div className="lg:w-[45%] lg:pl-3">
             <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               90% science / 10% wigmaking
             </h2>
-            <p className="font-proxima text-studio-blue text-base leading-relaxed">
+            <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
               Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
             </p>
           </div>
         </div>
 
         {/* Item 2: Consultation */}
-        <div className="flex flex-col lg:flex-row-reverse items-end mb-16 gap-4">
-          <div className="lg:w-[60%] lg:pl-4">
+        <div className="flex flex-col lg:flex-row-reverse items-end mb-10 gap-4">
+          <div className="lg:w-[55%] lg:pl-3">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page3.jpg`}
               alt="Consultation"
-              className="w-full object-cover rounded-lg"
+              className="w-full object-cover"
               style={{ aspectRatio: '4/3' }}
             />
           </div>
-          <div className="lg:w-[40%] lg:pr-4">
+          <div className="lg:w-[45%] lg:pr-3">
             <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               Consultation
             </h2>
-            <p className="font-proxima text-studio-blue text-base leading-relaxed">
+            <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
               Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
             </p>
           </div>
         </div>
 
         {/* Item 3: mapping the head */}
-        <div className="flex flex-col lg:flex-row items-end mb-16 gap-4">
-          <div className="lg:w-[60%] lg:pr-4">
+        <div className="flex flex-col lg:flex-row items-end mb-10 gap-4">
+          <div className="lg:w-[55%] lg:pr-3">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page4.jpg`}
               alt="mapping the head"
-              className="w-full object-cover rounded-lg"
+              className="w-full object-cover"
               style={{ aspectRatio: '4/3' }}
             />
           </div>
-          <div className="lg:w-[40%] lg:pl-4">
+          <div className="lg:w-[45%] lg:pl-3">
             <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               mapping the head
             </h2>
-            <p className="font-proxima text-studio-blue text-base leading-relaxed">
+            <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
               Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
             </p>
           </div>
         </div>
 
         {/* Item 4: treatment */}
-        <div className="flex flex-col lg:flex-row-reverse items-end mb-16 gap-4">
-          <div className="lg:w-[60%] lg:pl-4">
+        <div className="flex flex-col lg:flex-row-reverse items-end mb-10 gap-4">
+          <div className="lg:w-[55%] lg:pl-3">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page5.jpg`}
               alt="treatment"
-              className="w-full object-cover rounded-lg"
+              className="w-full object-cover"
               style={{ aspectRatio: '4/3' }}
             />
           </div>
-          <div className="lg:w-[40%] lg:pr-4">
+          <div className="lg:w-[45%] lg:pr-3">
             <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               treatment
             </h2>
-            <p className="font-proxima text-studio-blue text-base leading-relaxed">
+            <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
               Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
             </p>
           </div>
         </div>
 
         {/* Item 5: approval */}
-        <div className="flex flex-col lg:flex-row items-end mb-16 gap-4">
-          <div className="lg:w-[60%] lg:pr-4">
+        <div className="flex flex-col lg:flex-row items-end mb-10 gap-4">
+          <div className="lg:w-[55%] lg:pr-3">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page6.png`}
               alt="approval"
-              className="w-full object-cover rounded-lg"
+              className="w-full object-cover"
               style={{ aspectRatio: '4/3' }}
             />
           </div>
-          <div className="lg:w-[40%] lg:pl-4">
+          <div className="lg:w-[45%] lg:pl-3">
             <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               approval
             </h2>
-            <p className="font-proxima text-studio-blue text-base leading-relaxed">
+            <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
               Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
             </p>
           </div>
@@ -226,14 +226,14 @@ const ProcessPage = () => {
         {/* Decorative Circles - fixed position */}
         <div className="absolute inset-0 pointer-events-none z-20">
           <div className="absolute" style={{ 
-            top: '300px', 
+            top: '340px', 
             left: '50%', 
             transform: 'translate(-50%, -50%)' 
           }}>
             {/* Small circle */}
             <div className="absolute rounded-full border-2 border-studio-blue" style={{ 
-              width: '280px', 
-              height: '280px',
+              width: '220px', 
+              height: '220px',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
@@ -241,8 +241,8 @@ const ProcessPage = () => {
             
             {/* Medium circle */}
             <div className="absolute rounded-full border-2 border-studio-blue" style={{ 
-              width: '380px', 
-              height: '380px',
+              width: '300px', 
+              height: '300px',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
@@ -250,8 +250,8 @@ const ProcessPage = () => {
             
             {/* Large circle */}
             <div className="absolute rounded-full border-2 border-studio-blue" style={{ 
-              width: '480px', 
-              height: '480px',
+              width: '380px', 
+              height: '380px',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
@@ -262,7 +262,7 @@ const ProcessPage = () => {
         {/* Content */}
         <div className="relative z-0">
           {/* Title */}
-          <h1 className="font-proxima-wide font-bold text-studio-blue uppercase text-left mb-12" style={{ fontSize: '48px', lineHeight: '1.1' }}>
+          <h1 className="font-proxima-wide font-bold text-studio-blue uppercase text-left mb-12" style={{ fontSize: '64px', lineHeight: '1.1' }}>
             meet our<br />inner circle
           </h1>
           
@@ -274,12 +274,12 @@ const ProcessPage = () => {
                 <img
                   src={`${process.env.PUBLIC_URL}/images/process/inner-circle1.jpg`}
                   alt="Inner circle team member 1"
-                  className="w-full object-cover rounded-lg"
+                  className="w-full object-cover"
                 />
                 <div className="bg-studio-blue px-6 pb-6 pt-8 text-left" style={{ height: '160px' }}>
                   <h3 className="text-studio-orange font-lovtony -mb-4 -mt-4" style={{ fontSize: '108px', lineHeight: '0.7' }}>katie gell</h3>
-                  <h4 className="text-white font-bold text-lg mb-1 mt-2">East Coast Operations</h4>
-                  <p className="text-white text-base mt-2">Wigmaker + Designer + Makeup Artist</p>
+                  <h4 className="text-white font-bold text-xs mb-1 mt-2">East Coast Operations</h4>
+                  <p className="text-white text-xs mt-2">Wigmaker + Designer + Makeup Artist</p>
                 </div>
               </div>
             </div>
@@ -297,12 +297,12 @@ const ProcessPage = () => {
                 <img
                   src={`${process.env.PUBLIC_URL}/images/process/inner-circle2.jpg`}
                   alt="Inner circle team member 2"
-                  className="w-full object-cover rounded-lg"
+                  className="w-full object-cover"
                 />
                 <div className="bg-studio-blue px-6 pb-6 pt-8 text-left" style={{ height: '160px' }}>
                   <h3 className="text-studio-orange font-lovtony -mb-4 -mt-4" style={{ fontSize: '108px', lineHeight: '0.7' }}>mandy lyons</h3>
-                  <h4 className="text-white font-bold text-lg mb-1 mt-2">West Coast Operations</h4>
-                  <p className="text-white text-base mt-2">Wigmaker + Hairstylist</p>
+                  <h4 className="text-white font-bold text-xs mb-1 mt-2">West Coast Operations</h4>
+                  <p className="text-white text-xs mt-2">Wigmaker + Hairstylist</p>
                 </div>
               </div>
             </div>

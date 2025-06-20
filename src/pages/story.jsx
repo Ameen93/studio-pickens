@@ -20,10 +20,10 @@ const StoryPage = () => {
             <div className="relative flex items-center justify-center">
               {/* Blue Outline Circle */}
               <div 
-                className="rounded-full border-2 border-studio-blue flex items-center justify-center"
+                className="rounded-full border border-studio-blue flex items-center justify-center"
                 style={{
-                  width: 'min(400px, 80vw)',
-                  height: 'min(400px, 80vw)'
+                  width: 'min(320px, 70vw)',
+                  height: 'min(320px, 70vw)'
                 }}
               >
                 {/* Roots Title */}
@@ -39,14 +39,14 @@ const StoryPage = () => {
             <div className="relative flex items-center justify-center">
               {/* Large Dashed Rotating Circle */}
               <div 
-                className="rounded-full border-2 border-studio-blue"
+                className="rounded-full border border-studio-blue"
                 style={{
-                  width: 'min(1050px, 90vw)',
-                  height: 'min(1050px, 90vw)',
+                  width: 'min(850px, 80vw)',
+                  height: 'min(850px, 80vw)',
                   transform: `rotate(${scrollY * 0.1}deg)`,
                   borderStyle: 'dashed',
-                  borderDashArray: '100px 150px',
-                  WebkitBorderDashArray: '100px 150px',
+                  borderDashArray: '80px 120px',
+                  WebkitBorderDashArray: '80px 120px',
                   willChange: 'transform'
                 }}
               />
@@ -114,16 +114,13 @@ const StoryPage = () => {
                   transform: 'translate(-50%, 50%) rotate(-8deg)'
                 }}
               >
-                <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px', lineHeight: '0.5' }}>word of mouth</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px', lineHeight: '0.5' }}>spreads</span>
-                </div>
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: '90px', lineHeight: '1' }}>word of mouth spreads</span>
               </div>
               
               {/* Center Content - positioned absolutely to avoid rotation */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center text-center px-6 max-w-lg">
-                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(20px, 4vw, 28px)', lineHeight: '1.3' }}>
+                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(18px, 3.5vw, 24px)', lineHeight: '1.1' }}>
                     First Major Movie Set
                   </h5>
                   <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
@@ -139,10 +136,10 @@ const StoryPage = () => {
             <div className="relative flex items-center justify-center">
               {/* Blue Outline Circle */}
               <div 
-                className="rounded-full border-2 border-studio-blue"
+                className="rounded-full border border-studio-blue"
                 style={{
-                  width: 'min(720px, 80vw)',
-                  height: 'min(720px, 80vw)'
+                  width: 'min(580px, 75vw)',
+                  height: 'min(580px, 75vw)'
                 }}
               />
               
@@ -175,15 +172,15 @@ const StoryPage = () => {
             <div className="relative flex items-center justify-center">
               {/* Blue Outline Circle */}
               <div 
-                className="rounded-full border-2 border-studio-blue flex items-center justify-center"
+                className="rounded-full border border-studio-blue flex items-center justify-center"
                 style={{
-                  width: 'min(720px, 80vw)',
-                  height: 'min(720px, 80vw)'
+                  width: 'min(580px, 75vw)',
+                  height: 'min(580px, 75vw)'
                 }}
               >
                 {/* Circle Content */}
                 <div className="flex flex-col items-center justify-center text-center px-6 max-w-lg">
-                  <h3 className="font-proxima-wide font-bold text-studio-blue uppercase text-center mb-4" style={{ fontSize: 'clamp(24px, 6vw, 36px)', lineHeight: '1.3' }}>
+                  <h3 className="font-proxima-wide font-bold text-studio-blue uppercase text-center mb-4" style={{ fontSize: 'clamp(20px, 5vw, 30px)', lineHeight: '1.1' }}>
                     Mastering The Texture Craft
                   </h3>
                   <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
@@ -211,14 +208,14 @@ const StoryPage = () => {
             <div className="relative flex items-center justify-center">
               {/* Large Dashed Rotating Circle */}
               <div 
-                className="rounded-full border-2 border-studio-blue"
+                className="rounded-full border border-studio-blue"
                 style={{
-                  width: 'min(1050px, 90vw)',
-                  height: 'min(1050px, 90vw)',
+                  width: 'min(850px, 80vw)',
+                  height: 'min(850px, 80vw)',
                   transform: `rotate(${scrollY * 0.1}deg)`,
                   borderStyle: 'dashed',
-                  borderDashArray: '100px 150px',
-                  WebkitBorderDashArray: '100px 150px',
+                  borderDashArray: '80px 120px',
+                  WebkitBorderDashArray: '80px 120px',
                   willChange: 'transform'
                 }}
               />
@@ -291,8 +288,8 @@ const StoryPage = () => {
               {/* Center Content - positioned absolutely to avoid rotation */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center text-center px-6 max-w-lg">
-                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(20px, 4vw, 28px)', lineHeight: '1.3' }}>
-                    theatre theatre<br />and more theatre
+                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(18px, 3.5vw, 24px)', lineHeight: '1.1' }}>
+                    theatre theatre and more theatre
                   </h5>
                   <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
                     Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
@@ -307,15 +304,15 @@ const StoryPage = () => {
             <div className="relative flex items-center justify-center" style={{ zIndex: 1 }}>
               {/* Blue Outline Circle */}
               <div 
-                className="rounded-full border-2 border-studio-blue flex items-center justify-center"
+                className="rounded-full border border-studio-blue flex items-center justify-center"
                 style={{
-                  width: 'min(828px, 80vw)',
-                  height: 'min(828px, 80vw)'
+                  width: 'min(660px, 75vw)',
+                  height: 'min(660px, 75vw)'
                 }}
               >
                 {/* Circle Content */}
                 <div className="flex flex-col items-center justify-center text-center px-6 max-w-lg">
-                  <h3 className="font-proxima-wide font-bold text-studio-blue uppercase text-center mb-4" style={{ fontSize: 'clamp(24px, 6vw, 36px)', lineHeight: '1.3' }}>
+                  <h3 className="font-proxima-wide font-bold text-studio-blue uppercase text-center mb-4" style={{ fontSize: 'clamp(20px, 5vw, 30px)', lineHeight: '1.1' }}>
                     In his signature era
                   </h3>
                   <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
@@ -333,10 +330,7 @@ const StoryPage = () => {
                   transform: 'translate(-50%, -50%) rotate(-7.5deg)'
                 }}
               >
-                <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px', lineHeight: '0.5' }}>requested by</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px', lineHeight: '0.5' }}>name</span>
-                </div>
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: '90px', lineHeight: '1' }}>requested by name</span>
               </div>
 
               {/* Polaroid at 9:15 - 2024 */}
@@ -393,10 +387,7 @@ const StoryPage = () => {
                   width: '800px'
                 }}
               >
-                <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px', lineHeight: '0.5' }}>custom visions</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px', lineHeight: '0.5' }}>and requests</span>
-                </div>
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: '90px', lineHeight: '1' }}>custom visions and requests</span>
               </div>
               
               {/* Contact button at 6 o'clock */}

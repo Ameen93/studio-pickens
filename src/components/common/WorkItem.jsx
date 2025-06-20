@@ -49,13 +49,14 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
       </div>
       </div>
 
-      {/* Content Panel - Slides out on hover */}
-      <div 
-        className={`absolute top-0 ${getContentPosition(project.side)} bg-studio-bg p-8 transition-all duration-500 ease-out z-10 w-full h-full shadow-lg
-          ${project.side === 'left' ? 'opacity-0 -translate-x-full group-hover:opacity-100 group-hover:translate-x-0' : ''}
-          ${project.side === 'right' ? 'opacity-0 translate-x-full group-hover:opacity-100 group-hover:translate-x-0' : ''}
-        `}
-      >
+      {/* Content Panel - Slides out on hover (only for left and right positioned items) */}
+      {project.side !== 'center' && (
+        <div 
+          className={`absolute top-0 ${getContentPosition(project.side)} bg-studio-bg p-8 transition-all duration-500 ease-out z-10 w-full h-full shadow-lg
+            ${project.side === 'left' ? 'opacity-0 -translate-x-full group-hover:opacity-100 group-hover:translate-x-0' : ''}
+            ${project.side === 'right' ? 'opacity-0 translate-x-full group-hover:opacity-100 group-hover:translate-x-0' : ''}
+          `}
+        >
         {/* Title */}
         <h5 className="font-proxima-wide font-bold text-studio-blue text-3xl uppercase tracking-wide mb-6">
           {content?.title}
@@ -93,7 +94,8 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
           </p>
           <div className="w-5/8 h-px border-b border-dotted border-studio-blue mt-2"></div>
         </div>
-      </div>
+        </div>
+      )}
     </div>
   );
 };

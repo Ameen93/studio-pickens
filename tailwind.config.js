@@ -14,6 +14,7 @@ module.exports = {
       },
       fontFamily: {
         'proxima': ['proxima-nova', 'sans-serif'],
+        'proxima-semibold': ['proxima-nova', 'sans-serif'],
         'proxima-wide': ['proxima-nova-extra-wide', 'sans-serif'],
         'lovtony': ['Lovtony', 'serif'],
       },
