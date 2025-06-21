@@ -83,9 +83,9 @@ const Layout = ({
   }, [title, description]);
 
   return (
-    <div className="min-h-screen bg-studio-bg w-full overflow-x-hidden">
+    <div className="bg-studio-bg w-full">
       <Navbar />
-      <main className="min-h-screen w-full overflow-x-hidden pt-20">
+      <main className="w-full pt-20">
         {children}
       </main>
       {showFooter && <Footer />}

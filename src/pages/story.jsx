@@ -13,21 +13,24 @@ const StoryPage = () => {
   return (
     <Layout title="Studio Pickens - Story">
       {/* Story Section */}
-      <section className="bg-studio-bg py-32 px-4 w-full">
-        <div className="w-full max-w-5xl mx-auto" style={{ minHeight: '2000px' }}>
+      <section className="bg-studio-bg py-8 px-4 pb-32 w-full">
+        <div className="w-full max-w-5xl mx-auto">
           {/* Roots Circle */}
           <div className="flex justify-center w-full">
             <div className="relative flex items-center justify-center">
               {/* Blue Outline Circle */}
-              <div 
+              <div
                 className="rounded-full border border-studio-blue flex items-center justify-center"
                 style={{
                   width: 'min(320px, 70vw)',
-                  height: 'min(320px, 70vw)'
+                  height: 'min(320px, 70vw)',
                 }}
               >
                 {/* Roots Title */}
-                <h1 className="font-proxima-wide font-bold text-studio-blue uppercase text-center" style={{ fontSize: 'clamp(32px, 8vw, 48px)' }}>
+                <h1
+                  className="font-proxima-wide font-bold text-studio-blue uppercase text-center"
+                  style={{ fontSize: 'clamp(32px, 8vw, 48px)' }}
+                >
                   Roots
                 </h1>
               </div>
