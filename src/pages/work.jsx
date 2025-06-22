@@ -41,12 +41,12 @@ const WorkPage = () => {
         {/* Center Content */}
         <div className="flex items-center justify-center h-full w-full">
           <div className="text-center max-w-2xl mx-auto px-4">
-            <div className="md:bg-transparent bg-studio-bg md:p-0 p-6 md:w-auto w-[270px] mx-auto">
-              <h1 className="font-proxima-wide font-bold text-studio-blue uppercase mb-6" style={{ fontSize: '55px', lineHeight: '1.1' }}>
+            <div className="md:bg-transparent bg-studio-bg md:p-0 p-6 md:w-auto w-[400px] mx-auto">
+              <h1 className="font-proxima-wide font-bold text-studio-blue uppercase mb-6 text-center md:text-[64px] text-[40px]" style={{ lineHeight: '1.1' }}>
                 Selected<br />Work
               </h1>
               <p className="font-proxima text-studio-blue max-w-lg" style={{ fontSize: '16px', lineHeight: '1.4' }}>
-                Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec.
+                Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus.
               </p>
             </div>
           </div>

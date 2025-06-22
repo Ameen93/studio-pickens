@@ -53,7 +53,7 @@ const HeroBanner = () => {
       alt: "Behind the scenes",
       position: {
         top: 'clamp(10px, 2.78vw, 20px)',
-        left: 'clamp(10px, 2.78vw, 20px)'
+        left: '-10px'
       },
       size: {
         width: 'clamp(86px, 24vw, 172.76px)',
@@ -88,8 +88,8 @@ const HeroBanner = () => {
       filename: "polaroid2.png",
       alt: "Creative process",
       position: {
-        top: '50%',
-        left: '40%'
+        bottom: 'clamp(100px, 27.78vw, 200px)',
+        right: '-20px'
       },
       size: {
         width: 'clamp(86px, 23.89vw, 171.97px)',
@@ -124,8 +124,8 @@ const HeroBanner = () => {
       filename: "polaroid3.png",
       alt: "Studio work",
       position: {
-        bottom: 'clamp(-30px, -8.33vw, -60px)',
-        left: '50%'
+        top: '75%',
+        left: '40%'
       },
       size: {
         width: 'clamp(80px, 22.31vw, 160.65px)',
@@ -197,7 +197,7 @@ const HeroBanner = () => {
             }}
           />
           <h1 
-            className="font-proxima-wide font-semibold text-studio-blue uppercase text-center whitespace-nowrap transition-all duration-1000 ease-out"
+            className="hidden xl:block font-proxima-wide font-semibold text-studio-blue uppercase text-center whitespace-nowrap transition-all duration-1000 ease-out"
             style={{
               fontSize: `${50 - scrollProgress * 25}px`,
               opacity: isLoaded ? Math.max(1 - scrollProgress * 1.67, 0) : 0,

@@ -16,7 +16,7 @@ const ProcessPage = () => {
         <img
           src={`${process.env.PUBLIC_URL}/images/process/banner/process-Hero-Banner-Grouped.png`}
           alt="Process banner background"
-          className="absolute inset-0 w-full h-full object-contain z-0"
+          className="absolute inset-0 w-full h-full object-cover z-0"
         />
 
         {/* Rotating Dashed Circle */}

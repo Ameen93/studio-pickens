@@ -17,7 +17,7 @@ const FAQPage = () => {
       >
         {/* F A Q Letters */}
         {/* F - Top Left */}
-        <div className={`absolute top-4 left-8 ${TYPOGRAPHY_CLASSES.headingPrimary}`} style={{ fontSize: 'clamp(64px, 9.6vw, 160px)' }}>
+        <div className={`absolute top-0 left-8 ${TYPOGRAPHY_CLASSES.headingPrimary}`} style={{ fontSize: 'clamp(64px, 9.6vw, 160px)' }}>
           F
         </div>
         

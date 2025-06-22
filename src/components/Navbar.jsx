@@ -94,11 +94,11 @@ const Navbar = () => {
         <div className="lg:hidden">
           {/* Mobile Header */}
           <div className="flex items-center py-6">
-            {/* Logo Section - Takes up remaining space and centers logo */}
-            <div className="flex-1 flex justify-center">
+            {/* Logo Section - Takes up remaining space and left-aligns logo */}
+            <div className="flex-1 flex justify-start">
               <button
                 onClick={() => navigate('/')}
-                className="text-nav-logo font-proxima-wide font-semibold text-nav-blue uppercase text-center"
+                className="text-nav-logo font-proxima-wide font-semibold text-nav-blue uppercase text-left"
               >
                 STUDIO PICKENS
               </button>

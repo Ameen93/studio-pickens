@@ -36,7 +36,7 @@ const WorkBanners = ({ onBannerClick }) => {
           className="relative w-full group cursor-pointer overflow-hidden"
           onClick={() => onBannerClick && onBannerClick(banner.category)}
           style={{
-            height: 'clamp(200px, 22.36vw, 322px)' // 322/1440 = 22.36%
+            height: 'clamp(100px, 22.36vw, 322px)' // Half height on mobile, same on desktop
           }}
         >
             {/* Banner Image */}
