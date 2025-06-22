@@ -17,7 +17,7 @@ const FAQPage = () => {
       >
         {/* F A Q Letters */}
         {/* F - Top Left */}
-        <div className={`absolute top-8 left-8 ${TYPOGRAPHY_CLASSES.headingPrimary}`} style={{ fontSize: 'clamp(64px, 9.6vw, 160px)' }}>
+        <div className={`absolute top-4 left-8 ${TYPOGRAPHY_CLASSES.headingPrimary}`} style={{ fontSize: 'clamp(64px, 9.6vw, 160px)' }}>
           F
         </div>
         
@@ -34,7 +34,7 @@ const FAQPage = () => {
         {/* Q - Between F and A horizontally, at bottom */}
         <div className={`absolute ${TYPOGRAPHY_CLASSES.headingPrimary}`} style={{ 
           fontSize: 'clamp(64px, 9.6vw, 160px)',
-          bottom: '15%',
+          bottom: '5%',
           left: '40%',
           transform: 'translateX(-50%)'
         }}>
