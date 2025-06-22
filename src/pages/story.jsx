@@ -451,7 +451,7 @@ const StoryPage = () => {
                   }}
                   className="bg-studio-blue w-24 h-24 rounded-full flex items-center justify-center hover:bg-studio-orange transition-colors duration-300 group"
                 >
-                  <span className="font-proxima text-studio-orange group-hover:text-studio-blue font-bold uppercase transition-colors duration-300" style={{ fontSize: '14px' }}>
+                  <span className="font-proxima-wide text-studio-orange group-hover:text-studio-blue font-bold uppercase transition-colors duration-300" style={{ fontSize: '14px' }}>
                     Contact
                   </span>
                 </button>

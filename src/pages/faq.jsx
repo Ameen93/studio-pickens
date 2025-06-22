@@ -12,7 +12,7 @@ const FAQPage = () => {
       <PageBanner 
         backgroundImage="faq/4963b601-8788-4697-b9fc-5a0ce4c4e5b4.jpeg"
         altText="FAQ banner background"
-        height="clamp(600px, 67.5vw, 1200px)"
+        height="705px"
         objectPosition="50% 55%"
       >
         {/* F A Q Letters */}

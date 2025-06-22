@@ -25,24 +25,30 @@ const LocationsPage = () => {
         className="relative bg-studio-bg flex items-center justify-center w-full overflow-hidden" 
         style={{ 
           height: 'clamp(400px, 45vw, 800px)',
+          paddingTop: '64px',
+          paddingBottom: '64px'
         }}
       >
         {/* Animated Outline Circles */}
         {[...Array(6)].map((_, index) => {
-          // All circles start from center and move out to the left in sets of 2
-          // Set 1: -150px, -200px | Set 2: -350px, -400px | Set 3: -550px, -600px
-          const pairIndex = Math.floor(index / 2);
-          const positionInPair = index % 2;
-          const setStartPosition = -150 - (pairIndex * 200); // Start positions: -150, -350, -550
-          const finalPosition = setStartPosition - (positionInPair * 50); // 50px apart within each pair
-          // Stagger animation: pairs move together
-          const animationDelay = pairIndex * 200; // 200ms delay between pairs
+          // 3 circles move left, 3 circles move right, all starting from behind main circle
+          const isLeftGroup = index < 3;
+          const positionInGroup = index % 3; // 0, 1, 2 for each group
+          
+          // Final positions: left group goes negative, right group goes positive
+          // Spacing: -100px, -200px, -300px for left; +100px, +200px, +300px for right
+          const finalPosition = isLeftGroup 
+            ? -100 - (positionInGroup * 100) // -100, -200, -300
+            : 100 + (positionInGroup * 100);  // +100, +200, +300
+          
+          // Stagger animation: each circle has its own delay
+          const animationDelay = index * 100; // 100ms delay between each circle
           
           return (
             <div 
               key={index}
               className="absolute w-full flex justify-center z-5" 
-              style={{ top: '60%', transform: 'translateY(-50%)' }}
+              style={{ top: '50%', transform: 'translateY(-50%)' }}
             >
               <div 
                 className="rounded-full border-2 border-studio-blue transition-transform ease-out"
@@ -61,7 +67,7 @@ const LocationsPage = () => {
         })}
 
         {/* Blue Filled Circle */}
-        <div className="absolute w-full flex justify-center z-10" style={{ top: '60%', transform: 'translateY(-50%)' }}>
+        <div className="absolute w-full flex justify-center z-10" style={{ top: '50%', transform: 'translateY(-50%)' }}>
           <div 
             className="rounded-full bg-studio-blue"
             style={{
@@ -72,7 +78,7 @@ const LocationsPage = () => {
         </div>
 
         {/* Center Content */}
-        <div className="text-center z-20" style={{ position: 'absolute', top: '60%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+        <div className="text-center z-20" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
           <h1 className="font-proxima-wide font-bold text-studio-orange uppercase" style={{ fontSize: '55px' }}>
             Locations
           </h1>
@@ -80,8 +86,8 @@ const LocationsPage = () => {
       </section>
 
       {/* Location Images with Info Boxes */}
-      <section className="bg-studio-bg py-16">
-        <div className="max-w-screen-xl mx-auto px-4">
+      <section className="bg-studio-bg pt-16 pb-16">
+        <div className="w-full px-10">
           <div className="space-y-16">
             {/* New York - Info Left, Image Right */}
             <LocationInfo

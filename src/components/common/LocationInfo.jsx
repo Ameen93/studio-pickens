@@ -32,12 +32,11 @@ const LocationInfo = React.memo(({
     <div className={`flex flex-col gap-4 md:gap-0 md:flex-row items-center group`}>
       {/* Info Box */}
       <div 
-        className={`bg-white md:group-hover:bg-studio-blue transition-colors duration-300 p-8 flex flex-col justify-between cursor-pointer relative ${
+        className={`bg-white md:group-hover:bg-studio-blue transition-colors duration-300 p-8 flex flex-col justify-between cursor-pointer relative flex-1 ${
           isLeft ? 'order-1 md:order-1' : 'order-1 md:order-2'
         }`}
         style={{
-          width: 'clamp(360px, 25vw, 360px)',
-          height: 'clamp(200px, 44.44vw, 640px)'
+          height: 'clamp(250px, 50vw, 720px)'
         }}
         onClick={() => window.open(mapsUrl, '_blank')}
         onKeyDown={(e) => {
@@ -84,8 +83,8 @@ const LocationInfo = React.memo(({
           isLeft ? 'order-2 md:order-2' : 'order-2 md:order-1'
         }`}
         style={{
-          width: 'clamp(485px, 67.36vw, 970px)',
-          height: 'clamp(420px, 44.44vw, 640px)'
+          width: '975px',
+          height: 'clamp(250px, 50vw, 720px)'
         }}
         onClick={() => window.open(mapsUrl, '_blank')}
         onKeyDown={(e) => {

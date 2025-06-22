@@ -22,7 +22,7 @@ const FAQSection = () => {
       <div className="flex flex-col lg:flex-row gap-20">
         {/* Left Column - Title */}
         <div className="lg:w-2/5">
-          <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-left" style={{ fontSize: '54px', lineHeight: '1.1' }}>
+          <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-left" style={{ fontSize: '32px', lineHeight: '1.1' }}>
             FREQUENTLY<br />ASKED QUESTIONS
           </h2>
         </div>
@@ -31,7 +31,7 @@ const FAQSection = () => {
         <div className="lg:w-3/5">
           <div className="space-y-0">
             {faqItems.map((question, index) => (
-              <div key={index} className="border-b border-studio-blue">
+              <div key={index} className={`border-b border-studio-blue ${index === 0 ? 'border-t' : ''}`}>
                 {/* Question Header */}
                 <button
                   onClick={() => toggleItem(index)}
@@ -39,7 +39,7 @@ const FAQSection = () => {
                   aria-expanded={openItem === index}
                   aria-controls={`faq-content-${index}`}
                 >
-                  <span className="font-proxima font-bold text-studio-blue uppercase pr-4" style={{ fontSize: '18px', lineHeight: '1.4' }}>
+                  <span className="font-proxima-semibold text-studio-blue uppercase pr-4" style={{ fontSize: '18px', lineHeight: '1.4' }}>
                     {question}
                   </span>
                   
