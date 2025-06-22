@@ -29,10 +29,10 @@ const LocationInfo = React.memo(({
   }
   
   return (
-    <div className={`flex flex-col gap-4 md:gap-0 md:flex-row items-center group`}>
+    <div className={`flex flex-col gap-4 md:gap-0 md:flex-row items-center group px-0`}>
       {/* Info Box */}
       <div 
-        className={`bg-white md:group-hover:bg-studio-blue transition-colors duration-300 p-8 flex flex-col justify-between cursor-pointer relative flex-1 ${
+        className={`bg-white md:group-hover:bg-studio-blue transition-colors duration-300 p-8 flex flex-col justify-between cursor-pointer relative w-full md:w-1/4 ${
           isLeft ? 'order-1 md:order-1' : 'order-1 md:order-2'
         }`}
         style={{
@@ -79,11 +79,10 @@ const LocationInfo = React.memo(({
       
       {/* Image */}
       <div 
-        className={`bg-gray-200 overflow-hidden cursor-pointer ${
+        className={`bg-gray-200 overflow-hidden cursor-pointer w-full md:w-3/4 ${
           isLeft ? 'order-2 md:order-2' : 'order-2 md:order-1'
         }`}
         style={{
-          width: '975px',
           height: 'clamp(250px, 50vw, 720px)'
         }}
         onClick={() => window.open(mapsUrl, '_blank')}

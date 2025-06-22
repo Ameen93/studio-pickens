@@ -13,7 +13,7 @@ const StoryPage = () => {
   return (
     <Layout title="Studio Pickens - Story">
       {/* Story Section */}
-      <section className="bg-studio-bg py-8 px-4 pb-32 w-full">
+      <section className="bg-studio-bg py-8 px-4 pb-32 w-full overflow-hidden">
         <div className="w-full max-w-5xl mx-auto">
           {/* Roots Circle */}
           <div className="flex justify-center w-full">
@@ -29,7 +29,7 @@ const StoryPage = () => {
                 {/* Roots Title */}
                 <h1
                   className="font-proxima-wide font-bold text-studio-blue uppercase text-center"
-                  style={{ fontSize: '64px' }}
+                  style={{ fontSize: 'clamp(32px, 8vw, 64px)' }}
                 >
                   Roots
                 </h1>
@@ -38,7 +38,7 @@ const StoryPage = () => {
           </div>
 
           {/* First Major Movie Set Circle */}
-          <div className="flex justify-center w-full" style={{ marginTop: '-80px' }}>
+          <div className="flex justify-center w-full" style={{ marginTop: 'clamp(-40px, -8vw, -80px)' }}>
             <div className="relative flex items-center justify-center">
               {/* Layout Container */}
               <div 
@@ -83,7 +83,7 @@ const StoryPage = () => {
                   <img
                     src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid7.JPG`}
                     alt="Polaroid 7"
-                    className="w-80 h-auto object-contain"
+                    className="w-40 md:w-80 h-auto object-contain"
                   />
                   <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2017</span>
@@ -104,7 +104,7 @@ const StoryPage = () => {
                   <img
                     src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid7.JPG`}
                     alt="Polaroid 7"
-                    className="w-80 h-auto object-contain"
+                    className="w-40 md:w-80 h-auto object-contain"
                   />
                   <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2017</span>
@@ -114,19 +114,19 @@ const StoryPage = () => {
               
               {/* Process 2017 text at 1:20 */}
               <div 
-                className="absolute"
+                className="absolute hidden md:block"
                 style={{
                   top: '20%',
                   right: '6%',
                   transform: 'translate(50%, -50%)'
                 }}
               >
-                <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px' }}>process 2017</span>
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 12vw, 135px)' }}>process 2017</span>
               </div>
               
               {/* Word of mouth spreads text at 7:20 */}
               <div 
-                className="absolute text-center"
+                className="absolute text-center hidden md:block"
                 style={{
                   bottom: '20%',
                   left: '3%',
@@ -134,8 +134,8 @@ const StoryPage = () => {
                 }}
               >
                 <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px', lineHeight: '0.3' }}>word of mouth</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px', lineHeight: '0.3' }}>spreads</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 12vw, 135px)', lineHeight: '0.3' }}>word of mouth</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 12vw, 135px)', lineHeight: '0.3' }}>spreads</span>
                 </div>
               </div>
               
@@ -154,7 +154,7 @@ const StoryPage = () => {
           </div>
 
           {/* Third Circle - bigger than roots, overlapping first major set */}
-          <div className="flex justify-start w-full" style={{ marginTop: '-200px', marginLeft: '-50px' }}>
+          <div className="flex justify-start w-full" style={{ marginTop: 'clamp(-100px, -20vw, -200px)', marginLeft: 'clamp(-25px, -5vw, -50px)' }}>
             <div className="relative flex items-center justify-center">
               {/* Blue Outline Circle */}
               <div 
@@ -179,7 +179,7 @@ const StoryPage = () => {
                   <img
                     src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid6.JPG`}
                     alt="Polaroid 6"
-                    className="w-80 h-auto object-contain"
+                    className="w-40 md:w-80 h-auto object-contain"
                   />
                   <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2018</span>
@@ -190,7 +190,7 @@ const StoryPage = () => {
           </div>
 
           {/* Fourth Circle - same size as circle 3, overlapping bottom right */}
-          <div className="flex justify-end w-full" style={{ marginTop: '-250px', marginRight: '-100px' }}>
+          <div className="flex justify-end w-full" style={{ marginTop: 'clamp(-125px, -25vw, -250px)', marginRight: 'clamp(-50px, -10vw, -100px)' }}>
             <div className="relative flex items-center justify-center">
               {/* Blue Outline Circle */}
               <div 
@@ -213,20 +213,20 @@ const StoryPage = () => {
               
               {/* First milestone order text at 5:15 */}
               <div 
-                className="absolute whitespace-nowrap"
+                className="absolute whitespace-nowrap hidden md:block"
                 style={{
                   bottom: '5%',
                   left: '75%',
                   transform: 'translate(-50%, 50%) rotate(7.56deg)'
                 }}
               >
-                <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px' }}>first milestone order</span>
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 12vw, 135px)' }}>first milestone order</span>
               </div>
             </div>
           </div>
 
           {/* Fifth Circle - same as circle 2, centered, overlapping bottom 25% of circle 4 */}
-          <div className="flex justify-center w-full" style={{ marginTop: '-180px' }}>
+          <div className="flex justify-center w-full" style={{ marginTop: 'clamp(-90px, -18vw, -180px)' }}>
             <div className="relative flex items-center justify-center">
               {/* Layout Container */}
               <div 
@@ -271,7 +271,7 @@ const StoryPage = () => {
                   <img
                     src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid9.JPG`}
                     alt="Polaroid 9"
-                    className="w-80 h-auto object-contain"
+                    className="w-40 md:w-80 h-auto object-contain"
                   />
                   <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2020</span>
@@ -292,7 +292,7 @@ const StoryPage = () => {
                   <img
                     src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid9.JPG`}
                     alt="Polaroid 9"
-                    className="w-80 h-auto object-contain"
+                    className="w-40 md:w-80 h-auto object-contain"
                   />
                   <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2020</span>
@@ -315,7 +315,7 @@ const StoryPage = () => {
                     src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid13.JPG`}
                     alt="Polaroid 13"
                     className="h-auto object-contain"
-                    style={{ width: '416px' }}
+                    style={{ width: 'clamp(200px, 50vw, 416px)' }}
                   />
                   <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2024</span>
@@ -338,7 +338,7 @@ const StoryPage = () => {
           </div>
 
           {/* Sixth Circle - 15% bigger than circle 4, below circle 5 */}
-          <div className="flex justify-center w-full" style={{ marginTop: '100px' }}>
+          <div className="flex justify-center w-full" style={{ marginTop: 'clamp(50px, 10vw, 100px)' }}>
             <div className="relative flex items-center justify-center" style={{ zIndex: 1 }}>
               {/* Blue Outline Circle */}
               <div 
@@ -361,7 +361,7 @@ const StoryPage = () => {
               
               {/* Requested by name text at 9:30 o'clock */}
               <div 
-                className="absolute text-center"
+                className="absolute text-center hidden md:block"
                 style={{
                   top: '35%',
                   left: '5%',
@@ -369,8 +369,8 @@ const StoryPage = () => {
                 }}
               >
                 <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px', lineHeight: '0.3' }}>requested by</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px', lineHeight: '0.3' }}>name</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 12vw, 135px)', lineHeight: '0.3' }}>requested by</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 12vw, 135px)', lineHeight: '0.3' }}>name</span>
                 </div>
               </div>
 
@@ -388,7 +388,7 @@ const StoryPage = () => {
                   <img
                     src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid13.JPG`}
                     alt="Polaroid 13"
-                    className="w-80 h-auto object-contain"
+                    className="w-40 md:w-80 h-auto object-contain"
                   />
                   <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2024</span>
@@ -410,7 +410,7 @@ const StoryPage = () => {
                   <img
                     src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid13.JPG`}
                     alt="Polaroid 13"
-                    className="w-80 h-auto object-contain"
+                    className="w-40 md:w-80 h-auto object-contain"
                   />
                   <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2024</span>
@@ -420,7 +420,7 @@ const StoryPage = () => {
 
               {/* Custom visions and requests text at 5:30 o'clock */}
               <div 
-                className="absolute text-center"
+                className="absolute text-center hidden md:block"
                 style={{
                   bottom: '10%',
                   left: '78%',
@@ -429,8 +429,8 @@ const StoryPage = () => {
                 }}
               >
                 <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px', lineHeight: '0.3' }}>custom visions</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px', lineHeight: '0.3' }}>and requests</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 12vw, 135px)', lineHeight: '0.3' }}>custom visions</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 12vw, 135px)', lineHeight: '0.3' }}>and requests</span>
                 </div>
               </div>
               

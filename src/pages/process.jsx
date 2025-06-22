@@ -21,16 +21,26 @@ const ProcessPage = () => {
 
         {/* Rotating Dashed Circle */}
         <div className="absolute w-full flex justify-center z-10" style={{ top: '50%', transform: 'translateY(-50%)' }}>
-          <div 
-            className="rounded-full border border-dashed border-studio-blue animate-spin"
+          <svg 
+            className="animate-spin"
             style={{
-              width: 'clamp(280px, 32vw, 460px)',
-              height: 'clamp(280px, 32vw, 460px)',
+              width: 'clamp(342px, 70vw, 513px)',
+              height: 'clamp(342px, 70vw, 513px)',
               animationDuration: '60s',
               animationTimingFunction: 'linear',
               animationIterationCount: 'infinite'
             }}
-          />
+          >
+            <circle
+              cx="50%"
+              cy="50%"
+              r="calc(50% - 2px)"
+              fill="none"
+              stroke="#0025B8"
+              strokeWidth="2"
+              strokeDasharray="10 10"
+            />
+          </svg>
         </div>
 
         {/* Center Content */}
@@ -42,10 +52,10 @@ const ProcessPage = () => {
       </section>
 
       {/* Process Gallery Section */}
-      <section className="pt-0 pb-10 px-10 max-w-full mx-auto">
+      <section className="pt-8 pb-10 px-4 md:px-10 max-w-full mx-auto">
         {/* Item 1: 90% science / 10% wigmaking */}
         <div className="flex flex-col lg:flex-row items-end mb-10 gap-4">
-          <div className="lg:w-[55%] lg:pr-3">
+          <div className="lg:w-[55%] lg:pr-3 lg:order-1 order-2">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page2.jpg`}
               alt="90% science / 10% wigmaking"
@@ -53,9 +63,10 @@ const ProcessPage = () => {
               style={{ aspectRatio: '4/3' }}
             />
           </div>
-          <div className="lg:w-[45%] lg:pl-3">
+          <div className="lg:w-[45%] lg:pl-3 lg:order-2 order-1 lg:text-left text-center">
             <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
-              90% science / 10% wigmaking
+              <span className="lg:hidden">90% science<br />10% wigmaking</span>
+              <span className="hidden lg:inline">90% science / 10% wigmaking</span>
             </h2>
             <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
               Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
@@ -65,7 +76,7 @@ const ProcessPage = () => {
 
         {/* Item 2: Consultation */}
         <div className="flex flex-col lg:flex-row-reverse items-end mb-10 gap-4">
-          <div className="lg:w-[55%] lg:pl-3">
+          <div className="lg:w-[55%] lg:pl-3 lg:order-1 order-2">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page3.jpg`}
               alt="Consultation"
@@ -73,7 +84,7 @@ const ProcessPage = () => {
               style={{ aspectRatio: '4/3' }}
             />
           </div>
-          <div className="lg:w-[45%] lg:pr-3">
+          <div className="lg:w-[45%] lg:pr-3 lg:order-2 order-1 lg:text-left text-center">
             <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               Consultation
             </h2>
@@ -85,7 +96,7 @@ const ProcessPage = () => {
 
         {/* Item 3: mapping the head */}
         <div className="flex flex-col lg:flex-row items-end mb-10 gap-4">
-          <div className="lg:w-[55%] lg:pr-3">
+          <div className="lg:w-[55%] lg:pr-3 lg:order-1 order-2">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page4.jpg`}
               alt="mapping the head"
@@ -93,7 +104,7 @@ const ProcessPage = () => {
               style={{ aspectRatio: '4/3' }}
             />
           </div>
-          <div className="lg:w-[45%] lg:pl-3">
+          <div className="lg:w-[45%] lg:pl-3 lg:order-2 order-1 lg:text-left text-center">
             <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               mapping the head
             </h2>
@@ -105,7 +116,7 @@ const ProcessPage = () => {
 
         {/* Item 4: treatment */}
         <div className="flex flex-col lg:flex-row-reverse items-end mb-10 gap-4">
-          <div className="lg:w-[55%] lg:pl-3">
+          <div className="lg:w-[55%] lg:pl-3 lg:order-1 order-2">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page5.jpg`}
               alt="treatment"
@@ -113,7 +124,7 @@ const ProcessPage = () => {
               style={{ aspectRatio: '4/3' }}
             />
           </div>
-          <div className="lg:w-[45%] lg:pr-3">
+          <div className="lg:w-[45%] lg:pr-3 lg:order-2 order-1 lg:text-left text-center">
             <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               treatment
             </h2>
@@ -125,7 +136,7 @@ const ProcessPage = () => {
 
         {/* Item 5: approval */}
         <div className="flex flex-col lg:flex-row items-end mb-10 gap-4">
-          <div className="lg:w-[55%] lg:pr-3">
+          <div className="lg:w-[55%] lg:pr-3 lg:order-1 order-2">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page6.png`}
               alt="approval"
@@ -133,7 +144,7 @@ const ProcessPage = () => {
               style={{ aspectRatio: '4/3' }}
             />
           </div>
-          <div className="lg:w-[45%] lg:pl-3">
+          <div className="lg:w-[45%] lg:pl-3 lg:order-2 order-1 lg:text-left text-center">
             <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
               approval
             </h2>
@@ -225,11 +236,7 @@ const ProcessPage = () => {
       <section className="py-16 px-4 max-w-6xl mx-auto relative" style={{ minHeight: '800px' }}>
         {/* Decorative Circles - fixed position */}
         <div className="absolute inset-0 pointer-events-none z-20">
-          <div className="absolute" style={{ 
-            top: '340px', 
-            left: '50%', 
-            transform: 'translate(-50%, -50%)' 
-          }}>
+          <div className="absolute top-[290px] lg:top-[340px] left-1/2 -translate-x-1/2 -translate-y-1/2">
             {/* Small circle */}
             <div className="absolute rounded-full border-2 border-studio-blue" style={{ 
               width: '220px', 
@@ -262,12 +269,12 @@ const ProcessPage = () => {
         {/* Content */}
         <div className="relative z-0">
           {/* Title */}
-          <h1 className="font-proxima-wide font-bold text-studio-blue uppercase text-left mb-12" style={{ fontSize: '64px', lineHeight: '1.1' }}>
+          <h1 className="font-proxima-wide font-bold text-studio-blue uppercase text-center lg:text-left mb-12 text-[32px] lg:text-[64px]" style={{ lineHeight: '1.1' }}>
             meet our<br />inner circle
           </h1>
           
           {/* Images and Subheading */}
-          <div className="flex flex-col lg:flex-row items-start gap-8">
+          <div className="flex flex-col lg:flex-row items-start gap-8 mt-56 lg:mt-0">
             {/* Left Inner Circle Image */}
             <div className="lg:w-1/2 flex justify-center lg:justify-end">
               <div style={{ maxWidth: '675px', width: '100%' }}>
@@ -285,7 +292,7 @@ const ProcessPage = () => {
             </div>
 
             {/* Center Subheading */}
-            <div className="lg:w-1/4 text-center" style={{ paddingTop: '30px' }}>
+            <div className="lg:w-1/4 text-center lg:relative lg:static absolute lg:top-auto lg:left-auto top-[220px] left-1/2 lg:transform-none -translate-x-1/2 -translate-y-1/2 lg:z-auto z-30" style={{ paddingTop: '30px' }}>
               <p className="font-proxima text-studio-blue text-center uppercase" style={{ fontWeight: 600, fontSize: '24px', lineHeight: '125%', letterSpacing: '4%' }}>
                 The trusted<br />hands behind<br />every strand
               </p>

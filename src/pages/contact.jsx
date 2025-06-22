@@ -101,9 +101,9 @@ const ContactPage = () => {
         ${ANIMATIONS.keyframes.shake}
       `}</style>
       {/* Header Section */}
-      <section className="bg-studio-bg pb-12" style={{ paddingTop: '152px' }}>
-        <div className="w-full" style={{ paddingLeft: '152px' }}>
-          <h1 className={`${TYPOGRAPHY_CLASSES.headingPrimary} tracking-wide text-left`} style={{ fontSize: '64pt' }}>
+      <section className="bg-studio-bg flex items-center pb-12 pt-8 md:pt-[152px]">
+        <div className="w-full px-4 md:pl-[152px] md:pr-0">
+          <h1 className={`${TYPOGRAPHY_CLASSES.headingPrimary} tracking-wide text-left text-[32px] md:text-[64pt] whitespace-nowrap`}>
             GET IN TOUCH
           </h1>
         </div>
@@ -114,9 +114,9 @@ const ContactPage = () => {
         <div className="max-w-screen-xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
             {/* Brooklyn */}
-            <div className="text-center">
+            <div className="text-left md:text-center">
               <div 
-                className="flex items-center justify-center mb-4 cursor-pointer"
+                className="flex items-center justify-start md:justify-center mb-4 cursor-pointer"
                 onMouseEnter={() => setHoveredLocation('brooklyn')}
                 onMouseLeave={() => setHoveredLocation(null)}
                 onClick={() => copyToClipboard('brooklyn@studiopickens.com')}
@@ -137,9 +137,9 @@ const ContactPage = () => {
             </div>
 
             {/* Beverly Hills */}
-            <div className="text-center">
+            <div className="text-left md:text-center">
               <div 
-                className="flex items-center justify-center mb-4 cursor-pointer"
+                className="flex items-center justify-start md:justify-center mb-4 cursor-pointer"
                 onMouseEnter={() => setHoveredLocation('beverlyhills')}
                 onMouseLeave={() => setHoveredLocation(null)}
                 onClick={() => copyToClipboard('beverlyhills@studiopickens.com')}
@@ -187,11 +187,11 @@ const ContactPage = () => {
 
       {/* Press and Contact Form Section */}
       <section className="bg-studio-bg pt-16 pb-16">
-        <div className="w-full" style={{ paddingLeft: '152px', paddingRight: '152px' }}>
+        <div className="w-full px-4 md:px-[152px]">
           {/* Press and Form Container */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Left Column - Press */}
-            <div>
+            <div className="ml-10">
               <div className="mb-8">
                 <h2 className="font-proxima-wide font-bold text-2xl text-studio-blue uppercase tracking-wide mb-4 text-left">
                   PRESS

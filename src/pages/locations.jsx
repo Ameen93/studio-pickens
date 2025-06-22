@@ -87,7 +87,7 @@ const LocationsPage = () => {
 
       {/* Location Images with Info Boxes */}
       <section className="bg-studio-bg pt-16 pb-16">
-        <div className="w-full px-10">
+        <div className="w-full px-4 md:px-10 max-w-none">
           <div className="space-y-16">
             {/* New York - Info Left, Image Right */}
             <LocationInfo
