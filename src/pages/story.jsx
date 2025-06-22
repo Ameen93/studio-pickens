@@ -22,14 +22,14 @@ const StoryPage = () => {
               <div
                 className="rounded-full border border-studio-blue flex items-center justify-center"
                 style={{
-                  width: 'min(320px, 70vw)',
-                  height: 'min(320px, 70vw)',
+                  width: 'min(513px, 70vw)',
+                  height: 'min(513px, 70vw)',
                 }}
               >
                 {/* Roots Title */}
                 <h1
                   className="font-proxima-wide font-bold text-studio-blue uppercase text-center"
-                  style={{ fontSize: 'clamp(32px, 8vw, 48px)' }}
+                  style={{ fontSize: '64px' }}
                 >
                   Roots
                 </h1>
@@ -40,19 +40,35 @@ const StoryPage = () => {
           {/* First Major Movie Set Circle */}
           <div className="flex justify-center w-full" style={{ marginTop: '-80px' }}>
             <div className="relative flex items-center justify-center">
-              {/* Large Dashed Rotating Circle */}
+              {/* Layout Container */}
               <div 
-                className="rounded-full border border-studio-blue"
+                className="rounded-full"
                 style={{
-                  width: 'min(850px, 80vw)',
-                  height: 'min(850px, 80vw)',
-                  transform: `rotate(${scrollY * 0.1}deg)`,
-                  borderStyle: 'dashed',
-                  borderDashArray: '80px 120px',
-                  WebkitBorderDashArray: '80px 120px',
-                  willChange: 'transform'
+                  width: 'min(961px, 80vw)',
+                  height: 'min(961px, 80vw)',
                 }}
               />
+              
+              {/* Large Dashed Rotating Circle - SVG Overlay */}
+              <svg 
+                className="absolute inset-0"
+                style={{
+                  width: 'min(961px, 80vw)',
+                  height: 'min(961px, 80vw)',
+                  transform: `rotate(${scrollY * 0.1}deg)`,
+                  willChange: 'transform'
+                }}
+              >
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="calc(50% - 2px)"
+                  fill="none"
+                  stroke="#0025B8"
+                  strokeWidth="2"
+                  strokeDasharray="10 10"
+                />
+              </svg>
               
               {/* Polaroid at 9:15 */}
               <div 
@@ -69,7 +85,7 @@ const StoryPage = () => {
                     alt="Polaroid 7"
                     className="w-80 h-auto object-contain"
                   />
-                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2017</span>
                   </div>
                 </div>
@@ -90,7 +106,7 @@ const StoryPage = () => {
                     alt="Polaroid 7"
                     className="w-80 h-auto object-contain"
                   />
-                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2017</span>
                   </div>
                 </div>
@@ -105,7 +121,7 @@ const StoryPage = () => {
                   transform: 'translate(50%, -50%)'
                 }}
               >
-                <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px' }}>process 2017</span>
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px' }}>process 2017</span>
               </div>
               
               {/* Word of mouth spreads text at 7:20 */}
@@ -113,17 +129,20 @@ const StoryPage = () => {
                 className="absolute text-center"
                 style={{
                   bottom: '20%',
-                  left: '6%',
+                  left: '3%',
                   transform: 'translate(-50%, 50%) rotate(-8deg)'
                 }}
               >
-                <span className="font-lovtony text-studio-blue" style={{ fontSize: '90px', lineHeight: '1' }}>word of mouth spreads</span>
+                <div className="flex flex-col items-center">
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px', lineHeight: '0.3' }}>word of mouth</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px', lineHeight: '0.3' }}>spreads</span>
+                </div>
               </div>
               
               {/* Center Content - positioned absolutely to avoid rotation */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex flex-col items-center justify-center text-center px-6 max-w-lg">
-                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(18px, 3.5vw, 24px)', lineHeight: '1.1' }}>
+                <div className="flex flex-col items-center justify-center text-center px-6 max-w-xl">
+                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: '32px', lineHeight: '1.1', whiteSpace: 'nowrap' }}>
                     First Major Movie Set
                   </h5>
                   <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
@@ -135,14 +154,14 @@ const StoryPage = () => {
           </div>
 
           {/* Third Circle - bigger than roots, overlapping first major set */}
-          <div className="flex justify-start w-full" style={{ marginTop: '-250px', marginLeft: '-100px' }}>
+          <div className="flex justify-start w-full" style={{ marginTop: '-200px', marginLeft: '-50px' }}>
             <div className="relative flex items-center justify-center">
               {/* Blue Outline Circle */}
               <div 
                 className="rounded-full border border-studio-blue"
                 style={{
-                  width: 'min(580px, 75vw)',
-                  height: 'min(580px, 75vw)'
+                  width: 'min(648px, 75vw)',
+                  height: 'min(648px, 75vw)'
                 }}
               />
               
@@ -162,7 +181,7 @@ const StoryPage = () => {
                     alt="Polaroid 6"
                     className="w-80 h-auto object-contain"
                   />
-                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2018</span>
                   </div>
                 </div>
@@ -177,8 +196,8 @@ const StoryPage = () => {
               <div 
                 className="rounded-full border border-studio-blue flex items-center justify-center"
                 style={{
-                  width: 'min(580px, 75vw)',
-                  height: 'min(580px, 75vw)'
+                  width: 'min(648px, 75vw)',
+                  height: 'min(648px, 75vw)'
                 }}
               >
                 {/* Circle Content */}
@@ -201,7 +220,7 @@ const StoryPage = () => {
                   transform: 'translate(-50%, 50%) rotate(7.56deg)'
                 }}
               >
-                <span className="font-lovtony text-studio-blue" style={{ fontSize: '108px' }}>first milestone order</span>
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px' }}>first milestone order</span>
               </div>
             </div>
           </div>
@@ -209,19 +228,35 @@ const StoryPage = () => {
           {/* Fifth Circle - same as circle 2, centered, overlapping bottom 25% of circle 4 */}
           <div className="flex justify-center w-full" style={{ marginTop: '-180px' }}>
             <div className="relative flex items-center justify-center">
-              {/* Large Dashed Rotating Circle */}
+              {/* Layout Container */}
               <div 
-                className="rounded-full border border-studio-blue"
+                className="rounded-full"
                 style={{
-                  width: 'min(850px, 80vw)',
-                  height: 'min(850px, 80vw)',
-                  transform: `rotate(${scrollY * 0.1}deg)`,
-                  borderStyle: 'dashed',
-                  borderDashArray: '80px 120px',
-                  WebkitBorderDashArray: '80px 120px',
-                  willChange: 'transform'
+                  width: 'min(961px, 80vw)',
+                  height: 'min(961px, 80vw)',
                 }}
               />
+              
+              {/* Large Dashed Rotating Circle - SVG Overlay */}
+              <svg 
+                className="absolute inset-0"
+                style={{
+                  width: 'min(961px, 80vw)',
+                  height: 'min(961px, 80vw)',
+                  transform: `rotate(${scrollY * 0.1}deg)`,
+                  willChange: 'transform'
+                }}
+              >
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="calc(50% - 2px)"
+                  fill="none"
+                  stroke="#0025B8"
+                  strokeWidth="2"
+                  strokeDasharray="10 10"
+                />
+              </svg>
               
               {/* Polaroid at 9:15 */}
               <div 
@@ -238,7 +273,7 @@ const StoryPage = () => {
                     alt="Polaroid 9"
                     className="w-80 h-auto object-contain"
                   />
-                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2020</span>
                   </div>
                 </div>
@@ -259,7 +294,7 @@ const StoryPage = () => {
                     alt="Polaroid 9"
                     className="w-80 h-auto object-contain"
                   />
-                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2020</span>
                   </div>
                 </div>
@@ -282,7 +317,7 @@ const StoryPage = () => {
                     className="h-auto object-contain"
                     style={{ width: '416px' }}
                   />
-                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2024</span>
                   </div>
                 </div>
@@ -309,8 +344,8 @@ const StoryPage = () => {
               <div 
                 className="rounded-full border border-studio-blue flex items-center justify-center"
                 style={{
-                  width: 'min(660px, 75vw)',
-                  height: 'min(660px, 75vw)'
+                  width: 'min(750px, 75vw)',
+                  height: 'min(750px, 75vw)'
                 }}
               >
                 {/* Circle Content */}
@@ -329,11 +364,14 @@ const StoryPage = () => {
                 className="absolute text-center"
                 style={{
                   top: '35%',
-                  left: '8%',
+                  left: '5%',
                   transform: 'translate(-50%, -50%) rotate(-7.5deg)'
                 }}
               >
-                <span className="font-lovtony text-studio-blue" style={{ fontSize: '90px', lineHeight: '1' }}>requested by name</span>
+                <div className="flex flex-col items-center">
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px', lineHeight: '0.3' }}>requested by</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px', lineHeight: '0.3' }}>name</span>
+                </div>
               </div>
 
               {/* Polaroid at 9:15 - 2024 */}
@@ -341,7 +379,7 @@ const StoryPage = () => {
                 className="absolute"
                 style={{
                   top: '45%',
-                  left: '-35%',
+                  left: '-40%',
                   transform: 'translate(-50%, -50%)',
                   zIndex: 10
                 }}
@@ -352,7 +390,7 @@ const StoryPage = () => {
                     alt="Polaroid 13"
                     className="w-80 h-auto object-contain"
                   />
-                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2024</span>
                   </div>
                 </div>
@@ -363,7 +401,7 @@ const StoryPage = () => {
                 className="absolute"
                 style={{
                   top: '55%',
-                  right: '-35%',
+                  right: '-40%',
                   transform: 'translate(50%, -50%)',
                   zIndex: 10
                 }}
@@ -374,7 +412,7 @@ const StoryPage = () => {
                     alt="Polaroid 13"
                     className="w-80 h-auto object-contain"
                   />
-                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue text-2xl font-bold">2024</span>
                   </div>
                 </div>
@@ -385,12 +423,15 @@ const StoryPage = () => {
                 className="absolute text-center"
                 style={{
                   bottom: '10%',
-                  left: '75%',
+                  left: '78%',
                   transform: 'translate(-50%, 50%) rotate(-1.64deg)',
                   width: '800px'
                 }}
               >
-                <span className="font-lovtony text-studio-blue" style={{ fontSize: '90px', lineHeight: '1' }}>custom visions and requests</span>
+                <div className="flex flex-col items-center">
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px', lineHeight: '0.3' }}>custom visions</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '135px', lineHeight: '0.3' }}>and requests</span>
+                </div>
               </div>
               
               {/* Contact button at 6 o'clock */}
@@ -408,9 +449,9 @@ const StoryPage = () => {
                     window.dispatchEvent(new PopStateEvent('popstate'));
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="bg-studio-blue w-24 h-24 rounded-full flex items-center justify-center hover:bg-studio-orange transition-colors duration-300"
+                  className="bg-studio-blue w-24 h-24 rounded-full flex items-center justify-center hover:bg-studio-orange transition-colors duration-300 group"
                 >
-                  <span className="font-proxima text-studio-orange hover:text-studio-blue font-bold uppercase transition-colors duration-300" style={{ fontSize: '14px' }}>
+                  <span className="font-proxima text-studio-orange group-hover:text-studio-blue font-bold uppercase transition-colors duration-300" style={{ fontSize: '14px' }}>
                     Contact
                   </span>
                 </button>
