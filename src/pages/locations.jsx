@@ -92,7 +92,9 @@ const LocationsPage = () => {
             {/* New York - Info Left, Image Right */}
             <LocationInfo
               location="New York"
-              address="283 Wythe Avenue\nBrooklyn, NY 11249\nUSA"
+              address={`283 Wythe Avenue
+Brooklyn, NY 11249
+USA`}
               imagePath="locations-new-york.png"
               imageAlt="New York Studio"
               mapsUrl="https://maps.google.com/?q=283+Wythe+Avenue+Brooklyn+NY+11249+USA"
@@ -102,7 +104,9 @@ const LocationsPage = () => {
             {/* Beverly Hills - Image Left, Info Right */}
             <LocationInfo
               location="Beverly Hills"
-              address="9465 Wilshire Boulevard\nBeverly Hills, CA 90212\nUSA"
+              address={`9465 Wilshire Boulevard
+Beverly Hills, CA 90212
+USA`}
               imagePath="locations-beverley-hills.png"
               imageAlt="Beverly Hills Studio"
               mapsUrl="https://maps.google.com/?q=9465+Wilshire+Boulevard+Beverly+Hills+CA+90212+USA"
@@ -112,7 +116,10 @@ const LocationsPage = () => {
             {/* London - Info Left, Image Right */}
             <LocationInfo
               location="London"
-              address="17 Langley Court\nCovent Garden\nLondon WC2E 9JY\nUnited Kingdom"
+              address={`17 Langley Court
+Covent Garden
+London WC2E 9JY
+United Kingdom`}
               imagePath="locations-london.png"
               imageAlt="London Studio"
               mapsUrl="https://maps.google.com/?q=17+Langley+Court+Covent+Garden+London+WC2E+9JY+United+Kingdom"

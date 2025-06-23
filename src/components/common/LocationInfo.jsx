@@ -32,7 +32,7 @@ const LocationInfo = React.memo(({
     <div className={`flex flex-col gap-4 md:gap-0 md:flex-row items-center group px-0`}>
       {/* Info Box */}
       <div 
-        className={`bg-white md:group-hover:bg-studio-blue transition-colors duration-300 p-8 flex flex-col justify-between cursor-pointer relative w-full md:w-1/4 ${
+        className={`bg-white md:group-hover:bg-studio-blue transition-colors duration-300 pt-8 pr-8 pb-12 pl-12 flex flex-col justify-between cursor-pointer relative w-full md:w-1/4 ${
           isLeft ? 'order-1 md:order-1' : 'order-1 md:order-2'
         }`}
         style={{
@@ -66,14 +66,13 @@ const LocationInfo = React.memo(({
           </h3>
           
           {/* Address */}
-          <p className={`${TYPOGRAPHY_CLASSES.bodyText} md:group-hover:text-studio-bg transition-colors duration-300 text-base md:text-lg leading-tight md:leading-relaxed`}>
+          <div className={`${TYPOGRAPHY_CLASSES.bodyText} md:group-hover:text-studio-bg transition-colors duration-300 text-base md:text-lg leading-tight md:leading-relaxed`}>
             {address.split('\n').map((line, index) => (
-              <React.Fragment key={index}>
+              <div key={index}>
                 {line}
-                {index < address.split('\n').length - 1 && <br />}
-              </React.Fragment>
+              </div>
             ))}
-          </p>
+          </div>
         </div>
       </div>
       

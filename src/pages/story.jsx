@@ -22,14 +22,14 @@ const StoryPage = () => {
               <div
                 className="rounded-full border border-studio-blue flex items-center justify-center"
                 style={{
-                  width: 'min(513px, 70vw)',
-                  height: 'min(513px, 70vw)',
+                  width: 'clamp(299px, 70vw, 513px)',
+                  height: 'clamp(299px, 70vw, 513px)',
                 }}
               >
                 {/* Roots Title */}
                 <h1
                   className="font-proxima-wide font-bold text-studio-blue uppercase text-center"
-                  style={{ fontSize: 'clamp(32px, 8vw, 64px)' }}
+                  style={{ fontSize: 'clamp(48px, 8vw, 64px)' }}
                 >
                   Roots
                 </h1>
@@ -44,8 +44,8 @@ const StoryPage = () => {
               <div 
                 className="rounded-full"
                 style={{
-                  width: 'min(961px, 80vw)',
-                  height: 'min(961px, 80vw)',
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
                 }}
               />
               
@@ -53,8 +53,8 @@ const StoryPage = () => {
               <svg 
                 className="absolute inset-0"
                 style={{
-                  width: 'min(961px, 80vw)',
-                  height: 'min(961px, 80vw)',
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
                   transform: `rotate(${scrollY * 0.1}deg)`,
                   willChange: 'transform'
                 }}
@@ -141,11 +141,11 @@ const StoryPage = () => {
               
               {/* Center Content - positioned absolutely to avoid rotation */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex flex-col items-center justify-center text-center px-6 max-w-xl">
-                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: '32px', lineHeight: '1.1', whiteSpace: 'nowrap' }}>
+                <div className="flex flex-col items-center justify-center text-center px-6 md:max-w-xl" style={{ width: 'clamp(269.83px, 50vw, 100%)' }}>
+                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1' }}>
                     First Major Movie Set
                   </h5>
-                  <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
+                  <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(16px, 2.5vw, 16px)', lineHeight: '1.5' }}>
                     Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
                   </p>
                 </div>
@@ -190,7 +190,7 @@ const StoryPage = () => {
           </div>
 
           {/* Fourth Circle - same size as circle 3, overlapping bottom right */}
-          <div className="flex justify-end w-full" style={{ marginTop: 'clamp(-125px, -25vw, -250px)', marginRight: 'clamp(-50px, -10vw, -100px)' }}>
+          <div className="flex justify-end w-full" style={{ marginTop: 'clamp(-240px, -40vw, -400px)', marginRight: 'clamp(-50px, -10vw, -100px)' }}>
             <div className="relative flex items-center justify-center">
               {/* Blue Outline Circle */}
               <div 
@@ -226,14 +226,14 @@ const StoryPage = () => {
           </div>
 
           {/* Fifth Circle - same as circle 2, centered, overlapping bottom 25% of circle 4 */}
-          <div className="flex justify-center w-full" style={{ marginTop: 'clamp(-90px, -18vw, -180px)' }}>
+          <div className="flex justify-center w-full" style={{ marginTop: 'clamp(-205px, -33vw, -330px)' }}>
             <div className="relative flex items-center justify-center">
               {/* Layout Container */}
               <div 
                 className="rounded-full"
                 style={{
-                  width: 'min(961px, 80vw)',
-                  height: 'min(961px, 80vw)',
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
                 }}
               />
               
@@ -241,8 +241,8 @@ const StoryPage = () => {
               <svg 
                 className="absolute inset-0"
                 style={{
-                  width: 'min(961px, 80vw)',
-                  height: 'min(961px, 80vw)',
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
                   transform: `rotate(${scrollY * 0.1}deg)`,
                   willChange: 'transform'
                 }}
@@ -338,7 +338,7 @@ const StoryPage = () => {
           </div>
 
           {/* Sixth Circle - 15% bigger than circle 4, below circle 5 */}
-          <div className="flex justify-center w-full" style={{ marginTop: 'clamp(50px, 10vw, 100px)' }}>
+          <div className="flex justify-center w-full" style={{ marginTop: 'clamp(-65px, -5vw, -25px)' }}>
             <div className="relative flex items-center justify-center" style={{ zIndex: 1 }}>
               {/* Blue Outline Circle */}
               <div 

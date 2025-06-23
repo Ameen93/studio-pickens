@@ -13,17 +13,17 @@ const FAQPage = () => {
         backgroundImage="faq/4963b601-8788-4697-b9fc-5a0ce4c4e5b4.jpeg"
         altText="FAQ banner background"
         height="705px"
-        objectPosition="50% 55%"
+        objectPosition="50% 50%"
       >
         {/* F A Q Letters */}
         {/* F - Top Left */}
-        <div className={`absolute top-16 md:top-0 left-8 ${TYPOGRAPHY_CLASSES.headingPrimary}`} style={{ fontSize: 'clamp(64px, 9.6vw, 160px)' }}>
+        <div className={`absolute top-16 md:top-12 left-8 md:left-20 ${TYPOGRAPHY_CLASSES.headingPrimary}`} style={{ fontSize: 'clamp(64px, 9.6vw, 101.24px)' }}>
           F
         </div>
         
         {/* A - Below F, offset right past center */}
-        <div className={`absolute ${TYPOGRAPHY_CLASSES.headingPrimary} top-[23%] md:top-[35%] left-[80%] md:left-[65%]`} style={{ 
-          fontSize: 'clamp(64px, 9.6vw, 160px)',
+        <div className={`absolute ${TYPOGRAPHY_CLASSES.headingPrimary} top-[23%] md:top-[28%] left-[80%] md:left-[68%]`} style={{ 
+          fontSize: 'clamp(64px, 9.6vw, 101.24px)',
           transform: 'translateX(-50%)'
         }}>
           A
@@ -31,7 +31,7 @@ const FAQPage = () => {
         
         {/* Q - Between F and A horizontally, at bottom */}
         <div className={`absolute ${TYPOGRAPHY_CLASSES.headingPrimary} bottom-[30%] md:bottom-[5%] left-[35%] md:left-[40%]`} style={{ 
-          fontSize: 'clamp(64px, 9.6vw, 160px)',
+          fontSize: 'clamp(64px, 9.6vw, 101.24px)',
           transform: 'translateX(-50%)'
         }}>
           Q

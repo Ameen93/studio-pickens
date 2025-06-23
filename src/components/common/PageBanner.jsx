@@ -3,7 +3,7 @@ import React from 'react';
 const PageBanner = React.memo(({ 
   backgroundImage, 
   altText = "Page banner background",
-  height = 'clamp(400px, 45vw, 800px)',
+  height = 'clamp(400px, 45vw, 705px)',
   objectPosition = 'center center',
   objectFit = 'cover',
   className = "",

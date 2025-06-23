@@ -40,7 +40,7 @@ const FAQItem = ({ question, answer, isOpen = false }) => {
           open ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="text-studio-blue/80 leading-relaxed text-base">
+        <div className="text-studio-blue/80 leading-relaxed text-base md:-mt-3">
           {answer}
         </div>
       </div>
