@@ -105,7 +105,7 @@ const Footer = () => {
       </div>
 
       {/* Mobile Layout */}
-      <div className="md:hidden px-6 pt-12 pb-8">
+      <div className="md:hidden px-4 pt-12 pb-8">
         {/* Signature at top */}
         <div className="flex justify-left mb-12">
           <img

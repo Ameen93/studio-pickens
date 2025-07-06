@@ -41,8 +41,8 @@ const LocationsPage = () => {
             ? -100 - (positionInGroup * 100) // -100, -200, -300
             : 100 + (positionInGroup * 100);  // +100, +200, +300
           
-          // Stagger animation: each circle has its own delay
-          const animationDelay = index * 100; // 100ms delay between each circle
+          // Stagger animation: left and right circles at same position animate together
+          const animationDelay = positionInGroup * 100; // Same delay for matching left/right pairs
           
           return (
             <div 

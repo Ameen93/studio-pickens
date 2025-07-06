@@ -101,7 +101,7 @@ const ContactPage = () => {
         ${ANIMATIONS.keyframes.shake}
       `}</style>
       {/* Header Section */}
-      <section className="bg-studio-bg flex items-center pb-12 pt-8 md:pt-[152px]">
+      <section className="bg-studio-bg flex items-center pb-16 pt-16 md:pt-[152px] md:pb-12">
         <div className="w-full px-4 md:px-0 md:pr-[152px]">
           <h1 className={`${TYPOGRAPHY_CLASSES.headingPrimary} tracking-wide text-left text-[32px] md:text-[64pt] whitespace-nowrap md:ml-[152px]`}>
             GET IN TOUCH

@@ -55,17 +55,17 @@ const ProcessPage = () => {
       <section className="pt-8 pb-10 px-4 md:px-10 max-w-full mx-auto">
         {/* Item 1: 90% science / 10% wigmaking */}
         <div className="flex flex-col lg:flex-row items-end mb-10 gap-4">
-          <div className="lg:w-[55%] lg:pr-3 lg:order-1 order-2">
+          <div className="w-full lg:w-[55%] lg:pr-3 lg:order-1 order-2">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page2.jpg`}
               alt="90% science / 10% wigmaking"
               className="w-full object-cover"
-              style={{ aspectRatio: '4/3' }}
+              style={{ height: 'clamp(300px, 80vw, 508px)', objectPosition: 'center center' }}
             />
           </div>
-          <div className="lg:w-[45%] lg:pl-3 lg:order-2 order-1 lg:text-left text-center">
-            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
-              <span className="lg:hidden">90% science<br />10% wigmaking</span>
+          <div className="w-full lg:w-[45%] lg:pl-3 lg:order-2 order-1 lg:text-left text-center">
+            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: '24px' }}>
+              <span className="lg:hidden">90% science / 10% wigmaking</span>
               <span className="hidden lg:inline">90% science / 10% wigmaking</span>
             </h2>
             <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
@@ -76,16 +76,16 @@ const ProcessPage = () => {
 
         {/* Item 2: Consultation */}
         <div className="flex flex-col lg:flex-row-reverse items-end mb-10 gap-4">
-          <div className="lg:w-[55%] lg:pl-3 lg:order-1 order-2">
+          <div className="w-full lg:w-[55%] lg:pl-3 lg:order-1 order-2">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page3.jpg`}
               alt="Consultation"
               className="w-full object-cover"
-              style={{ aspectRatio: '4/3' }}
+              style={{ height: 'clamp(300px, 80vw, 508px)', objectPosition: 'center center' }}
             />
           </div>
-          <div className="lg:w-[45%] lg:pr-3 lg:order-2 order-1 lg:text-left text-center">
-            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
+          <div className="w-full lg:w-[45%] lg:pr-3 lg:order-2 order-1 lg:text-left text-center">
+            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: '24px' }}>
               Consultation
             </h2>
             <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
@@ -96,16 +96,16 @@ const ProcessPage = () => {
 
         {/* Item 3: mapping the head */}
         <div className="flex flex-col lg:flex-row items-end mb-10 gap-4">
-          <div className="lg:w-[55%] lg:pr-3 lg:order-1 order-2">
+          <div className="w-full lg:w-[55%] lg:pr-3 lg:order-1 order-2">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page4.jpg`}
               alt="mapping the head"
               className="w-full object-cover"
-              style={{ aspectRatio: '4/3' }}
+              style={{ height: 'clamp(300px, 80vw, 508px)', objectPosition: 'center center' }}
             />
           </div>
-          <div className="lg:w-[45%] lg:pl-3 lg:order-2 order-1 lg:text-left text-center">
-            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
+          <div className="w-full lg:w-[45%] lg:pl-3 lg:order-2 order-1 lg:text-left text-center">
+            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: '24px' }}>
               mapping the head
             </h2>
             <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
@@ -116,16 +116,16 @@ const ProcessPage = () => {
 
         {/* Item 4: treatment */}
         <div className="flex flex-col lg:flex-row-reverse items-end mb-10 gap-4">
-          <div className="lg:w-[55%] lg:pl-3 lg:order-1 order-2">
+          <div className="w-full lg:w-[55%] lg:pl-3 lg:order-1 order-2">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page5.jpg`}
               alt="treatment"
               className="w-full object-cover"
-              style={{ aspectRatio: '4/3' }}
+              style={{ height: 'clamp(300px, 80vw, 508px)', objectPosition: 'center center' }}
             />
           </div>
-          <div className="lg:w-[45%] lg:pr-3 lg:order-2 order-1 lg:text-left text-center">
-            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
+          <div className="w-full lg:w-[45%] lg:pr-3 lg:order-2 order-1 lg:text-left text-center">
+            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: '24px' }}>
               treatment
             </h2>
             <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
@@ -136,16 +136,16 @@ const ProcessPage = () => {
 
         {/* Item 5: approval */}
         <div className="flex flex-col lg:flex-row items-end mb-10 gap-4">
-          <div className="lg:w-[55%] lg:pr-3 lg:order-1 order-2">
+          <div className="w-full lg:w-[55%] lg:pr-3 lg:order-1 order-2">
             <img
               src={`${process.env.PUBLIC_URL}/images/process/process-page6.png`}
               alt="approval"
               className="w-full object-cover"
-              style={{ aspectRatio: '4/3' }}
+              style={{ height: 'clamp(300px, 80vw, 508px)', objectPosition: 'center center' }}
             />
           </div>
-          <div className="lg:w-[45%] lg:pl-3 lg:order-2 order-1 lg:text-left text-center">
-            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase text-xl mb-4">
+          <div className="w-full lg:w-[45%] lg:pl-3 lg:order-2 order-1 lg:text-left text-center">
+            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: '24px' }}>
               approval
             </h2>
             <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
@@ -320,7 +320,7 @@ const ProcessPage = () => {
             </div>
 
             {/* Right Inner Circle Image */}
-            <div className="lg:w-1/2 flex justify-center lg:justify-start">
+            <div className="lg:w-1/2">
               <div style={{ maxWidth: '675px', width: '100%' }}>
                 <img
                   src={`${process.env.PUBLIC_URL}/images/process/inner-circle2.jpg`}

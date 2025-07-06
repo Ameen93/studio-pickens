@@ -136,7 +136,7 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick }) => {
       </div>
 
       {/* Mobile Layout */}
-      <div className="md:hidden px-6">
+      <div className="md:hidden px-4">
         {filteredProjects.map((project) => (
           <MobileWorkItem 
             key={project.id}
