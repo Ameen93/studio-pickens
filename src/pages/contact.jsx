@@ -102,8 +102,8 @@ const ContactPage = () => {
       `}</style>
       {/* Header Section */}
       <section className="bg-studio-bg flex items-center pb-12 pt-8 md:pt-[152px]">
-        <div className="w-full px-4 md:pl-[152px] md:pr-0">
-          <h1 className={`${TYPOGRAPHY_CLASSES.headingPrimary} tracking-wide text-left text-[32px] md:text-[64pt] whitespace-nowrap`}>
+        <div className="w-full px-4 md:px-0 md:pr-[152px]">
+          <h1 className={`${TYPOGRAPHY_CLASSES.headingPrimary} tracking-wide text-left text-[32px] md:text-[64pt] whitespace-nowrap md:ml-[152px]`}>
             GET IN TOUCH
           </h1>
         </div>
@@ -111,12 +111,12 @@ const ContactPage = () => {
 
       {/* Blue Location Bar */}
       <section className="bg-studio-blue py-16">
-        <div className="max-w-screen-xl mx-auto px-4">
+        <div className="w-full px-4 md:px-0 md:pr-[152px]">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
             {/* Brooklyn */}
-            <div className="text-left md:text-center">
+            <div className="text-left md:text-left md:ml-[152px]">
               <div 
-                className="flex items-center justify-start md:justify-center mb-4 cursor-pointer"
+                className="flex items-center justify-start mb-4 cursor-pointer"
                 onMouseEnter={() => setHoveredLocation('brooklyn')}
                 onMouseLeave={() => setHoveredLocation(null)}
                 onClick={() => copyToClipboard('brooklyn@studiopickens.com')}
@@ -137,9 +137,9 @@ const ContactPage = () => {
             </div>
 
             {/* Beverly Hills */}
-            <div className="text-left md:text-center">
+            <div className="text-left md:text-left">
               <div 
-                className="flex items-center justify-start md:justify-center mb-4 cursor-pointer"
+                className="flex items-center justify-start mb-4 cursor-pointer"
                 onMouseEnter={() => setHoveredLocation('beverlyhills')}
                 onMouseLeave={() => setHoveredLocation(null)}
                 onClick={() => copyToClipboard('beverlyhills@studiopickens.com')}
@@ -187,11 +187,11 @@ const ContactPage = () => {
 
       {/* Press and Contact Form Section */}
       <section className="bg-studio-bg pt-16 pb-16">
-        <div className="w-full px-4 md:px-[152px]">
+        <div className="w-full px-4 md:px-0 md:pr-[152px]">
           {/* Press and Form Container */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Left Column - Press */}
-            <div className="ml-10">
+            <div className="ml-10 md:ml-[152px]">
               <div className="mb-8">
                 <h2 className="font-proxima-wide font-bold text-2xl text-studio-blue uppercase tracking-wide mb-4 text-left">
                   PRESS
@@ -224,7 +224,7 @@ const ContactPage = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Your Name */}
                   <div>
-                    <label htmlFor="name" className="block text-sm font-proxima-semibold text-studio-blue uppercase tracking-wide mb-2">
+                    <label htmlFor="name" className="block text-sm font-proxima-semibold font-semibold text-studio-blue uppercase tracking-wide mb-2">
                       YOUR NAME
                     </label>
                     <input
@@ -234,7 +234,7 @@ const ContactPage = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Jane Doe"
-                      className={`w-full px-4 py-3 border bg-white text-studio-blue placeholder-gray-400 focus:outline-none transition-all duration-200 ${
+                      className={`w-full px-4 py-3 border bg-studio-bg text-studio-blue placeholder-gray-400 focus:outline-none transition-all duration-200 font-proxima ${
                         errors.name ? 'border-studio-orange' : 'border-studio-blue focus:border-studio-blue'
                       }`}
                     />
@@ -245,7 +245,7 @@ const ContactPage = () => {
 
                   {/* Your Email */}
                   <div>
-                    <label htmlFor="email" className="block text-sm font-proxima-semibold text-studio-blue uppercase tracking-wide mb-2">
+                    <label htmlFor="email" className="block text-sm font-proxima-semibold font-semibold text-studio-blue uppercase tracking-wide mb-2">
                       YOUR EMAIL
                     </label>
                     <input
@@ -255,7 +255,7 @@ const ContactPage = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="jane@email.com"
-                      className={`w-full px-4 py-3 border bg-white text-studio-blue placeholder-gray-400 focus:outline-none transition-all duration-200 ${
+                      className={`w-full px-4 py-3 border bg-studio-bg text-studio-blue placeholder-gray-400 focus:outline-none transition-all duration-200 font-proxima ${
                         errors.email ? 'border-studio-orange' : 'border-studio-blue focus:border-studio-blue'
                       }`}
                     />
@@ -266,7 +266,7 @@ const ContactPage = () => {
 
                   {/* Reason for Contact */}
                   <div>
-                    <label htmlFor="reason" className="block text-sm font-proxima-semibold text-studio-blue uppercase tracking-wide mb-2">
+                    <label htmlFor="reason" className="block text-sm font-proxima-semibold font-semibold text-studio-blue uppercase tracking-wide mb-2">
                       REASON FOR CONTACT
                     </label>
                     <div className="relative">
@@ -275,7 +275,7 @@ const ContactPage = () => {
                         name="reason"
                         value={formData.reason}
                         onChange={handleInputChange}
-                        className={`w-full px-4 py-3 border bg-white text-studio-blue focus:outline-none appearance-none transition-all duration-200 ${
+                        className={`w-full px-4 py-3 border bg-studio-bg text-studio-blue focus:outline-none appearance-none transition-all duration-200 font-proxima ${
                           errors.reason ? 'border-studio-orange' : 'border-studio-blue focus:border-studio-blue'
                         }`}
                       >
@@ -300,7 +300,7 @@ const ContactPage = () => {
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="message" className="block text-sm font-proxima-semibold text-studio-blue uppercase tracking-wide mb-2">
+                    <label htmlFor="message" className="block text-sm font-proxima-semibold font-semibold text-studio-blue uppercase tracking-wide mb-2">
                       HOW CAN WE HELP?
                     </label>
                     <textarea
@@ -310,7 +310,7 @@ const ContactPage = () => {
                       onChange={handleInputChange}
                       placeholder="Write your message here."
                       rows="5"
-                      className={`w-full px-4 py-3 border bg-white text-studio-blue placeholder-gray-400 focus:outline-none resize-none transition-all duration-200 ${
+                      className={`w-full px-4 py-3 border bg-studio-bg text-studio-blue placeholder-gray-400 focus:outline-none resize-none transition-all duration-200 font-proxima ${
                         errors.message ? 'border-studio-orange' : 'border-studio-blue focus:border-studio-blue'
                       }`}
                     />
@@ -324,12 +324,12 @@ const ContactPage = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`font-proxima-wide font-bold uppercase tracking-wide pb-1 transition-all duration-200 ${
+                      className={`font-proxima-wide font-bold uppercase tracking-wide pb-0 transition-all duration-200 ${
                         submitError 
-                          ? 'text-studio-orange border-b-2 border-studio-orange animate-bounce' 
+                          ? 'text-studio-orange border-b-4 border-studio-orange animate-bounce' 
                           : isSubmitting
-                          ? 'text-gray-400 border-b-2 border-gray-400 cursor-not-allowed'
-                          : 'text-studio-blue border-b-2 border-transparent hover:border-studio-orange'
+                          ? 'text-gray-400 border-b-4 border-gray-400 cursor-not-allowed'
+                          : 'text-studio-blue border-b-4 border-transparent hover:border-studio-orange'
                       }`}
                       style={{
                         animation: submitError ? 'shake 0.6s ease-in-out' : 'none'

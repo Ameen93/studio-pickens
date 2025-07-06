@@ -223,7 +223,7 @@ const ProcessPage = () => {
           ${ANIMATIONS.keyframes.scroll}
           
           .animate-scroll {
-            animation: scroll 45s linear infinite;
+            animation: scroll 30s linear infinite;
           }
           
           .hover\\:pause-animation:hover {
@@ -238,27 +238,48 @@ const ProcessPage = () => {
         <div className="absolute inset-0 pointer-events-none z-20">
           <div className="absolute top-[290px] lg:top-[340px] left-1/2 -translate-x-1/2 -translate-y-1/2">
             {/* Small circle */}
-            <div className="absolute rounded-full border-2 border-studio-blue" style={{ 
+            <div className="absolute rounded-full border-2 border-studio-blue lg:hidden" style={{ 
               width: '220px', 
               height: '220px',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
             }}></div>
+            <div className="hidden lg:block absolute rounded-full border-2 border-studio-blue" style={{ 
+              width: '280px', 
+              height: '280px',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)'
+            }}></div>
             
             {/* Medium circle */}
-            <div className="absolute rounded-full border-2 border-studio-blue" style={{ 
+            <div className="absolute rounded-full border-2 border-studio-blue lg:hidden" style={{ 
               width: '300px', 
               height: '300px',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
             }}></div>
-            
-            {/* Large circle */}
-            <div className="absolute rounded-full border-2 border-studio-blue" style={{ 
+            <div className="hidden lg:block absolute rounded-full border-2 border-studio-blue" style={{ 
               width: '380px', 
               height: '380px',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)'
+            }}></div>
+            
+            {/* Large circle */}
+            <div className="absolute rounded-full border-2 border-studio-blue lg:hidden" style={{ 
+              width: '380px', 
+              height: '380px',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)'
+            }}></div>
+            <div className="hidden lg:block absolute rounded-full border-2 border-studio-blue" style={{ 
+              width: '450px', 
+              height: '450px',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
@@ -285,8 +306,8 @@ const ProcessPage = () => {
                 />
                 <div className="bg-studio-blue px-6 pb-6 pt-8 text-left" style={{ height: '160px' }}>
                   <h3 className="text-studio-orange font-lovtony -mb-4 -mt-4" style={{ fontSize: '108px', lineHeight: '0.7' }}>katie gell</h3>
-                  <h4 className="text-white font-bold text-xs mb-1 mt-2">East Coast Operations</h4>
-                  <p className="text-white text-xs mt-2">Wigmaker + Designer + Makeup Artist</p>
+                  <h4 className="text-white font-proxima-semibold font-semibold text-xs mb-1 mt-2">East Coast Operations</h4>
+                  <p className="text-white font-proxima text-xs mt-2">Wigmaker + Designer + Makeup Artist</p>
                 </div>
               </div>
             </div>
@@ -308,8 +329,8 @@ const ProcessPage = () => {
                 />
                 <div className="bg-studio-blue px-6 pb-6 pt-8 text-left" style={{ height: '160px' }}>
                   <h3 className="text-studio-orange font-lovtony -mb-4 -mt-4" style={{ fontSize: '108px', lineHeight: '0.7' }}>mandy lyons</h3>
-                  <h4 className="text-white font-bold text-xs mb-1 mt-2">West Coast Operations</h4>
-                  <p className="text-white text-xs mt-2">Wigmaker + Hairstylist</p>
+                  <h4 className="text-white font-proxima-semibold font-semibold text-xs mb-1 mt-2">West Coast Operations</h4>
+                  <p className="text-white font-proxima text-xs mt-2">Wigmaker + Hairstylist</p>
                 </div>
               </div>
             </div>

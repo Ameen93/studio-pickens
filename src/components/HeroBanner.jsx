@@ -153,11 +153,12 @@ const HeroBanner = () => {
             className="w-full h-full object-cover transform scale-x-[-1]"
           />
         </div>
-        <div className="w-1/2 h-full relative">
+        <div className="w-1/2 h-full relative overflow-hidden">
           <img
             src={HERO_IMAGES[1]}
             alt="Behind the scenes view of Studio Pickens creative process and artistic environment"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transform scale-150 translate-x-72 translate-y-24"
+            style={{ transformOrigin: 'center right' }}
           />
         </div>
       </div>
