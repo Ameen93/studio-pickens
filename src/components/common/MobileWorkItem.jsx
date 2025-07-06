@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const MobileWorkItem = ({ project, content }) => {
+const MobileWorkItem = ({ project, content, onCategoryClick }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleTap = () => {
@@ -25,8 +25,12 @@ const MobileWorkItem = ({ project, content }) => {
         />
         
         {/* Category Label Circle */}
-        <div 
-          className={`absolute bottom-8 w-24 h-24 rounded-full flex items-center justify-center transition-colors duration-300 ${
+        <button 
+          onClick={(e) => {
+            e.stopPropagation();
+            onCategoryClick?.(project.category);
+          }}
+          className={`absolute bottom-8 w-24 h-24 rounded-full flex items-center justify-center transition-colors duration-300 cursor-pointer z-20 ${
             project.id % 2 === 1 ? 'left-4' : 'right-4'
           } ${isExpanded ? 'bg-studio-orange' : 'bg-studio-blue'}`}
         >
@@ -42,7 +46,7 @@ const MobileWorkItem = ({ project, content }) => {
           >
             {project.category === 'MUSIC VIDEO' ? 'MUSIC\nVIDEO' : project.category}
           </span>
-        </div>
+        </button>
       </div>
 
       {/* Info Card - Displayed below image when expanded */}

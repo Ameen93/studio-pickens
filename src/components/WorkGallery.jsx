@@ -3,7 +3,7 @@ import { WORK_PROJECTS } from '../constants';
 import WorkItem from './common/WorkItem';
 import MobileWorkItem from './common/MobileWorkItem';
 
-const WorkGallery = React.memo(({ filter = 'ALL MEDIA' }) => {
+const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick }) => {
   // Memoize filter mapping to avoid recreation on each render
   const filterMap = useMemo(() => ({
     'FILM & TV': 'FILM & TV',
@@ -93,10 +93,10 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA' }) => {
   };
 
   const getContentPosition = (side) => {
-    if (side === 'left') return 'left-full ml-4';
-    if (side === 'right') return 'right-full mr-4';
-    if (side === 'center') return 'left-full ml-4';
-    return 'left-full ml-4';
+    if (side === 'left') return 'left-full';
+    if (side === 'right') return 'right-full';
+    if (side === 'center') return 'left-full';
+    return 'left-full';
   };
 
   // Project content data
@@ -129,6 +129,7 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA' }) => {
               getTextRotation={getTextRotation}
               getTextHoverRotation={getTextHoverRotation}
               getContentPosition={getContentPosition}
+              onCategoryClick={onCategoryClick}
             />
           ))}
         </div>
@@ -141,6 +142,7 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA' }) => {
             key={project.id}
             project={project}
             content={projectContent[project.id]}
+            onCategoryClick={onCategoryClick}
           />
         ))}
       </div>

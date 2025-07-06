@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import WorkGallery from '../components/WorkGallery';
 import WorkBanners from '../components/WorkBanners';
@@ -8,6 +8,25 @@ import PageBanner from '../components/common/PageBanner';
 const WorkPage = () => {
   const galleryRef = useRef(null);
   const [activeFilter, setActiveFilter] = useState('ALL MEDIA');
+
+  // Map project categories to filter categories
+  const categoryToFilterMap = {
+    'FILM & TV': 'FILM & TV',
+    'THEATRE': 'THEATER',
+    'CONCERT': 'CONCERT',
+    'EDITORIAL': 'EDITORIAL',
+    'MUSIC VIDEO': 'MUSIC VIDEO',
+    'LIVE': 'LIVE PERFORMANCE'
+  };
+
+  // Check for filter parameter in URL on component mount
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const filterParam = urlParams.get('filter');
+    if (filterParam) {
+      setActiveFilter(filterParam);
+    }
+  }, []);
 
   const handleBannerClick = (category) => {
     // Scroll to the gallery section
@@ -24,6 +43,11 @@ const WorkPage = () => {
 
   const handleFilterChange = (filter) => {
     setActiveFilter(filter);
+  };
+
+  const handleCategoryClick = (category) => {
+    const filterCategory = categoryToFilterMap[category] || category;
+    setActiveFilter(filterCategory);
   };
 
   return (
@@ -61,7 +85,7 @@ const WorkPage = () => {
 
       {/* Work Gallery */}
       <div ref={galleryRef}>
-        <WorkGallery filter={activeFilter} />
+        <WorkGallery filter={activeFilter} onCategoryClick={handleCategoryClick} />
       </div>
       
       {/* Work Banners */}

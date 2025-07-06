@@ -39,7 +39,7 @@ const FAQSection = () => {
                   aria-expanded={openItem === index}
                   aria-controls={`faq-content-${index}`}
                 >
-                  <span className="font-proxima-semibold text-studio-blue uppercase pr-4" style={{ fontSize: '18px', lineHeight: '1.4' }}>
+                  <span className="font-proxima-semibold font-semibold text-studio-blue uppercase pr-4" style={{ fontSize: '18px', lineHeight: '1.4' }}>
                     {question}
                   </span>
                   

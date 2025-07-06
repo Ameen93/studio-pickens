@@ -9,6 +9,16 @@ import { Button } from '../components/ui';
 const HomePage = () => {
   const galleryRef = useRef(null);
 
+  // Map project categories to filter categories (same as work page)
+  const categoryToFilterMap = {
+    'FILM & TV': 'FILM & TV',
+    'THEATRE': 'THEATER',
+    'CONCERT': 'CONCERT',
+    'EDITORIAL': 'EDITORIAL',
+    'MUSIC VIDEO': 'MUSIC VIDEO',
+    'LIVE': 'LIVE PERFORMANCE'
+  };
+
   const handleBannerClick = (category) => {
     // Scroll to the gallery section
     if (galleryRef.current) {
@@ -17,6 +27,13 @@ const HomePage = () => {
         block: 'start'
       });
     }
+  };
+
+  const handleCategoryClick = (category) => {
+    const filterCategory = categoryToFilterMap[category] || category;
+    // Navigate to work page with the filter as URL parameter
+    window.history.pushState({}, '', `/work?filter=${encodeURIComponent(filterCategory)}`);
+    window.dispatchEvent(new PopStateEvent('popstate'));
   };
 
   return (
@@ -58,7 +75,7 @@ const HomePage = () => {
 
       {/* Work Gallery */}
       <div ref={galleryRef}>
-        <WorkGallery />
+        <WorkGallery onCategoryClick={handleCategoryClick} />
       </div>
 
       {/* Work Banners */}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTextHoverRotation, getContentPosition }) => {
+const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTextHoverRotation, getContentPosition, onCategoryClick }) => {
   return (
     <div
       className="absolute group cursor-pointer"
@@ -17,15 +17,19 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
         <img
           src={project.src}
           alt={project.alt}
-          className="w-full h-full object-cover shadow-lg"
+          className="w-full h-full object-cover"
           style={{
             objectPosition: project.src.includes('editorial2') || project.src.includes('editorial3') ? 'center top' : 'center center'
           }}
         />
         
         {/* Category Label Circle - positioned relative to image */}
-        <div 
-          className={`absolute top-1/2 ${getCirclePosition(project.side)} bg-studio-blue group-hover:bg-transparent border-2 border-studio-blue rounded-full flex items-center justify-center transition-all duration-500`}
+        <button 
+          onClick={(e) => {
+            e.stopPropagation();
+            onCategoryClick?.(project.category);
+          }}
+          className={`absolute top-1/2 ${getCirclePosition(project.side)} bg-studio-blue group-hover:bg-studio-bg border-2 border-studio-blue rounded-full flex items-center justify-center transition-all duration-500 cursor-pointer z-20`}
           style={{
             width: 'clamp(64px, 6.69vw, 96px)',
             height: 'clamp(64px, 6.69vw, 96px)',
@@ -46,16 +50,19 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
         >
           {project.category}
         </span>
-      </div>
+      </button>
       </div>
 
       {/* Content Panel - Slides out on hover (only for left and right positioned items) */}
       {project.side !== 'center' && (
         <div 
-          className={`absolute top-0 ${getContentPosition(project.side)} bg-studio-bg p-8 transition-all duration-500 ease-out z-10 w-full h-full shadow-lg
+          className={`absolute top-0 ${getContentPosition(project.side)} bg-studio-bg p-8 transition-all duration-500 ease-out z-10 h-full
             ${project.side === 'left' ? 'opacity-0 -translate-x-full group-hover:opacity-100 group-hover:translate-x-0' : ''}
             ${project.side === 'right' ? 'opacity-0 translate-x-full group-hover:opacity-100 group-hover:translate-x-0' : ''}
           `}
+          style={{
+            width: 'clamp(330.48px, 50.49vw, 727.06px)'
+          }}
         >
         {/* Title */}
         <h5 className="font-proxima-wide font-bold text-studio-blue text-3xl uppercase tracking-wide mb-6">

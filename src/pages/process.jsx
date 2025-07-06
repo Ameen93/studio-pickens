@@ -294,7 +294,7 @@ const ProcessPage = () => {
             {/* Center Subheading */}
             <div className="lg:w-1/4 text-center lg:relative lg:static absolute lg:top-auto lg:left-auto top-[220px] left-1/2 lg:transform-none -translate-x-1/2 -translate-y-1/2 lg:z-auto z-30" style={{ paddingTop: '30px' }}>
               <p className="font-proxima text-studio-blue text-center uppercase" style={{ fontWeight: 600, fontSize: '24px', lineHeight: '125%', letterSpacing: '4%' }}>
-                The trusted<br />hands behind<br />every strand
+                The trusted<br />hands behind<br />every strand.
               </p>
             </div>
 
