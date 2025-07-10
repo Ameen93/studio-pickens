@@ -90,6 +90,17 @@ const StoryPage = () => {
                   stroke="#0025B8"
                   strokeWidth="2"
                   strokeDasharray="10 10"
+                  className="hidden md:block"
+                />
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="calc(50% - 2px)"
+                  fill="none"
+                  stroke="#0025B8"
+                  strokeWidth="1"
+                  strokeDasharray="5 5"
+                  className="md:hidden"
                 />
               </svg>
               
@@ -154,15 +165,27 @@ const StoryPage = () => {
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
-                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2">
                     <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2017</span>
                   </div>
                 </div>
               </div>
               
-              {/* Process 2017 text at 1:20 */}
+              {/* Process 2017 text at 1:20 - Mobile Position */}
               <div 
-                className="absolute"
+                className="absolute md:hidden"
+                style={{
+                  top: '10%',
+                  right: '30%',
+                  transform: 'translate(50%, -50%) rotate(-8.79deg)'
+                }}
+              >
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px' }}>process 2017</span>
+              </div>
+              
+              {/* Process 2017 text at 1:20 - Desktop Position */}
+              <div 
+                className="absolute hidden md:block"
                 style={{
                   top: '20%',
                   right: '6%',
@@ -212,7 +235,7 @@ const StoryPage = () => {
               }
               @media (max-width: 1023px) {
                 .circle3-container {
-                  margin-top: -100px !important;
+                  margin-top: -50px !important;
                   margin-left: 0px !important;
                 }
               }
@@ -227,9 +250,9 @@ const StoryPage = () => {
                 }}
               />
               
-              {/* Polaroid at 6:10 */}
+              {/* Polaroid at 6:10 - Desktop Only */}
               <div 
-                className="absolute"
+                className="absolute hidden md:block"
                 style={{
                   bottom: '5%',
                   left: '45%',
@@ -252,22 +275,8 @@ const StoryPage = () => {
             </div>
           </div>
 
-          {/* Fourth Circle - same size as circle 3, overlapping bottom right */}
-          <div className="circle4-container flex justify-center lg:justify-center w-full" style={{ marginTop: 'clamp(-240px, -40vw, -400px)', marginLeft: 'clamp(100px, 10vw, 200px)' }}>
-            <style jsx>{`
-              @media (min-width: 1024px) {
-                .circle4-container {
-                  margin-top: clamp(-240px, -40vw, -400px) !important;
-                  margin-left: clamp(100px, 10vw, 200px) !important;
-                }
-              }
-              @media (max-width: 1023px) {
-                .circle4-container {
-                  margin-top: -80px !important;
-                  margin-left: 0px !important;
-                }
-              }
-            `}</style>
+          {/* Fourth Circle - Desktop version (unchanged) */}
+          <div className="circle4-container flex justify-center lg:justify-center w-full hidden md:block" style={{ marginTop: 'clamp(-240px, -40vw, -400px)', marginLeft: 'clamp(100px, 10vw, 200px)' }}>
             <div className="relative flex items-center justify-center">
               {/* Blue Outline Circle */}
               <div 
@@ -290,15 +299,125 @@ const StoryPage = () => {
               
               {/* First milestone order text at 5:15 */}
               <div 
-                className="absolute whitespace-nowrap hidden md:block"
+                className="absolute whitespace-nowrap"
                 style={{
                   bottom: '5%',
-                  left: '75%',
+                  left: '65%',
                   transform: 'translate(-50%, 50%) rotate(7.56deg)'
                 }}
               >
                 <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)' }}>first milestone order</span>
               </div>
+            </div>
+          </div>
+
+          {/* Fourth Circle - Mobile version (matching circle 2) */}
+          <div className="circle4-container flex justify-center w-full md:hidden" style={{ marginTop: '-80px' }}>
+            <div className="relative flex items-center justify-center">
+              {/* Layout Container */}
+              <div 
+                className="rounded-full"
+                style={{
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
+                }}
+              />
+              
+              {/* Large Dashed Rotating Circle - SVG Overlay */}
+              <svg 
+                className="absolute inset-0"
+                style={{
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
+                  transform: `rotate(${scrollY * 0.1}deg)`,
+                  willChange: 'transform'
+                }}
+              >
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="calc(50% - 2px)"
+                  fill="none"
+                  stroke="#0025B8"
+                  strokeWidth="2"
+                  strokeDasharray="10 10"
+                  className="hidden md:block"
+                />
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="calc(50% - 2px)"
+                  fill="none"
+                  stroke="#0025B8"
+                  strokeWidth="1"
+                  strokeDasharray="5 5"
+                  className="md:hidden"
+                />
+              </svg>
+              
+              {/* Polaroid at 6 o'clock - Bottom */}
+              <div 
+                className="absolute"
+                style={{
+                  bottom: '5%',
+                  left: '45%',
+                  transform: 'translate(-50%, 50%)',
+                  zIndex: 10
+                }}
+              >
+                <div className="relative">
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid6.JPG`}
+                    alt="Polaroid 6"
+                    className="h-auto object-contain"
+                    style={{ width: 'clamp(160px, 16vw, 320px)' }}
+                  />
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2">
+                    <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2018</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Word of mouth spreads text at 11 o'clock - Mobile Only */}
+              <div 
+                className="absolute md:hidden text-center"
+                style={{
+                  top: '12%',
+                  left: '25%',
+                  transform: 'translate(-50%, -50%) rotate(-8.79deg)'
+                }}
+              >
+                <div className="flex flex-col items-center">
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>word of mouth</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>spreads</span>
+                </div>
+              </div>
+              
+              {/* Center Content - positioned absolutely to avoid rotation */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center text-center px-6" style={{ width: 'clamp(320px, 65vw, 100%)' }}>
+                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1' }}>
+                    Mastering The Texture Craft
+                  </h5>
+                  <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(16px, 2.5vw, 16px)', lineHeight: '1.5' }}>
+                    Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* New Circle - Mobile only, between circle 4 and 5, offset left, matching circle 3 */}
+          <div className="new-circle-container flex justify-start w-full md:hidden" style={{ marginTop: '-80px', marginLeft: '-20px' }}>
+            <div className="relative flex items-center justify-center">
+              {/* Blue Outline Circle */}
+              <div 
+                className="rounded-full border border-studio-blue"
+                style={{
+                  width: 'clamp(324px, 65vw, 648px)',
+                  height: 'clamp(324px, 65vw, 648px)'
+                }}
+              />
             </div>
           </div>
 
@@ -312,7 +431,7 @@ const StoryPage = () => {
               }
               @media (max-width: 1023px) {
                 .circle5-container {
-                  margin-top: -120px !important;
+                  margin-top: -60px !important;
                 }
               }
             `}</style>
@@ -344,12 +463,23 @@ const StoryPage = () => {
                   stroke="#0025B8"
                   strokeWidth="2"
                   strokeDasharray="10 10"
+                  className="hidden md:block"
+                />
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="calc(50% - 2px)"
+                  fill="none"
+                  stroke="#0025B8"
+                  strokeWidth="1"
+                  strokeDasharray="5 5"
+                  className="md:hidden"
                 />
               </svg>
               
-              {/* Polaroid at 9:15 */}
+              {/* Polaroid at 9:15 - Desktop Only */}
               <div 
-                className="absolute"
+                className="absolute hidden md:block"
                 style={{
                   top: '45%',
                   left: '-3%',
@@ -369,9 +499,9 @@ const StoryPage = () => {
                 </div>
               </div>
               
-              {/* Polaroid at 3:15 */}
+              {/* Polaroid at 3:15 - Desktop Only */}
               <div 
-                className="absolute"
+                className="absolute hidden md:block"
                 style={{
                   top: '55%',
                   right: '-3%',
@@ -391,9 +521,9 @@ const StoryPage = () => {
                 </div>
               </div>
               
-              {/* Polaroid at 6 o'clock */}
+              {/* Polaroid at 6 o'clock - Desktop */}
               <div 
-                className="absolute"
+                className="absolute hidden md:block"
                 style={{
                   bottom: '-5%',
                   left: '50%',
@@ -414,6 +544,45 @@ const StoryPage = () => {
                 </div>
               </div>
               
+              {/* Polaroid at 6 o'clock - Mobile Only */}
+              <div 
+                className="absolute md:hidden"
+                style={{
+                  bottom: '-10%',
+                  left: '50%',
+                  transform: 'translate(-50%, 50%)',
+                  zIndex: 10
+                }}
+              >
+                <div className="relative">
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid9.JPG`}
+                    alt="Polaroid 9"
+                    className="h-auto object-contain"
+                    style={{ width: 'clamp(160px, 16vw, 320px)' }}
+                  />
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2">
+                    <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2020</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* First milestone order text at 1 o'clock - Mobile Only */}
+              <div 
+                className="absolute md:hidden text-center"
+                style={{
+                  top: '8%',
+                  right: '25%',
+                  transform: 'translate(50%, -50%) rotate(8.79deg)'
+                }}
+              >
+                <div className="flex flex-col items-center">
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>first</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>milestone</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>order</span>
+                </div>
+              </div>
+              
               {/* Center Content - positioned absolutely to avoid rotation */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center text-center px-6 max-w-lg">
@@ -428,20 +597,22 @@ const StoryPage = () => {
             </div>
           </div>
 
-          {/* Sixth Circle - 15% bigger than circle 4, below circle 5 */}
-          <div className="circle6-container flex justify-center w-full" style={{ marginTop: 'clamp(25px, 5vw, 50px)' }}>
-            <style jsx>{`
-              @media (min-width: 1024px) {
-                .circle6-container {
-                  margin-top: clamp(25px, 5vw, 50px) !important;
-                }
-              }
-              @media (max-width: 1023px) {
-                .circle6-container {
-                  margin-top: 80px !important;
-                }
-              }
-            `}</style>
+          {/* New Circle Above Circle 6 - Mobile only, offset right, matching circle 3 */}
+          <div className="new-circle-above-6-container flex justify-end w-full md:hidden" style={{ marginTop: '-80px' }}>
+            <div className="relative flex items-center justify-center" style={{ transform: 'translateX(80px)' }}>
+              {/* Blue Outline Circle */}
+              <div 
+                className="rounded-full border border-studio-blue"
+                style={{
+                  width: 'clamp(324px, 65vw, 648px)',
+                  height: 'clamp(324px, 65vw, 648px)'
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Sixth Circle - Desktop version (unchanged) */}
+          <div className="circle6-container flex justify-center w-full hidden md:block" style={{ marginTop: 'clamp(25px, 5vw, 50px)' }}>
             <div className="relative flex items-center justify-center" style={{ zIndex: 1 }}>
               {/* Blue Outline Circle */}
               <div 
@@ -464,10 +635,10 @@ const StoryPage = () => {
               
               {/* Requested by name text at 9:30 o'clock */}
               <div 
-                className="absolute text-center hidden md:block"
+                className="absolute text-center"
                 style={{
                   top: '35%',
-                  left: '5%',
+                  left: '21.5%',
                   transform: 'translate(-50%, -50%) rotate(-7.5deg)'
                 }}
               >
@@ -525,10 +696,10 @@ const StoryPage = () => {
 
               {/* Custom visions and requests text at 5:30 o'clock */}
               <div 
-                className="absolute text-center hidden md:block"
+                className="absolute text-center"
                 style={{
                   bottom: '10%',
-                  left: '78%',
+                  left: '65%',
                   transform: 'translate(-50%, 50%) rotate(-1.64deg)',
                   width: '800px'
                 }}
@@ -546,6 +717,127 @@ const StoryPage = () => {
                   bottom: '-48px',
                   left: '50%',
                   transform: 'translate(-50%, 0%)'
+                }}
+              >
+                <button
+                  onClick={() => {
+                    window.history.pushState({}, '', '/contact');
+                    window.dispatchEvent(new PopStateEvent('popstate'));
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="bg-studio-blue rounded-full flex items-center justify-center hover:bg-studio-orange transition-colors duration-300 group"
+                  style={{ width: 'clamp(80px, 8vw, 96px)', height: 'clamp(80px, 8vw, 96px)' }}
+                >
+                  <span className="font-proxima-wide text-studio-orange group-hover:text-studio-blue font-bold uppercase transition-colors duration-300" style={{ fontSize: 'clamp(12px, 1.5vw, 14px)' }}>
+                    Contact
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Sixth Circle - Mobile version (matching circle 2) */}
+          <div className="circle6-container flex justify-center w-full md:hidden" style={{ marginTop: '-140px' }}>
+            <div className="relative flex items-center justify-center" style={{ zIndex: 1 }}>
+              {/* Layout Container */}
+              <div 
+                className="rounded-full"
+                style={{
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
+                }}
+              />
+              
+              {/* Large Dashed Rotating Circle - SVG Overlay */}
+              <svg 
+                className="absolute inset-0"
+                style={{
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
+                  transform: `rotate(${scrollY * 0.1}deg)`,
+                  willChange: 'transform'
+                }}
+              >
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="calc(50% - 2px)"
+                  fill="none"
+                  stroke="#0025B8"
+                  strokeWidth="2"
+                  strokeDasharray="10 10"
+                  className="hidden md:block"
+                />
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="calc(50% - 2px)"
+                  fill="none"
+                  stroke="#0025B8"
+                  strokeWidth="1"
+                  strokeDasharray="5 5"
+                  className="md:hidden"
+                />
+              </svg>
+              
+              {/* Polaroid at 6 o'clock - Bottom */}
+              <div 
+                className="absolute"
+                style={{
+                  bottom: '5%',
+                  left: '50%',
+                  transform: 'translate(-50%, 50%)',
+                  zIndex: 10
+                }}
+              >
+                <div className="relative">
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid13.JPG`}
+                    alt="Polaroid 13"
+                    className="h-auto object-contain"
+                    style={{ width: 'clamp(160px, 16vw, 320px)' }}
+                  />
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2">
+                    <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2024</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Center Content - positioned absolutely to avoid rotation */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center text-center px-6" style={{ width: 'clamp(320px, 65vw, 100%)' }}>
+                  <div className="mb-4">
+                    <div className="font-proxima-wide font-bold text-studio-blue uppercase" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1' }}>In his</div>
+                    <div className="font-proxima-wide font-bold text-studio-blue uppercase" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1' }}>signature era</div>
+                  </div>
+                  <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(16px, 2.5vw, 16px)', lineHeight: '1.5' }}>
+                    Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
+                  </p>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+          {/* New Last Circle - Mobile only, centered, matching smaller circles */}
+          <div className="new-last-circle-container flex justify-center w-full md:hidden" style={{ marginTop: '-80px' }}>
+            <div className="relative flex items-center justify-center">
+              {/* Blue Outline Circle */}
+              <div 
+                className="rounded-full border border-studio-blue"
+                style={{
+                  width: 'clamp(324px, 65vw, 648px)',
+                  height: 'clamp(324px, 65vw, 648px)'
+                }}
+              />
+              
+              {/* Contact button at bottom */}
+              <div 
+                className="absolute"
+                style={{
+                  bottom: '0%',
+                  left: '50%',
+                  transform: 'translate(-50%, 50%)'
                 }}
               >
                 <button
