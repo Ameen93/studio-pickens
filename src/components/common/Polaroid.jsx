@@ -20,7 +20,7 @@ const Polaroid = ({
 
   return (
     <div 
-      className={`absolute transition-all ease-out ${className}`}
+      className={`absolute ${className}`}
       style={{
         top: isLoaded ? top : '50%',
         bottom,
@@ -28,9 +28,9 @@ const Polaroid = ({
         right,
         width,
         height,
-        transform: `${isLoaded ? (left || right ? '' : 'translate(-50%, 0)') : `translate(calc(-50% + ${initialOffset.x}px), calc(-50% + ${initialOffset.y}px))`} rotate(${rotation}deg) scale(${isLoaded ? 1 : 2})`,
+        transform: `${isLoaded ? (left || right ? '' : 'translate(-50%, 0)') : `translate(calc(-50% + ${initialOffset.x}px), calc(-50% + ${initialOffset.y}px))`} rotate(${rotation}deg) scale(${isLoaded ? 1 : 1.5})`,
         transformOrigin: 'center center',
-        transitionDuration: `${animationDuration}ms`,
+        transition: `all ${animationDuration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`,
         zIndex
       }}
     >
@@ -39,13 +39,13 @@ const Polaroid = ({
           category={category}
           filename={filename}
           alt={alt}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
         />
       ) : (
         <img
           src={src}
           alt={alt}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
         />
       )}
     </div>

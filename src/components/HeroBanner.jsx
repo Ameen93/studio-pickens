@@ -29,9 +29,9 @@ const HeroBanner = () => {
   } = useCarousel(images, { autoPlayInterval: 4000 });
 
   const polaroidConfigs = [
-    // Polaroid 1 - Desktop
+    // Polaroid 1 - Desktop (swapped to new-polaroid-2)
     {
-      filename: "polaroid1.png",
+      filename: "new-polaroid-2.png",
       alt: "Behind the scenes",
       position: {
         top: 'clamp(10px, 1.39vw, 20px)',
@@ -41,15 +41,15 @@ const HeroBanner = () => {
         width: 'clamp(88.5px, 12.34vw, 177.61px)',
         height: 'clamp(133px, 18.5vw, 266.48px)'
       },
-      rotation: 100,
-      animationDuration: 3200,
-      initialOffset: { x: -120, y: -80 },
-      zIndex: 100,
+      rotation: 10,
+      animationDuration: 3800,
+      initialOffset: { x: -60, y: -40 },
+      zIndex: 30,
       className: "hidden xl:block"
     },
-    // Polaroid 1 - Mobile
+    // Polaroid 1 - Mobile (swapped to new-polaroid-2)
     {
-      filename: "polaroid1.png",
+      filename: "new-polaroid-2.png",
       alt: "Behind the scenes",
       position: {
         top: 'clamp(10px, 2.78vw, 20px)',
@@ -59,51 +59,51 @@ const HeroBanner = () => {
         width: 'clamp(86px, 24vw, 172.76px)',
         height: 'clamp(129px, 36vw, 259.21px)'
       },
-      rotation: 108.31,
-      animationDuration: 2800,
-      initialOffset: { x: -80, y: -60 },
-      zIndex: 100,
+      rotation: 18.31,
+      animationDuration: 3500,
+      initialOffset: { x: -40, y: -30 },
+      zIndex: 30,
       className: "block xl:hidden"
     },
-    // Polaroid 2 - Desktop
+    // Polaroid 2 - Desktop (swapped to new-polaroid-1)
     {
-      filename: "polaroid2.png",
+      filename: "new-polaroid-1.png",
       alt: "Creative process",
       position: {
         bottom: 'clamp(-100px, -13.89vw, -200px)',
-        left: '45%'
+        left: '46%'
       },
       size: {
         width: 'clamp(88.5px, 12.34vw, 177.61px)',
         height: 'clamp(133px, 18.5vw, 266.48px)'
       },
       rotation: 8.33,
-      animationDuration: 2000,
-      initialOffset: { x: 0, y: 120 },
-      zIndex: 40,
+      animationDuration: 3000,
+      initialOffset: { x: -15, y: 50 },
+      zIndex: 50,
       className: "hidden xl:block"
     },
-    // Polaroid 2 - Mobile
+    // Polaroid 2 - Mobile (swapped to new-polaroid-1)
     {
-      filename: "polaroid2.png",
+      filename: "new-polaroid-1.png",
       alt: "Creative process",
       position: {
         bottom: 'clamp(100px, 27.78vw, 200px)',
-        right: '-20px'
+        right: '-22px'
       },
       size: {
         width: 'clamp(86px, 23.89vw, 171.97px)',
         height: 'clamp(129px, 35.84vw, 258.02px)'
       },
       rotation: 8.33,
-      animationDuration: 2200,
-      initialOffset: { x: 0, y: 80 },
-      zIndex: 40,
+      animationDuration: 3200,
+      initialOffset: { x: 20, y: 30 },
+      zIndex: 50,
       className: "block xl:hidden"
     },
     // Polaroid 3 - Desktop
     {
-      filename: "polaroid3.png",
+      filename: "new-polaroid-3.png",
       alt: "Studio work",
       position: {
         bottom: 'clamp(40px, 5.56vw, 80px)',
@@ -113,15 +113,15 @@ const HeroBanner = () => {
         width: 'clamp(88.5px, 12.34vw, 177.61px)',
         height: 'clamp(133px, 18.5vw, 266.48px)'
       },
-      rotation: 80,
-      animationDuration: 2800,
-      initialOffset: { x: 130, y: -90 },
+      rotation: -10,
+      animationDuration: 4000,
+      initialOffset: { x: 20, y: -15 },
       zIndex: 40,
       className: "hidden xl:block"
     },
     // Polaroid 3 - Mobile
     {
-      filename: "polaroid3.png",
+      filename: "new-polaroid-3.png",
       alt: "Studio work",
       position: {
         top: '75%',
@@ -131,9 +131,9 @@ const HeroBanner = () => {
         width: 'clamp(80px, 22.31vw, 160.65px)',
         height: 'clamp(120px, 33.48vw, 241.03px)'
       },
-      rotation: 79.54,
-      animationDuration: 2400,
-      initialOffset: { x: 90, y: -70 },
+      rotation: -10.46,
+      animationDuration: 3800,
+      initialOffset: { x: 15, y: -10 },
       zIndex: 40,
       className: "block xl:hidden"
     }
