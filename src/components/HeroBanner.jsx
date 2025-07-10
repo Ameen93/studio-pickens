@@ -114,8 +114,8 @@ const HeroBanner = () => {
         height: 'clamp(133px, 18.5vw, 266.48px)'
       },
       rotation: -10,
-      animationDuration: 4000,
-      initialOffset: { x: 20, y: -15 },
+      animationDuration: 3600,
+      initialOffset: { x: 80, y: -50 },
       zIndex: 40,
       className: "hidden xl:block"
     },
@@ -124,7 +124,7 @@ const HeroBanner = () => {
       filename: "new-polaroid-3.png",
       alt: "Studio work",
       position: {
-        top: '75%',
+        top: '70%',
         left: '40%'
       },
       size: {
@@ -132,8 +132,8 @@ const HeroBanner = () => {
         height: 'clamp(120px, 33.48vw, 241.03px)'
       },
       rotation: -10.46,
-      animationDuration: 3800,
-      initialOffset: { x: 15, y: -10 },
+      animationDuration: 3400,
+      initialOffset: { x: 50, y: -35 },
       zIndex: 40,
       className: "block xl:hidden"
     }
