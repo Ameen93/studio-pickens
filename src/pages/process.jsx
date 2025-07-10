@@ -12,11 +12,18 @@ const ProcessPage = () => {
           height: 'clamp(600px, 60vw, 1000px)',
         }}
       >
-        {/* Background Image */}
+        {/* Background Image - Desktop */}
         <img
           src={`${process.env.PUBLIC_URL}/images/process/banner/process-Hero-Banner-Grouped.png`}
           alt="Process banner background"
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          className="absolute inset-0 w-full h-full object-cover z-0 hidden xl:block"
+        />
+        
+        {/* Background Image - Mobile */}
+        <img
+          src={`${process.env.PUBLIC_URL}/images/process/banner/Mobile_Hero Banner_process.png`}
+          alt="Process banner background"
+          className="absolute inset-0 w-full h-full object-cover z-0 block xl:hidden"
         />
 
         {/* Rotating Dashed Circle */}
@@ -255,15 +262,15 @@ const ProcessPage = () => {
             
             {/* Medium circle */}
             <div className="absolute rounded-full border-2 border-studio-blue lg:hidden" style={{ 
-              width: '300px', 
-              height: '300px',
+              width: '260px', 
+              height: '260px',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
             }}></div>
             <div className="hidden lg:block absolute rounded-full border-2 border-studio-blue" style={{ 
-              width: '380px', 
-              height: '380px',
+              width: '340px', 
+              height: '340px',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
@@ -271,15 +278,15 @@ const ProcessPage = () => {
             
             {/* Large circle */}
             <div className="absolute rounded-full border-2 border-studio-blue lg:hidden" style={{ 
-              width: '380px', 
-              height: '380px',
+              width: '300px', 
+              height: '300px',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
             }}></div>
             <div className="hidden lg:block absolute rounded-full border-2 border-studio-blue" style={{ 
-              width: '450px', 
-              height: '450px',
+              width: '400px', 
+              height: '400px',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
