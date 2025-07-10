@@ -9,12 +9,12 @@ const ProcessPage = () => {
       <section 
         className="relative bg-studio-bg flex items-center justify-center w-full overflow-hidden -mt-16" 
         style={{ 
-          height: 'clamp(600px, 60vw, 1000px)',
+          height: 'clamp(700px, 70vw, 1200px)',
         }}
       >
         {/* Background Image - Desktop */}
         <img
-          src={`${process.env.PUBLIC_URL}/images/process/banner/process-Hero-Banner-Grouped.png`}
+          src={`${process.env.PUBLIC_URL}/images/process/banner/Desktop_PROCESS Hero Banner v2.png`}
           alt="Process banner background"
           className="absolute inset-0 w-full h-full object-cover z-0 hidden xl:block"
         />
@@ -59,7 +59,7 @@ const ProcessPage = () => {
       </section>
 
       {/* Process Gallery Section */}
-      <section className="pt-8 pb-10 px-4 md:px-10 max-w-full mx-auto">
+      <section className="pt-16 pb-10 px-4 md:px-10 max-w-full mx-auto">
         {/* Item 1: 90% science / 10% wigmaking */}
         <div className="flex flex-col lg:flex-row items-end mb-10 gap-4">
           <div className="w-full lg:w-[55%] lg:pr-3 lg:order-1 order-2">

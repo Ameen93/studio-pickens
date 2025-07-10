@@ -14,7 +14,7 @@ const WorkFilterNav = ({ onFilterChange, activeFilter }) => {
   return (
     <nav className="bg-studio-bg">
       <div className="max-w-screen-xl mx-auto px-4">
-        <div className="flex items-center py-4 overflow-x-auto scrollbar-hide md:justify-center">
+        <div className="flex items-center py-4 md:pt-12 md:pb-8 overflow-x-auto scrollbar-hide md:justify-center">
           <div className="flex items-center space-x-8 whitespace-nowrap px-4 md:px-0">
             {filters.map((filter) => (
               <button

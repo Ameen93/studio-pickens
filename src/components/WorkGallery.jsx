@@ -113,7 +113,7 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick }) => {
   };
 
   return (
-    <section className="bg-studio-bg pt-16 pb-0 relative w-full overflow-visible">
+    <section className="bg-studio-bg pt-16 md:pt-4 pb-0 relative w-full overflow-visible">
       {/* Desktop Layout */}
       <div className="hidden md:block max-w-[1440px] mx-auto">
         <div 

@@ -112,7 +112,7 @@ const ContactPage = () => {
       {/* Blue Location Bar */}
       <section className="bg-studio-blue py-16">
         <div className="w-full px-4 md:px-0 md:pr-[152px]">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-64">
             {/* Brooklyn */}
             <div className="text-left md:text-left md:ml-[152px]">
               <div 
