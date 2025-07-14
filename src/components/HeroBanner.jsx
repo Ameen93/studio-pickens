@@ -114,8 +114,8 @@ const HeroBanner = () => {
         height: 'clamp(133px, 18.5vw, 266.48px)'
       },
       rotation: -10,
-      animationDuration: 3600,
-      initialOffset: { x: 80, y: -50 },
+      animationDuration: 3800,
+      initialOffset: { x: 60, y: 40 },
       zIndex: 40,
       className: "hidden xl:block"
     },

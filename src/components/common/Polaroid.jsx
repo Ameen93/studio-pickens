@@ -22,13 +22,13 @@ const Polaroid = ({
     <div 
       className={`absolute ${className}`}
       style={{
-        top: isLoaded ? top : '50%',
-        bottom,
-        left: isLoaded ? left || 'auto' : '50%',
-        right,
+        top: isLoaded ? top : (bottom ? 'auto' : '50%'),
+        bottom: isLoaded ? bottom : (bottom ? '50%' : 'auto'),
+        left: isLoaded ? left || 'auto' : (right ? 'auto' : '50%'),
+        right: isLoaded ? right : (right ? '50%' : 'auto'),
         width,
         height,
-        transform: `${isLoaded ? (left ? '' : right ? '' : 'translate(-50%, 0)') : `translate(calc(-50% + ${initialOffset.x}px), calc(-50% + ${initialOffset.y}px))`} rotate(${rotation}deg) scale(${isLoaded ? 1 : 1.5})`,
+        transform: `${isLoaded ? (left || right || top || bottom ? '' : 'translate(-50%, -50%)') : `translate(calc(-50% + ${initialOffset.x}px), calc(-50% + ${initialOffset.y}px))`} rotate(${rotation}deg) scale(${isLoaded ? 1 : 1.5})`,
         transformOrigin: 'center center',
         transition: `all ${animationDuration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`,
         zIndex
