@@ -1,0 +1,181 @@
+{
+  "banner": {
+    "desktopImage": "/images/work/Desktop_WORK Hero Banner v2.png",
+    "mobileImage": "/images/work/Mobile_WORK Hero Banner v2.png",
+    "title": "SELECTED WORK",
+    "subtitle": "We design more than wigs – we build moments, moods, and movements. Step inside the world of Studio Pickens. Here's a glimpse at what we do best.",
+    "transform": {
+      "scale": 1,
+      "translateX": 0,
+      "translateY": 0,
+      "flip": false
+    }
+  },
+  "sectionBanners": [
+    {
+      "image": "/images/work/banners/1 film & tv banner.jpg",
+      "category": "FILM & TV",
+      "transform": {
+        "scale": 1,
+        "translateX": 0,
+        "translateY": 0,
+        "flip": false
+      }
+    },
+    {
+      "image": "/images/work/banners/2 editorial banner.jpg",
+      "category": "EDITORIAL",
+      "transform": {
+        "scale": 1,
+        "translateX": 0,
+        "translateY": 0,
+        "flip": false
+      }
+    },
+    {
+      "image": "/images/work/banners/3 theatre banner.jpg",
+      "category": "THEATRE",
+      "transform": {
+        "scale": 1,
+        "translateX": 0,
+        "translateY": 0,
+        "flip": false
+      }
+    },
+    {
+      "image": "/images/work/banners/4 music banner.jpg",
+      "category": "MUSIC VIDEO",
+      "transform": {
+        "scale": 1,
+        "translateX": 0,
+        "translateY": 0,
+        "flip": false
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "VOGUE HONG KONG",
+      "client": "Vogue Hong Kong",
+      "category": "EDITORIAL",
+      "year": 2025,
+      "image": "/images/work/editorial.jpg",
+      "alt": "Editorial photo",
+      "description": "Premium editorial work for Vogue Hong Kong",
+      "featured": true,
+      "side": "left",
+      "order": 0
+    },
+    {
+      "id": 2,
+      "title": "HARPER'S BAZAAR",
+      "client": "Harper's Bazaar",
+      "category": "CONCERT",
+      "year": 2024,
+      "image": "/images/work/concert.jpg",
+      "alt": "Concert photo",
+      "description": "Concert styling for Harper's Bazaar",
+      "featured": false,
+      "order": 0
+    },
+    {
+      "id": 3,
+      "title": "VANITY FAIR",
+      "client": "Vanity Fair",
+      "category": "FILM & TV",
+      "year": 2025,
+      "image": "/images/work/filmandtv.jpg",
+      "alt": "Film and TV photo",
+      "description": "Film and TV styling for Vanity Fair",
+      "featured": true,
+      "side": "center",
+      "order": 0
+    },
+    {
+      "id": 4,
+      "title": "ELLE MAGAZINE",
+      "client": "Elle Magazine",
+      "category": "EDITORIAL",
+      "year": 2024,
+      "image": "/images/work/editorial2.png",
+      "alt": "Editorial photo 2",
+      "description": "Editorial styling for Elle Magazine",
+      "featured": false,
+      "order": 0
+    },
+    {
+      "id": 5,
+      "title": "W MAGAZINE",
+      "client": "W Magazine",
+      "category": "THEATRE",
+      "year": 2024,
+      "image": "/images/work/theatre.png",
+      "alt": "Theatre photo",
+      "description": "Theatre styling for W Magazine",
+      "featured": true,
+      "side": "right",
+      "order": 0
+    },
+    {
+      "id": 6,
+      "title": "MARIE CLAIRE",
+      "client": "Marie Claire",
+      "category": "MUSIC VIDEO",
+      "year": 2025,
+      "image": "/images/work/musicvideo.jpg",
+      "alt": "Music video photo",
+      "description": "Music video styling for Marie Claire",
+      "featured": false,
+      "order": 0
+    },
+    {
+      "id": 7,
+      "title": "ALLURE",
+      "client": "Allure",
+      "category": "FILM & TV",
+      "year": 2024,
+      "image": "/images/work/filmandtv2.png",
+      "alt": "Film and TV photo 2",
+      "description": "Film and TV styling for Allure",
+      "featured": false,
+      "order": 0
+    },
+    {
+      "id": 8,
+      "title": "COSMOPOLITAN",
+      "client": "Cosmopolitan",
+      "category": "EDITORIAL",
+      "year": 2025,
+      "image": "/images/work/editorial3.jpg",
+      "alt": "Editorial photo 3",
+      "description": "Editorial styling for Cosmopolitan",
+      "featured": false,
+      "order": 0
+    },
+    {
+      "id": 9,
+      "title": "GLAMOUR",
+      "client": "Glamour",
+      "category": "LIVE",
+      "year": 2024,
+      "image": "/images/work/live.jpg",
+      "alt": "Live photo",
+      "description": "Live performance styling for Glamour",
+      "featured": false,
+      "order": 0
+    },
+    {
+      "title": "Testing",
+      "client": "Testing",
+      "category": "EDITORIAL",
+      "year": 2025,
+      "image": "/images/uploads/image-1752762049989-725692533.png",
+      "alt": "",
+      "description": "",
+      "featured": false,
+      "order": 0,
+      "id": 1752762053257
+    }
+  ]
+}

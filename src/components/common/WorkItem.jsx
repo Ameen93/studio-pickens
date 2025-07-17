@@ -15,11 +15,11 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
       <div className="relative w-full h-full">
         {/* Project Image */}
         <img
-          src={project.src}
+          src={project.image || project.src}
           alt={project.alt}
           className="w-full h-full object-cover"
           style={{
-            objectPosition: project.src.includes('editorial2') || project.src.includes('editorial3') ? 'center top' : 'center center'
+            objectPosition: (project.image || project.src)?.includes('editorial2') || (project.image || project.src)?.includes('editorial3') ? 'center top' : 'center center'
           }}
         />
         

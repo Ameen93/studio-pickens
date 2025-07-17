@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { API_ENDPOINTS, apiRequest } from '../config/api';
 
 export const useProcessData = () => {
   const [processData, setProcessData] = useState({
@@ -36,8 +35,8 @@ export const useProcessData = () => {
   useEffect(() => {
     const fetchProcessData = async () => {
       try {
-        const response = await apiRequest(API_ENDPOINTS.process);
-        const data = response.data || response;
+        const response = await fetch('/data/process.json');
+        const data = await response.json();
         
         // Ensure we have the required structure
         setProcessData({

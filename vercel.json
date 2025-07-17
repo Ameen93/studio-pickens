@@ -1,24 +1,8 @@
 {
-  "version": 2,
-  "name": "studio-pickens",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build"
-    }
-  ],
   "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ],
-  "env": {
-    "REACT_APP_API_BASE_URL": "@api_base_url"
-  },
-  "build": {
-    "env": {
-      "REACT_APP_API_BASE_URL": "@api_base_url"
-    }
-  }
+  ]
 }

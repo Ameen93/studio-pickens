@@ -4,25 +4,12 @@ import WorkGallery from '../components/WorkGallery';
 import WorkBanners from '../components/WorkBanners';
 import WorkFilterNav from '../components/WorkFilterNav';
 import PageBanner from '../components/common/PageBanner';
+import { useWorkData } from '../hooks/useWorkData';
 
 const WorkPage = () => {
   const galleryRef = useRef(null);
   const [activeFilter, setActiveFilter] = useState('ALL MEDIA');
-  const [workData, setWorkData] = useState({
-    banner: {
-      desktopImage: '/images/work/Desktop_WORK Hero Banner v2.png',
-      mobileImage: '/images/work/Mobile_WORK Hero Banner v2.png',
-      title: 'Selected Work',
-      subtitle: 'Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus.',
-      transform: {
-        scale: 1,
-        translateX: 0,
-        translateY: 0,
-        objectPosition: 'center center'
-      }
-    }
-  });
-  const [loading, setLoading] = useState(true);
+  const { workData, loading, error } = useWorkData();
 
   // Map project categories to filter categories
   const categoryToFilterMap = {
@@ -34,33 +21,6 @@ const WorkPage = () => {
     'LIVE': 'LIVE PERFORMANCE'
   };
 
-  // Fetch work data
-  useEffect(() => {
-    const fetchWorkData = async () => {
-      try {
-        const response = await fetch('http://localhost:3001/api/work');
-        const result = await response.json();
-        const data = result.data || result;
-        setWorkData({
-          banner: {
-            ...data.banner,
-            transform: data.banner.transform || {
-              scale: 1,
-              translateX: 0,
-              translateY: 0,
-              objectPosition: 'center center'
-            }
-          }
-        });
-      } catch (error) {
-        console.error('Error fetching work data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchWorkData();
-  }, []);
 
   // Check for filter parameter in URL on component mount
   useEffect(() => {
@@ -119,7 +79,7 @@ const WorkPage = () => {
                 <h1 className="font-proxima-wide font-bold text-studio-blue uppercase mb-6 text-center md:text-[64px] text-[40px]" style={{ lineHeight: '1.1' }}>
                   {workData.banner.title}
                 </h1>
-                <p className="font-proxima text-studio-blue max-w-lg" style={{ fontSize: '16px', lineHeight: '1.4' }}>
+                <p className="font-proxima text-studio-blue max-w-lg text-center mx-auto" style={{ fontSize: '16px', lineHeight: '1.4' }}>
                   {workData.banner.subtitle}
                 </p>
               </div>

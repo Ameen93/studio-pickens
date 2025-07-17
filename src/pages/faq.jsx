@@ -10,31 +10,22 @@ const FAQPage = () => {
     <Layout title="Studio Pickens - Frequently Asked Questions">
       {/* FAQ Page Banner */}
       <PageBanner 
-        backgroundImage="faq/4963b601-8788-4697-b9fc-5a0ce4c4e5b4.jpeg"
-        altText="FAQ banner background"
+        backgroundImage="faq/wig-heads-studio-banner.jpg"
+        altText="Studio Pickens wig heads and hair samples - FAQ banner"
         height="705px"
-        objectPosition="50% 50%"
+        objectPosition="50% 15%"
+        transform={{
+          scale: 1.2,
+          translateX: 0,
+          translateY: 0,
+          flip: false
+        }}
       >
-        {/* F A Q Letters */}
-        {/* F - Top Left */}
-        <div className={`absolute top-16 md:top-12 left-8 md:left-20 ${TYPOGRAPHY_CLASSES.headingPrimary}`} style={{ fontSize: 'clamp(64px, 9.6vw, 101.24px)' }}>
-          F
-        </div>
-        
-        {/* A - Below F, offset right past center */}
-        <div className={`absolute ${TYPOGRAPHY_CLASSES.headingPrimary} top-[23%] md:top-[28%] left-[80%] md:left-[68%]`} style={{ 
-          fontSize: 'clamp(64px, 9.6vw, 101.24px)',
-          transform: 'translateX(-50%)'
-        }}>
-          A
-        </div>
-        
-        {/* Q - Between F and A horizontally, at bottom */}
-        <div className={`absolute ${TYPOGRAPHY_CLASSES.headingPrimary} bottom-[30%] md:bottom-[5%] left-[35%] md:left-[40%]`} style={{ 
-          fontSize: 'clamp(64px, 9.6vw, 101.24px)',
-          transform: 'translateX(-50%)'
-        }}>
-          Q
+        {/* Centered FAQ Title */}
+        <div className="text-center z-20" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+          <h1 className="font-proxima-wide font-bold text-studio-blue uppercase" style={{ fontSize: 'clamp(32px, 8vw, 100px)' }}>
+            FAQ
+          </h1>
         </div>
       </PageBanner>
 

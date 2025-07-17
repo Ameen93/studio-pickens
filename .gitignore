@@ -110,7 +110,7 @@ deploy.sh
 ecosystem.config.js
 
 # Authentication and security files
-data/users.json
+# data/users.json (commented out for static deployment)
 data/*.backup
 
 # Test backups and temporary files

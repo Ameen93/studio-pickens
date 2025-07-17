@@ -97,7 +97,8 @@ const LocationsEditor = () => {
       imageAlt: 'New Location Studio',
       mapsUrl: '',
       variant: 'left',
-      order: locationsData.locations.length + 1
+      order: locationsData.locations.length + 1,
+      visible: true
     };
 
     setLocationsData(prev => ({
@@ -256,7 +257,23 @@ const LocationsEditor = () => {
                   .map((location) => (
                     <div key={location.id} className="p-4 bg-white border border-gray-200 rounded-lg">
                       <div className="flex justify-between items-start mb-4">
-                        <h5 className="font-medium text-gray-800">{location.name}</h5>
+                        <div className="flex items-center gap-3">
+                          <h5 className="font-medium text-gray-800">{location.name}</h5>
+                          <div className="flex items-center gap-2">
+                            <label className="text-sm text-gray-600">Visible:</label>
+                            <input
+                              type="checkbox"
+                              checked={location.visible}
+                              onChange={(e) => handleLocationChange(location.id, 'visible', e.target.checked)}
+                              className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500"
+                            />
+                            {location.visible ? (
+                              <span className="text-xs text-green-600 font-medium">SHOWN</span>
+                            ) : (
+                              <span className="text-xs text-red-600 font-medium">HIDDEN</span>
+                            )}
+                          </div>
+                        </div>
                         <div className="flex gap-2">
                           <button
                             onClick={() => moveLocation(location.id, 'up')}

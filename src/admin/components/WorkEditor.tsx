@@ -68,11 +68,15 @@ const WorkEditor = () => {
           sectionBanners: data.sectionBanners || [],
           banner: {
             ...data.banner,
-            transform: data.banner.transform || {
-              scale: 1,
-              translateX: 0,
-              translateY: 0,
-              objectPosition: 'center center'
+            backgroundImage: {
+              desktop: data.banner.desktopImage || '',
+              mobile: data.banner.mobileImage || ''
+            },
+            transform: {
+              scale: data.banner.transform?.scale || 1,
+              translateX: data.banner.transform?.translateX || 0,
+              translateY: data.banner.transform?.translateY || 0,
+              objectPosition: data.banner.transform?.objectPosition || 'center center'
             }
           }
         });
@@ -214,17 +218,29 @@ const WorkEditor = () => {
     }));
   };
 
-  const handleSaveBanner = async () => {
+  const handleSave = async () => {
     setSaving(true);
     try {
-      await apiPut('/work', workData);
+      // Transform the data structure back to the expected format
+      const dataToSave = {
+        ...workData,
+        banner: {
+          ...workData.banner,
+          desktopImage: workData.banner.backgroundImage?.desktop || '',
+          mobileImage: workData.banner.backgroundImage?.mobile || '',
+          // Remove the backgroundImage field since we're using desktopImage/mobileImage
+          backgroundImage: undefined
+        }
+      };
       
-      setMessage('Banner updated successfully!');
+      await apiPut('/work', dataToSave);
+      
+      setMessage('Work page updated successfully!');
       setPreviewRefresh(Date.now());
       setTimeout(() => setMessage(''), 3000);
     } catch (error) {
-      console.error('Error saving banner:', error);
-      setMessage('Error saving banner');
+      console.error('Error saving work page:', error);
+      setMessage('Error saving work page');
     } finally {
       setSaving(false);
     }
@@ -240,14 +256,23 @@ const WorkEditor = () => {
       <div className="w-1/2 p-8 overflow-y-auto">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-gray-800">Work Gallery Editor</h2>
-          <a
-            href="http://localhost:3000/work"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700"
-          >
-            View Live Work Page
-          </a>
+          <div className="flex gap-3">
+            <button
+              onClick={handleSave}
+              disabled={saving}
+              className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 disabled:opacity-50"
+            >
+              {saving ? 'Saving...' : 'Save Changes'}
+            </button>
+            <a
+              href="http://localhost:3000/work"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700"
+            >
+              View Live Work Page
+            </a>
+          </div>
         </div>
 
         {message && (
@@ -378,7 +403,7 @@ const WorkEditor = () => {
             </div>
 
             <button
-              onClick={handleSaveBanner}
+              onClick={handleSave}
               disabled={saving}
               className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 disabled:opacity-50"
             >
@@ -393,7 +418,7 @@ const WorkEditor = () => {
             <div className="space-y-6">
               {workData.sectionBanners?.map((banner, index) => (
                 <div key={banner.id} className="p-4 border border-gray-200 rounded-lg bg-white">
-                  <h4 className="font-medium text-gray-700 mb-4">{banner.title}</h4>
+                  <h4 className="font-medium text-gray-700 mb-4">{banner.category}</h4>
                   
                   <div className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">

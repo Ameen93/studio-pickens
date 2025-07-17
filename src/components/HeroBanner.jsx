@@ -35,7 +35,7 @@ const HeroBanner = () => {
     const defaultConfigs = [
       {
         animationDuration: 3800,
-        initialOffset: { x: -60, y: -40 },
+        initialOffset: { x: -60, y: 20 },
         zIndex: 30,
         size: {
           width: 'clamp(88.5px, 12.34vw, 177.61px)',
@@ -59,7 +59,7 @@ const HeroBanner = () => {
       },
       {
         animationDuration: 3000,
-        initialOffset: { x: -15, y: 50 },
+        initialOffset: { x: -15, y: 100 },
         zIndex: 50,
         size: {
           width: 'clamp(88.5px, 12.34vw, 177.61px)',
@@ -83,7 +83,7 @@ const HeroBanner = () => {
       },
       {
         animationDuration: 3800,
-        initialOffset: { x: 60, y: 40 },
+        initialOffset: { x: 60, y: 80 },
         zIndex: 40,
         size: {
           width: 'clamp(88.5px, 12.34vw, 177.61px)',
@@ -112,7 +112,10 @@ const HeroBanner = () => {
     // Return both desktop and mobile configs
     return [
       {
-        filename: polaroid.image?.replace('/images/polaroids/', ''),
+        ...(polaroid.image?.startsWith('/images/polaroids/') 
+          ? { filename: polaroid.image.replace('/images/polaroids/', '') }
+          : { src: polaroid.image }
+        ),
         alt: polaroid.alt,
         position: polaroid.position,
         size: config.size,
@@ -124,7 +127,10 @@ const HeroBanner = () => {
       },
       // Mobile version
       {
-        filename: polaroid.image?.replace('/images/polaroids/', ''),
+        ...(polaroid.image?.startsWith('/images/polaroids/') 
+          ? { filename: polaroid.image.replace('/images/polaroids/', '') }
+          : { src: polaroid.image }
+        ),
         alt: polaroid.alt,
         position: config.mobileConfig.position,
         size: config.mobileConfig.size,
@@ -157,7 +163,8 @@ const HeroBanner = () => {
                            translateX(${bgImage.transform?.translateX || 0}px) 
                            translateY(${bgImage.transform?.translateY || 0}px) 
                            ${bgImage.transform?.flip ? 'scaleX(-1)' : ''}`,
-                transformOrigin: index === 0 ? 'center left' : 'center right'
+                transformOrigin: index === 0 ? 'center left' : 'center right',
+                objectPosition: bgImage.transform?.objectPosition || 'center center'
               }}
             />
           </div>
@@ -177,7 +184,7 @@ const HeroBanner = () => {
       <div className="absolute inset-0 flex items-center justify-center z-20">
         <div className="text-center transform translate-y-0">
           <img
-            src={LOGO_IMAGES.default}
+            src={LOGO_IMAGES.white}
             alt="Studio Pickens Logo"
             className="hidden md:block mx-auto mb-4 transition-all duration-1000 ease-out"
             style={{
@@ -199,7 +206,7 @@ const HeroBanner = () => {
             }}
           />
           <h1 
-            className="hidden md:block font-proxima-wide font-semibold text-studio-blue uppercase text-center whitespace-nowrap transition-all duration-1000 ease-out"
+            className="hidden md:block font-proxima-wide font-semibold text-white uppercase text-center whitespace-nowrap transition-all duration-1000 ease-out"
             style={{
               fontSize: `${(50 - scrollProgress * 25) * (heroData.banner?.titleSize?.scale || 1)}px`,
               opacity: isLoaded ? Math.max(1 - scrollProgress * 1.67, 0) : 0,
@@ -216,6 +223,7 @@ const HeroBanner = () => {
         <Polaroid
           key={index}
           filename={config.filename}
+          src={config.src}
           alt={config.alt}
           isLoaded={isLoaded}
           position={config.position}

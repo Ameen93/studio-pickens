@@ -44,7 +44,7 @@ const BragBar = () => {
 
   return (
     <section 
-      className="bg-studio-bg relative w-full overflow-hidden"
+      className="bg-studio-bg relative w-full overflow-hidden flex items-center"
       style={{ height: '120px' }}
     >
       <div 

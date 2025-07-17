@@ -1,87 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useWorkData } from '../hooks';
 
 const WorkBanners = ({ onBannerClick }) => {
-  const [sectionBanners, setSectionBanners] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchWorkData = async () => {
-      try {
-        const response = await fetch('http://localhost:3001/api/work');
-        const result = await response.json();
-        const data = result.data || result;
-        setSectionBanners(data.sectionBanners || []);
-      } catch (error) {
-        console.error('Error fetching work data:', error);
-        // Fallback to default banners if API fails
-        setSectionBanners([
-          {
-            id: 1,
-            image: '/images/work/filmandtvbanner.jpg',
-            alt: 'Film & TV Banner',
-            category: 'FILM & TV',
-            title: 'FILM & TV',
-            transform: {
-              scale: 1,
-              translateX: 0,
-              translateY: 0,
-              objectPosition: 'center center'
-            }
-          },
-          {
-            id: 2,
-            image: '/images/work/musicbanner.png',
-            alt: 'Music Banner',
-            category: 'MUSIC',
-            title: 'MUSIC',
-            transform: {
-              scale: 1,
-              translateX: 0,
-              translateY: 0,
-              objectPosition: 'center center'
-            }
-          },
-          {
-            id: 3,
-            image: '/images/work/theatrebanner.jpg',
-            alt: 'Theater Banner',
-            category: 'THEATER',
-            title: 'THEATER',
-            transform: {
-              scale: 1,
-              translateX: 0,
-              translateY: 0,
-              objectPosition: 'center top'
-            }
-          },
-          {
-            id: 4,
-            image: '/images/work/editorialbanner.jpg',
-            alt: 'Editorial Banner',
-            category: 'EDITORIAL',
-            title: 'EDITORIAL',
-            transform: {
-              scale: 1,
-              translateX: 0,
-              translateY: 0,
-              objectPosition: 'center center'
-            }
-          }
-        ]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchWorkData();
-  }, []);
+  const { workData, loading, error } = useWorkData();
+  const sectionBanners = workData.sectionBanners || [];
 
   if (loading) {
     return <div className="bg-studio-bg pt-16 relative w-full h-64">Loading...</div>;
   }
 
   return (
-    <section className="bg-studio-bg pt-16 relative w-full">
+    <section className="bg-studio-bg pt-12 relative w-full">
       {sectionBanners.map((banner) => (
         <div
           key={banner.id}
@@ -116,7 +45,7 @@ const WorkBanners = ({ onBannerClick }) => {
                     letterSpacing: '0.03em'
                   }}
                 >
-                  {banner.title}
+                  {banner.category}
                 </h2>
               </div>
             </div>

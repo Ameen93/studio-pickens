@@ -5,11 +5,12 @@ import WorkGallery from '../components/WorkGallery';
 import WorkBanners from '../components/WorkBanners';
 import BragBar from '../components/BragBar';
 import { Button } from '../components/ui';
-import { useHeroData } from '../hooks';
+import { useHeroData, useWorkData } from '../hooks';
 
 const HomePage = () => {
   const galleryRef = useRef(null);
   const { heroData, loading } = useHeroData();
+  const { featuredProjects } = useWorkData();
 
   // Map project categories to filter categories (same as work page)
   const categoryToFilterMap = {
@@ -77,7 +78,7 @@ const HomePage = () => {
 
       {/* Work Gallery */}
       <div ref={galleryRef}>
-        <WorkGallery onCategoryClick={handleCategoryClick} />
+        <WorkGallery onCategoryClick={handleCategoryClick} projects={featuredProjects} />
       </div>
 
       {/* Work Banners */}

@@ -3,7 +3,7 @@ import { WORK_PROJECTS } from '../constants';
 import WorkItem from './common/WorkItem';
 import MobileWorkItem from './common/MobileWorkItem';
 
-const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick }) => {
+const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick, projects = WORK_PROJECTS }) => {
   // Memoize filter mapping to avoid recreation on each render
   const filterMap = useMemo(() => ({
     'FILM & TV': 'FILM & TV',
@@ -17,11 +17,11 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick }) => {
   // Memoize filtered projects calculation
   const rawFilteredProjects = useMemo(() => {
     return filter === 'ALL MEDIA' 
-      ? WORK_PROJECTS 
-      : WORK_PROJECTS.filter(project => {
+      ? projects 
+      : projects.filter(project => {
           return project.category === filterMap[filter] || project.category === filter;
         });
-  }, [filter, filterMap]);
+  }, [filter, filterMap, projects]);
 
   // Memoize position calculations to avoid expensive recalculations
   const filteredProjects = useMemo(() => {
@@ -32,7 +32,7 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick }) => {
       { left: 390, side: 'center' }
     ];
     
-    const projectsToPosition = filter === 'ALL MEDIA' ? WORK_PROJECTS : rawFilteredProjects;
+    const projectsToPosition = filter === 'ALL MEDIA' ? projects : rawFilteredProjects;
     
     return projectsToPosition.map((project, index) => {
       // Use original side from project data for better layout control
@@ -63,9 +63,9 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick }) => {
       return 'clamp(600px, 45vw, 600px)';
     }
     
-    const minHeight = Math.max((filteredProjects.length - 1) * 425 + 400, 600);
-    const vwHeight = (filteredProjects.length - 1) * 29.51 + 30;
-    const maxHeight = (filteredProjects.length - 1) * 425 + 600;
+    const minHeight = Math.max((filteredProjects.length - 1) * 425 + 200, 400);
+    const vwHeight = (filteredProjects.length - 1) * 29.51 + 20;
+    const maxHeight = (filteredProjects.length - 1) * 425 + 300;
     
     return `clamp(${minHeight}px, ${vwHeight}vw, ${maxHeight}px)`;
   }, [filteredProjects.length]);
@@ -113,7 +113,7 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick }) => {
   };
 
   return (
-    <section className="bg-studio-bg pt-16 md:pt-4 pb-0 relative w-full overflow-visible">
+    <section className="bg-studio-bg py-12 relative w-full overflow-visible">
       {/* Desktop Layout */}
       <div className="hidden md:block max-w-[1440px] mx-auto">
         <div 

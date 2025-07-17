@@ -79,7 +79,6 @@ export interface WorkData {
     image: string;
     alt: string;
     category: string;
-    title: string;
     transform: {
       scale: number;
       translateX: number;
@@ -274,6 +273,7 @@ export interface Location {
   mapsUrl: string;
   variant: 'left' | 'right';
   order: number;
+  visible: boolean;
 }
 
 export interface LocationsData {

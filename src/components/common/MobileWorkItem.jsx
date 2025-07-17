@@ -16,11 +16,11 @@ const MobileWorkItem = ({ project, content, onCategoryClick }) => {
         style={{ aspectRatio: '9/16' }}
       >
         <img
-          src={project.src}
+          src={project.image || project.src}
           alt={project.alt}
           className="w-full h-full object-cover rounded-lg shadow-lg"
           style={{
-            objectPosition: project.src.includes('editorial2') || project.src.includes('editorial3') ? 'center top' : 'center center'
+            objectPosition: (project.image || project.src)?.includes('editorial2') || (project.image || project.src)?.includes('editorial3') ? 'center top' : 'center center'
           }}
         />
         

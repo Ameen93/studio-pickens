@@ -6,7 +6,7 @@ import StoryPage from './pages/story';
 import LocationsPage from './pages/locations';
 import ContactPage from './pages/contact-dynamic';
 import FAQPage from './pages/faq';
-import AdminApp from './admin/AdminApp';
+// import AdminApp from './admin/AdminApp'; // Disabled for static deployment
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -26,9 +26,10 @@ function App() {
 
   const renderPage = () => {
     // Handle admin routes (any path starting with /admin)
-    if (currentPath.startsWith('/admin')) {
-      return <AdminApp />;
-    }
+    // Disabled for static deployment
+    // if (currentPath.startsWith('/admin')) {
+    //   return <AdminApp />;
+    // }
 
     switch (currentPath) {
       case '/':

@@ -3,17 +3,51 @@ import Layout from '../components/Layout';
 import LocationInfo from '../components/common/LocationInfo';
 
 const LocationsPage = () => {
+  const [locationsData, setLocationsData] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [animationStarted, setAnimationStarted] = useState(false);
 
   useEffect(() => {
-    // Start animation after 1.5 second delay
-    const timer = setTimeout(() => {
-      setAnimationStarted(true);
-    }, 1500);
+    const fetchLocationsData = async () => {
+      try {
+        // Force fresh data with timestamp
+        const response = await fetch(`/data/locations.json?t=${Date.now()}`);
+        const data = await response.json();
+        setLocationsData(data);
+      } catch (error) {
+        console.error('Error fetching locations data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    return () => clearTimeout(timer);
+    fetchLocationsData();
   }, []);
 
+  useEffect(() => {
+    if (!locationsData) return;
+    
+    const timer = setTimeout(() => {
+      setAnimationStarted(true);
+    }, locationsData.banner.animationSettings.animationDelay);
+
+    return () => clearTimeout(timer);
+  }, [locationsData]);
+
+  if (loading) {
+    return (
+      <Layout title="Studio Pickens - Locations">
+        <section className="relative bg-studio-bg flex items-center justify-center w-full overflow-hidden" 
+          style={{ height: 'clamp(400px, 45vw, 800px)', paddingTop: '64px', paddingBottom: '64px' }}>
+          <div className="text-center z-20">
+            <div className="text-studio-blue">Loading locations...</div>
+          </div>
+        </section>
+      </Layout>
+    );
+  }
+
+  const visibleLocations = locationsData?.locations?.filter(location => location.visible)?.sort((a, b) => a.order - b.order) || [];
 
   return (
     <Layout 
@@ -80,7 +114,7 @@ const LocationsPage = () => {
         {/* Center Content */}
         <div className="text-center z-20" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
           <h1 className="font-proxima-wide font-bold text-studio-orange uppercase" style={{ fontSize: '55px' }}>
-            Locations
+            {locationsData?.banner.title || 'Locations'}
           </h1>
         </div>
       </section>
@@ -89,46 +123,20 @@ const LocationsPage = () => {
       <section className="bg-studio-bg pt-16 pb-16">
         <div className="w-full px-4 md:px-10 max-w-none">
           <div className="space-y-16">
-            {/* New York - Info Left, Image Right */}
-            <LocationInfo
-              location="New York"
-              address={`283 Wythe Avenue
-Brooklyn, NY 11249
-USA`}
-              imagePath="locations-new-york.png"
-              imageAlt="New York Studio"
-              mapsUrl="https://maps.google.com/?q=283+Wythe+Avenue+Brooklyn+NY+11249+USA"
-              variant="left"
-            />
-
-            {/* Beverly Hills - Image Left, Info Right */}
-            <LocationInfo
-              location="Beverly Hills"
-              address={`9465 Wilshire Boulevard
-Beverly Hills, CA 90212
-USA`}
-              imagePath="locations-beverley-hills.png"
-              imageAlt="Beverly Hills Studio"
-              mapsUrl="https://maps.google.com/?q=9465+Wilshire+Boulevard+Beverly+Hills+CA+90212+USA"
-              variant="right"
-            />
-
-            {/* London - Info Left, Image Right */}
-            <LocationInfo
-              location="London"
-              address={`17 Langley Court
-Covent Garden
-London WC2E 9JY
-United Kingdom`}
-              imagePath="locations-london.png"
-              imageAlt="London Studio"
-              mapsUrl="https://maps.google.com/?q=17+Langley+Court+Covent+Garden+London+WC2E+9JY+United+Kingdom"
-              variant="left"
-            />
+            {visibleLocations.map((location) => (
+              <LocationInfo
+                key={location.id}
+                location={location.name}
+                address={location.address}
+                imagePath={location.image}
+                imageAlt={location.imageAlt}
+                mapsUrl={location.mapsUrl}
+                variant={location.variant}
+              />
+            ))}
           </div>
         </div>
       </section>
-
     </Layout>
   );
 };

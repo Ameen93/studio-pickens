@@ -2,8 +2,8 @@
   "banner": {
     "desktopImage": "/images/work/Desktop_WORK Hero Banner v2.png",
     "mobileImage": "/images/work/Mobile_WORK Hero Banner v2.png",
-    "title": "Test Modified Work Title",
-    "subtitle": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus.",
+    "title": "SELECTED WORK",
+    "subtitle": "We design more than wigs – we build moments, moods, and movements. Step inside the world of Studio Pickens. Here's a glimpse at what we do best.",
     "transform": {
       "scale": 1,
       "translateX": 0,
@@ -13,7 +13,7 @@
   },
   "sectionBanners": [
     {
-      "image": "/images/work/filmandtvbanner.jpg",
+      "image": "/images/work/banners/1 film & tv banner.jpg",
       "category": "FILM & TV",
       "transform": {
         "scale": 1,
@@ -23,8 +23,8 @@
       }
     },
     {
-      "image": "/images/work/musicbanner.png",
-      "category": "MUSIC VIDEO",
+      "image": "/images/work/banners/2 editorial banner.jpg",
+      "category": "EDITORIAL",
       "transform": {
         "scale": 1,
         "translateX": 0,
@@ -33,7 +33,7 @@
       }
     },
     {
-      "image": "/images/work/theatrebanner.jpg",
+      "image": "/images/work/banners/3 theatre banner.jpg",
       "category": "THEATRE",
       "transform": {
         "scale": 1,
@@ -43,8 +43,8 @@
       }
     },
     {
-      "image": "/images/work/editorialbanner.jpg",
-      "category": "EDITORIAL",
+      "image": "/images/work/banners/4 music banner.jpg",
+      "category": "MUSIC VIDEO",
       "transform": {
         "scale": 1,
         "translateX": 0,
@@ -63,7 +63,8 @@
       "image": "/images/work/editorial.jpg",
       "alt": "Editorial photo",
       "description": "Premium editorial work for Vogue Hong Kong",
-      "featured": false,
+      "featured": true,
+      "side": "left",
       "order": 0
     },
     {
@@ -87,7 +88,8 @@
       "image": "/images/work/filmandtv.jpg",
       "alt": "Film and TV photo",
       "description": "Film and TV styling for Vanity Fair",
-      "featured": false,
+      "featured": true,
+      "side": "center",
       "order": 0
     },
     {
@@ -111,7 +113,8 @@
       "image": "/images/work/theatre.png",
       "alt": "Theatre photo",
       "description": "Theatre styling for W Magazine",
-      "featured": false,
+      "featured": true,
+      "side": "right",
       "order": 0
     },
     {

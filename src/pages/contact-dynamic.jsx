@@ -148,6 +148,7 @@ const ContactPage = () => {
         <div className="w-full px-4 md:px-0 md:pr-[152px]">
           <div className="flex flex-col md:flex-row gap-8 md:gap-64">
             {locationsData?.locations
+              ?.filter(location => location.visible)
               ?.sort((a, b) => a.order - b.order)
               .map((location) => {
                 const locationKey = location.name.toLowerCase().replace(/\s+/g, '');

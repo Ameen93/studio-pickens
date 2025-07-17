@@ -2,8 +2,8 @@
   "id": 1,
   "title": "Studio Pickens",
   "subtitle": "Test Modified Subtitle",
-  "atelierTitle": "CUSTOM ATELIER WIGS BY ROBERT PICKENS",
-  "atelierDescription": "This is a custom description that shows the editable text is working correctly. The admin panel allows you to change both the title and description for the atelier section.",
+  "atelierTitle": "atelier wigs by robert pickens",
+  "atelierDescription": "At Studio Pickens, each appointment is part atelier, part adventure: intimate, imaginative, and entirely yours. With warmth and precision, we make every client feel seen, celebrated, and more themselves than ever.",
   "banner": {
     "logoSize": {
       "scale": 1.2,
@@ -16,29 +16,31 @@
   },
   "backgroundImages": [
     {
-      "image": "/images/hero/background1.jpg",
+      "image": "/images/hero/desktop_1 hero banner.jpg",
       "alt": "Studio Pickens creative workspace showcasing film and television production equipment",
       "transform": {
-        "scale": 1,
+        "scale": 1.0,
         "translateX": 0,
-        "translateY": 30,
-        "flip": false
+        "translateY": 0,
+        "flip": false,
+        "objectPosition": "center center"
       }
     },
     {
-      "image": "/images/hero/background2.jpg",
+      "image": "/images/hero/desktop_2 hero banner.jpg",
       "alt": "Behind the scenes view of Studio Pickens creative process and artistic environment",
       "transform": {
-        "scale": 1.25,
-        "translateX": 24,
-        "translateY": 16,
-        "flip": false
+        "scale": 1.0,
+        "translateX": 0,
+        "translateY": 0,
+        "flip": false,
+        "objectPosition": "center center"
       }
     }
   ],
   "polaroids": [
     {
-      "image": "/images/polaroids/new-polaroid-2.png",
+      "image": "/images/hero/Home_Polaroids-1.png",
       "alt": "Behind the scenes",
       "rotation": 10,
       "position": {
@@ -47,7 +49,7 @@
       }
     },
     {
-      "image": "/images/polaroids/new-polaroid-1.png",
+      "image": "/images/hero/Home_Polaroids.png",
       "alt": "Creative process",
       "rotation": 8.33,
       "position": {

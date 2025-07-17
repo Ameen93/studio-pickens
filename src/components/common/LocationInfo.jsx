@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TYPOGRAPHY_CLASSES } from '../../constants/typography';
 import ImageWithPath from './ImageWithPath';
 import { validateLocationData } from '../../utils/validation';
@@ -11,7 +11,28 @@ const LocationInfo = React.memo(({
   mapsUrl,
   variant = 'left' // 'left' | 'right'
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
   const isLeft = variant === 'left';
+  
+  // Define hover content
+  const getHoverContent = () => {
+    if (location === 'Beverly Hills') {
+      return {
+        title: 'Crafting Signature Looks for TV & Film',
+        description: 'Located in the heart of Beverly Hills, our West Coast studio is where artistry meets on-screen storytelling. At Studio Pickens Beverly Hills, we specialize in designing, constructing, and customizing wigs for television, film, and live performance. From high-concept fantasy to period-accurate realism, our expert team collaborates closely with leading costume designers, stylists, and production teams to bring characters to life with precision, speed, and discretion. Whether it\'s a feature film or a last-minute pickup day, this studio is built for the fast-paced demands of the entertainment industry.'
+      };
+    } else if (location === 'New York') {
+      return {
+        title: 'Broadway\'s Trusted Wig Makers',
+        description: 'Our New York studio, nestled in the Flatiron District, is a backstage staple for Broadway and live performance. Studio Pickens NYC is deeply rooted in the traditions of theatre, serving as the trusted source for handmade, performance-ready wigs for stage productions of every scale. With a keen understanding of durability, design continuity, and the rhythm of live performance, our artists craft wigs that stand up to eight shows a week—transforming performers night after night.'
+      };
+    }
+    return { title: location, description: address };
+  };
+  
+  const hoverContent = getHoverContent();
+  const displayTitle = isHovered ? hoverContent.title : location;
+  const displayDescription = isHovered ? hoverContent.description : address;
   
   // Validate location data in development
   if (process.env.NODE_ENV === 'development') {
@@ -29,7 +50,11 @@ const LocationInfo = React.memo(({
   }
   
   return (
-    <div className={`flex flex-col gap-4 md:gap-0 md:flex-row items-center group px-0`}>
+    <div 
+      className={`flex flex-col gap-4 md:gap-0 md:flex-row items-center group px-0`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       {/* Info Box */}
       <div 
         className={`bg-white md:group-hover:bg-studio-blue transition-colors duration-300 pt-8 pr-8 pb-12 pl-12 flex flex-col justify-between cursor-pointer relative w-full md:w-1/4 ${
@@ -60,18 +85,22 @@ const LocationInfo = React.memo(({
             </svg>
           </div>
           
-          {/* City Name */}
+          {/* Title */}
           <h3 className={`${TYPOGRAPHY_CLASSES.headingPrimary} md:group-hover:text-studio-bg transition-colors duration-300 text-xl md:text-2xl mb-2 md:mb-4`}>
-            {location}
+            {displayTitle}
           </h3>
           
-          {/* Address */}
+          {/* Description */}
           <div className={`${TYPOGRAPHY_CLASSES.bodyText} md:group-hover:text-studio-bg transition-colors duration-300 text-base md:text-lg leading-tight md:leading-relaxed`}>
-            {address.split('\n').map((line, index) => (
-              <div key={index}>
-                {line}
-              </div>
-            ))}
+            {isHovered ? (
+              <div className="whitespace-pre-wrap">{displayDescription}</div>
+            ) : (
+              displayDescription.split('\n').map((line, index) => (
+                <div key={index}>
+                  {line}
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>
@@ -95,11 +124,11 @@ const LocationInfo = React.memo(({
         role="button"
         aria-label={`View ${location} studio location image`}
       >
-        <ImageWithPath
-          category="locations"
-          filename={imagePath}
+        <img
+          src={`${imagePath.startsWith('/') ? imagePath : `/images/locations/${imagePath}`}?cb=${Date.now()}&r=${Math.random()}`}
           alt={imageAlt}
           className="w-full h-full object-cover"
+          loading="lazy"
         />
       </div>
     </div>

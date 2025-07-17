@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { API_ENDPOINTS, apiRequest } from '../config/api';
 
 export const useLocationsData = () => {
   const [locationsData, setLocationsData] = useState(null);
@@ -9,8 +8,8 @@ export const useLocationsData = () => {
   useEffect(() => {
     const fetchLocationsData = async () => {
       try {
-        const response = await apiRequest(API_ENDPOINTS.locations);
-        const data = response.data || response;
+        const response = await fetch('/data/locations.json');
+        const data = await response.json();
         setLocationsData(data);
       } catch (error) {
         console.error('Error fetching locations data:', error);

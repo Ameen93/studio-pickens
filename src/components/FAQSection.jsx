@@ -1,65 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useFAQData } from '../hooks/useFAQData';
 
 const FAQSection = () => {
   const [openItem, setOpenItem] = useState(0); // First item open by default
-  const [faqData, setFaqData] = useState({ items: [] });
-  const [loading, setLoading] = useState(true);
+  const { faqData, loading, error } = useFAQData();
 
   const toggleItem = (index) => {
     setOpenItem(openItem === index ? -1 : index);
   };
 
-  useEffect(() => {
-    const fetchFAQData = async () => {
-      try {
-        const response = await fetch('http://localhost:3001/api/faq');
-        const result = await response.json();
-        const data = result.data || result;
-        setFaqData(data);
-      } catch (error) {
-        console.error('Error fetching FAQ data:', error);
-        // Fallback to hardcoded data if API fails
-        setFaqData({
-          items: [
-            {
-              id: 1,
-              question: "HOW LONG DOES IT TAKE TO CREATE A CUSTOM WIG?",
-              answer: "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.",
-              order: 1
-            },
-            {
-              id: 2,
-              question: "CAN I SEND REFERENCE IMAGES OR INSPIRATION?",
-              answer: "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.",
-              order: 2
-            },
-            {
-              id: 3,
-              question: "WHAT'S THE DIFFERENCE BETWEEN A PRIVATE WIG AND A THEATRICAL ONE?",
-              answer: "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.",
-              order: 3
-            },
-            {
-              id: 4,
-              question: "IS THE HAIR ETHICALLY SOURCED?",
-              answer: "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.",
-              order: 4
-            },
-            {
-              id: 5,
-              question: "DO YOU OFFER VIRTUAL CONSULTATIONS?",
-              answer: "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.",
-              order: 5
-            }
-          ]
-        });
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchFAQData();
-  }, []);
 
   if (loading) {
     return (
@@ -72,7 +21,7 @@ const FAQSection = () => {
   }
 
   // Sort FAQ items by order
-  const sortedItems = [...faqData.items].sort((a, b) => a.order - b.order);
+  const sortedItems = [...(faqData.items || [])].sort((a, b) => a.order - b.order);
 
   return (
     <section className="py-16 px-4 mx-auto" style={{ maxWidth: '1400px' }}>
