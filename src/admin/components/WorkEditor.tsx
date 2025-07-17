@@ -35,7 +35,7 @@ const WorkEditor = () => {
   const categories = [
     'EDITORIAL',
     'FILM & TV',
-    'THEATRE',
+    'THEATER',
     'CONCERT',
     'MUSIC VIDEO',
     'LIVE'

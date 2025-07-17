@@ -34,7 +34,7 @@
     },
     {
       "image": "/images/work/banners/3 theatre banner.jpg",
-      "category": "THEATRE",
+      "category": "THEATER",
       "transform": {
         "scale": 1,
         "translateX": 0,
@@ -82,7 +82,7 @@
       "id": 2,
       "title": "HERE WE ARE",
       "client": "West End Theatre",
-      "category": "THEATRE",
+      "category": "THEATER",
       "year": 2024,
       "image": "/images/work/home-work/Home_project thumbnail2.jpg",
       "mobileImage": "/images/work/home-work/Mobile Home_project thumbnail2.jpg",

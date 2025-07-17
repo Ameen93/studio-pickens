@@ -14,7 +14,7 @@ const WorkPage = () => {
   // Map project categories to filter categories
   const categoryToFilterMap = {
     'FILM & TV': 'FILM & TV',
-    'THEATRE': 'THEATER',
+    'THEATER': 'THEATER',
     'CONCERT': 'CONCERT',
     'EDITORIAL': 'EDITORIAL',
     'MUSIC VIDEO': 'MUSIC VIDEO',

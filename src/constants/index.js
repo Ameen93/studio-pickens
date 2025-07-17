@@ -156,7 +156,7 @@ export const WORK_PROJECTS = [
     alt: 'Here We Are',
     left: 625,
     top: 1600,
-    category: 'THEATRE',
+    category: 'THEATER',
     side: 'right',
     title: 'Here We Are',
     content: {

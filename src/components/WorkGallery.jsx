@@ -7,7 +7,7 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick, project
   // Memoize filter mapping to avoid recreation on each render
   const filterMap = useMemo(() => ({
     'FILM & TV': 'FILM & TV',
-    'THEATER': 'THEATRE',
+    'THEATER': 'THEATER',
     'CONCERT': 'CONCERT',
     'EDITORIAL': 'EDITORIAL',
     'MUSIC VIDEO': 'MUSIC VIDEO',

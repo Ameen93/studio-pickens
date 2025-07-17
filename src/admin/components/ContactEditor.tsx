@@ -9,7 +9,7 @@ const ContactEditor = () => {
     emails: {
       brooklyn: "brooklyn@studiopickens.com",
       beverlyHills: "beverlyhills@studiopickens.com",
-      press: "press@studiopickens.com"
+      press: "hello@studiopickens.com"
     },
     phone: "+1 (555) 123-4567",
     locations: []
@@ -136,7 +136,7 @@ const ContactEditor = () => {
                   value={contactData.emails.press}
                   onChange={(e) => handleEmailChange('press', e.target.value)}
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
-                  placeholder="press@studiopickens.com"
+                  placeholder="hello@studiopickens.com"
                 />
                 <p className="text-sm text-gray-500 mt-1">
                   This email appears in the press section and is clickable for copying
