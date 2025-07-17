@@ -16,11 +16,11 @@ const MobileWorkItem = ({ project, content, onCategoryClick }) => {
         style={{ aspectRatio: '9/16' }}
       >
         <img
-          src={project.image || project.src}
+          src={project.mobileImage || project.image || project.src}
           alt={project.alt}
           className="w-full h-full object-cover rounded-lg shadow-lg"
           style={{
-            objectPosition: (project.image || project.src)?.includes('editorial2') || (project.image || project.src)?.includes('editorial3') ? 'center top' : 'center center'
+            objectPosition: (project.mobileImage || project.image || project.src)?.includes('editorial2') || (project.mobileImage || project.image || project.src)?.includes('editorial3') ? 'center top' : 'center center'
           }}
         />
         
@@ -62,8 +62,8 @@ const MobileWorkItem = ({ project, content, onCategoryClick }) => {
 
         {/* Stylist Section */}
         <div className="mb-3">
-          <h6 className="font-proxima-wide font-bold text-studio-blue text-xs uppercase tracking-wide mb-1">
-            STYLIST
+          <h6 className="font-proxima-wide font-semibold text-studio-blue text-xs uppercase tracking-wide mb-1">
+            {content?.labels?.stylist || 'STYLIST'}
           </h6>
           <p className="font-lovtony font-normal italic lowercase text-2xl leading-[50%] text-studio-blue">
             {content?.stylist}
@@ -73,8 +73,8 @@ const MobileWorkItem = ({ project, content, onCategoryClick }) => {
 
         {/* Photographer Section */}
         <div className="mb-3">
-          <h6 className="font-proxima-wide font-bold text-studio-blue text-xs uppercase tracking-wide mb-1">
-            PHOTOGRAPHER
+          <h6 className="font-proxima-wide font-semibold text-studio-blue text-xs uppercase tracking-wide mb-1">
+            {content?.labels?.photographer || 'PHOTOGRAPHER'}
           </h6>
           <p className="font-lovtony font-normal italic lowercase text-2xl leading-[50%] text-studio-blue">
             {content?.photographer}
@@ -84,8 +84,8 @@ const MobileWorkItem = ({ project, content, onCategoryClick }) => {
 
         {/* Date Section */}
         <div>
-          <h6 className="font-proxima-wide font-bold text-studio-blue text-xs uppercase tracking-wide mb-1">
-            DATE
+          <h6 className="font-proxima-wide font-semibold text-studio-blue text-xs uppercase tracking-wide mb-1">
+            {content?.labels?.date || 'DATE'}
           </h6>
           <p className="font-lovtony font-normal italic lowercase text-2xl leading-[50%] text-studio-blue">
             {content?.date}

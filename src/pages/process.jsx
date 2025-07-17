@@ -19,7 +19,7 @@ const ProcessPage = () => {
           backgroundImage={processData.banner.desktopImage}
           mobileBackgroundImage={processData.banner.mobileImage}
           altText="Process banner background"
-          objectFit="cover"
+          objectFit="contain"
           height="clamp(700px, 70vw, 1200px)"
           className="-mt-16"
           transform={processData.banner.transform}

@@ -2,18 +2,18 @@
   "banner": {
     "title": "Process",
     "subtitle": "",
-    "desktopImage": "/images/process/banner/Desktop_PROCESS Hero Banner v2.png?v=2",
-    "mobileImage": "/images/process/banner/Mobile_PROCESS Hero Banner v2.png?v=2",
+    "desktopImage": "/images/process/banner/Desktop_PROCESS-Banner-v3.png",
+    "mobileImage": "/images/process/banner/Mobile_PROCESS-Banner-v3.png",
     "transform": {
       "scale": 1,
       "translateX": 0,
-      "translateY": 0,
+      "translateY": -50,
       "flip": false
     },
     "circleScale": 1,
     "headingScale": {
       "mobile": 1,
-      "desktop": 1
+      "desktop": 1.5
     }
   },
   "teamCircles": {

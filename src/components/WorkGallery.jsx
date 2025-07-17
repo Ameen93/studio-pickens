@@ -99,17 +99,50 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick, project
     return 'left-full';
   };
 
-  // Project content data
+  // Project content data with custom labels
   const projectContent = {
-    1: { title: 'VOGUE HONG KONG', stylist: 'jane smith', photographer: 'emmie america', date: '2025' },
-    2: { title: 'HARPER\'S BAZAAR', stylist: 'alex johnson', photographer: 'david chen', date: '2024' },
-    3: { title: 'VANITY FAIR', stylist: 'maria lopez', photographer: 'sarah kim', date: '2025' },
-    4: { title: 'ELLE MAGAZINE', stylist: 'tom wilson', photographer: 'lisa park', date: '2024' },
-    5: { title: 'W MAGAZINE', stylist: 'anna white', photographer: 'mike jones', date: '2024' },
-    6: { title: 'MARIE CLAIRE', stylist: 'sara brown', photographer: 'chris lee', date: '2025' },
-    7: { title: 'ALLURE', stylist: 'emma davis', photographer: 'ryan taylor', date: '2024' },
-    8: { title: 'COSMOPOLITAN', stylist: 'lily wilson', photographer: 'jack martinez', date: '2025' },
-    9: { title: 'GLAMOUR', stylist: 'zoe garcia', photographer: 'noah anderson', date: '2024' }
+    1: { 
+      title: 'THE BEAR', 
+      stylist: 'ally vickers', 
+      photographer: 'jamie lee curtis', 
+      date: 'hulu',
+      labels: { stylist: 'HAIR STYLIST', photographer: 'CAST', date: 'NETWORK' }
+    },
+    2: { 
+      title: 'HERE WE ARE', 
+      stylist: 'katie gell', 
+      photographer: 'jane skrionski, jesse tyler ferguson', 
+      date: 'west end / broadway',
+      labels: { stylist: 'HAIR DESIGNER', photographer: 'FEATURING', date: 'CATEGORY' }
+    },
+    3: { 
+      title: 'L\'OFFICIEL', 
+      stylist: 'adir abergel', 
+      photographer: 'nicole kidman', 
+      date: 'april 2024',
+      labels: { stylist: 'HAIRDRESSER', photographer: 'ACTRESS', date: 'ISSUE' }
+    },
+    4: { 
+      title: 'THE FIRST LADY', 
+      stylist: 'emmie america', 
+      photographer: 'michelle pfeiffer, kiefer sutherland', 
+      date: 'showtime',
+      labels: { stylist: 'HAIRDRESSER', photographer: 'ACTRESS', date: 'NETWORK' }
+    },
+    5: { 
+      title: 'LOEWE', 
+      stylist: 'michelle ceglia', 
+      photographer: 'dan levy, aubrey plaza', 
+      date: 'march 2024',
+      labels: { stylist: 'HAIR DESIGNER', photographer: 'ACTOR/ACTRESS', date: 'ISSUE' }
+    },
+    6: { 
+      title: 'THE WHALE', 
+      stylist: 'annemarie bradley', 
+      photographer: 'brendan fraser', 
+      date: '2022',
+      labels: { stylist: 'HAIR DESIGNER', photographer: 'CAST', date: 'DATE' }
+    }
   };
 
   return (
