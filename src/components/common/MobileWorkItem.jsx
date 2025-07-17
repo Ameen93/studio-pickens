@@ -58,7 +58,7 @@ const MobileWorkItem = ({ project, content, onCategoryClick }) => {
       >
         {/* Title */}
         <h5 className="font-proxima-wide font-bold text-studio-blue text-lg uppercase tracking-wide mb-4">
-          {content?.title}
+          {content?.title || project.title}
         </h5>
 
         {/* Photographer Section */}

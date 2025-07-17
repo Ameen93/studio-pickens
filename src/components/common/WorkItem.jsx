@@ -66,7 +66,7 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
         >
         {/* Title */}
         <h5 className="font-proxima-wide font-bold text-studio-blue text-3xl uppercase tracking-wide mb-6">
-          {content?.title}
+          {content?.title || project.title}
         </h5>
 
         {/* Photographer Section */}
