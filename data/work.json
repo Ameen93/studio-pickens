@@ -1,0 +1,216 @@
+{
+  "banner": {
+    "backgroundImage": {
+      "desktop": "/images/work/Desktop_WORK Hero Banner v2.png",
+      "mobile": "/images/work/Mobile_WORK Hero Banner v2.png"
+    },
+    "title": "Selected Work",
+    "subtitle": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus.",
+    "transform": {
+      "scale": 1,
+      "translateX": 0,
+      "translateY": 0,
+      "objectPosition": "center center"
+    }
+  },
+  "sectionBanners": [
+    {
+      "id": 1,
+      "image": "/images/work/filmandtvbanner.jpg",
+      "alt": "Film & TV Banner",
+      "category": "FILM & TV",
+      "title": "FILM & TV",
+      "transform": {
+        "scale": 1,
+        "translateX": 0,
+        "translateY": 0,
+        "objectPosition": "center center"
+      }
+    },
+    {
+      "id": 2,
+      "image": "/images/work/musicbanner.png",
+      "alt": "Music Banner",
+      "category": "MUSIC",
+      "title": "MUSIC",
+      "transform": {
+        "scale": 1,
+        "translateX": 0,
+        "translateY": 0,
+        "objectPosition": "center center"
+      }
+    },
+    {
+      "id": 3,
+      "image": "/images/work/theatrebanner.jpg",
+      "alt": "Theater Banner",
+      "category": "THEATER",
+      "title": "THEATER",
+      "transform": {
+        "scale": 1,
+        "translateX": 0,
+        "translateY": 0,
+        "objectPosition": "center top"
+      }
+    },
+    {
+      "id": 4,
+      "image": "/images/work/editorialbanner.jpg",
+      "alt": "Editorial Banner",
+      "category": "EDITORIAL",
+      "title": "EDITORIAL",
+      "transform": {
+        "scale": 1,
+        "translateX": 0,
+        "translateY": 0,
+        "objectPosition": "center center"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "VOGUE HONG KONG",
+      "client": "Vogue Hong Kong",
+      "category": "EDITORIAL",
+      "year": 2025,
+      "image": "/images/work/editorial.jpg",
+      "src": "/images/work/editorial.jpg",
+      "alt": "Editorial photo",
+      "description": "Premium editorial work for Vogue Hong Kong",
+      "stylist": "jane smith",
+      "photographer": "emmie america",
+      "left": 132,
+      "top": 0,
+      "side": "left"
+    },
+    {
+      "id": 2,
+      "title": "HARPER'S BAZAAR",
+      "client": "Harper's Bazaar",
+      "category": "CONCERT",
+      "year": 2024,
+      "image": "/images/work/concert.jpg",
+      "src": "/images/work/concert.jpg",
+      "alt": "Concert photo",
+      "description": "Concert styling for Harper's Bazaar",
+      "stylist": "alex johnson",
+      "photographer": "david chen",
+      "left": 396,
+      "top": 400,
+      "side": "center"
+    },
+    {
+      "id": 3,
+      "title": "VANITY FAIR",
+      "client": "Vanity Fair",
+      "category": "FILM & TV",
+      "year": 2025,
+      "image": "/images/work/filmandtv.jpg",
+      "src": "/images/work/filmandtv.jpg",
+      "alt": "Film and TV photo",
+      "description": "Film and TV styling for Vanity Fair",
+      "stylist": "maria lopez",
+      "photographer": "sarah kim",
+      "left": 625,
+      "top": 800,
+      "side": "right"
+    },
+    {
+      "id": 4,
+      "title": "ELLE MAGAZINE",
+      "client": "Elle Magazine",
+      "category": "EDITORIAL",
+      "year": 2024,
+      "image": "/images/work/editorial2.png",
+      "src": "/images/work/editorial2.png",
+      "alt": "Editorial photo 2",
+      "description": "Editorial styling for Elle Magazine",
+      "stylist": "tom wilson",
+      "photographer": "lisa park",
+      "left": 132,
+      "top": 1200,
+      "side": "left"
+    },
+    {
+      "id": 5,
+      "title": "W MAGAZINE",
+      "client": "W Magazine",
+      "category": "THEATRE",
+      "year": 2024,
+      "image": "/images/work/theatre.png",
+      "src": "/images/work/theatre.png",
+      "alt": "Theatre photo",
+      "description": "Theatre styling for W Magazine",
+      "stylist": "anna white",
+      "photographer": "mike jones",
+      "left": 625,
+      "top": 1600,
+      "side": "right"
+    },
+    {
+      "id": 6,
+      "title": "MARIE CLAIRE",
+      "client": "Marie Claire",
+      "category": "MUSIC VIDEO",
+      "year": 2025,
+      "image": "/images/work/musicvideo.jpg",
+      "src": "/images/work/musicvideo.jpg",
+      "alt": "Music video photo",
+      "description": "Music video styling for Marie Claire",
+      "stylist": "sara brown",
+      "photographer": "chris lee",
+      "left": 396,
+      "top": 2000,
+      "side": "center"
+    },
+    {
+      "id": 7,
+      "title": "ALLURE",
+      "client": "Allure",
+      "category": "FILM & TV",
+      "year": 2024,
+      "image": "/images/work/filmandtv2.png",
+      "src": "/images/work/filmandtv2.png",
+      "alt": "Film and TV photo 2",
+      "description": "Film and TV styling for Allure",
+      "stylist": "emma davis",
+      "photographer": "ryan taylor",
+      "left": 132,
+      "top": 2400,
+      "side": "left"
+    },
+    {
+      "id": 8,
+      "title": "COSMOPOLITAN",
+      "client": "Cosmopolitan",
+      "category": "EDITORIAL",
+      "year": 2025,
+      "image": "/images/work/editorial3.jpg",
+      "src": "/images/work/editorial3.jpg",
+      "alt": "Editorial photo 3",
+      "description": "Editorial styling for Cosmopolitan",
+      "stylist": "lily wilson",
+      "photographer": "jack martinez",
+      "left": 625,
+      "top": 2800,
+      "side": "right"
+    },
+    {
+      "id": 9,
+      "title": "GLAMOUR",
+      "client": "Glamour",
+      "category": "LIVE",
+      "year": 2024,
+      "image": "/images/work/live.jpg",
+      "src": "/images/work/live.jpg",
+      "alt": "Live photo",
+      "description": "Live performance styling for Glamour",
+      "stylist": "zoe garcia",
+      "photographer": "noah anderson",
+      "left": 396,
+      "top": 3200,
+      "side": "center"
+    }
+  ]
+}

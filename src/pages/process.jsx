@@ -1,165 +1,107 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import { ANIMATIONS } from '../constants/animations';
+import { useProcessData } from '../hooks';
+import PageBanner from '../components/common/PageBanner';
 
 const ProcessPage = () => {
+  const { processData, loading, error } = useProcessData();
+
   return (
     <Layout title="Studio Pickens - Process">
       {/* Process Page Banner */}
-      <section 
-        className="relative bg-studio-bg flex items-center justify-center w-full overflow-hidden -mt-16" 
-        style={{ 
-          height: 'clamp(700px, 70vw, 1200px)',
-        }}
-      >
-        {/* Background Image - Desktop */}
-        <img
-          src={`${process.env.PUBLIC_URL}/images/process/banner/Desktop_PROCESS Hero Banner v2.png`}
-          alt="Process banner background"
-          className="absolute inset-0 w-full h-full object-cover z-0 hidden xl:block"
-        />
-        
-        {/* Background Image - Mobile */}
-        <img
-          src={`${process.env.PUBLIC_URL}/images/process/banner/Mobile_Hero Banner_process.png`}
-          alt="Process banner background"
-          className="absolute inset-0 w-full h-full object-cover z-0 block xl:hidden"
-        />
-
-        {/* Rotating Dashed Circle */}
-        <div className="absolute w-full flex justify-center z-10" style={{ top: '50%', transform: 'translateY(-50%)' }}>
-          <svg 
-            className="animate-spin"
-            style={{
-              width: 'clamp(342px, 70vw, 513px)',
-              height: 'clamp(342px, 70vw, 513px)',
-              animationDuration: '60s',
-              animationTimingFunction: 'linear',
-              animationIterationCount: 'infinite'
-            }}
-          >
-            <circle
-              cx="50%"
-              cy="50%"
-              r="calc(50% - 2px)"
-              fill="none"
-              stroke="#0025B8"
-              strokeWidth="2"
-              strokeDasharray="10 10"
-            />
-          </svg>
+      {loading ? (
+        <div className="bg-studio-bg flex items-center justify-center -mt-16" style={{ height: 'clamp(700px, 70vw, 1200px)' }}>
+          <div className="text-studio-blue">Loading...</div>
         </div>
+      ) : (
+        <PageBanner 
+          backgroundImage={processData.banner.backgroundImage.desktop}
+          mobileBackgroundImage={processData.banner.backgroundImage.mobile}
+          altText="Process banner background"
+          objectFit="cover"
+          height="clamp(700px, 70vw, 1200px)"
+          className="-mt-16"
+          transform={processData.banner.transform}
+        >
+          {/* Rotating Dashed Circle */}
+          <div className="absolute w-full flex justify-center z-10" style={{ top: '50%', transform: 'translateY(-50%)' }}>
+            <svg 
+              className="animate-spin"
+              style={{
+                width: `clamp(342px, ${70 * (processData.banner.circle?.size?.scale || 1)}vw, ${513 * (processData.banner.circle?.size?.scale || 1)}px)`,
+                height: `clamp(342px, ${70 * (processData.banner.circle?.size?.scale || 1)}vw, ${513 * (processData.banner.circle?.size?.scale || 1)}px)`,
+                animationDuration: '60s',
+                animationTimingFunction: 'linear',
+                animationIterationCount: 'infinite'
+              }}
+            >
+              <circle
+                cx="50%"
+                cy="50%"
+                r="calc(50% - 2px)"
+                fill="none"
+                stroke="#0025B8"
+                strokeWidth="2"
+                strokeDasharray="10 10"
+              />
+            </svg>
+          </div>
 
-        {/* Center Content */}
-        <div className="text-center z-20" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-          <h1 className="font-proxima-wide font-bold text-studio-blue uppercase" style={{ fontSize: '55px' }}>
-            Process
-          </h1>
-        </div>
-      </section>
+          {/* Center Content */}
+          <div className="text-center z-20" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+            <h1 className="font-proxima-wide font-bold text-studio-blue uppercase" style={{ fontSize: `clamp(32px, ${55 * (processData.banner.heading?.size?.scale || 1) * 100 / 1920}vw, ${80 * (processData.banner.heading?.size?.scale || 1)}px)` }}>
+              {processData.banner.title}
+            </h1>
+            {processData.banner.subtitle && (
+              <p className="font-proxima text-studio-blue mt-4" style={{ fontSize: '18px' }}>
+                {processData.banner.subtitle}
+              </p>
+            )}
+          </div>
+        </PageBanner>
+      )}
 
       {/* Process Gallery Section */}
       <section className="pt-16 pb-10 px-4 md:px-10 max-w-full mx-auto">
-        {/* Item 1: 90% science / 10% wigmaking */}
-        <div className="flex flex-col lg:flex-row items-end mb-10 gap-4">
-          <div className="w-full lg:w-[55%] lg:pr-3 lg:order-1 order-2">
-            <img
-              src={`${process.env.PUBLIC_URL}/images/process/process-page2.jpg`}
-              alt="90% science / 10% wigmaking"
-              className="w-full object-cover"
-              style={{ height: 'clamp(300px, 80vw, 508px)', objectPosition: 'center center' }}
-            />
+        {loading ? (
+          <div className="text-center py-16">
+            <div className="text-studio-blue">Loading process steps...</div>
           </div>
-          <div className="w-full lg:w-[45%] lg:pl-3 lg:order-2 order-1 lg:text-left text-center">
-            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: '24px' }}>
-              <span className="lg:hidden">90% science / 10% wigmaking</span>
-              <span className="hidden lg:inline">90% science / 10% wigmaking</span>
-            </h2>
-            <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
-              Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
-            </p>
-          </div>
-        </div>
-
-        {/* Item 2: Consultation */}
-        <div className="flex flex-col lg:flex-row-reverse items-end mb-10 gap-4">
-          <div className="w-full lg:w-[55%] lg:pl-3 lg:order-1 order-2">
-            <img
-              src={`${process.env.PUBLIC_URL}/images/process/process-page3.jpg`}
-              alt="Consultation"
-              className="w-full object-cover"
-              style={{ height: 'clamp(300px, 80vw, 508px)', objectPosition: 'center center' }}
-            />
-          </div>
-          <div className="w-full lg:w-[45%] lg:pr-3 lg:order-2 order-1 lg:text-left text-center">
-            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: '24px' }}>
-              Consultation
-            </h2>
-            <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
-              Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
-            </p>
-          </div>
-        </div>
-
-        {/* Item 3: mapping the head */}
-        <div className="flex flex-col lg:flex-row items-end mb-10 gap-4">
-          <div className="w-full lg:w-[55%] lg:pr-3 lg:order-1 order-2">
-            <img
-              src={`${process.env.PUBLIC_URL}/images/process/process-page4.jpg`}
-              alt="mapping the head"
-              className="w-full object-cover"
-              style={{ height: 'clamp(300px, 80vw, 508px)', objectPosition: 'center center' }}
-            />
-          </div>
-          <div className="w-full lg:w-[45%] lg:pl-3 lg:order-2 order-1 lg:text-left text-center">
-            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: '24px' }}>
-              mapping the head
-            </h2>
-            <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
-              Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
-            </p>
-          </div>
-        </div>
-
-        {/* Item 4: treatment */}
-        <div className="flex flex-col lg:flex-row-reverse items-end mb-10 gap-4">
-          <div className="w-full lg:w-[55%] lg:pl-3 lg:order-1 order-2">
-            <img
-              src={`${process.env.PUBLIC_URL}/images/process/process-page5.jpg`}
-              alt="treatment"
-              className="w-full object-cover"
-              style={{ height: 'clamp(300px, 80vw, 508px)', objectPosition: 'center center' }}
-            />
-          </div>
-          <div className="w-full lg:w-[45%] lg:pr-3 lg:order-2 order-1 lg:text-left text-center">
-            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: '24px' }}>
-              treatment
-            </h2>
-            <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
-              Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
-            </p>
-          </div>
-        </div>
-
-        {/* Item 5: approval */}
-        <div className="flex flex-col lg:flex-row items-end mb-10 gap-4">
-          <div className="w-full lg:w-[55%] lg:pr-3 lg:order-1 order-2">
-            <img
-              src={`${process.env.PUBLIC_URL}/images/process/process-page6.png`}
-              alt="approval"
-              className="w-full object-cover"
-              style={{ height: 'clamp(300px, 80vw, 508px)', objectPosition: 'center center' }}
-            />
-          </div>
-          <div className="w-full lg:w-[45%] lg:pl-3 lg:order-2 order-1 lg:text-left text-center">
-            <h2 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: '24px' }}>
-              approval
-            </h2>
-            <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
-              Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
-            </p>
-          </div>
-        </div>
+        ) : (
+          processData.processSteps
+            .sort((a, b) => a.order - b.order)
+            .map((step, index) => (
+              <div
+                key={step.id}
+                className={`flex flex-col ${
+                  step.alignment === 'right' ? 'lg:flex-row-reverse' : 'lg:flex-row'
+                } items-end mb-10 gap-4`}
+              >
+                <div className="w-full lg:w-[55%] lg:pr-3 lg:order-1 order-2">
+                  <img
+                    src={step.image.startsWith('/') ? step.image : `${process.env.PUBLIC_URL}${step.image}`}
+                    alt={step.alt}
+                    className="w-full object-cover transition-transform duration-300 ease-out"
+                    style={{ 
+                      height: 'clamp(300px, 80vw, 508px)',
+                      objectPosition: step.transform?.objectPosition || 'center center',
+                      transform: step.transform ? `scale(${step.transform.scale || 1}) translateX(${step.transform.translateX || 0}px) translateY(${step.transform.translateY || 0}px)` : undefined
+                    }}
+                  />
+                </div>
+                <div className={`w-full lg:w-[45%] ${step.alignment === 'right' ? 'lg:pr-3' : 'lg:pl-3'} lg:order-2 order-1 lg:text-left text-center`}>
+                  <h2 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: '24px' }}>
+                    <span className="lg:hidden">{step.title}</span>
+                    <span className="hidden lg:inline">{step.title}</span>
+                  </h2>
+                  <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            ))
+        )}
       </section>
 
       {/* Polaroid Carousel Section */}
@@ -243,50 +185,58 @@ const ProcessPage = () => {
       <section className="py-16 px-4 max-w-6xl mx-auto relative" style={{ minHeight: '800px' }}>
         {/* Decorative Circles - fixed position */}
         <div className="absolute inset-0 pointer-events-none z-20">
-          <div className="absolute top-[290px] lg:top-[340px] left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ 
+            top: processData.teamCircles?.position?.top || '340px'
+          }}>
             {/* Small circle */}
-            <div className="absolute rounded-full border-2 border-studio-blue lg:hidden" style={{ 
-              width: '220px', 
-              height: '220px',
+            <div className="absolute rounded-full border-studio-blue lg:hidden" style={{ 
+              width: `${(220 * (processData.teamCircles?.size?.scale || 1))}px`, 
+              height: `${(220 * (processData.teamCircles?.size?.scale || 1))}px`,
+              borderWidth: `${processData.teamCircles?.strokeWidth || 2}px`,
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
             }}></div>
-            <div className="hidden lg:block absolute rounded-full border-2 border-studio-blue" style={{ 
-              width: '280px', 
-              height: '280px',
+            <div className="hidden lg:block absolute rounded-full border-studio-blue" style={{ 
+              width: `${(280 * (processData.teamCircles?.size?.scale || 1))}px`, 
+              height: `${(280 * (processData.teamCircles?.size?.scale || 1))}px`,
+              borderWidth: `${processData.teamCircles?.strokeWidth || 2}px`,
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
             }}></div>
             
             {/* Medium circle */}
-            <div className="absolute rounded-full border-2 border-studio-blue lg:hidden" style={{ 
-              width: '260px', 
-              height: '260px',
+            <div className="absolute rounded-full border-studio-blue lg:hidden" style={{ 
+              width: `${(220 + (processData.teamCircles?.gap || 20) * 2) * (processData.teamCircles?.size?.scale || 1)}px`, 
+              height: `${(220 + (processData.teamCircles?.gap || 20) * 2) * (processData.teamCircles?.size?.scale || 1)}px`,
+              borderWidth: `${processData.teamCircles?.strokeWidth || 2}px`,
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
             }}></div>
-            <div className="hidden lg:block absolute rounded-full border-2 border-studio-blue" style={{ 
-              width: '340px', 
-              height: '340px',
+            <div className="hidden lg:block absolute rounded-full border-studio-blue" style={{ 
+              width: `${(280 + (processData.teamCircles?.gap || 20) * 2) * (processData.teamCircles?.size?.scale || 1)}px`, 
+              height: `${(280 + (processData.teamCircles?.gap || 20) * 2) * (processData.teamCircles?.size?.scale || 1)}px`,
+              borderWidth: `${processData.teamCircles?.strokeWidth || 2}px`,
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
             }}></div>
             
             {/* Large circle */}
-            <div className="absolute rounded-full border-2 border-studio-blue lg:hidden" style={{ 
-              width: '300px', 
-              height: '300px',
+            <div className="absolute rounded-full border-studio-blue lg:hidden" style={{ 
+              width: `${(220 + (processData.teamCircles?.gap || 20) * 4) * (processData.teamCircles?.size?.scale || 1)}px`, 
+              height: `${(220 + (processData.teamCircles?.gap || 20) * 4) * (processData.teamCircles?.size?.scale || 1)}px`,
+              borderWidth: `${processData.teamCircles?.strokeWidth || 2}px`,
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
             }}></div>
-            <div className="hidden lg:block absolute rounded-full border-2 border-studio-blue" style={{ 
-              width: '400px', 
-              height: '400px',
+            <div className="hidden lg:block absolute rounded-full border-studio-blue" style={{ 
+              width: `${(280 + (processData.teamCircles?.gap || 20) * 4) * (processData.teamCircles?.size?.scale || 1)}px`, 
+              height: `${(280 + (processData.teamCircles?.gap || 20) * 4) * (processData.teamCircles?.size?.scale || 1)}px`,
+              borderWidth: `${processData.teamCircles?.strokeWidth || 2}px`,
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'

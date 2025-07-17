@@ -4,11 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a React TypeScript application bootstrapped with Create React App. The project follows standard CRA conventions and structure.
+Studio Pickens is a production-ready React TypeScript application for a high-end creative studio website. It features a comprehensive content management system, responsive design, and premium interactions.
 
 ## Development Commands
 
-- `npm start` - Start development server (opens http://localhost:3000)
+- `npm start` - Start React development server (http://localhost:3000)
+- `node server.js` - Start Express API server (http://localhost:3001)
+- `./start-app.sh` - Start complete application with MongoDB (requires sudo)
 - `npm test` - Run tests in interactive watch mode
 - `npm run build` - Build for production
 - `npm run eject` - Remove CRA abstraction (one-way operation)
@@ -16,18 +18,50 @@ This is a React TypeScript application bootstrapped with Create React App. The p
 ## Architecture
 
 - **Frontend Framework**: React 19 with TypeScript
+- **Styling**: Tailwind CSS with extensive custom configuration
+- **Backend**: Express.js API with JSON file storage
 - **Build Tool**: Create React App (react-scripts 5.0.1)
 - **Testing**: Jest with React Testing Library
-- **Entry Point**: src/index.tsx
-- **Main Component**: src/App.tsx
+- **Routing**: Custom client-side routing system
+- **Data Management**: Custom React hooks with RESTful API
 
-## Key Files
+## Key Directories
 
-- `src/App.tsx` - Main application component
-- `src/index.tsx` - Application entry point
-- `public/index.html` - HTML template
-- `package.json` - Dependencies and scripts
-- `tsconfig.json` - TypeScript configuration
+- `src/pages/` - Main application pages (Home, Work, Process, Story, Locations, Contact, FAQ)
+- `src/components/` - Reusable UI components organized by category
+- `src/admin/` - Complete admin panel with TypeScript editors
+- `src/hooks/` - Custom data fetching hooks for each content section
+- `src/constants/` - Configuration, typography, and animation constants
+- `data/` - JSON data files for all content sections
+- `public/images/` - Static assets organized by content type
+
+## Admin System
+
+The project includes a comprehensive admin panel at `/admin` with:
+- Live preview editing for all content sections
+- Image upload and management system
+- Transform controls for positioning and scaling
+- TypeScript interfaces for data validation
+- Real-time updates and save functionality
+
+## API Endpoints
+
+- `GET/PUT /api/hero` - Hero section management
+- `GET/PUT /api/work` - Work gallery management
+- `GET/PUT /api/process` - Process page management
+- `GET/PUT /api/story` - Story page management
+- `GET/PUT /api/locations` - Locations management
+- `GET/PUT /api/contact` - Contact information
+- `GET/POST/DELETE /api/faq` - FAQ management
+- `POST /api/upload` - Image upload functionality
+
+## Data Management
+
+- JSON-based file storage in `data/` directory
+- Custom React hooks for data fetching and state management
+- Real-time admin updates with optimistic UI
+- Image management with upload and browsing capabilities
+- TypeScript interfaces for data structure validation
 
 ## Testing
 

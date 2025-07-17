@@ -5,9 +5,11 @@ import WorkGallery from '../components/WorkGallery';
 import WorkBanners from '../components/WorkBanners';
 import BragBar from '../components/BragBar';
 import { Button } from '../components/ui';
+import { useHeroData } from '../hooks';
 
 const HomePage = () => {
   const galleryRef = useRef(null);
+  const { heroData, loading } = useHeroData();
 
   // Map project categories to filter categories (same as work page)
   const categoryToFilterMap = {
@@ -53,13 +55,13 @@ const HomePage = () => {
             <h2 
               className="text-atelier-heading-mobile md:text-h3 font-proxima-wide uppercase mb-6 md:whitespace-nowrap text-center text-studio-bg"
             >
-              ATELIER WIGS BY ROBERT PICKENS
+              {loading ? 'Loading...' : (heroData.atelierTitle || 'ATELIER WIGS BY ROBERT PICKENS')}
             </h2>
             
             <p 
               className="text-body md:text-body sm:text-atelier-body-mobile font-proxima mb-8 max-w-3xl text-center text-studio-bg"
             >
-              Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
+              {loading ? 'Loading...' : (heroData.atelierDescription || 'Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.')}
             </p>
             
             <Button 

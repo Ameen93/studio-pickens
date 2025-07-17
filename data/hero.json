@@ -1,0 +1,73 @@
+{
+  "id": 1,
+  "title": "STUDIO PICKENS",
+  "subtitle": "",
+  "atelierTitle": "CUSTOM ATELIER WIGS BY ROBERT PICKENS",
+  "atelierDescription": "This is a custom description that shows the editable text is working correctly. The admin panel allows you to change both the title and description for the atelier section of the home page.",
+  "banner": {
+    "logoSize": {
+      "scale": 1,
+      "unit": "rem"
+    },
+    "titleSize": {
+      "scale": 1,
+      "unit": "rem"
+    }
+  },
+  "backgroundImages": [
+    {
+      "image": "/images/hero/background1.jpg",
+      "alt": "Studio Pickens creative workspace showcasing film and television production equipment",
+      "transform": {
+        "scale": 1,
+        "translateX": 0,
+        "translateY": 0,
+        "flip": false
+      }
+    },
+    {
+      "image": "/images/hero/background2.jpg",
+      "alt": "Behind the scenes view of Studio Pickens creative process and artistic environment",
+      "transform": {
+        "scale": 1.25,
+        "translateX": 24,
+        "translateY": 16,
+        "flip": false
+      }
+    }
+  ],
+  "polaroids": [
+    {
+      "image": "/images/polaroids/new-polaroid-2.png",
+      "alt": "Behind the scenes",
+      "rotation": 10,
+      "position": {
+        "top": "clamp(10px, 1.39vw, 20px)",
+        "left": "clamp(10px, 1.39vw, 20px)"
+      }
+    },
+    {
+      "image": "/images/polaroids/new-polaroid-1.png",
+      "alt": "Creative process",
+      "rotation": 8.33,
+      "position": {
+        "bottom": "clamp(-100px, -13.89vw, -200px)",
+        "left": "46%"
+      }
+    },
+    {
+      "image": "/images/polaroids/new-polaroid-3.png",
+      "alt": "Studio work",
+      "rotation": -10,
+      "position": {
+        "bottom": "clamp(40px, 5.56vw, 80px)",
+        "right": "clamp(20px, 2.78vw, 40px)"
+      }
+    }
+  ],
+  "bannerHeight": {
+    "min": 400,
+    "preferred": 45,
+    "max": 800
+  }
+}

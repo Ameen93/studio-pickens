@@ -1,0 +1,116 @@
+{
+  "id": 1,
+  "banner": {
+    "backgroundImage": {
+      "desktop": "/images/process/banner/Desktop_PROCESS Hero Banner v2.png",
+      "mobile": "/images/process/banner/Mobile_Hero Banner_process.png"
+    },
+    "title": "Process",
+    "subtitle": "",
+    "transform": {
+      "scale": 1,
+      "translateX": 0,
+      "translateY": 0,
+      "objectPosition": "center center"
+    },
+    "circle": {
+      "size": {
+        "scale": 1.2
+      }
+    },
+    "heading": {
+      "size": {
+        "scale": 1.1
+      }
+    }
+  },
+  "teamCircles": {
+    "size": {
+      "scale": 1.2
+    },
+    "strokeWidth": 3,
+    "gap": 25,
+    "position": {
+      "top": "320px",
+      "left": "50%"
+    }
+  },
+  "processSteps": [
+    {
+      "id": 1,
+      "title": "90% science / 10% wigmaking",
+      "description": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.",
+      "image": "/images/process/process-page2.jpg",
+      "alt": "90% science / 10% wigmaking",
+      "alignment": "left",
+      "order": 1,
+      "transform": {
+        "scale": 1,
+        "translateX": 0,
+        "translateY": 0,
+        "objectPosition": "center center"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Consultation",
+      "description": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.",
+      "image": "/images/process/process-page3.jpg",
+      "alt": "Consultation",
+      "alignment": "right",
+      "order": 2,
+      "transform": {
+        "scale": 1,
+        "translateX": 0,
+        "translateY": 0,
+        "objectPosition": "center center"
+      }
+    },
+    {
+      "id": 3,
+      "title": "mapping the head",
+      "description": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.",
+      "image": "/images/process/process-page4.jpg",
+      "alt": "mapping the head",
+      "alignment": "left",
+      "order": 3,
+      "transform": {
+        "scale": 1,
+        "translateX": 0,
+        "translateY": 0,
+        "objectPosition": "center center"
+      }
+    },
+    {
+      "id": 4,
+      "title": "treatment",
+      "description": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.",
+      "image": "/images/process/process-page5.jpg",
+      "alt": "treatment",
+      "alignment": "right",
+      "order": 4,
+      "transform": {
+        "scale": 1,
+        "translateX": 0,
+        "translateY": 0,
+        "objectPosition": "center center"
+      }
+    },
+    {
+      "id": 5,
+      "title": "approval",
+      "description": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.",
+      "image": "/images/process/process-page6.png",
+      "alt": "approval",
+      "alignment": "left",
+      "order": 5,
+      "transform": {
+        "scale": 1,
+        "translateX": 0,
+        "translateY": 0,
+        "objectPosition": "center center"
+      }
+    }
+  ],
+  "updatedAt": "2025-07-16T02:02:57.889Z"
+}

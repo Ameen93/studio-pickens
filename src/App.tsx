@@ -4,8 +4,9 @@ import WorkPage from './pages/work';
 import ProcessPage from './pages/process';
 import StoryPage from './pages/story';
 import LocationsPage from './pages/locations';
-import ContactPage from './pages/contact';
+import ContactPage from './pages/contact-dynamic';
 import FAQPage from './pages/faq';
+import AdminApp from './admin/AdminApp';
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -39,6 +40,8 @@ function App() {
         return <ContactPage />;
       case '/faq':
         return <FAQPage />;
+      case '/admin':
+        return <AdminApp />;
       default:
         return <HomePage />;
     }

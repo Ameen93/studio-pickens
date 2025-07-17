@@ -1,36 +1,87 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const WorkBanners = ({ onBannerClick }) => {
-  const banners = [
-    {
-      id: 1,
-      src: `${process.env.PUBLIC_URL}/images/work/filmandtvbanner.jpg`,
-      alt: 'Film & TV Banner',
-      category: 'FILM & TV'
-    },
-    {
-      id: 2,
-      src: `${process.env.PUBLIC_URL}/images/work/musicbanner.png`,
-      alt: 'Music Banner',
-      category: 'MUSIC'
-    },
-    {
-      id: 3,
-      src: `${process.env.PUBLIC_URL}/images/work/theatrebanner.jpg`,
-      alt: 'Theater Banner',
-      category: 'THEATER'
-    },
-    {
-      id: 4,
-      src: `${process.env.PUBLIC_URL}/images/work/editorialbanner.jpg`,
-      alt: 'Editorial Banner',
-      category: 'EDITORIAL'
-    }
-  ];
+  const [sectionBanners, setSectionBanners] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchWorkData = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/api/work');
+        const data = await response.json();
+        setSectionBanners(data.sectionBanners || []);
+      } catch (error) {
+        console.error('Error fetching work data:', error);
+        // Fallback to default banners if API fails
+        setSectionBanners([
+          {
+            id: 1,
+            image: '/images/work/filmandtvbanner.jpg',
+            alt: 'Film & TV Banner',
+            category: 'FILM & TV',
+            title: 'FILM & TV',
+            transform: {
+              scale: 1,
+              translateX: 0,
+              translateY: 0,
+              objectPosition: 'center center'
+            }
+          },
+          {
+            id: 2,
+            image: '/images/work/musicbanner.png',
+            alt: 'Music Banner',
+            category: 'MUSIC',
+            title: 'MUSIC',
+            transform: {
+              scale: 1,
+              translateX: 0,
+              translateY: 0,
+              objectPosition: 'center center'
+            }
+          },
+          {
+            id: 3,
+            image: '/images/work/theatrebanner.jpg',
+            alt: 'Theater Banner',
+            category: 'THEATER',
+            title: 'THEATER',
+            transform: {
+              scale: 1,
+              translateX: 0,
+              translateY: 0,
+              objectPosition: 'center top'
+            }
+          },
+          {
+            id: 4,
+            image: '/images/work/editorialbanner.jpg',
+            alt: 'Editorial Banner',
+            category: 'EDITORIAL',
+            title: 'EDITORIAL',
+            transform: {
+              scale: 1,
+              translateX: 0,
+              translateY: 0,
+              objectPosition: 'center center'
+            }
+          }
+        ]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchWorkData();
+  }, []);
+
+  if (loading) {
+    return <div className="bg-studio-bg pt-16 relative w-full h-64">Loading...</div>;
+  }
 
   return (
     <section className="bg-studio-bg pt-16 relative w-full">
-      {banners.map((banner) => (
+      {sectionBanners.map((banner) => (
         <div
           key={banner.id}
           className="relative w-full group cursor-pointer overflow-hidden"
@@ -41,11 +92,12 @@ const WorkBanners = ({ onBannerClick }) => {
         >
             {/* Banner Image */}
             <img
-              src={banner.src}
+              src={banner.image}
               alt={banner.alt}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
               style={{
-                objectPosition: banner.category === 'THEATER' ? 'center top' : 'center center'
+                objectPosition: banner.transform?.objectPosition || 'center center',
+                transform: `scale(${banner.transform?.scale || 1}) translateX(${banner.transform?.translateX || 0}px) translateY(${banner.transform?.translateY || 0}px)`
               }}
             />
             
@@ -63,7 +115,7 @@ const WorkBanners = ({ onBannerClick }) => {
                     letterSpacing: '0.03em'
                   }}
                 >
-                  {banner.category}
+                  {banner.title}
                 </h2>
               </div>
             </div>

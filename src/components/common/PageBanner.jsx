@@ -2,11 +2,13 @@ import React from 'react';
 
 const PageBanner = React.memo(({ 
   backgroundImage, 
+  mobileBackgroundImage,
   altText = "Page banner background",
   height = 'clamp(400px, 45vw, 705px)',
   objectPosition = 'center center',
   objectFit = 'cover',
   className = "",
+  transform,
   children 
 }) => {
   return (
@@ -16,12 +18,31 @@ const PageBanner = React.memo(({
     >
       {/* Background Image */}
       {backgroundImage && (
-        <img
-          src={`${process.env.PUBLIC_URL}/images/${backgroundImage}`}
-          alt={altText}
-          className={`absolute inset-0 w-full h-full object-${objectFit} z-0`}
-          style={{ objectPosition }}
-        />
+        <>
+          {/* Desktop Image */}
+          <img
+            src={backgroundImage.startsWith('/') ? backgroundImage : `${process.env.PUBLIC_URL}/images/${backgroundImage}`}
+            alt={altText}
+            className={`absolute inset-0 w-full h-full object-${objectFit} z-0 transition-transform duration-300 ease-out ${mobileBackgroundImage ? 'hidden md:block' : ''}`}
+            style={{ 
+              objectPosition: transform?.objectPosition || objectPosition,
+              transform: transform ? `scale(${transform.scale || 1}) translateX(${transform.translateX || 0}px) translateY(${transform.translateY || 0}px)` : undefined
+            }}
+          />
+          
+          {/* Mobile Image */}
+          {mobileBackgroundImage && (
+            <img
+              src={mobileBackgroundImage.startsWith('/') ? mobileBackgroundImage : `${process.env.PUBLIC_URL}/images/${mobileBackgroundImage}`}
+              alt={altText}
+              className={`absolute inset-0 w-full h-full object-${objectFit} z-0 transition-transform duration-300 ease-out md:hidden`}
+              style={{ 
+                objectPosition: transform?.objectPosition || objectPosition,
+                transform: transform ? `scale(${transform.scale || 1}) translateX(${transform.translateX || 0}px) translateY(${transform.translateY || 0}px)` : undefined
+              }}
+            />
+          )}
+        </>
       )}
       
       {/* Content overlay */}
