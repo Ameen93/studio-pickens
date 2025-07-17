@@ -2,64 +2,55 @@
   "id": 1,
   "banner": {
     "backgroundImage": {
-      "desktop": "faq/4963b601-8788-4697-b9fc-5a0ce4c4e5b4.jpeg",
-      "mobile": "faq/4963b601-8788-4697-b9fc-5a0ce4c4e5b4.jpeg"
+      "desktop": "/images/faq/4963b601-8788-4697-b9fc-5a0ce4c4e5b4.jpeg",
+      "mobile": "/images/faq/4963b601-8788-4697-b9fc-5a0ce4c4e5b4.jpeg"
     },
     "height": "705px",
     "objectPosition": "50% 50%",
     "transform": {
       "scale": 1,
       "translateX": 0,
-      "translateY": 0
+      "translateY": 0,
+      "flip": false
     }
   },
   "items": [
     {
       "id": 1,
       "question": "HOW LONG DOES IT TAKE TO CREATE A CUSTOM WIG?",
-      "answer": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.",
+      "answer": "Lorem ipsum dolor sit amet consectetur.",
       "order": 1,
-      "category": "process",
-      "createdAt": "2024-07-15T19:00:00.000Z",
-      "updatedAt": "2024-07-15T19:00:00.000Z"
+      "category": "process"
     },
     {
       "id": 2,
       "question": "CAN I SEND REFERENCE IMAGES OR INSPIRATION?",
-      "answer": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.",
+      "answer": "Lorem ipsum dolor sit amet consectetur.",
       "order": 2,
-      "category": "consultation",
-      "createdAt": "2024-07-15T19:00:00.000Z",
-      "updatedAt": "2024-07-15T19:00:00.000Z"
+      "category": "consultation"
     },
     {
       "id": 3,
-      "question": "WHAT'S THE DIFFERENCE BETWEEN A PRIVATE WIG AND A THEATRICAL ONE?",
-      "answer": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.",
+      "question": "WHAT IS THE DIFFERENCE BETWEEN A PRIVATE WIG AND A THEATRICAL ONE?",
+      "answer": "Lorem ipsum dolor sit amet consectetur.",
       "order": 3,
-      "category": "product",
-      "createdAt": "2024-07-15T19:00:00.000Z",
-      "updatedAt": "2024-07-15T19:00:00.000Z"
+      "category": "product"
     },
     {
       "id": 4,
       "question": "IS THE HAIR ETHICALLY SOURCED?",
-      "answer": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.",
+      "answer": "Lorem ipsum dolor sit amet consectetur.",
       "order": 4,
-      "category": "ethics",
-      "createdAt": "2024-07-15T19:00:00.000Z",
-      "updatedAt": "2024-07-15T19:00:00.000Z"
+      "category": "ethics"
     },
     {
       "id": 5,
       "question": "DO YOU OFFER VIRTUAL CONSULTATIONS?",
-      "answer": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.",
+      "answer": "Lorem ipsum dolor sit amet consectetur.",
       "order": 5,
-      "category": "consultation",
-      "createdAt": "2024-07-15T19:00:00.000Z",
-      "updatedAt": "2024-07-15T19:00:00.000Z"
+      "category": "consultation"
     }
   ],
   "createdAt": "2024-07-15T19:00:00.000Z",
-  "updatedAt": "2024-07-15T19:00:00.000Z"
+  "updatedAt": "2025-07-17T11:35:16.951Z"
 }

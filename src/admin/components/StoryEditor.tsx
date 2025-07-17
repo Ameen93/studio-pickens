@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StoryData, StoryCircle, StoryItem } from '../types';
 import LivePreviewPanel from './LivePreview';
 import ImageUpload from './ImageUpload';
+import { apiGet, apiPut } from '../utils/api';
 
 const StoryEditor = () => {
   const [storyData, setStoryData] = useState<StoryData>({
@@ -22,11 +23,7 @@ const StoryEditor = () => {
 
   const fetchStoryData = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/story');
-      if (!response.ok) {
-        throw new Error('Failed to fetch story data');
-      }
-      const data = await response.json();
+      const data = await apiGet('/story');
       setStoryData(data);
     } catch (error) {
       console.error('Error fetching story data:', error);
@@ -39,22 +36,11 @@ const StoryEditor = () => {
   const handleSave = async () => {
     setSaving(true);
     try {
-      const response = await fetch(`http://localhost:3001/api/story/${storyData.id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(storyData),
-      });
+      await apiPut(`/story/${storyData.id}`, storyData);
       
-      if (response.ok) {
-        setMessage('Story page updated successfully!');
-        setPreviewRefresh(Date.now());
-        setTimeout(() => setMessage(''), 3000);
-      } else {
-        const errorData = await response.json();
-        setMessage(`Error: ${errorData.error || 'Failed to save'}`);
-      }
+      setMessage('Story page updated successfully!');
+      setPreviewRefresh(Date.now());
+      setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.error('Error saving story data:', error);
       setMessage('Error saving changes');

@@ -8,7 +8,8 @@ const WorkBanners = ({ onBannerClick }) => {
     const fetchWorkData = async () => {
       try {
         const response = await fetch('http://localhost:3001/api/work');
-        const data = await response.json();
+        const result = await response.json();
+        const data = result.data || result;
         setSectionBanners(data.sectionBanners || []);
       } catch (error) {
         console.error('Error fetching work data:', error);

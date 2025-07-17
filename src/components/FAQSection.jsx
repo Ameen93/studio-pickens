@@ -1,21 +1,78 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const FAQSection = () => {
   const [openItem, setOpenItem] = useState(0); // First item open by default
+  const [faqData, setFaqData] = useState({ items: [] });
+  const [loading, setLoading] = useState(true);
 
   const toggleItem = (index) => {
     setOpenItem(openItem === index ? -1 : index);
   };
 
-  const faqItems = [
-    "HOW LONG DOES IT TAKE TO CREATE A CUSTOM WIG?",
-    "CAN I SEND REFERENCE IMAGES OR INSPIRATION?",
-    "WHAT'S THE DIFFERENCE BETWEEN A PRIVATE WIG AND A THEATRICAL ONE?",
-    "IS THE HAIR ETHICALLY SOURCED?",
-    "DO YOU OFFER VIRTUAL CONSULTATIONS?"
-  ];
+  useEffect(() => {
+    const fetchFAQData = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/api/faq');
+        const result = await response.json();
+        const data = result.data || result;
+        setFaqData(data);
+      } catch (error) {
+        console.error('Error fetching FAQ data:', error);
+        // Fallback to hardcoded data if API fails
+        setFaqData({
+          items: [
+            {
+              id: 1,
+              question: "HOW LONG DOES IT TAKE TO CREATE A CUSTOM WIG?",
+              answer: "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.",
+              order: 1
+            },
+            {
+              id: 2,
+              question: "CAN I SEND REFERENCE IMAGES OR INSPIRATION?",
+              answer: "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.",
+              order: 2
+            },
+            {
+              id: 3,
+              question: "WHAT'S THE DIFFERENCE BETWEEN A PRIVATE WIG AND A THEATRICAL ONE?",
+              answer: "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.",
+              order: 3
+            },
+            {
+              id: 4,
+              question: "IS THE HAIR ETHICALLY SOURCED?",
+              answer: "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.",
+              order: 4
+            },
+            {
+              id: 5,
+              question: "DO YOU OFFER VIRTUAL CONSULTATIONS?",
+              answer: "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.",
+              order: 5
+            }
+          ]
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const loremText = "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultrices vestibulum eleifend dignissim auctor laoreet feugiat. Lorem ipsum dolor sit amet consectetur.";
+    fetchFAQData();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="py-16 px-4 mx-auto" style={{ maxWidth: '1400px' }}>
+        <div className="flex items-center justify-center h-32">
+          <div className="text-studio-blue">Loading...</div>
+        </div>
+      </section>
+    );
+  }
+
+  // Sort FAQ items by order
+  const sortedItems = [...faqData.items].sort((a, b) => a.order - b.order);
 
   return (
     <section className="py-16 px-4 mx-auto" style={{ maxWidth: '1400px' }}>
@@ -30,8 +87,8 @@ const FAQSection = () => {
         {/* Right Column - FAQ Items */}
         <div className="lg:w-3/5">
           <div className="space-y-0">
-            {faqItems.map((question, index) => (
-              <div key={index} className={`border-b border-studio-blue ${index === 0 ? 'border-t' : ''}`}>
+            {sortedItems.map((item, index) => (
+              <div key={item.id} className={`border-b border-studio-blue ${index === 0 ? 'border-t' : ''}`}>
                 {/* Question Header */}
                 <button
                   onClick={() => toggleItem(index)}
@@ -40,7 +97,7 @@ const FAQSection = () => {
                   aria-controls={`faq-content-${index}`}
                 >
                   <span className="font-proxima-semibold font-semibold text-studio-blue uppercase pr-4" style={{ fontSize: '18px', lineHeight: '1.4' }}>
-                    {question}
+                    {item.question}
                   </span>
                   
                   {/* Arrow Icon */}
@@ -74,7 +131,7 @@ const FAQSection = () => {
                 >
                   <div className="pb-6 pr-10">
                     <p className="font-proxima text-studio-blue" style={{ fontSize: '16px', lineHeight: '1.6' }}>
-                      {loremText}
+                      {item.answer}
                     </p>
                   </div>
                 </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { LocationsData, Location } from '../types';
 import LivePreviewPanel from './LivePreview';
 import ImageUpload from './ImageUpload';
+import { apiGet, apiPut } from '../utils/api';
 
 const LocationsEditor = () => {
   const [locationsData, setLocationsData] = useState<LocationsData>({
@@ -29,11 +30,7 @@ const LocationsEditor = () => {
 
   const fetchLocationsData = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/locations');
-      if (!response.ok) {
-        throw new Error('Failed to fetch locations data');
-      }
-      const data = await response.json();
+      const data = await apiGet('/locations');
       setLocationsData(data);
     } catch (error) {
       console.error('Error fetching locations data:', error);
@@ -46,22 +43,11 @@ const LocationsEditor = () => {
   const handleSave = async () => {
     setSaving(true);
     try {
-      const response = await fetch(`http://localhost:3001/api/locations/${locationsData.id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(locationsData),
-      });
+      await apiPut(`/locations/${locationsData.id}`, locationsData);
       
-      if (response.ok) {
-        setMessage('Locations page updated successfully!');
-        setPreviewRefresh(Date.now());
-        setTimeout(() => setMessage(''), 3000);
-      } else {
-        const errorData = await response.json();
-        setMessage(`Error: ${errorData.error || 'Failed to save'}`);
-      }
+      setMessage('Locations page updated successfully!');
+      setPreviewRefresh(Date.now());
+      setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.error('Error saving locations data:', error);
       setMessage('Error saving changes');

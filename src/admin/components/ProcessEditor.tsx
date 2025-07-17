@@ -2,38 +2,30 @@ import React, { useState, useEffect } from 'react';
 import { ProcessData, ProcessStep } from '../types';
 import LivePreviewPanel from './LivePreview';
 import ImageUpload from './ImageUpload';
+import { apiGet, apiPut, apiPost, apiDelete } from '../utils/api';
 
 const ProcessEditor = () => {
   const [processData, setProcessData] = useState<ProcessData>({
     id: 1,
     banner: {
-      backgroundImage: {
-        desktop: "/images/process/banner/Desktop_PROCESS Hero Banner v2.png",
-        mobile: "/images/process/banner/Mobile_Hero Banner_process.png"
-      },
       title: "Process",
       subtitle: "",
+      desktopImage: "/images/process/banner/Desktop_PROCESS Hero Banner v2.png",
+      mobileImage: "/images/process/banner/Mobile_Hero Banner_process.png",
       transform: {
         scale: 1,
         translateX: 0,
         translateY: 0,
-        objectPosition: "center center"
+        flip: false
       },
-      circle: {
-        size: {
-          scale: 1
-        }
-      },
-      heading: {
-        size: {
-          scale: 1
-        }
+      circleScale: 1,
+      headingScale: {
+        mobile: 1,
+        desktop: 1
       }
     },
     teamCircles: {
-      size: {
-        scale: 1
-      },
+      size: 1,
       strokeWidth: 2,
       gap: 20,
       position: {
@@ -81,11 +73,7 @@ const ProcessEditor = () => {
 
   const fetchProcessData = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/process');
-      if (!response.ok) {
-        throw new Error('Failed to fetch process data');
-      }
-      const data = await response.json();
+      const data = await apiGet('/process');
       setProcessData(data);
     } catch (error) {
       console.error('Error fetching process data:', error);
@@ -98,22 +86,11 @@ const ProcessEditor = () => {
   const handleSave = async () => {
     setSaving(true);
     try {
-      const response = await fetch(`http://localhost:3001/api/process/${processData.id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(processData),
-      });
+      await apiPut(`/process/${processData.id}`, processData);
       
-      if (response.ok) {
-        setMessage('Process page updated successfully!');
-        setPreviewRefresh(Date.now());
-        setTimeout(() => setMessage(''), 3000);
-      } else {
-        const errorData = await response.json();
-        setMessage(`Error: ${errorData.error || 'Failed to save'}`);
-      }
+      setMessage('Process page updated successfully!');
+      setPreviewRefresh(Date.now());
+      setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.error('Error saving process data:', error);
       setMessage('Error saving changes');
@@ -132,7 +109,7 @@ const ProcessEditor = () => {
     }));
   };
 
-  const handleBannerTransformChange = (field: keyof ProcessData['banner']['transform'], value: number | string) => {
+  const handleBannerTransformChange = (field: keyof ProcessData['banner']['transform'], value: number | string | boolean) => {
     setProcessData(prev => ({
       ...prev,
       banner: {
@@ -145,33 +122,24 @@ const ProcessEditor = () => {
     }));
   };
 
-  const handleBannerCircleChange = (field: keyof ProcessData['banner']['circle']['size'], value: number) => {
+  const handleBannerCircleChange = (value: number) => {
     setProcessData(prev => ({
       ...prev,
       banner: {
         ...prev.banner,
-        circle: {
-          ...prev.banner.circle,
-          size: {
-            ...prev.banner.circle.size,
-            [field]: value
-          }
-        }
+        circleScale: value
       }
     }));
   };
 
-  const handleBannerHeadingChange = (field: keyof ProcessData['banner']['heading']['size'], value: number) => {
+  const handleBannerHeadingChange = (device: 'mobile' | 'desktop', value: number) => {
     setProcessData(prev => ({
       ...prev,
       banner: {
         ...prev.banner,
-        heading: {
-          ...prev.banner.heading,
-          size: {
-            ...prev.banner.heading.size,
-            [field]: value
-          }
+        headingScale: {
+          ...prev.banner.headingScale,
+          [device]: value
         }
       }
     }));
@@ -192,10 +160,7 @@ const ProcessEditor = () => {
       ...prev,
       banner: {
         ...prev.banner,
-        backgroundImage: {
-          ...prev.banner.backgroundImage,
-          [imageType]: path
-        }
+        [imageType === 'desktop' ? 'desktopImage' : 'mobileImage']: path
       }
     }));
   };
@@ -208,36 +173,25 @@ const ProcessEditor = () => {
 
     setSaving(true);
     try {
-      const response = await fetch('http://localhost:3001/api/process/steps', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newStep),
-      });
+      await apiPost('/process/steps', newStep);
       
-      if (response.ok) {
-        setMessage('Process step added successfully!');
-        setNewStep({
-          title: '',
-          description: '',
-          image: '',
-          alt: '',
-          alignment: 'left',
-          transform: {
-            scale: 1,
-            translateX: 0,
-            translateY: 0,
-            objectPosition: 'center center'
-          }
-        });
-        fetchProcessData();
-        setPreviewRefresh(Date.now());
-        setTimeout(() => setMessage(''), 3000);
-      } else {
-        const errorData = await response.json();
-        setMessage(`Error: ${errorData.error || 'Failed to add step'}`);
-      }
+      setMessage('Process step added successfully!');
+      setNewStep({
+        title: '',
+        description: '',
+        image: '',
+        alt: '',
+        alignment: 'left',
+        transform: {
+          scale: 1,
+          translateX: 0,
+          translateY: 0,
+          objectPosition: 'center center'
+        }
+      });
+      fetchProcessData();
+      setPreviewRefresh(Date.now());
+      setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.error('Error adding step:', error);
       setMessage('Error adding step');
@@ -249,23 +203,12 @@ const ProcessEditor = () => {
   const handleUpdateStep = async (stepId: number, updatedStep: ProcessStep) => {
     setSaving(true);
     try {
-      const response = await fetch(`http://localhost:3001/api/process/steps/${stepId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedStep),
-      });
+      await apiPut(`/process/steps/${stepId}`, updatedStep);
       
-      if (response.ok) {
-        setMessage('Process step updated successfully!');
-        fetchProcessData();
-        setPreviewRefresh(Date.now());
-        setTimeout(() => setMessage(''), 3000);
-      } else {
-        const errorData = await response.json();
-        setMessage(`Error: ${errorData.error || 'Failed to update step'}`);
-      }
+      setMessage('Process step updated successfully!');
+      fetchProcessData();
+      setPreviewRefresh(Date.now());
+      setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.error('Error updating step:', error);
       setMessage('Error updating step');
@@ -281,19 +224,12 @@ const ProcessEditor = () => {
 
     setSaving(true);
     try {
-      const response = await fetch(`http://localhost:3001/api/process/steps/${stepId}`, {
-        method: 'DELETE',
-      });
+      await apiDelete(`/process/steps/${stepId}`);
       
-      if (response.ok) {
-        setMessage('Process step deleted successfully!');
-        fetchProcessData();
-        setPreviewRefresh(Date.now());
-        setTimeout(() => setMessage(''), 3000);
-      } else {
-        const errorData = await response.json();
-        setMessage(`Error: ${errorData.error || 'Failed to delete step'}`);
-      }
+      setMessage('Process step deleted successfully!');
+      fetchProcessData();
+      setPreviewRefresh(Date.now());
+      setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.error('Error deleting step:', error);
       setMessage('Error deleting step');
@@ -401,7 +337,7 @@ const ProcessEditor = () => {
                 <div>
                   <ImageUpload
                     label="Desktop Background"
-                    value={processData.banner.backgroundImage.desktop}
+                    value={processData.banner.desktopImage}
                     onChange={(path) => handleImageChange('desktop', path)}
                     placeholder="/images/process/banner/desktop-banner.png"
                     previewClassName="w-32 h-20"
@@ -410,7 +346,7 @@ const ProcessEditor = () => {
                 <div>
                   <ImageUpload
                     label="Mobile Background"
-                    value={processData.banner.backgroundImage.mobile}
+                    value={processData.banner.mobileImage}
                     onChange={(path) => handleImageChange('mobile', path)}
                     placeholder="/images/process/banner/mobile-banner.png"
                     previewClassName="w-20 h-32"
@@ -440,17 +376,14 @@ const ProcessEditor = () => {
                   
                   <div>
                     <label className="block text-xs font-medium text-gray-600 mb-1">
-                      Position
+                      Flip Horizontal
                     </label>
-                    <select
-                      value={processData.banner.transform.objectPosition}
-                      onChange={(e) => handleBannerTransformChange('objectPosition', e.target.value)}
-                      className="w-full p-2 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-blue-500"
-                    >
-                      {objectPositionOptions.map(option => (
-                        <option key={option} value={option}>{option}</option>
-                      ))}
-                    </select>
+                    <input
+                      type="checkbox"
+                      checked={processData.banner.transform.flip}
+                      onChange={(e) => handleBannerTransformChange('flip', e.target.checked)}
+                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                    />
                   </div>
                 </div>
                 
@@ -494,15 +427,15 @@ const ProcessEditor = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-medium text-gray-600 mb-1">
-                      Circle Scale: {processData.banner.circle.size.scale}x (Base: 513px @ 1080p)
+                      Circle Scale: {processData.banner.circleScale}x (Base: 513px @ 1080p)
                     </label>
                     <input
                       type="range"
                       min="0.5"
                       max="2"
                       step="0.1"
-                      value={processData.banner.circle.size.scale}
-                      onChange={(e) => handleBannerCircleChange('scale', parseFloat(e.target.value))}
+                      value={processData.banner.circleScale}
+                      onChange={(e) => handleBannerCircleChange(parseFloat(e.target.value))}
                       className="w-full"
                     />
                     <div className="mt-1 text-xs text-gray-500">
@@ -512,20 +445,38 @@ const ProcessEditor = () => {
                   
                   <div>
                     <label className="block text-xs font-medium text-gray-600 mb-1">
-                      Heading Scale: {processData.banner.heading.size.scale}x (Base: 55px @ 1080p)
+                      Mobile Heading Scale: {processData.banner.headingScale.mobile}x
                     </label>
                     <input
                       type="range"
                       min="0.5"
                       max="2"
                       step="0.1"
-                      value={processData.banner.heading.size.scale}
-                      onChange={(e) => handleBannerHeadingChange('scale', parseFloat(e.target.value))}
+                      value={processData.banner.headingScale.mobile}
+                      onChange={(e) => handleBannerHeadingChange('mobile', parseFloat(e.target.value))}
                       className="w-full"
                     />
                     <div className="mt-1 text-xs text-gray-500">
-                      Responsive: scales with viewport width
+                      Mobile heading scale
                     </div>
+                  </div>
+                </div>
+                
+                <div className="mt-3">
+                  <label className="block text-xs font-medium text-gray-600 mb-1">
+                    Desktop Heading Scale: {processData.banner.headingScale.desktop}x
+                  </label>
+                  <input
+                    type="range"
+                    min="0.5"
+                    max="2"
+                    step="0.1"
+                    value={processData.banner.headingScale.desktop}
+                    onChange={(e) => handleBannerHeadingChange('desktop', parseFloat(e.target.value))}
+                    className="w-full"
+                  />
+                  <div className="mt-1 text-xs text-gray-500">
+                    Desktop heading scale
                   </div>
                 </div>
               </div>
@@ -540,15 +491,15 @@ const ProcessEditor = () => {
               {/* Circle Size */}
               <div>
                 <label className="block text-xs font-medium text-gray-600 mb-1">
-                  Circle Scale: {processData.teamCircles?.size?.scale || 1}x
+                  Circle Scale: {processData.teamCircles?.size || 1}x
                 </label>
                 <input
                   type="range"
                   min="0.5"
                   max="2"
                   step="0.1"
-                  value={processData.teamCircles?.size?.scale || 1}
-                  onChange={(e) => handleTeamCircleChange('size', { scale: parseFloat(e.target.value) })}
+                  value={processData.teamCircles?.size || 1}
+                  onChange={(e) => handleTeamCircleChange('size', parseFloat(e.target.value))}
                   className="w-full"
                 />
                 <div className="mt-1 text-xs text-gray-500">

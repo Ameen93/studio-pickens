@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { API_ENDPOINTS, apiGet } from '../config/api';
+import { API_ENDPOINTS, apiRequest } from '../config/api';
 
 export const useHeroData = () => {
   const [heroData, setHeroData] = useState({
@@ -20,7 +20,8 @@ export const useHeroData = () => {
   useEffect(() => {
     const fetchHeroData = async () => {
       try {
-        const data = await apiGet(API_ENDPOINTS.hero);
+        const response = await apiRequest(API_ENDPOINTS.hero);
+        const data = response.data || response;
         
         // Ensure we have the required structure
         setHeroData({

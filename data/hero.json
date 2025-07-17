@@ -1,7 +1,7 @@
 {
   "id": 1,
-  "title": "STUDIO PICKENS",
-  "subtitle": "",
+  "title": "Test Modified Title",
+  "subtitle": "Test Modified Subtitle",
   "atelierTitle": "CUSTOM ATELIER WIGS BY ROBERT PICKENS",
   "atelierDescription": "This is a custom description that shows the editable text is working correctly. The admin panel allows you to change both the title and description for the atelier section of the home page.",
   "banner": {

@@ -1,37 +1,27 @@
 {
-  "id": 1,
   "banner": {
-    "backgroundImage": {
-      "desktop": "/images/process/banner/Desktop_PROCESS Hero Banner v2.png",
-      "mobile": "/images/process/banner/Mobile_Hero Banner_process.png"
-    },
     "title": "Process",
     "subtitle": "",
+    "desktopImage": "/images/process/banner/Desktop_PROCESS Hero Banner v2.png",
+    "mobileImage": "/images/process/banner/Mobile_Hero Banner_process.png",
     "transform": {
       "scale": 1,
       "translateX": 0,
       "translateY": 0,
-      "objectPosition": "center center"
+      "flip": false
     },
-    "circle": {
-      "size": {
-        "scale": 1.2
-      }
-    },
-    "heading": {
-      "size": {
-        "scale": 1.1
-      }
+    "circleScale": 1,
+    "headingScale": {
+      "mobile": 1,
+      "desktop": 1
     }
   },
   "teamCircles": {
-    "size": {
-      "scale": 1.2
-    },
-    "strokeWidth": 3,
-    "gap": 25,
+    "size": 1,
+    "strokeWidth": 2,
+    "gap": 20,
     "position": {
-      "top": "320px",
+      "top": "340px",
       "left": "50%"
     }
   },
@@ -43,13 +33,7 @@
       "image": "/images/process/process-page2.jpg",
       "alt": "90% science / 10% wigmaking",
       "alignment": "left",
-      "order": 1,
-      "transform": {
-        "scale": 1,
-        "translateX": 0,
-        "translateY": 0,
-        "objectPosition": "center center"
-      }
+      "order": 1
     },
     {
       "id": 2,
@@ -58,13 +42,7 @@
       "image": "/images/process/process-page3.jpg",
       "alt": "Consultation",
       "alignment": "right",
-      "order": 2,
-      "transform": {
-        "scale": 1,
-        "translateX": 0,
-        "translateY": 0,
-        "objectPosition": "center center"
-      }
+      "order": 2
     },
     {
       "id": 3,
@@ -73,13 +51,7 @@
       "image": "/images/process/process-page4.jpg",
       "alt": "mapping the head",
       "alignment": "left",
-      "order": 3,
-      "transform": {
-        "scale": 1,
-        "translateX": 0,
-        "translateY": 0,
-        "objectPosition": "center center"
-      }
+      "order": 3
     },
     {
       "id": 4,
@@ -88,13 +60,7 @@
       "image": "/images/process/process-page5.jpg",
       "alt": "treatment",
       "alignment": "right",
-      "order": 4,
-      "transform": {
-        "scale": 1,
-        "translateX": 0,
-        "translateY": 0,
-        "objectPosition": "center center"
-      }
+      "order": 4
     },
     {
       "id": 5,
@@ -103,14 +69,8 @@
       "image": "/images/process/process-page6.png",
       "alt": "approval",
       "alignment": "left",
-      "order": 5,
-      "transform": {
-        "scale": 1,
-        "translateX": 0,
-        "translateY": 0,
-        "objectPosition": "center center"
-      }
+      "order": 5
     }
   ],
-  "updatedAt": "2025-07-16T02:02:57.889Z"
+  "updatedAt": "2025-07-17T13:25:07.631Z"
 }

@@ -16,8 +16,8 @@ const ProcessPage = () => {
         </div>
       ) : (
         <PageBanner 
-          backgroundImage={processData.banner.backgroundImage.desktop}
-          mobileBackgroundImage={processData.banner.backgroundImage.mobile}
+          backgroundImage={processData.banner.desktopImage}
+          mobileBackgroundImage={processData.banner.mobileImage}
           altText="Process banner background"
           objectFit="cover"
           height="clamp(700px, 70vw, 1200px)"

@@ -25,6 +25,11 @@ function App() {
   }, [currentPath]);
 
   const renderPage = () => {
+    // Handle admin routes (any path starting with /admin)
+    if (currentPath.startsWith('/admin')) {
+      return <AdminApp />;
+    }
+
     switch (currentPath) {
       case '/':
         return <HomePage />;
@@ -40,8 +45,6 @@ function App() {
         return <ContactPage />;
       case '/faq':
         return <FAQPage />;
-      case '/admin':
-        return <AdminApp />;
       default:
         return <HomePage />;
     }

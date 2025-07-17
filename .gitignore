@@ -121,3 +121,18 @@ data/*.backup
 # Authentication system specific
 .auth-secret
 jwt-secret.txt
+
+# Debug and testing files
+debug-*.html
+debug-*.js
+test-*.js
+test-*.html
+*-test.js
+validate-*.js
+
+# Temporary API testing files
+/tmp/
+*.json.tmp
+*_data.json
+*_update.json
+*_restore.json

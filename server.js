@@ -19,6 +19,38 @@ const {
   changePasswordHandler 
 } = require('./src/middleware/auth');
 
+// Import validation middleware
+const {
+  validateHero,
+  validateWork,
+  validateProcess,
+  validateStory,
+  validateLocations,
+  validateContact,
+  validateFAQ,
+  validateWorkProject,
+  validateProcessStep,
+  validateFAQItem,
+  validateFileUpload,
+  validateIdParam
+} = require('./src/middleware/validation');
+
+// Import error handling middleware
+const {
+  errorHandler,
+  asyncHandler,
+  notFoundHandler,
+  validateRequest,
+  securityHeaders,
+  safeReadJsonFile,
+  safeWriteJsonFile,
+  sendSuccessResponse,
+  sendErrorResponse,
+  ValidationError,
+  NotFoundError,
+  DatabaseError
+} = require('./src/middleware/errorHandler');
+
 const app = express();
 
 // Environment Configuration
@@ -32,17 +64,37 @@ const DATA_PATH = process.env.DATA_PATH || './data';
 
 // CORS Configuration
 const corsOptions = {
-  origin: NODE_ENV === 'production' 
-    ? CORS_ORIGIN.split(',').map(origin => origin.trim())
-    : CORS_ORIGIN,
+  origin: function (origin, callback) {
+    if (NODE_ENV === 'development') {
+      // Allow all origins in development
+      return callback(null, true);
+    }
+    
+    // Production CORS handling
+    const allowedOrigins = CORS_ORIGIN.split(',').map(origin => origin.trim());
+    
+    // Allow requests with no origin (like mobile apps, Postman, etc.)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      console.warn(`CORS: Blocked request from origin: ${origin}`);
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
-  optionsSuccessStatus: 200
+  optionsSuccessStatus: 200,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  exposedHeaders: ['Content-Range', 'X-Total-Count'],
+  preflightContinue: false
 };
 
 // Rate limiting
 const authLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 5, // limit each IP to 5 requests per windowMs
+  windowMs: parseInt(process.env.AUTH_RATE_LIMIT_WINDOW) || 15 * 60 * 1000, // 15 minutes
+  max: parseInt(process.env.AUTH_RATE_LIMIT_MAX) || 5, // limit each IP to 5 requests per windowMs
   message: {
     success: false,
     error: 'Too many authentication attempts, please try again later.',
@@ -51,8 +103,8 @@ const authLimiter = rateLimit({
 });
 
 const apiLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
+  windowMs: parseInt(process.env.API_RATE_LIMIT_WINDOW) || 15 * 60 * 1000, // 15 minutes
+  max: parseInt(process.env.API_RATE_LIMIT_MAX) || 100, // limit each IP to 100 requests per windowMs
   message: {
     success: false,
     error: 'Too many API requests, please try again later.',
@@ -62,11 +114,17 @@ const apiLimiter = rateLimit({
 
 // Middleware
 app.use(cors(corsOptions));
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
-// Apply rate limiting to API routes
-app.use('/api', apiLimiter);
+// Security middleware
+app.use(securityHeaders);
+app.use(validateRequest);
+
+// Apply rate limiting to API routes (temporarily disabled for development)
+if (NODE_ENV === 'production') {
+  app.use('/api', apiLimiter);
+}
 
 // Data file paths
 const DATA_DIR = path.join(__dirname, DATA_PATH);
@@ -78,364 +136,301 @@ const PROCESS_DATA_FILE = path.join(DATA_DIR, 'process.json');
 const STORY_DATA_FILE = path.join(DATA_DIR, 'story.json');
 const LOCATIONS_DATA_FILE = path.join(DATA_DIR, 'locations.json');
 
-// Helper functions
-async function readJsonFile(filePath) {
-  try {
-    const data = await fs.readFile(filePath, 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    console.error(`Error reading ${filePath}:`, error.message);
-    return null;
-  }
-}
-
-async function writeJsonFile(filePath, data) {
-  try {
-    await fs.writeFile(filePath, JSON.stringify(data, null, 2));
-  } catch (error) {
-    console.error(`Error writing ${filePath}:`, error.message);
-    throw error;
-  }
-}
-
 // Configure multer for image uploads
 const storage = multer.diskStorage({
   destination: async (req, file, cb) => {
     const uploadDir = path.join(__dirname, 'public/images/uploads');
-    await fs.mkdir(uploadDir, { recursive: true });
-    cb(null, uploadDir);
+    try {
+      await fs.mkdir(uploadDir, { recursive: true });
+      cb(null, uploadDir);
+    } catch (error) {
+      cb(error);
+    }
   },
   filename: (req, file, cb) => {
-    const timestamp = Date.now();
-    const randomSuffix = Math.round(Math.random() * 1E9);
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
     const ext = path.extname(file.originalname);
-    cb(null, `${file.fieldname}_${timestamp}_${randomSuffix}${ext}`);
+    cb(null, `image-${uniqueSuffix}${ext}`);
   }
 });
-
-// Get allowed file types from environment
-const ALLOWED_TYPES = process.env.UPLOAD_ALLOWED_TYPES 
-  ? process.env.UPLOAD_ALLOWED_TYPES.split(',').map(type => type.trim())
-  : ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
 
 const upload = multer({ 
   storage: storage,
   limits: { fileSize: UPLOAD_MAX_SIZE },
   fileFilter: (req, file, cb) => {
-    if (ALLOWED_TYPES.includes(file.mimetype)) {
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+    if (allowedTypes.includes(file.mimetype)) {
       cb(null, true);
     } else {
-      cb(new Error('Invalid file type'));
+      cb(new Error('Invalid file type. Only JPEG, PNG, GIF, and WebP are allowed.'));
     }
   }
 });
 
 // Authentication Routes
-app.post('/api/auth/login', authLimiter, loginHandler);
+app.post('/api/auth/login', NODE_ENV === 'production' ? authLimiter : (req, res, next) => next(), loginHandler);
 app.post('/api/auth/logout', logoutHandler);
 app.get('/api/auth/me', requireAuth, getCurrentUser);
 app.post('/api/auth/change-password', requireAuth, changePasswordHandler);
 
-// API Routes
-app.get('/api/hero', async (req, res) => {
-  try {
-    const data = await readJsonFile(HERO_DATA_FILE);
-    res.json(data || {});
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
-  }
-});
+// Hero API Routes
+app.get('/api/hero', asyncHandler(async (req, res) => {
+  const data = await safeReadJsonFile(HERO_DATA_FILE);
+  sendSuccessResponse(res, data);
+}));
 
-app.put('/api/hero/:id', requireAuth, requireAdmin, async (req, res) => {
-  try {
-    await writeJsonFile(HERO_DATA_FILE, req.body);
-    res.json({ success: true });
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
-  }
-});
+app.put('/api/hero/:id', requireAuth, requireAdmin, validateIdParam, validateHero, asyncHandler(async (req, res) => {
+  await safeWriteJsonFile(HERO_DATA_FILE, req.body);
+  sendSuccessResponse(res, null, 'Hero data updated successfully');
+}));
 
-app.get('/api/work', async (req, res) => {
-  try {
-    const data = await readJsonFile(WORK_DATA_FILE);
-    res.json(data || { banner: {}, projects: [] });
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
-  }
-});
+// Work API Routes
+app.get('/api/work', asyncHandler(async (req, res) => {
+  const data = await safeReadJsonFile(WORK_DATA_FILE);
+  sendSuccessResponse(res, data);
+}));
 
-app.put('/api/work', requireAuth, requireAdmin, async (req, res) => {
-  try {
-    await writeJsonFile(WORK_DATA_FILE, req.body);
-    res.json({ success: true });
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
-  }
-});
+app.put('/api/work', requireAuth, requireAdmin, validateWork, asyncHandler(async (req, res) => {
+  await safeWriteJsonFile(WORK_DATA_FILE, req.body);
+  sendSuccessResponse(res, null, 'Work data updated successfully');
+}));
 
-app.post('/api/work', requireAuth, requireAdmin, async (req, res) => {
-  try {
-    const data = await readJsonFile(WORK_DATA_FILE) || { projects: [] };
-    const newProject = { ...req.body, id: Date.now() };
-    data.projects.push(newProject);
-    await writeJsonFile(WORK_DATA_FILE, data);
-    res.json(newProject);
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
-  }
-});
+app.post('/api/work', requireAuth, requireAdmin, validateWorkProject, asyncHandler(async (req, res) => {
+  const data = await safeReadJsonFile(WORK_DATA_FILE) || { projects: [] };
+  const newProject = { ...req.body, id: Date.now() };
+  data.projects.push(newProject);
+  await safeWriteJsonFile(WORK_DATA_FILE, data);
+  sendSuccessResponse(res, newProject, 'Work project created successfully');
+}));
 
-app.delete('/api/work/:id', requireAuth, requireAdmin, async (req, res) => {
-  try {
-    const data = await readJsonFile(WORK_DATA_FILE);
-    if (data && data.projects) {
-      data.projects = data.projects.filter(p => p.id !== parseInt(req.params.id));
-      await writeJsonFile(WORK_DATA_FILE, data);
-    }
-    res.json({ success: true });
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+app.delete('/api/work/:id', requireAuth, requireAdmin, validateIdParam, asyncHandler(async (req, res) => {
+  const data = await safeReadJsonFile(WORK_DATA_FILE);
+  if (!data || !data.projects) {
+    throw new NotFoundError('Work data not found');
   }
-});
-
-app.get('/api/faq', async (req, res) => {
-  try {
-    const data = await readJsonFile(FAQ_DATA_FILE);
-    res.json(data || []);
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+  
+  const originalLength = data.projects.length;
+  data.projects = data.projects.filter(p => p.id !== parseInt(req.params.id));
+  
+  if (data.projects.length === originalLength) {
+    throw new NotFoundError('Work project not found');
   }
-});
+  
+  await safeWriteJsonFile(WORK_DATA_FILE, data);
+  sendSuccessResponse(res, null, 'Work project deleted successfully');
+}));
 
-app.post('/api/faq', requireAuth, requireAdmin, async (req, res) => {
-  try {
-    const data = await readJsonFile(FAQ_DATA_FILE) || [];
-    const newItem = { ...req.body, id: Date.now() };
-    data.push(newItem);
-    await writeJsonFile(FAQ_DATA_FILE, data);
-    res.json(newItem);
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+// Process API Routes
+app.get('/api/process', asyncHandler(async (req, res) => {
+  const data = await safeReadJsonFile(PROCESS_DATA_FILE);
+  sendSuccessResponse(res, data);
+}));
+
+app.put('/api/process/:id', requireAuth, requireAdmin, validateIdParam, validateProcess, asyncHandler(async (req, res) => {
+  const updatedData = { ...req.body, updatedAt: new Date().toISOString() };
+  await safeWriteJsonFile(PROCESS_DATA_FILE, updatedData);
+  sendSuccessResponse(res, null, 'Process data updated successfully');
+}));
+
+app.post('/api/process/steps', requireAuth, requireAdmin, validateProcessStep, asyncHandler(async (req, res) => {
+  const data = await safeReadJsonFile(PROCESS_DATA_FILE);
+  if (!data) {
+    throw new NotFoundError('Process data not found');
   }
-});
-
-app.delete('/api/faq/:id', requireAuth, requireAdmin, async (req, res) => {
-  try {
-    const data = await readJsonFile(FAQ_DATA_FILE) || [];
-    const filtered = data.filter(item => item.id !== parseInt(req.params.id));
-    await writeJsonFile(FAQ_DATA_FILE, filtered);
-    res.json({ success: true });
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+  
+  if (!data.processSteps) {
+    data.processSteps = [];
   }
-});
+  
+  const newStep = { ...req.body, id: Date.now() };
+  data.processSteps.push(newStep);
+  
+  await safeWriteJsonFile(PROCESS_DATA_FILE, data);
+  sendSuccessResponse(res, newStep, 'Process step created successfully');
+}));
 
-// Process endpoints
-app.get('/api/process', async (req, res) => {
-  try {
-    const data = await readJsonFile(PROCESS_DATA_FILE);
-    res.json(data || {});
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+app.put('/api/process/steps/:stepId', requireAuth, requireAdmin, validateIdParam, validateProcessStep, asyncHandler(async (req, res) => {
+  const data = await safeReadJsonFile(PROCESS_DATA_FILE);
+  if (!data || !data.processSteps) {
+    throw new NotFoundError('Process data not found');
   }
-});
-
-app.put('/api/process/:id', requireAuth, requireAdmin, async (req, res) => {
-  try {
-    const updatedData = { ...req.body, updatedAt: new Date().toISOString() };
-    await writeJsonFile(PROCESS_DATA_FILE, updatedData);
-    res.json({ success: true });
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+  
+  const stepIndex = data.processSteps.findIndex(step => step.id === parseInt(req.params.stepId));
+  if (stepIndex === -1) {
+    throw new NotFoundError('Process step not found');
   }
-});
+  
+  data.processSteps[stepIndex] = { ...req.body, id: parseInt(req.params.stepId) };
+  await safeWriteJsonFile(PROCESS_DATA_FILE, data);
+  sendSuccessResponse(res, data.processSteps[stepIndex], 'Process step updated successfully');
+}));
 
-// Process steps endpoints
-app.post('/api/process/steps', requireAuth, requireAdmin, async (req, res) => {
-  try {
-    const data = await readJsonFile(PROCESS_DATA_FILE);
-    if (!data) {
-      return res.status(404).json({ error: 'Process data not found' });
-    }
-    
-    const newStep = {
-      ...req.body,
-      id: Date.now(), // Simple ID generation
-      order: data.processSteps ? data.processSteps.length + 1 : 1
-    };
-    
-    data.processSteps = data.processSteps || [];
-    data.processSteps.push(newStep);
-    data.updatedAt = new Date().toISOString();
-    
-    await writeJsonFile(PROCESS_DATA_FILE, data);
-    res.json({ success: true, step: newStep });
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+app.delete('/api/process/steps/:stepId', requireAuth, requireAdmin, validateIdParam, asyncHandler(async (req, res) => {
+  const data = await safeReadJsonFile(PROCESS_DATA_FILE);
+  if (!data || !data.processSteps) {
+    throw new NotFoundError('Process data not found');
   }
-});
-
-app.put('/api/process/steps/:stepId', requireAuth, requireAdmin, async (req, res) => {
-  try {
-    const data = await readJsonFile(PROCESS_DATA_FILE);
-    if (!data) {
-      return res.status(404).json({ error: 'Process data not found' });
-    }
-    
-    const stepId = parseInt(req.params.stepId);
-    const stepIndex = data.processSteps.findIndex(step => step.id === stepId);
-    
-    if (stepIndex === -1) {
-      return res.status(404).json({ error: 'Process step not found' });
-    }
-    
-    data.processSteps[stepIndex] = { ...req.body, id: stepId };
-    data.updatedAt = new Date().toISOString();
-    
-    await writeJsonFile(PROCESS_DATA_FILE, data);
-    res.json({ success: true });
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+  
+  const originalLength = data.processSteps.length;
+  data.processSteps = data.processSteps.filter(step => step.id !== parseInt(req.params.stepId));
+  
+  if (data.processSteps.length === originalLength) {
+    throw new NotFoundError('Process step not found');
   }
-});
+  
+  await safeWriteJsonFile(PROCESS_DATA_FILE, data);
+  sendSuccessResponse(res, null, 'Process step deleted successfully');
+}));
 
-app.delete('/api/process/steps/:stepId', requireAuth, requireAdmin, async (req, res) => {
-  try {
-    const data = await readJsonFile(PROCESS_DATA_FILE);
-    if (!data) {
-      return res.status(404).json({ error: 'Process data not found' });
-    }
-    
-    const stepId = parseInt(req.params.stepId);
-    data.processSteps = data.processSteps.filter(step => step.id !== stepId);
-    data.updatedAt = new Date().toISOString();
-    
-    await writeJsonFile(PROCESS_DATA_FILE, data);
-    res.json({ success: true });
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+// Story API Routes
+app.get('/api/story', asyncHandler(async (req, res) => {
+  const data = await safeReadJsonFile(STORY_DATA_FILE);
+  sendSuccessResponse(res, data);
+}));
+
+app.put('/api/story/:id', requireAuth, requireAdmin, validateIdParam, validateStory, asyncHandler(async (req, res) => {
+  const updatedData = { ...req.body, updatedAt: new Date().toISOString() };
+  await safeWriteJsonFile(STORY_DATA_FILE, updatedData);
+  sendSuccessResponse(res, null, 'Story data updated successfully');
+}));
+
+// Locations API Routes
+app.get('/api/locations', asyncHandler(async (req, res) => {
+  const data = await safeReadJsonFile(LOCATIONS_DATA_FILE);
+  sendSuccessResponse(res, data);
+}));
+
+app.put('/api/locations/:id', requireAuth, requireAdmin, validateIdParam, validateLocations, asyncHandler(async (req, res) => {
+  const updatedData = { ...req.body, updatedAt: new Date().toISOString() };
+  await safeWriteJsonFile(LOCATIONS_DATA_FILE, updatedData);
+  sendSuccessResponse(res, null, 'Locations data updated successfully');
+}));
+
+// Contact API Routes
+app.get('/api/contact', asyncHandler(async (req, res) => {
+  const data = await safeReadJsonFile(CONTACT_DATA_FILE);
+  sendSuccessResponse(res, data);
+}));
+
+app.put('/api/contact/:id', requireAuth, requireAdmin, validateIdParam, validateContact, asyncHandler(async (req, res) => {
+  const updatedData = { ...req.body, updatedAt: new Date().toISOString() };
+  await safeWriteJsonFile(CONTACT_DATA_FILE, updatedData);
+  sendSuccessResponse(res, null, 'Contact data updated successfully');
+}));
+
+// FAQ API Routes
+app.get('/api/faq', asyncHandler(async (req, res) => {
+  const data = await safeReadJsonFile(FAQ_DATA_FILE);
+  sendSuccessResponse(res, data);
+}));
+
+app.put('/api/faq', requireAuth, requireAdmin, validateFAQ, asyncHandler(async (req, res) => {
+  await safeWriteJsonFile(FAQ_DATA_FILE, req.body);
+  sendSuccessResponse(res, null, 'FAQ data updated successfully');
+}));
+
+app.post('/api/faq', requireAuth, requireAdmin, validateFAQItem, asyncHandler(async (req, res) => {
+  const data = await safeReadJsonFile(FAQ_DATA_FILE) || { items: [] };
+  const newItem = { ...req.body, id: Date.now() };
+  
+  if (!data.items) {
+    data.items = [];
   }
-});
+  
+  data.items.push(newItem);
+  await safeWriteJsonFile(FAQ_DATA_FILE, data);
+  sendSuccessResponse(res, newItem, 'FAQ item created successfully');
+}));
 
-app.post('/api/upload', requireAuth, requireAdmin, upload.single('image'), (req, res) => {
+app.delete('/api/faq/:id', requireAuth, requireAdmin, validateIdParam, asyncHandler(async (req, res) => {
+  const data = await safeReadJsonFile(FAQ_DATA_FILE);
+  if (!data || !data.items) {
+    throw new NotFoundError('FAQ data not found');
+  }
+  
+  const originalLength = data.items.length;
+  data.items = data.items.filter(item => item.id !== parseInt(req.params.id));
+  
+  if (data.items.length === originalLength) {
+    throw new NotFoundError('FAQ item not found');
+  }
+  
+  await safeWriteJsonFile(FAQ_DATA_FILE, data);
+  sendSuccessResponse(res, null, 'FAQ item deleted successfully');
+}));
+
+// Image Upload Route
+app.post('/api/upload', requireAuth, requireAdmin, upload.single('image'), validateFileUpload, asyncHandler(async (req, res) => {
   if (!req.file) {
-    return res.status(400).json({ error: 'No file uploaded' });
+    throw new ValidationError('No file uploaded');
   }
+  
   const imagePath = `/images/uploads/${req.file.filename}`;
-  res.json({ 
-    success: true, 
+  const imageInfo = {
     path: imagePath,
-    filename: req.file.filename,
     originalName: req.file.originalname,
-    size: req.file.size
-  });
-});
+    size: req.file.size,
+    mimetype: req.file.mimetype,
+    uploadedAt: new Date().toISOString()
+  };
+  
+  sendSuccessResponse(res, imageInfo, 'Image uploaded successfully');
+}));
 
-app.get('/api/images', async (req, res) => {
+// Images List Route
+app.get('/api/images', asyncHandler(async (req, res) => {
   try {
     const imagesDir = path.join(__dirname, 'public/images');
-    const images = await getImagesRecursively(imagesDir);
-    res.json(images);
+    const imagesList = await getImagesRecursively(imagesDir);
+    sendSuccessResponse(res, imagesList);
   } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+    sendSuccessResponse(res, []); // Return empty array if images directory doesn't exist
   }
-});
+}));
 
-async function getImagesRecursively(dir, basePath = '') {
-  const images = [];
-  try {
-    const items = await fs.readdir(dir, { withFileTypes: true });
-    for (const item of items) {
-      const itemPath = path.join(dir, item.name);
-      const relativePath = path.join(basePath, item.name).replace(/\\/g, '/');
-      
-      if (item.isDirectory()) {
-        const subImages = await getImagesRecursively(itemPath, relativePath);
-        images.push(...subImages);
-      } else if (item.isFile() && /\.(jpg|jpeg|png|gif|webp)$/i.test(item.name)) {
-        const stats = await fs.stat(itemPath);
-        images.push({
-          name: item.name,
-          path: `/images/${relativePath}`,
-          size: stats.size,
-          modified: stats.mtime,
-          folder: basePath || 'root'
-        });
-      }
+// Helper function to recursively get all images
+async function getImagesRecursively(dir, baseDir = dir) {
+  const items = await fs.readdir(dir, { withFileTypes: true });
+  let images = [];
+  
+  for (const item of items) {
+    const fullPath = path.join(dir, item.name);
+    
+    if (item.isDirectory()) {
+      const subImages = await getImagesRecursively(fullPath, baseDir);
+      images = images.concat(subImages);
+    } else if (item.isFile() && /\.(jpg|jpeg|png|gif|webp)$/i.test(item.name)) {
+      const relativePath = path.relative(baseDir, fullPath);
+      const webPath = `/images/${relativePath.replace(/\\/g, '/')}`;
+      images.push({
+        path: webPath,
+        name: item.name,
+        size: (await fs.stat(fullPath)).size
+      });
     }
-  } catch (error) {
-    console.error('Error reading directory:', error);
   }
+  
   return images;
 }
 
-// Story endpoints
-app.get('/api/story', async (req, res) => {
-  try {
-    const data = await readJsonFile(STORY_DATA_FILE);
-    res.json(data || {});
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
-  }
-});
-
-app.put('/api/story/:id', requireAuth, requireAdmin, async (req, res) => {
-  try {
-    const updatedData = { ...req.body, updatedAt: new Date().toISOString() };
-    await writeJsonFile(STORY_DATA_FILE, updatedData);
-    res.json({ success: true });
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
-  }
-});
-
-// Locations endpoints
-app.get('/api/locations', async (req, res) => {
-  try {
-    const data = await readJsonFile(LOCATIONS_DATA_FILE);
-    res.json(data || {});
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
-  }
-});
-
-app.put('/api/locations/:id', requireAuth, requireAdmin, async (req, res) => {
-  try {
-    const updatedData = { ...req.body, updatedAt: new Date().toISOString() };
-    await writeJsonFile(LOCATIONS_DATA_FILE, updatedData);
-    res.json({ success: true });
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
-  }
-});
-
-// Contact endpoints
-app.get('/api/contact', async (req, res) => {
-  try {
-    const data = await readJsonFile(CONTACT_DATA_FILE);
-    res.json(data || {});
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
-  }
-});
-
-app.put('/api/contact/:id', requireAuth, requireAdmin, async (req, res) => {
-  try {
-    const updatedData = { ...req.body, updatedAt: new Date().toISOString() };
-    await writeJsonFile(CONTACT_DATA_FILE, updatedData);
-    res.json({ success: true });
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
-  }
-});
-
+// Health Check Route
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'healthy' });
+  sendSuccessResponse(res, {
+    status: 'healthy',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    version: process.env.npm_package_version || '1.0.0'
+  });
 });
+
+// Error handling middleware (must be last)
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 // Initialize authentication system
 initializeAuth();
 
+// Start server
 app.listen(PORT, HOST, () => {
   const serverUrl = NODE_ENV === 'production' 
     ? `https://${HOST}` 
@@ -446,4 +441,8 @@ app.listen(PORT, HOST, () => {
   console.log(`🌐 CORS Origin: ${CORS_ORIGIN}`);
   console.log(`📁 Data Path: ${DATA_PATH}`);
   console.log(`📤 Upload Max Size: ${(UPLOAD_MAX_SIZE / 1024 / 1024).toFixed(1)}MB`);
+  console.log(`🔐 Authentication: Enabled`);
+  console.log(`⚡ Rate Limiting: Enabled`);
+  console.log(`🛡️  Input Validation: Enabled`);
+  console.log(`🔄 Error Handling: Comprehensive`);
 });

@@ -194,10 +194,10 @@ const ContactPage = () => {
                   PRESS
                 </h2>
                 <button 
-                  onClick={() => copyToClipboard(contactData?.pressEmail || 'press@studiopickens.com')}
+                  onClick={() => copyToClipboard(contactData?.emails?.press || 'press@studiopickens.com')}
                   className="font-proxima text-studio-blue hover:text-studio-orange transition-colors duration-300 cursor-pointer"
                 >
-                  {contactData?.pressEmail || 'press@studiopickens.com'}
+                  {contactData?.emails?.press || 'press@studiopickens.com'}
                 </button>
               </div>
             </div>

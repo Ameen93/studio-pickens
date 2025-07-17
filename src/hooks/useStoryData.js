@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { API_ENDPOINTS, apiGet } from '../config/api';
+import { API_ENDPOINTS, apiRequest } from '../config/api';
 
 export const useStoryData = () => {
   const [storyData, setStoryData] = useState(null);
@@ -9,7 +9,8 @@ export const useStoryData = () => {
   useEffect(() => {
     const fetchStoryData = async () => {
       try {
-        const data = await apiGet(API_ENDPOINTS.story);
+        const response = await apiRequest(API_ENDPOINTS.story);
+        const data = response.data || response;
         setStoryData(data);
       } catch (error) {
         console.error('Error fetching story data:', error);

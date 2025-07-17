@@ -40,9 +40,15 @@ const ImageSelector: React.FC<ImageSelectorProps> = ({
       setLoading(true);
       const response = await fetch('http://localhost:3001/api/images');
       const data = await response.json();
-      setImages(data);
+      if (data.success) {
+        setImages(data.data || []);
+      } else {
+        console.error('Error fetching images:', data.error);
+        setImages([]);
+      }
     } catch (error) {
       console.error('Error fetching images:', error);
+      setImages([]);
     } finally {
       setLoading(false);
     }
@@ -57,17 +63,26 @@ const ImageSelector: React.FC<ImageSelectorProps> = ({
     formData.append('image', file);
 
     try {
-      const response = await fetch('http://localhost:3001/api/upload', {
+      const token = localStorage.getItem('studio-pickens-auth-token');
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+      const uploadUrl = `${apiUrl}/api/upload`;
+      console.log('ImageSelector - Upload URL:', uploadUrl);
+      
+      const response = await fetch(uploadUrl, {
         method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
         body: formData,
       });
 
       if (response.ok) {
         const result = await response.json();
         await fetchImages(); // Refresh the image list
-        onSelect(result.path); // Auto-select the uploaded image
+        onSelect(result.data.path); // Auto-select the uploaded image
       } else {
-        alert('Upload failed. Please try again.');
+        const error = await response.json();
+        alert(`Upload failed: ${error.error || 'Please try again.'}`);
       }
     } catch (error) {
       console.error('Upload error:', error);

@@ -10,10 +10,8 @@ const WorkPage = () => {
   const [activeFilter, setActiveFilter] = useState('ALL MEDIA');
   const [workData, setWorkData] = useState({
     banner: {
-      backgroundImage: {
-        desktop: '/images/work/Desktop_WORK Hero Banner v2.png',
-        mobile: '/images/work/Mobile_WORK Hero Banner v2.png'
-      },
+      desktopImage: '/images/work/Desktop_WORK Hero Banner v2.png',
+      mobileImage: '/images/work/Mobile_WORK Hero Banner v2.png',
       title: 'Selected Work',
       subtitle: 'Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus.',
       transform: {
@@ -41,7 +39,8 @@ const WorkPage = () => {
     const fetchWorkData = async () => {
       try {
         const response = await fetch('http://localhost:3001/api/work');
-        const data = await response.json();
+        const result = await response.json();
+        const data = result.data || result;
         setWorkData({
           banner: {
             ...data.banner,
@@ -106,8 +105,8 @@ const WorkPage = () => {
         </div>
       ) : (
         <PageBanner 
-          backgroundImage={workData.banner.backgroundImage.desktop}
-          mobileBackgroundImage={workData.banner.backgroundImage.mobile}
+          backgroundImage={workData.banner.desktopImage}
+          mobileBackgroundImage={workData.banner.mobileImage}
           altText="Work banner background"
           objectFit="cover"
           height="clamp(500px, 60vw, 900px)"

@@ -137,38 +137,29 @@ export interface ProcessStep {
 export interface ProcessData {
   id: number;
   banner: {
-    backgroundImage: {
-      desktop: string;
-      mobile: string;
-    };
     title: string;
     subtitle: string;
+    desktopImage: string;
+    mobileImage: string;
     transform: {
       scale: number;
       translateX: number;
       translateY: number;
-      objectPosition: string;
+      flip: boolean;
     };
-    circle: {
-      size: {
-        scale: number;
-      };
-    };
-    heading: {
-      size: {
-        scale: number;
-      };
+    circleScale: number;
+    headingScale: {
+      mobile: number;
+      desktop: number;
     };
   };
   teamCircles: {
-    size: {
-      scale: number;
-    };
+    size: number;
     strokeWidth: number;
     gap: number;
     position: {
       top: string;
-      left: string;
+      left?: string;
     };
   };
   processSteps: ProcessStep[];
@@ -176,22 +167,19 @@ export interface ProcessData {
   updatedAt: string;
 }
 
+export interface ContactLocation extends Location {
+  email: string;
+}
+
 export interface ContactData {
   id: number;
-  brooklynEmail: string;
-  beverlyHillsEmail: string;
-  pressEmail: string;
+  emails: {
+    brooklyn: string;
+    beverlyHills: string;
+    press: string;
+  };
   phone: string;
-  locations: {
-    name: string;
-    email: string;
-    address: {
-      street: string;
-      city: string;
-      state: string;
-      zip: string;
-    };
-  }[];
+  locations: ContactLocation[];
 }
 
 export interface StoryItem {

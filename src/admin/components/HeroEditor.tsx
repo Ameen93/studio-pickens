@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { HeroData } from '../types';
 import LivePreviewPanel from './LivePreview';
 import ImageUpload from './ImageUpload';
+import { apiGet, apiPut } from '../utils/api';
 
 const HeroEditor = () => {
   const [heroData, setHeroData] = useState<HeroData>({
@@ -27,8 +28,7 @@ const HeroEditor = () => {
 
   const fetchHeroData = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/hero');
-      const data = await response.json();
+      const data = await apiGet('/hero');
       if (data && typeof data === 'object') {
         // Ensure arrays exist with fallbacks
         setHeroData({
@@ -51,22 +51,11 @@ const HeroEditor = () => {
   const handleSave = async () => {
     setSaving(true);
     try {
-      const response = await fetch(`http://localhost:3001/api/hero/${heroData.id || 1}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(heroData),
-      });
+      await apiPut(`/hero/${heroData.id || 1}`, heroData);
       
-      if (response.ok) {
-        setMessage('Hero section updated successfully!');
-        setPreviewRefresh(Date.now()); // Trigger preview refresh
-        setTimeout(() => setMessage(''), 3000);
-      } else {
-        const errorData = await response.json();
-        setMessage(`Error: ${errorData.error || 'Failed to save'}`);
-      }
+      setMessage('Hero section updated successfully!');
+      setPreviewRefresh(Date.now()); // Trigger preview refresh
+      setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.error('Error saving hero data:', error);
       setMessage('Error saving changes');

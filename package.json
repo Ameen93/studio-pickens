@@ -16,6 +16,9 @@
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
     "express-rate-limit": "^8.0.1",
+    "express-validator": "^7.2.1",
+    "form-data": "^4.0.4",
+    "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "multer": "^2.0.1",
     "react": "^19.1.0",
@@ -28,9 +31,19 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
+    "test:ci": "CI=true react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "server": "node server.js",
+    "server:dev": "nodemon server.js",
+    "start:production": "NODE_ENV=production node server.js",
+    "deploy:backend": "NODE_ENV=production npm run server",
+    "setup:production": "cp .env.production .env && echo 'Production environment configured. Please update JWT_SECRET and ADMIN_PASSWORD in .env file.'",
+    "health-check": "curl http://localhost:3001/api/health || echo 'Server not running'",
+    "validate:production": "node validate-production-config.js",
+    "prestart:production": "npm run validate:production"
   },
   "eslintConfig": {
     "extends": [

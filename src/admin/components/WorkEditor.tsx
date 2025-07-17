@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { WorkProject, WorkData } from '../types';
 import LivePreviewPanel from './LivePreview';
 import ImageUpload from './ImageUpload';
+import { apiGet, apiPut, apiPost, apiDelete } from '../utils/api';
 
 const WorkEditor = () => {
   const [workData, setWorkData] = useState<WorkData>({
@@ -58,8 +59,7 @@ const WorkEditor = () => {
 
   const fetchWorkData = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/work');
-      const data = await response.json();
+      const data = await apiGet('/work');
       if (data && data.banner && data.projects) {
         setWorkData({
           ...data,

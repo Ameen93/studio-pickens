@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { ContactData, Location } from '../types';
+import { ContactData, ContactLocation, Location } from '../types';
 import LivePreviewPanel from './LivePreview';
+import { apiGet, apiPut } from '../utils/api';
 
 const ContactEditor = () => {
   const [contactData, setContactData] = useState<ContactData>({
     id: 1,
-    brooklynEmail: "brooklyn@studiopickens.com",
-    beverlyHillsEmail: "beverlyhills@studiopickens.com",
-    pressEmail: "press@studiopickens.com",
+    emails: {
+      brooklyn: "brooklyn@studiopickens.com",
+      beverlyHills: "beverlyhills@studiopickens.com",
+      press: "press@studiopickens.com"
+    },
     phone: "+1 (555) 123-4567",
     locations: []
   });
@@ -24,11 +27,7 @@ const ContactEditor = () => {
 
   const fetchContactData = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/contact');
-      if (!response.ok) {
-        throw new Error('Failed to fetch contact data');
-      }
-      const data = await response.json();
+      const data = await apiGet('/contact');
       setContactData(data);
     } catch (error) {
       console.error('Error fetching contact data:', error);
@@ -40,11 +39,7 @@ const ContactEditor = () => {
 
   const fetchLocationsData = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/locations');
-      if (!response.ok) {
-        throw new Error('Failed to fetch locations data');
-      }
-      const data = await response.json();
+      const data = await apiGet('/locations');
       setLocationsFromApi(data.locations || []);
     } catch (error) {
       console.error('Error fetching locations data:', error);
@@ -54,52 +49,43 @@ const ContactEditor = () => {
   const handleSave = async () => {
     setSaving(true);
     try {
-      const response = await fetch(`http://localhost:3001/api/contact/${contactData.id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(contactData),
-      });
+      await apiPut(`/contact/${contactData.id}`, contactData);
       
-      if (response.ok) {
-        setMessage('Contact page updated successfully!');
-        setPreviewRefresh(Date.now());
-        setTimeout(() => setMessage(''), 3000);
-      } else {
-        const errorData = await response.json();
-        setMessage(`Error: ${errorData.error || 'Failed to save'}`);
-      }
+      setMessage('Contact page updated successfully!');
+      setPreviewRefresh(Date.now());
+      setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.error('Error saving contact data:', error);
-      setMessage('Error saving changes');
+      setMessage(`Error saving changes: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
       setSaving(false);
     }
   };
 
-  const handleEmailChange = (field: keyof ContactData, value: string) => {
+  const handleEmailChange = (emailType: keyof ContactData['emails'], value: string) => {
     setContactData(prev => ({
       ...prev,
-      [field]: value
+      emails: {
+        ...prev.emails,
+        [emailType]: value
+      }
+    }));
+  };
+
+  const handlePhoneChange = (value: string) => {
+    setContactData(prev => ({
+      ...prev,
+      phone: value
     }));
   };
 
   const syncLocationEmails = () => {
     // Auto-generate emails based on locations API data
-    const updatedLocations = locationsFromApi.map(location => {
-      const emailPrefix = location.name.toLowerCase().replace(/\s+/g, '');
-      return {
-        name: location.name.toUpperCase(),
-        email: `${emailPrefix}@studiopickens.com`,
-        address: {
-          street: location.address.split('\n')[0] || '',
-          city: location.address.split('\n')[1] || '',
-          state: '',
-          zip: ''
-        }
-      };
-    });
+    const updatedLocations = locationsFromApi.map(location => ({
+      ...location,
+      // Add email property for contact purposes
+      email: `${location.name.toLowerCase().replace(/\s+/g, '')}@studiopickens.com`
+    }));
 
     setContactData(prev => ({
       ...prev,
@@ -147,8 +133,8 @@ const ContactEditor = () => {
                 </label>
                 <input
                   type="email"
-                  value={contactData.pressEmail}
-                  onChange={(e) => handleEmailChange('pressEmail', e.target.value)}
+                  value={contactData.emails.press}
+                  onChange={(e) => handleEmailChange('press', e.target.value)}
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
                   placeholder="press@studiopickens.com"
                 />
@@ -164,8 +150,8 @@ const ContactEditor = () => {
                   </label>
                   <input
                     type="email"
-                    value={contactData.brooklynEmail}
-                    onChange={(e) => handleEmailChange('brooklynEmail', e.target.value)}
+                    value={contactData.emails.brooklyn}
+                    onChange={(e) => handleEmailChange('brooklyn', e.target.value)}
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
                     placeholder="brooklyn@studiopickens.com"
                   />
@@ -177,8 +163,8 @@ const ContactEditor = () => {
                   </label>
                   <input
                     type="email"
-                    value={contactData.beverlyHillsEmail}
-                    onChange={(e) => handleEmailChange('beverlyHillsEmail', e.target.value)}
+                    value={contactData.emails.beverlyHills}
+                    onChange={(e) => handleEmailChange('beverlyHills', e.target.value)}
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
                     placeholder="beverlyhills@studiopickens.com"
                   />
@@ -192,7 +178,7 @@ const ContactEditor = () => {
                 <input
                   type="tel"
                   value={contactData.phone}
-                  onChange={(e) => handleEmailChange('phone', e.target.value)}
+                  onChange={(e) => handlePhoneChange(e.target.value)}
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
                   placeholder="+1 (555) 123-4567"
                 />
@@ -248,7 +234,7 @@ const ContactEditor = () => {
                           <span className="text-blue-600 text-sm">{location.email}</span>
                         </div>
                         <div className="text-sm text-gray-600">
-                          {location.address.street}, {location.address.city}
+                          {location.address}
                         </div>
                       </div>
                     ))}

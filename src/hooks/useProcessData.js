@@ -1,31 +1,33 @@
 import { useState, useEffect } from 'react';
-import { API_ENDPOINTS, apiGet } from '../config/api';
+import { API_ENDPOINTS, apiRequest } from '../config/api';
 
 export const useProcessData = () => {
   const [processData, setProcessData] = useState({
     banner: {
-      backgroundImage: {
-        desktop: '/images/process/banner/Desktop_PROCESS Hero Banner v2.png',
-        mobile: '/images/process/banner/Mobile_Hero Banner_process.png'
-      },
       title: 'Process',
       subtitle: '',
+      desktopImage: '/images/process/banner/Desktop_PROCESS Hero Banner v2.png',
+      mobileImage: '/images/process/banner/Mobile_Hero Banner_process.png',
       transform: {
         scale: 1,
         translateX: 0,
         translateY: 0,
-        objectPosition: 'center center'
+        flip: false
       },
-      circle: {
-        size: {
-          scale: 1
-        }
-      },
-      heading: {
-        size: {
-          scale: 1
-        }
+      circleScale: 1,
+      headingScale: {
+        mobile: 1,
+        desktop: 1
       }
+    },
+    processSteps: [],
+    teamCircles: {
+      position: {
+        top: '340px'
+      },
+      size: 1,
+      gap: 20,
+      strokeWidth: 2
     }
   });
   const [loading, setLoading] = useState(true);
@@ -34,7 +36,8 @@ export const useProcessData = () => {
   useEffect(() => {
     const fetchProcessData = async () => {
       try {
-        const data = await apiGet(API_ENDPOINTS.process);
+        const response = await apiRequest(API_ENDPOINTS.process);
+        const data = response.data || response;
         
         // Ensure we have the required structure
         setProcessData({
@@ -44,20 +47,23 @@ export const useProcessData = () => {
               scale: 1,
               translateX: 0,
               translateY: 0,
-              objectPosition: 'center center'
+              flip: false
             },
-            circle: data.banner.circle || {
-              size: {
-                scale: 1
-              }
-            },
-            heading: data.banner.heading || {
-              size: {
-                scale: 1
-              }
+            circleScale: data.banner.circleScale || 1,
+            headingScale: data.banner.headingScale || {
+              mobile: 1,
+              desktop: 1
             }
           },
-          processSteps: data.processSteps || []
+          processSteps: data.processSteps || [],
+          teamCircles: data.teamCircles || {
+            position: {
+              top: '340px'
+            },
+            size: 1,
+            gap: 20,
+            strokeWidth: 2
+          }
         });
       } catch (err) {
         console.error('Error fetching process data:', err);
