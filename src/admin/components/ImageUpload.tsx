@@ -46,15 +46,6 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
   const performUpload = async (formData: FormData, file: File) => {
     try {
       const token = localStorage.getItem('studio-pickens-auth-token');
-      console.log('=== IMAGE UPLOAD DEBUG ===');
-      console.log('Token for upload:', token ? `Present (${token.substring(0, 10)}...)` : 'Missing');
-      console.log('File details:', {
-        name: file.name,
-        size: file.size,
-        type: file.type,
-        lastModified: file.lastModified
-      });
-      console.log('Environment API URL:', process.env.REACT_APP_API_URL);
       
       if (!token) {
         alert('Authentication required. Please log in again.');
@@ -64,20 +55,6 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
       
       const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
       const uploadUrl = `${apiUrl}/api/upload`;
-      console.log('Final upload URL:', uploadUrl);
-      
-      // Log FormData contents
-      console.log('FormData entries:');
-      try {
-        const entries = Array.from(formData.entries());
-        entries.forEach(([key, value]) => {
-          console.log(`  ${key}:`, value);
-        });
-      } catch (e) {
-        console.log('FormData entries iteration failed:', e);
-      }
-      
-      console.log('Making fetch request...');
       const response = await fetch(uploadUrl, {
         method: 'POST',
         headers: {
@@ -86,21 +63,12 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
         body: formData,
       });
       
-      console.log('Response received:', {
-        status: response.status,
-        statusText: response.statusText,
-        ok: response.ok,
-        headers: Object.fromEntries(response.headers.entries())
-      });
-
       if (response.ok) {
         const result = await response.json();
-        console.log('Upload successful:', result);
         onChange(result.data.path);
         alert('Upload successful!');
       } else {
         const errorText = await response.text();
-        console.error('Upload error response (text):', errorText);
         
         let errorObj;
         try {
@@ -108,17 +76,10 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
         } catch (e) {
           errorObj = { error: errorText };
         }
-        
-        console.error('Upload error response (parsed):', errorObj);
-        console.error('Upload error status:', response.status);
         alert(`Upload failed (${response.status}): ${errorObj.error || errorObj.message || 'Please try again.'}`);
       }
     } catch (error) {
-      console.error('Upload catch error:', error);
-      console.error('Error type:', typeof error);
-      console.error('Error name:', error instanceof Error ? error.name : 'Unknown');
-      console.error('Error message:', error instanceof Error ? error.message : 'Unknown');
-      console.error('Error stack:', error instanceof Error ? error.stack : 'Unknown');
+      console.error('Upload error:', error);
       
       if (error instanceof TypeError && error.message.includes('fetch')) {
         alert('Upload failed: Cannot connect to server. Please check if the server is running.');
@@ -130,7 +91,6 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
         alert('Upload failed: An unexpected error occurred. Please try again.');
       }
     } finally {
-      console.log('=== UPLOAD FINISHED ===');
       setUploading(false);
     }
   };
@@ -176,17 +136,6 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
       <div className="space-y-3">
         {/* Quick Upload */}
         <div>
-          {/* Test button to verify no page reload */}
-          <button
-            type="button"
-            onClick={() => {
-              console.log('Test button clicked - no page reload');
-              alert('Test button works - no page reload');
-            }}
-            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mr-2"
-          >
-            Test Button
-          </button>
           
           <button
             type="button"

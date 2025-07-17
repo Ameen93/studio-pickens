@@ -136,3 +136,47 @@ validate-*.js
 *_data.json
 *_update.json
 *_restore.json
+
+# Production deployment files
+.vercel
+.railway
+deployment-logs/
+production-backups/
+
+# Security and monitoring
+.sentry-cli
+sentry.properties
+monitoring/
+
+# Performance and analytics
+lighthouse-reports/
+performance-logs/
+
+# CDN and asset optimization
+optimized-assets/
+compressed-images/
+
+# Local development overrides
+.env.override
+.env.development
+config.local.js
+
+# Build artifacts and cache
+.next/
+.cache/
+dist/
+build-logs/
+webpack-stats.json
+
+# Database and storage
+*.db
+*.sqlite
+*.sqlite3
+data/*.lock
+storage/
+
+# Backup and recovery
+backup-*
+restore-*
+*.backup.json
+migration-logs/

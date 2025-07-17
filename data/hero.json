@@ -1,12 +1,12 @@
 {
   "id": 1,
-  "title": "Test Modified Title",
+  "title": "Studio Pickens",
   "subtitle": "Test Modified Subtitle",
   "atelierTitle": "CUSTOM ATELIER WIGS BY ROBERT PICKENS",
-  "atelierDescription": "This is a custom description that shows the editable text is working correctly. The admin panel allows you to change both the title and description for the atelier section of the home page.",
+  "atelierDescription": "This is a custom description that shows the editable text is working correctly. The admin panel allows you to change both the title and description for the atelier section.",
   "banner": {
     "logoSize": {
-      "scale": 1,
+      "scale": 1.2,
       "unit": "rem"
     },
     "titleSize": {
@@ -21,7 +21,7 @@
       "transform": {
         "scale": 1,
         "translateX": 0,
-        "translateY": 0,
+        "translateY": 30,
         "flip": false
       }
     },

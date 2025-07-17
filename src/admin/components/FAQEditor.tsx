@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FAQData, FAQItem } from '../types';
 import LivePreviewPanel from './LivePreview';
-import ImageSelector from './ImageSelector';
+import ImageUpload from './ImageUpload';
 import { apiGet, apiPut, checkAuthToken } from '../utils/api';
 
 const FAQEditor = () => {
@@ -29,8 +29,6 @@ const FAQEditor = () => {
   const [message, setMessage] = useState('');
   const [previewRefresh, setPreviewRefresh] = useState(0);
   const [activeTab, setActiveTab] = useState<'banner' | 'items'>('banner');
-  const [showImageSelector, setShowImageSelector] = useState(false);
-  const [imageSelectMode, setImageSelectMode] = useState<'desktop' | 'mobile'>('desktop');
   const [newFAQ, setNewFAQ] = useState({
     question: '',
     answer: ''
@@ -126,36 +124,30 @@ const FAQEditor = () => {
     }));
   };
 
-  const handleImageSelect = (imagePath: string) => {
-    if (imageSelectMode === 'desktop') {
-      setFaqData(prev => ({
-        ...prev,
-        banner: {
-          ...prev.banner,
-          backgroundImage: {
-            ...prev.banner.backgroundImage,
-            desktop: imagePath
-          }
+  const handleDesktopImageChange = (imagePath: string) => {
+    setFaqData(prev => ({
+      ...prev,
+      banner: {
+        ...prev.banner,
+        backgroundImage: {
+          ...prev.banner.backgroundImage,
+          desktop: imagePath
         }
-      }));
-    } else {
-      setFaqData(prev => ({
-        ...prev,
-        banner: {
-          ...prev.banner,
-          backgroundImage: {
-            ...prev.banner.backgroundImage,
-            mobile: imagePath
-          }
-        }
-      }));
-    }
-    setShowImageSelector(false);
+      }
+    }));
   };
 
-  const openImageSelector = (mode: 'desktop' | 'mobile') => {
-    setImageSelectMode(mode);
-    setShowImageSelector(true);
+  const handleMobileImageChange = (imagePath: string) => {
+    setFaqData(prev => ({
+      ...prev,
+      banner: {
+        ...prev.banner,
+        backgroundImage: {
+          ...prev.banner.backgroundImage,
+          mobile: imagePath
+        }
+      }
+    }));
   };
 
   const handleAddFAQ = async () => {
@@ -387,46 +379,24 @@ const FAQEditor = () => {
               
               {/* Desktop Image */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Desktop Background Image
-                </label>
-                <div className="flex items-center gap-4">
-                  <div className="flex-1">
-                    <div className="p-3 border border-gray-300 rounded-lg bg-gray-50">
-                      <span className="text-sm text-gray-600">
-                        {faqData.banner.backgroundImage.desktop || 'No image selected'}
-                      </span>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => openImageSelector('desktop')}
-                    className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-                  >
-                    Select Image
-                  </button>
-                </div>
+                <ImageUpload
+                  label="Desktop Background Image"
+                  value={faqData.banner.backgroundImage.desktop || ''}
+                  onChange={handleDesktopImageChange}
+                  placeholder="/images/faq/desktop-banner.jpg"
+                  previewClassName="w-32 h-20"
+                />
               </div>
 
               {/* Mobile Image */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Mobile Background Image
-                </label>
-                <div className="flex items-center gap-4">
-                  <div className="flex-1">
-                    <div className="p-3 border border-gray-300 rounded-lg bg-gray-50">
-                      <span className="text-sm text-gray-600">
-                        {faqData.banner.backgroundImage.mobile || 'No image selected'}
-                      </span>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => openImageSelector('mobile')}
-                    className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-                  >
-                    Select Image
-                  </button>
-                </div>
+                <ImageUpload
+                  label="Mobile Background Image"
+                  value={faqData.banner.backgroundImage.mobile || ''}
+                  onChange={handleMobileImageChange}
+                  placeholder="/images/faq/mobile-banner.jpg"
+                  previewClassName="w-20 h-32"
+                />
               </div>
 
               {/* Banner Height */}
@@ -630,14 +600,6 @@ const FAQEditor = () => {
         </div>
       </div>
 
-      {/* Image Selector Modal */}
-      <ImageSelector
-        isOpen={showImageSelector}
-        onClose={() => setShowImageSelector(false)}
-        onSelect={handleImageSelect}
-        title={`Select ${imageSelectMode === 'desktop' ? 'Desktop' : 'Mobile'} Banner Image`}
-        selectedImage={imageSelectMode === 'desktop' ? faqData.banner.backgroundImage.desktop : faqData.banner.backgroundImage.mobile}
-      />
     </div>
   );
 };

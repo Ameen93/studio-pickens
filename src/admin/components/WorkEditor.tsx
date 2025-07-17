@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { WorkProject, WorkData } from '../types';
 import LivePreviewPanel from './LivePreview';
 import ImageUpload from './ImageUpload';
-import { apiGet, apiPut, apiPost, apiDelete } from '../utils/api';
+import { apiGet, apiPut, apiPost, apiDelete, checkAuthToken } from '../utils/api';
 
 const WorkEditor = () => {
   const [workData, setWorkData] = useState<WorkData>({
@@ -54,7 +54,9 @@ const WorkEditor = () => {
   ];
 
   useEffect(() => {
-    fetchWorkData();
+    if (checkAuthToken()) {
+      fetchWorkData();
+    }
   }, []);
 
   const fetchWorkData = async () => {
@@ -107,27 +109,19 @@ const WorkEditor = () => {
 
     setSaving(true);
     try {
-      const response = await fetch('http://localhost:3001/api/work', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newProject),
-      });
+      await apiPost('/work', newProject);
       
-      if (response.ok) {
-        setMessage('Project added successfully!');
-        setNewProject({
-          title: '',
-          client: '',
-          category: 'EDITORIAL',
-          year: new Date().getFullYear(),
-          image: ''
-        });
-        fetchWorkData();
-        setPreviewRefresh(Date.now()); // Trigger preview refresh
-        setTimeout(() => setMessage(''), 3000);
-      }
+      setMessage('Project added successfully!');
+      setNewProject({
+        title: '',
+        client: '',
+        category: 'EDITORIAL',
+        year: new Date().getFullYear(),
+        image: ''
+      });
+      fetchWorkData();
+      setPreviewRefresh(Date.now()); // Trigger preview refresh
+      setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.error('Error adding project:', error);
       setMessage('Error adding project');
@@ -142,16 +136,12 @@ const WorkEditor = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:3001/api/work/${id}`, {
-        method: 'DELETE',
-      });
+      await apiDelete(`/work/${id}`);
       
-      if (response.ok) {
-        setMessage('Project deleted successfully!');
-        fetchWorkData();
-        setPreviewRefresh(Date.now()); // Trigger preview refresh
-        setTimeout(() => setMessage(''), 3000);
-      }
+      setMessage('Project deleted successfully!');
+      fetchWorkData();
+      setPreviewRefresh(Date.now()); // Trigger preview refresh
+      setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.error('Error deleting project:', error);
       setMessage('Error deleting project');
@@ -170,7 +160,7 @@ const WorkEditor = () => {
         banner: { 
           ...prev.banner, 
           backgroundImage: { 
-            ...prev.banner.backgroundImage, 
+            ...prev.banner.backgroundImage || {}, 
             [imageType]: value 
           }
         }
@@ -227,19 +217,11 @@ const WorkEditor = () => {
   const handleSaveBanner = async () => {
     setSaving(true);
     try {
-      const response = await fetch('http://localhost:3001/api/work', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(workData),
-      });
+      await apiPut('/work', workData);
       
-      if (response.ok) {
-        setMessage('Banner updated successfully!');
-        setPreviewRefresh(Date.now());
-        setTimeout(() => setMessage(''), 3000);
-      }
+      setMessage('Banner updated successfully!');
+      setPreviewRefresh(Date.now());
+      setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.error('Error saving banner:', error);
       setMessage('Error saving banner');
@@ -308,7 +290,7 @@ const WorkEditor = () => {
               <div>
                 <ImageUpload
                   label="Desktop Background Image"
-                  value={workData.banner.backgroundImage.desktop}
+                  value={workData.banner.backgroundImage?.desktop || ''}
                   onChange={(path) => handleBannerChange('backgroundImage.desktop', path)}
                   placeholder="/images/work/work-banner-desktop.jpg"
                   previewClassName="w-40 h-24"
@@ -318,7 +300,7 @@ const WorkEditor = () => {
               <div>
                 <ImageUpload
                   label="Mobile Background Image"
-                  value={workData.banner.backgroundImage.mobile}
+                  value={workData.banner.backgroundImage?.mobile || ''}
                   onChange={(path) => handleBannerChange('backgroundImage.mobile', path)}
                   placeholder="/images/work/work-banner-mobile.jpg"
                   previewClassName="w-40 h-24"

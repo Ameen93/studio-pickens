@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ProcessData, ProcessStep } from '../types';
 import LivePreviewPanel from './LivePreview';
 import ImageUpload from './ImageUpload';
-import { apiGet, apiPut, apiPost, apiDelete } from '../utils/api';
+import { apiGet, apiPut, apiPost, apiDelete, checkAuthToken } from '../utils/api';
 
 const ProcessEditor = () => {
   const [processData, setProcessData] = useState<ProcessData>({
@@ -68,7 +68,9 @@ const ProcessEditor = () => {
   ];
 
   useEffect(() => {
-    fetchProcessData();
+    if (checkAuthToken()) {
+      fetchProcessData();
+    }
   }, []);
 
   const fetchProcessData = async () => {
@@ -254,6 +256,12 @@ const ProcessEditor = () => {
         step.id === stepId ? {
           ...step,
           transform: {
+            ...{
+              scale: 1,
+              translateX: 0,
+              translateY: 0,
+              objectPosition: 'center center'
+            },
             ...step.transform,
             [field]: value
           }
@@ -760,14 +768,14 @@ const ProcessEditor = () => {
                         <div className="grid grid-cols-2 gap-4">
                           <div>
                             <label className="block text-xs font-medium text-gray-600 mb-1">
-                              Scale: {step.transform.scale}x
+                              Scale: {step.transform?.scale || 1}x
                             </label>
                             <input
                               type="range"
                               min="0.5"
                               max="3"
                               step="0.1"
-                              value={step.transform.scale}
+                              value={step.transform?.scale || 1}
                               onChange={(e) => handleStepTransformChange(step.id, 'scale', parseFloat(e.target.value))}
                               className="w-full"
                             />
@@ -778,7 +786,7 @@ const ProcessEditor = () => {
                               Position
                             </label>
                             <select
-                              value={step.transform.objectPosition}
+                              value={step.transform?.objectPosition || 'center center'}
                               onChange={(e) => handleStepTransformChange(step.id, 'objectPosition', e.target.value)}
                               className="w-full p-1 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-blue-500"
                             >
@@ -792,14 +800,14 @@ const ProcessEditor = () => {
                         <div className="grid grid-cols-2 gap-4 mt-2">
                           <div>
                             <label className="block text-xs font-medium text-gray-600 mb-1">
-                              Translate X: {step.transform.translateX}px
+                              Translate X: {step.transform?.translateX || 0}px
                             </label>
                             <input
                               type="range"
                               min="-100"
                               max="100"
                               step="1"
-                              value={step.transform.translateX}
+                              value={step.transform?.translateX || 0}
                               onChange={(e) => handleStepTransformChange(step.id, 'translateX', parseInt(e.target.value))}
                               className="w-full"
                             />
@@ -807,14 +815,14 @@ const ProcessEditor = () => {
                           
                           <div>
                             <label className="block text-xs font-medium text-gray-600 mb-1">
-                              Translate Y: {step.transform.translateY}px
+                              Translate Y: {step.transform?.translateY || 0}px
                             </label>
                             <input
                               type="range"
                               min="-100"
                               max="100"
                               step="1"
-                              value={step.transform.translateY}
+                              value={step.transform?.translateY || 0}
                               onChange={(e) => handleStepTransformChange(step.id, 'translateY', parseInt(e.target.value))}
                               className="w-full"
                             />

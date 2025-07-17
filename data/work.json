@@ -161,6 +161,18 @@
       "description": "Live performance styling for Glamour",
       "featured": false,
       "order": 0
+    },
+    {
+      "title": "Testing",
+      "client": "Testing",
+      "category": "EDITORIAL",
+      "year": 2025,
+      "image": "/images/uploads/image-1752762049989-725692533.png",
+      "alt": "",
+      "description": "",
+      "featured": false,
+      "order": 0,
+      "id": 1752762053257
     }
   ]
 }
