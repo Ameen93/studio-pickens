@@ -66,7 +66,17 @@
       "description": "Hair styling for Emmy-winning series The Bear featuring Jamie Lee Curtis on Hulu.",
       "featured": true,
       "side": "left",
-      "order": 1
+      "order": 1,
+      "content": {
+        "stylist": "ally vickers",
+        "photographer": "jamie lee curtis",
+        "date": "hulu",
+        "labels": {
+          "stylist": "HAIR STYLIST",
+          "photographer": "CAST",
+          "date": "NETWORK"
+        }
+      }
     },
     {
       "id": 2,
@@ -80,7 +90,17 @@
       "description": "Hair design for West End theatrical production featuring Jane Skrionski and Jesse Tyler Ferguson.",
       "featured": true,
       "side": "right",
-      "order": 2
+      "order": 2,
+      "content": {
+        "stylist": "Jane krakowski. Jesse Tyler Ferguson. Martha plimpton",
+        "photographer": "Katie Gell",
+        "date": "west end plays",
+        "labels": {
+          "stylist": "FEATURING",
+          "photographer": "HAIR DESIGNER",
+          "date": "CATEGORY"
+        }
+      }
     },
     {
       "id": 3,
@@ -108,7 +128,17 @@
       "description": "Hair design for Showtime's The First Lady featuring Michelle Pfeiffer and Kiefer Sutherland.",
       "featured": true,
       "side": "right",
-      "order": 4
+      "order": 4,
+      "content": {
+        "stylist": "emmie america",
+        "photographer": "Michelle Pfeiffer, Dakota fanning",
+        "date": "showtime",
+        "labels": {
+          "stylist": "HAIRDRESSER",
+          "photographer": "ACTRESS",
+          "date": "NETWORK"
+        }
+      }
     },
     {
       "id": 5,

@@ -110,9 +110,9 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick, project
     },
     2: { 
       title: 'HERE WE ARE', 
-      stylist: 'katie gell', 
-      photographer: 'jane skrionski, jesse tyler ferguson', 
-      date: 'west end / broadway',
+      stylist: 'Katie Gell', 
+      photographer: 'Jane krakowski. Jesse Tyler Ferguson. Martha plimpton', 
+      date: 'west end plays',
       labels: { stylist: 'HAIR DESIGNER', photographer: 'FEATURING', date: 'CATEGORY' }
     },
     3: { 
@@ -125,7 +125,7 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick, project
     4: { 
       title: 'THE FIRST LADY', 
       stylist: 'emmie america', 
-      photographer: 'michelle pfeiffer, kiefer sutherland', 
+      photographer: 'Michelle Pfeiffer, Dakota fanning', 
       date: 'showtime',
       labels: { stylist: 'HAIRDRESSER', photographer: 'ACTRESS', date: 'NETWORK' }
     },
@@ -157,7 +157,7 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick, project
             <WorkItem
               key={project.id}
               project={project}
-              content={projectContent[project.id]}
+              content={project.content || projectContent[project.id]}
               getCirclePosition={getCirclePosition}
               getTextRotation={getTextRotation}
               getTextHoverRotation={getTextHoverRotation}
@@ -174,7 +174,7 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick, project
           <MobileWorkItem 
             key={project.id}
             project={project}
-            content={projectContent[project.id]}
+            content={project.content || projectContent[project.id]}
             onCategoryClick={onCategoryClick}
           />
         ))}

@@ -69,21 +69,10 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
           {content?.title}
         </h5>
 
-        {/* Stylist Section */}
-        <div className="mb-4">
-          <h6 className="font-proxima-wide font-bold text-studio-blue text-sm uppercase tracking-wide mb-1">
-            STYLIST
-          </h6>
-          <p className="font-lovtony font-normal italic lowercase text-[80px] leading-[50%] text-studio-blue pl-4">
-            {content?.stylist}
-          </p>
-          <div className="w-5/8 h-px border-b border-dotted border-studio-blue mt-2"></div>
-        </div>
-
         {/* Photographer Section */}
         <div className="mb-4">
-          <h6 className="font-proxima-wide font-bold text-studio-blue text-sm uppercase tracking-wide mb-1">
-            PHOTOGRAPHER
+          <h6 className="font-proxima-nova font-semibold text-studio-blue text-sm uppercase tracking-wide mb-1">
+            {content?.labels?.photographer || 'PHOTOGRAPHER'}
           </h6>
           <p className="font-lovtony font-normal italic lowercase text-[80px] leading-[50%] text-studio-blue pl-4">
             {content?.photographer}
@@ -91,10 +80,21 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
           <div className="w-5/8 h-px border-b border-dotted border-studio-blue mt-2"></div>
         </div>
 
+        {/* Stylist Section */}
+        <div className="mb-4">
+          <h6 className="font-proxima-nova font-semibold text-studio-blue text-sm uppercase tracking-wide mb-1">
+            {content?.labels?.stylist || 'STYLIST'}
+          </h6>
+          <p className="font-lovtony font-normal italic lowercase text-[80px] leading-[50%] text-studio-blue pl-4">
+            {content?.stylist}
+          </p>
+          <div className="w-5/8 h-px border-b border-dotted border-studio-blue mt-2"></div>
+        </div>
+
         {/* Date Section */}
         <div>
-          <h6 className="font-proxima-wide font-bold text-studio-blue text-sm uppercase tracking-wide mb-1">
-            DATE
+          <h6 className="font-proxima-nova font-semibold text-studio-blue text-sm uppercase tracking-wide mb-1">
+            {content?.labels?.date || 'DATE'}
           </h6>
           <p className="font-lovtony font-normal italic lowercase text-[80px] leading-[50%] text-studio-blue pl-4">
             {content?.date}

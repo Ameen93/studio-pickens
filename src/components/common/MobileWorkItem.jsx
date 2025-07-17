@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const MobileWorkItem = ({ project, content, onCategoryClick }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  
 
   const handleTap = () => {
     setIsExpanded(!isExpanded);
@@ -32,7 +33,7 @@ const MobileWorkItem = ({ project, content, onCategoryClick }) => {
           }}
           className={`absolute bottom-8 w-24 h-24 rounded-full flex items-center justify-center transition-colors duration-300 cursor-pointer z-20 ${
             project.id % 2 === 1 ? 'left-4' : 'right-4'
-          } ${isExpanded ? 'bg-studio-orange' : 'bg-studio-blue'}`}
+          } ${isExpanded ? 'bg-studio-bg' : 'bg-studio-blue'}`}
         >
           <span 
             className={`font-proxima-wide font-bold uppercase text-center leading-tight text-xs transition-colors duration-300 ${
@@ -60,34 +61,34 @@ const MobileWorkItem = ({ project, content, onCategoryClick }) => {
           {content?.title}
         </h5>
 
-        {/* Stylist Section */}
+        {/* Photographer Section */}
         <div className="mb-3">
-          <h6 className="font-proxima-wide font-semibold text-studio-blue text-xs uppercase tracking-wide mb-1">
-            {content?.labels?.stylist || 'STYLIST'}
+          <h6 className="font-proxima-nova font-semibold text-studio-blue text-xs uppercase tracking-wide mb-1">
+            {content?.labels?.photographer || 'PHOTOGRAPHER'}
           </h6>
-          <p className="font-lovtony font-normal italic lowercase text-2xl leading-[50%] text-studio-blue">
-            {content?.stylist}
+          <p className="font-lovtony font-normal italic lowercase text-[6rem] leading-[50%] text-studio-blue">
+            {content?.photographer}
           </p>
           <div className="w-full h-px border-b border-dotted border-studio-blue mt-2"></div>
         </div>
 
-        {/* Photographer Section */}
+        {/* Stylist Section */}
         <div className="mb-3">
-          <h6 className="font-proxima-wide font-semibold text-studio-blue text-xs uppercase tracking-wide mb-1">
-            {content?.labels?.photographer || 'PHOTOGRAPHER'}
+          <h6 className="font-proxima-nova font-semibold text-studio-blue text-xs uppercase tracking-wide mb-1">
+            {content?.labels?.stylist || 'STYLIST'}
           </h6>
-          <p className="font-lovtony font-normal italic lowercase text-2xl leading-[50%] text-studio-blue">
-            {content?.photographer}
+          <p className="font-lovtony font-normal italic lowercase text-[6rem] leading-[50%] text-studio-blue">
+            {content?.stylist}
           </p>
           <div className="w-full h-px border-b border-dotted border-studio-blue mt-2"></div>
         </div>
 
         {/* Date Section */}
         <div>
-          <h6 className="font-proxima-wide font-semibold text-studio-blue text-xs uppercase tracking-wide mb-1">
+          <h6 className="font-proxima-nova font-semibold text-studio-blue text-xs uppercase tracking-wide mb-1">
             {content?.labels?.date || 'DATE'}
           </h6>
-          <p className="font-lovtony font-normal italic lowercase text-2xl leading-[50%] text-studio-blue">
+          <p className="font-lovtony font-normal italic lowercase text-[6rem] leading-[50%] text-studio-blue">
             {content?.date}
           </p>
           <div className="w-full h-px border-b border-dotted border-studio-blue mt-2"></div>
