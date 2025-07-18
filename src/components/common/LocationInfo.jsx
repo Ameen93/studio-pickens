@@ -19,12 +19,12 @@ const LocationInfo = React.memo(({
     if (location === 'Beverly Hills') {
       return {
         title: 'Crafting Signature Looks for TV & Film',
-        description: 'Located in the heart of Beverly Hills, our West Coast studio is where artistry meets on-screen storytelling. At Studio Pickens Beverly Hills, we specialize in designing, constructing, and customizing wigs for television, film, and live performance. From high-concept fantasy to period-accurate realism, our expert team collaborates closely with leading costume designers, stylists, and production teams to bring characters to life with precision, speed, and discretion. Whether it\'s a feature film or a last-minute pickup day, this studio is built for the fast-paced demands of the entertainment industry.'
+        description: 'Located in the heart of Beverly Hills, our West Coast studio is where artistry meets on-screen storytelling.\n\nAt Studio Pickens Beverly Hills, we specialize in designing, constructing, and customizing wigs for television, film, and live performance. From high-concept fantasy to period-accurate realism, our expert team collaborates closely with leading costume designers, stylists, and production teams to bring characters to life with precision, speed, and discretion.\n\nWhether it\'s a feature film or a last-minute pickup day, this studio is built for the fast-paced demands of the entertainment industry.'
       };
     } else if (location === 'New York') {
       return {
         title: 'Broadway\'s Trusted Wig Makers',
-        description: 'Our New York studio, nestled in the Flatiron District, is a backstage staple for Broadway and live performance. Studio Pickens NYC is deeply rooted in the traditions of theatre, serving as the trusted source for handmade, performance-ready wigs for stage productions of every scale. With a keen understanding of durability, design continuity, and the rhythm of live performance, our artists craft wigs that stand up to eight shows a week—transforming performers night after night.'
+        description: 'Our New York studio, nestled in the Flatiron District, is a backstage staple for Broadway and live performance. Studio Pickens NYC is deeply rooted in the traditions of theatre, serving as the trusted source for handmade, performance-ready wigs for stage productions of every scale.\n\nWith a keen understanding of durability, design continuity, and the rhythm of live performance, our artists craft wigs that stand up to eight shows a week—transforming performers night after night.'
       };
     }
     return { title: location, description: address };
@@ -50,14 +50,31 @@ const LocationInfo = React.memo(({
   }
   
   return (
-    <div 
-      className={`flex flex-col gap-4 md:gap-0 md:flex-row items-center group px-0`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <>
+      <style jsx>{`
+        .location-info-box {
+          width: 100%;
+        }
+        .location-image {
+          width: 100%;
+        }
+        @media (min-width: 768px) {
+          .location-info-box {
+            width: 35%;
+          }
+          .location-image {
+            width: 65%;
+          }
+        }
+      `}</style>
+      <div 
+        className={`flex flex-col gap-4 md:gap-0 md:flex-row items-center group px-0`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
       {/* Info Box */}
       <div 
-        className={`bg-white md:group-hover:bg-studio-blue transition-colors duration-300 pt-8 pr-8 pb-12 pl-12 flex flex-col justify-between cursor-pointer relative w-full md:w-1/4 ${
+        className={`location-info-box bg-white md:group-hover:bg-studio-blue transition-colors duration-300 pt-8 pr-8 pb-12 pl-12 flex flex-col justify-between cursor-pointer relative ${
           isLeft ? 'order-1 md:order-1' : 'order-1 md:order-2'
         }`}
         style={{
@@ -91,7 +108,7 @@ const LocationInfo = React.memo(({
           </h3>
           
           {/* Description */}
-          <div className={`${TYPOGRAPHY_CLASSES.bodyText} md:group-hover:text-studio-bg transition-colors duration-300 text-base md:text-lg leading-tight md:leading-relaxed`}>
+          <div className={`${TYPOGRAPHY_CLASSES.bodyText} md:group-hover:text-studio-bg transition-colors duration-300 text-lg md:text-xl leading-tight md:leading-relaxed`}>
             {isHovered ? (
               <div className="whitespace-pre-wrap">{displayDescription}</div>
             ) : (
@@ -107,7 +124,7 @@ const LocationInfo = React.memo(({
       
       {/* Image */}
       <div 
-        className={`bg-gray-200 overflow-hidden cursor-pointer w-full md:w-3/4 ${
+        className={`location-image bg-gray-200 overflow-hidden cursor-pointer ${
           isLeft ? 'order-2 md:order-2' : 'order-2 md:order-1'
         }`}
         style={{
@@ -132,6 +149,7 @@ const LocationInfo = React.memo(({
         />
       </div>
     </div>
+    </>
   );
 });
 

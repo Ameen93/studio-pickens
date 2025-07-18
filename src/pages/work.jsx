@@ -9,7 +9,7 @@ import { useWorkData } from '../hooks/useWorkData';
 const WorkPage = () => {
   const galleryRef = useRef(null);
   const [activeFilter, setActiveFilter] = useState('ALL MEDIA');
-  const { workData, loading, error } = useWorkData();
+  const { workData, loading, error, featuredProjects } = useWorkData();
 
   // Map project categories to filter categories
   const categoryToFilterMap = {
@@ -88,15 +88,20 @@ const WorkPage = () => {
         </PageBanner>
       )}
 
-      {/* Work Filter Navigation */}
-      <WorkFilterNav 
+      {/* Work Filter Navigation (Hidden) */}
+      {/* <WorkFilterNav 
         onFilterChange={handleFilterChange}
         activeFilter={activeFilter}
-      />
+      /> */}
 
-      {/* Work Gallery */}
-      <div ref={galleryRef}>
+      {/* Work Gallery - Original (Hidden) */}
+      {/* <div ref={galleryRef}>
         <WorkGallery filter={activeFilter} onCategoryClick={handleCategoryClick} />
+      </div> */}
+
+      {/* Work Gallery - Home Page Version */}
+      <div ref={galleryRef}>
+        <WorkGallery onCategoryClick={handleCategoryClick} projects={featuredProjects} />
       </div>
       
       {/* Work Banners */}
