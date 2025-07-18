@@ -103,10 +103,12 @@ const ContactPage = () => {
           message: ''
         });
       } else {
+        console.error('Server response:', result);
         throw new Error(result.error || 'Failed to send message');
       }
     } catch (error) {
       console.error('Form submission error:', error);
+      console.error('Full error details:', error.message);
       setSubmitError(true);
       setIsSubmitting(false);
       
