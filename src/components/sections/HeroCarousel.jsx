@@ -14,7 +14,7 @@ const HeroCarousel = ({ images, currentSlide, prevSlide, nextSlide, goToSlide })
               <img
                 src={image}
                 alt={`Studio Background ${index + 1}`}
-                className={`w-full h-full object-cover ${index === 0 ? 'transform scale-x-[-1]' : ''}`}
+                className="w-full h-full object-cover"
               />
             </div>
           ))}
