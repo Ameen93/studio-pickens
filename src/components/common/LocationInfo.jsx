@@ -74,22 +74,12 @@ const LocationInfo = React.memo(({
       >
       {/* Info Box */}
       <div 
-        className={`location-info-box bg-white md:group-hover:bg-studio-blue transition-colors duration-300 pt-8 pr-8 pb-12 pl-12 flex flex-col justify-between cursor-pointer relative ${
+        className={`location-info-box bg-white md:group-hover:bg-studio-blue transition-colors duration-300 pt-8 pr-8 pb-12 pl-12 flex flex-col justify-between relative ${
           isLeft ? 'order-1 md:order-1' : 'order-1 md:order-2'
         }`}
         style={{
           height: 'clamp(250px, 50vw, 720px)'
         }}
-        onClick={() => window.open(mapsUrl, '_blank')}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            window.open(mapsUrl, '_blank');
-          }
-        }}
-        tabIndex={0}
-        role="button"
-        aria-label={`View ${location} location on Google Maps`}
       >
         <div></div>
         
@@ -124,22 +114,12 @@ const LocationInfo = React.memo(({
       
       {/* Image */}
       <div 
-        className={`location-image bg-gray-200 overflow-hidden cursor-pointer ${
+        className={`location-image bg-gray-200 overflow-hidden ${
           isLeft ? 'order-2 md:order-2' : 'order-2 md:order-1'
         }`}
         style={{
           height: 'clamp(250px, 50vw, 720px)'
         }}
-        onClick={() => window.open(mapsUrl, '_blank')}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            window.open(mapsUrl, '_blank');
-          }
-        }}
-        tabIndex={0}
-        role="button"
-        aria-label={`View ${location} studio location image`}
       >
         <img
           src={`${imagePath.startsWith('/') ? imagePath : `/images/locations/${imagePath}`}?cb=${Date.now()}&r=${Math.random()}`}
