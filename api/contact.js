@@ -104,11 +104,28 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error('Contact form error:', error);
+    console.error('Error details:', {
+      message: error.message,
+      code: error.code,
+      response: error.response,
+      responseCode: error.responseCode
+    });
     
-    // Return error response
+    // Return error response with more specific error information
+    let errorMessage = 'Failed to send email. Please try again later.';
+    
+    if (error.code === 'EAUTH' || error.responseCode === 535) {
+      errorMessage = 'Email authentication failed. Please check SMTP credentials.';
+    } else if (error.code === 'ENOTFOUND') {
+      errorMessage = 'SMTP server not found. Please check SMTP host configuration.';
+    } else if (error.code === 'ECONNECTION') {
+      errorMessage = 'Cannot connect to SMTP server. Please check network and port settings.';
+    }
+    
     res.status(500).json({
       success: false,
-      error: 'Failed to send email. Please try again later.'
+      error: errorMessage,
+      debug: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 }
