@@ -202,35 +202,18 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Press and Contact Form Section */}
+      {/* Contact Form Section */}
       <section className="bg-studio-bg pt-16 pb-16">
-        <div className="w-full px-4 md:px-0 md:pr-[152px]">
-          {/* Press and Form Container */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            {/* Left Column - Press */}
-            <div className="ml-10 md:ml-[152px] hidden md:block">
-              <div className="mb-8">
-                <h2 className="font-proxima-wide font-bold text-2xl text-studio-blue uppercase tracking-wide mb-4 text-left">
-                  PRESS
-                </h2>
-                <button 
-                  onClick={() => copyToClipboard('hello@studiopickens.com')}
-                  className="font-proxima text-studio-blue hover:text-studio-orange transition-colors duration-300 cursor-pointer"
-                >
-                  hello@studiopickens.com
-                </button>
-              </div>
-            </div>
-
-            {/* Right Column - Contact Form */}
-            <div>
+        <div className="w-full px-4 md:px-0">
+          {/* Contact Form Container */}
+          <div className="md:ml-[152px] md:max-w-xl">
               <h2 className="font-proxima-wide font-bold text-xl text-studio-blue uppercase tracking-wide mb-8">
                 CONTACT US
               </h2>
 
               {isSubmitted ? (
                 /* Success State */
-                <div className="flex items-center justify-center h-64">
+                <div className="flex items-center justify-start h-64">
                   <div className="w-32 h-32 bg-studio-blue rounded-full flex items-center justify-center">
                     <span className="font-proxima-wide font-bold text-studio-orange text-lg uppercase tracking-wide">
                       ALL DONE!
@@ -357,7 +340,6 @@ const ContactPage = () => {
                   </div>
                 </form>
               )}
-            </div>
           </div>
         </div>
       </section>
