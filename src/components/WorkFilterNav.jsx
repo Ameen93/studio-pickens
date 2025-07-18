@@ -7,7 +7,6 @@ const WorkFilterNav = ({ onFilterChange, activeFilter }) => {
     'THEATER',
     'CONCERT',
     'EDITORIAL',
-    'MUSIC VIDEO',
     'LIVE PERFORMANCE'
   ];
 

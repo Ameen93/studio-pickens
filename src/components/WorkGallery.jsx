@@ -1,24 +1,26 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useImperativeHandle, forwardRef } from 'react';
 import { WORK_PROJECTS } from '../constants';
 import WorkItem from './common/WorkItem';
 import MobileWorkItem from './common/MobileWorkItem';
 
-const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick, projects = WORK_PROJECTS }) => {
+const WorkGallery = React.memo(forwardRef(({ filter = 'ALL MEDIA', onCategoryClick, projects = WORK_PROJECTS }, ref) => {
   // Memoize filter mapping to avoid recreation on each render
   const filterMap = useMemo(() => ({
     'FILM & TV': 'FILM & TV',
     'THEATER': 'THEATER',
     'CONCERT': 'CONCERT',
     'EDITORIAL': 'EDITORIAL',
-    'MUSIC VIDEO': 'MUSIC VIDEO',
     'LIVE PERFORMANCE': 'LIVE'
   }), []);
 
   // Memoize filtered projects calculation
   const rawFilteredProjects = useMemo(() => {
+    // First filter out MUSIC VIDEO projects
+    const projectsWithoutMusicVideo = projects.filter(project => project.category !== 'MUSIC VIDEO');
+    
     return filter === 'ALL MEDIA' 
-      ? projects 
-      : projects.filter(project => {
+      ? projectsWithoutMusicVideo 
+      : projectsWithoutMusicVideo.filter(project => {
           return project.category === filterMap[filter] || project.category === filter;
         });
   }, [filter, filterMap, projects]);
@@ -145,6 +147,23 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick, project
     }
   };
 
+  // Expose scroll-to-category function to parent components
+  useImperativeHandle(ref, () => ({
+    scrollToCategory: (category) => {
+      // Find the first project of the specified category
+      const categoryProject = filteredProjects.find(project => project.category === category);
+      if (categoryProject) {
+        const element = document.getElementById(`work-item-${categoryProject.id}`);
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+        }
+      }
+    }
+  }), [filteredProjects]);
+
   return (
     <section className="bg-studio-bg py-12 relative w-full overflow-visible">
       {/* Desktop Layout */}
@@ -154,16 +173,17 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick, project
           style={{ height: galleryHeight }}
         >
           {filteredProjects.map((project) => (
-            <WorkItem
-              key={project.id}
-              project={project}
-              content={project.content || projectContent[project.id]}
-              getCirclePosition={getCirclePosition}
-              getTextRotation={getTextRotation}
-              getTextHoverRotation={getTextHoverRotation}
-              getContentPosition={getContentPosition}
-              onCategoryClick={onCategoryClick}
-            />
+            <div key={project.id} id={`work-item-${project.id}`}>
+              <WorkItem
+                project={project}
+                content={project.content || projectContent[project.id]}
+                getCirclePosition={getCirclePosition}
+                getTextRotation={getTextRotation}
+                getTextHoverRotation={getTextHoverRotation}
+                getContentPosition={getContentPosition}
+                onCategoryClick={onCategoryClick}
+              />
+            </div>
           ))}
         </div>
       </div>
@@ -171,17 +191,18 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick, project
       {/* Mobile Layout */}
       <div className="md:hidden px-4">
         {filteredProjects.map((project) => (
-          <MobileWorkItem 
-            key={project.id}
-            project={project}
-            content={project.content || projectContent[project.id]}
-            onCategoryClick={onCategoryClick}
-          />
+          <div key={project.id} id={`work-item-${project.id}`}>
+            <MobileWorkItem 
+              project={project}
+              content={project.content || projectContent[project.id]}
+              onCategoryClick={onCategoryClick}
+            />
+          </div>
         ))}
       </div>
     </section>
   );
-});
+}));
 
 WorkGallery.displayName = 'WorkGallery';
 

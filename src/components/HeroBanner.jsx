@@ -108,7 +108,7 @@ const HeroBanner = () => {
             height: 'clamp(193.5px, 53.76vw, 387.03px)'
           },
           position: {
-            top: '77.5%',
+            top: '70%',
             left: '30%'
           },
           rotation: 8.33,

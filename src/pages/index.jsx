@@ -9,6 +9,7 @@ import { useHeroData, useWorkData } from '../hooks';
 
 const HomePage = () => {
   const galleryRef = useRef(null);
+  const workGalleryRef = useRef(null);
   const { heroData, loading } = useHeroData();
   const { featuredProjects } = useWorkData();
 
@@ -18,18 +19,24 @@ const HomePage = () => {
     'THEATER': 'THEATER',
     'CONCERT': 'CONCERT',
     'EDITORIAL': 'EDITORIAL',
-    'MUSIC VIDEO': 'MUSIC VIDEO',
     'LIVE': 'LIVE PERFORMANCE'
   };
 
   const handleBannerClick = (category) => {
-    // Scroll to the gallery section
+    // First scroll to the gallery section
     if (galleryRef.current) {
       galleryRef.current.scrollIntoView({ 
         behavior: 'smooth',
         block: 'start'
       });
     }
+    
+    // Then scroll to the specific category work item
+    setTimeout(() => {
+      if (workGalleryRef.current) {
+        workGalleryRef.current.scrollToCategory(category);
+      }
+    }, 1000); // Wait for initial scroll to complete
   };
 
   const handleCategoryClick = (category) => {
@@ -46,9 +53,9 @@ const HomePage = () => {
 
       {/* Atelier Wigs Section */}
       <section 
-        className="relative flex items-center justify-center bg-nav-blue py-8 md:py-0"
+        className="relative flex items-center justify-center bg-nav-blue py-4 md:py-0"
         style={{ 
-          height: 'clamp(420px, 43.75vw, 420px)'
+          height: 'clamp(320px, 35vw, 420px)'
         }}
       >
         <div className="max-w-screen-xl mx-auto px-4 text-center">
@@ -95,7 +102,11 @@ const HomePage = () => {
 
       {/* Work Gallery */}
       <div ref={galleryRef}>
-        <WorkGallery onCategoryClick={handleCategoryClick} projects={featuredProjects} />
+        <WorkGallery 
+          ref={workGalleryRef}
+          onCategoryClick={handleCategoryClick} 
+          projects={featuredProjects} 
+        />
       </div>
 
       {/* Work Banners */}

@@ -51,7 +51,10 @@ export const useWorkData = () => {
     fetchWorkData();
   }, []);
 
-  const featuredProjects = workData.projects?.filter(project => project.featured) || [];
+  // Filter out MUSIC VIDEO projects from featured projects
+  const featuredProjects = workData.projects?.filter(
+    project => project.featured && project.category !== 'MUSIC VIDEO'
+  ) || [];
   
   return { workData, featuredProjects, loading, error };
 };

@@ -8,6 +8,7 @@ import { useWorkData } from '../hooks/useWorkData';
 
 const WorkPage = () => {
   const galleryRef = useRef(null);
+  const workGalleryRef = useRef(null);
   const [activeFilter, setActiveFilter] = useState('ALL MEDIA');
   const { workData, loading, error, featuredProjects } = useWorkData();
 
@@ -17,7 +18,6 @@ const WorkPage = () => {
     'THEATER': 'THEATER',
     'CONCERT': 'CONCERT',
     'EDITORIAL': 'EDITORIAL',
-    'MUSIC VIDEO': 'MUSIC VIDEO',
     'LIVE': 'LIVE PERFORMANCE'
   };
 
@@ -32,7 +32,7 @@ const WorkPage = () => {
   }, []);
 
   const handleBannerClick = (category) => {
-    // Scroll to the gallery section
+    // First scroll to the gallery section
     if (galleryRef.current) {
       galleryRef.current.scrollIntoView({ 
         behavior: 'smooth',
@@ -40,8 +40,12 @@ const WorkPage = () => {
       });
     }
     
-    // TODO: Filter gallery by category if needed
-    // For now, just scroll to show the gallery
+    // Then scroll to the specific category work item
+    setTimeout(() => {
+      if (workGalleryRef.current) {
+        workGalleryRef.current.scrollToCategory(category);
+      }
+    }, 1000); // Wait for initial scroll to complete
   };
 
   const handleFilterChange = (filter) => {
@@ -79,7 +83,7 @@ const WorkPage = () => {
                 <h1 className="font-proxima-wide font-bold text-studio-blue uppercase mb-6 text-center md:text-[64px] text-[40px]" style={{ lineHeight: '1.1' }}>
                   {workData.banner.title}
                 </h1>
-                <p className="font-proxima text-studio-blue max-w-lg text-center mx-auto" style={{ fontSize: '16px', lineHeight: '1.4' }}>
+                <p className="font-proxima text-studio-blue max-w-lg text-center mx-auto text-[15px] md:text-[16px]" style={{ lineHeight: '1.4' }}>
                   {workData.banner.subtitle}
                 </p>
               </div>
@@ -101,7 +105,11 @@ const WorkPage = () => {
 
       {/* Work Gallery - Home Page Version */}
       <div ref={galleryRef}>
-        <WorkGallery onCategoryClick={handleCategoryClick} projects={featuredProjects} />
+        <WorkGallery 
+          ref={workGalleryRef}
+          onCategoryClick={handleCategoryClick} 
+          projects={featuredProjects} 
+        />
       </div>
       
       {/* Work Banners */}
