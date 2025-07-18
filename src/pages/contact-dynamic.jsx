@@ -160,7 +160,7 @@ const ContactPage = () => {
   return (
     <Layout 
       title="Studio Pickens - Contact"
-      description="Contact Studio Pickens for your next creative project. Professional consultation for film, television, theater, and artistic collaborations."
+      description="Contact Studio Pickens for your next creative project. Professional consultation for film, television, theatre, and artistic collaborations."
     >
       <style jsx>{`
         ${ANIMATIONS.keyframes.shake}
@@ -289,7 +289,7 @@ const ContactPage = () => {
                         <option value="custom-wig-consultation">Custom Wig Consultation</option>
                         <option value="film-tv-project">Film & TV Project</option>
                         <option value="editorial-shoot">Editorial Shoot</option>
-                        <option value="theater-production">Theater Production</option>
+                        <option value="theatre-production">Theatre Production</option>
                         <option value="press-inquiry">Press Inquiry</option>
                         <option value="general-inquiry">General Inquiry</option>
                       </select>

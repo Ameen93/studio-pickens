@@ -121,7 +121,7 @@ const TypographyGuide = () => {
                 Music
               </span>
               <span className="text-tag font-proxima text-studio-blue bg-studio-orange/10 px-3 py-1 uppercase">
-                Theater
+                Theatre
               </span>
             </div>
           </TypeExample>
@@ -154,7 +154,7 @@ const TypographyGuide = () => {
               Creative Excellence
             </p>
             <p className="text-body-lg md:text-body-lg sm:text-body-lg-mobile font-proxima text-studio-blue mb-6">
-              Studio Pickens delivers premium creative solutions for film, television, music, and theater. Our team brings visionary concepts to life with meticulous attention to detail and innovative storytelling.
+              Studio Pickens delivers premium creative solutions for film, television, music, and theatre. Our team brings visionary concepts to life with meticulous attention to detail and innovative storytelling.
             </p>
             <div className="flex flex-wrap gap-4">
               <button className="text-button font-proxima text-white bg-studio-blue px-6 py-3 uppercase">

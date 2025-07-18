@@ -112,11 +112,11 @@
     "tags": ["work", "film", "tv", "portfolio"]
   },
   {
-    "name": "theater.png",
-    "path": "/images/work/theater.png",
+    "name": "theatre.png",
+    "path": "/images/work/theatre.png",
     "category": "work",
-    "description": "Theater work sample",
-    "tags": ["work", "theater", "portfolio"]
+    "description": "Theatre work sample",
+    "tags": ["work", "theatre", "portfolio"]
   },
   {
     "name": "musicvideo.jpg",
@@ -168,11 +168,11 @@
     "tags": ["banner", "film", "tv", "category"]
   },
   {
-    "name": "theaterbanner.jpg",
-    "path": "/images/work/theaterbanner.jpg",
+    "name": "theatrebanner.jpg",
+    "path": "/images/work/theatrebanner.jpg",
     "category": "banner",
-    "description": "Theater category banner",
-    "tags": ["banner", "theater", "category"]
+    "description": "Theatre category banner",
+    "tags": ["banner", "theatre", "category"]
   },
   {
     "name": "musicbanner.png",

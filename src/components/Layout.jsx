@@ -5,7 +5,7 @@ import Footer from './Footer';
 const Layout = ({ 
   children, 
   title = 'Studio Pickens', 
-  description = 'Premium creative studio delivering visionary concepts for film, television, music, and theater with meticulous attention to detail.',
+  description = 'Premium creative studio delivering visionary concepts for film, television, music, and theatre with meticulous attention to detail.',
   showFooter = true 
 }) => {
   React.useEffect(() => {
@@ -47,7 +47,7 @@ const Layout = ({
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Studio Pickens",
-        "description": "Premium creative studio delivering visionary concepts for film, television, music, and theater",
+        "description": "Premium creative studio delivering visionary concepts for film, television, music, and theatre",
         "url": window.location.origin,
         "address": [
           {

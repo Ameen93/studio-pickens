@@ -350,7 +350,7 @@
     },
     {
       "id": 5,
-      "name": "Theater Theater and More Theater",
+      "name": "Theatre Theatre and More Theatre",
       "type": "dashed_rotating",
       "position": {
         "desktop": {
@@ -375,7 +375,7 @@
         }
       },
       "content": {
-        "title": "theater theater and more theater",
+        "title": "theatre theatre and more theatre",
         "description": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat."
       },
       "items": [

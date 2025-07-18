@@ -560,7 +560,7 @@ const StoryPage = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center text-center px-6 max-w-lg">
                   <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 3.5vw, 24px)', lineHeight: '1.1' }}>
-                    theater theater and more theater
+                    theatre theatre and more theatre
                   </h5>
                   <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
                     Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.

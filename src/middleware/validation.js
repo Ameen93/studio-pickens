@@ -86,7 +86,7 @@ const workProjectSchema = Joi.object({
   id: validateId.optional(),
   title: validateString.required(),
   client: validateString.required(),
-  category: Joi.string().valid('EDITORIAL', 'FILM & TV', 'THEATER', 'CONCERT', 'MUSIC VIDEO', 'LIVE').required(),
+  category: Joi.string().valid('EDITORIAL', 'FILM & TV', 'THEATRE', 'CONCERT', 'MUSIC VIDEO', 'LIVE').required(),
   year: validateYear.required(),
   image: validateImagePath.required(),
   alt: validateOptionalString.default(''),
@@ -105,7 +105,7 @@ const workSchema = Joi.object({
   }).required(),
   sectionBanners: Joi.array().items(
     Joi.object({
-      category: Joi.string().valid('EDITORIAL', 'FILM & TV', 'THEATER', 'CONCERT', 'MUSIC VIDEO', 'LIVE').required(),
+      category: Joi.string().valid('EDITORIAL', 'FILM & TV', 'THEATRE', 'CONCERT', 'MUSIC VIDEO', 'LIVE').required(),
       image: validateImagePath.required(),
       transform: transformSchema.required()
     })

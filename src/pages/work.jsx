@@ -15,7 +15,7 @@ const WorkPage = () => {
   // Map project categories to filter categories
   const categoryToFilterMap = {
     'FILM & TV': 'FILM & TV',
-    'THEATER': 'THEATER',
+    'THEATRE': 'THEATRE',
     'CONCERT': 'CONCERT',
     'EDITORIAL': 'EDITORIAL',
     'LIVE': 'LIVE PERFORMANCE'
@@ -60,7 +60,7 @@ const WorkPage = () => {
   return (
     <Layout 
       title="Studio Pickens - Our Work"
-      description="Explore Studio Pickens portfolio of creative work across film, television, theater, concerts, and editorial projects. Premium creative solutions with innovative storytelling."
+      description="Explore Studio Pickens portfolio of creative work across film, television, theatre, concerts, and editorial projects. Premium creative solutions with innovative storytelling."
     >
       {/* Work Page Banner */}
       {loading ? (
