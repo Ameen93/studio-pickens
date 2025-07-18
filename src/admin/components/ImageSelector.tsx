@@ -39,7 +39,8 @@ const ImageSelector: React.FC<ImageSelectorProps> = ({
     try {
       setLoading(true);
       const token = localStorage.getItem('studio-pickens-auth-token');
-      const response = await fetch('http://localhost:3001/api/images', {
+      const apiUrl = process.env.REACT_APP_API_URL || '';
+      const response = await fetch(`${apiUrl}/api/images`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         }

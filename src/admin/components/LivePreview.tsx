@@ -76,7 +76,7 @@ interface LivePreviewPanelProps {
 }
 
 const LivePreviewPanel: React.FC<LivePreviewPanelProps> = ({ 
-  baseUrl = 'http://localhost:3000', 
+  baseUrl = process.env.REACT_APP_BASE_URL || '', 
   refreshTrigger = 0 
 }) => {
   const [isRefreshing, setIsRefreshing] = useState(false);

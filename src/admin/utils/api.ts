@@ -2,7 +2,7 @@
  * Authenticated API utility functions for admin panel
  */
 
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL ? `${process.env.REACT_APP_API_URL}/api` : '/api';
 const TOKEN_KEY = 'studio-pickens-auth-token';
 
 export const apiRequest = async (endpoint: string, options: RequestInit = {}) => {

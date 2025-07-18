@@ -331,7 +331,7 @@ const FAQEditor = () => {
               {saving ? 'Saving...' : 'Save Changes'}
             </button>
             <a
-              href="http://localhost:3000/faq"
+              href={`${process.env.REACT_APP_BASE_URL || ''}/faq`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700"
@@ -594,7 +594,7 @@ const FAQEditor = () => {
       <div className="w-1/2 border-l border-gray-300 bg-gray-50 overflow-y-auto">
         <div className="p-6">
           <LivePreviewPanel 
-            baseUrl="http://localhost:3000/faq" 
+            baseUrl={`${process.env.REACT_APP_BASE_URL || ''}/faq`} 
             refreshTrigger={previewRefresh} 
           />
         </div>

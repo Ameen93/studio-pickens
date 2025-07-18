@@ -265,7 +265,7 @@ const WorkEditor = () => {
               {saving ? 'Saving...' : 'Save Changes'}
             </button>
             <a
-              href="http://localhost:3000/work"
+              href={`${process.env.REACT_APP_BASE_URL || ''}/work`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700"
@@ -650,7 +650,7 @@ const WorkEditor = () => {
       <div className="w-1/2 border-l border-gray-300 bg-gray-50 overflow-y-auto">
         <div className="p-6">
           <LivePreviewPanel 
-            baseUrl="http://localhost:3000/work" 
+            baseUrl={`${process.env.REACT_APP_BASE_URL || ''}/work`} 
             refreshTrigger={previewRefresh} 
           />
         </div>

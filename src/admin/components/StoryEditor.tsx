@@ -578,7 +578,7 @@ const StoryEditor = () => {
       <div className="w-1/2 border-l border-gray-300 bg-gray-50 overflow-y-auto">
         <div className="p-6">
           <LivePreviewPanel 
-            baseUrl="http://localhost:3000/story" 
+            baseUrl={`${process.env.REACT_APP_BASE_URL || ''}/story`} 
             refreshTrigger={previewRefresh} 
           />
         </div>
