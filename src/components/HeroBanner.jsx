@@ -44,12 +44,12 @@ const HeroBanner = () => {
         className: "hidden md:block",
         mobileConfig: {
           size: {
-            width: 'clamp(86px, 24vw, 172.76px)',
-            height: 'clamp(129px, 36vw, 259.21px)'
+            width: 'clamp(129px, 36vw, 259.14px)',
+            height: 'clamp(193.5px, 54vw, 388.82px)'
           },
           position: {
             top: 'clamp(10px, 2.78vw, 20px)',
-            left: '-10px'
+            left: '-30px'
           },
           rotation: 18.31,
           animationDuration: 3500,
@@ -68,12 +68,12 @@ const HeroBanner = () => {
         className: "hidden md:block",
         mobileConfig: {
           size: {
-            width: 'clamp(86px, 23.89vw, 171.97px)',
-            height: 'clamp(129px, 35.84vw, 258.02px)'
+            width: 'clamp(129px, 35.84vw, 257.96px)',
+            height: 'clamp(193.5px, 53.76vw, 387.03px)'
           },
           position: {
-            bottom: 'clamp(100px, 27.78vw, 200px)',
-            right: '-22px'
+            top: '77.5%',
+            left: '30%'
           },
           rotation: 8.33,
           animationDuration: 3200,
@@ -92,12 +92,12 @@ const HeroBanner = () => {
         className: "hidden md:block",
         mobileConfig: {
           size: {
-            width: 'clamp(80px, 22.31vw, 160.65px)',
-            height: 'clamp(120px, 33.48vw, 241.03px)'
+            width: 'clamp(120px, 33.47vw, 240.98px)',
+            height: 'clamp(180px, 50.22vw, 361.55px)'
           },
           position: {
-            top: '85%',
-            left: '40%'
+            bottom: 'clamp(100px, 27.78vw, 200px)',
+            right: '-22px'
           },
           rotation: -10.46,
           animationDuration: 3400,
