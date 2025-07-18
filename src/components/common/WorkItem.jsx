@@ -56,50 +56,63 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
       {/* Content Panel - Slides out on hover (only for left and right positioned items) */}
       {project.side !== 'center' && (
         <div 
-          className={`absolute top-0 ${getContentPosition(project.side)} bg-studio-bg p-8 transition-all duration-500 ease-out z-10 h-full
+          className={`absolute top-0 ${getContentPosition(project.side)} bg-studio-bg p-8 transition-all duration-500 ease-out z-10 h-full flex flex-col justify-between
             ${project.side === 'left' ? 'opacity-0 -translate-x-full group-hover:opacity-100 group-hover:translate-x-0' : ''}
             ${project.side === 'right' ? 'opacity-0 translate-x-full group-hover:opacity-100 group-hover:translate-x-0' : ''}
           `}
           style={{
-            width: 'clamp(330.48px, 50.49vw, 727.06px)'
+            width: 'clamp(330.48px, 50.49vw, 727.06px)',
+            height: 'clamp(169px, 25.83vw, 372px)'
           }}
         >
         {/* Title */}
-        <h5 className="font-proxima-wide font-bold text-studio-blue text-3xl uppercase tracking-wide mb-6">
-          {content?.title || project.title}
-        </h5>
-
-        {/* Photographer Section */}
-        <div className="mb-4">
-          <h6 className="font-proxima-nova font-semibold text-studio-blue text-sm uppercase tracking-wide mb-1">
-            {content?.labels?.photographer || 'PHOTOGRAPHER'}
-          </h6>
-          <p className="font-lovtony font-normal italic lowercase text-[80px] leading-[50%] text-studio-blue pl-4">
-            {content?.photographer}
-          </p>
-          <div className="w-5/8 h-px border-b border-dotted border-studio-blue mt-2"></div>
+        <div className="flex-shrink-0">
+          <h5 className="font-proxima-wide font-bold text-studio-blue uppercase tracking-wide mb-2"
+              style={{ fontSize: 'clamp(16px, 2.22vw, 32px)' }}>
+            {content?.title || project.title}
+          </h5>
         </div>
 
-        {/* Stylist Section */}
-        <div className="mb-4">
-          <h6 className="font-proxima-nova font-semibold text-studio-blue text-sm uppercase tracking-wide mb-1">
-            {content?.labels?.stylist || 'STYLIST'}
-          </h6>
-          <p className="font-lovtony font-normal italic lowercase text-[80px] leading-[50%] text-studio-blue pl-4">
-            {content?.stylist}
-          </p>
-          <div className="w-5/8 h-px border-b border-dotted border-studio-blue mt-2"></div>
-        </div>
+        {/* Content Sections - Fill remaining space */}
+        <div className="flex-1 flex flex-col justify-center space-y-2">
+          {/* Photographer Section */}
+          <div>
+            <h6 className="font-proxima-nova font-semibold text-studio-blue uppercase tracking-wide mb-1"
+                style={{ fontSize: 'clamp(8px, 0.83vw, 12px)' }}>
+              {content?.labels?.photographer || 'PHOTOGRAPHER'}
+            </h6>
+            <p className="font-lovtony font-normal italic lowercase text-studio-blue pl-2"
+               style={{ fontSize: 'clamp(24px, 4.44vw, 64px)', lineHeight: '50%' }}>
+              {content?.photographer}
+            </p>
+            <div className="w-5/8 h-px border-b border-dotted border-studio-blue mt-1"></div>
+          </div>
 
-        {/* Date Section */}
-        <div>
-          <h6 className="font-proxima-nova font-semibold text-studio-blue text-sm uppercase tracking-wide mb-1">
-            {content?.labels?.date || 'DATE'}
-          </h6>
-          <p className="font-lovtony font-normal italic lowercase text-[80px] leading-[50%] text-studio-blue pl-4">
-            {content?.date}
-          </p>
-          <div className="w-5/8 h-px border-b border-dotted border-studio-blue mt-2"></div>
+          {/* Stylist Section */}
+          <div>
+            <h6 className="font-proxima-nova font-semibold text-studio-blue uppercase tracking-wide mb-1"
+                style={{ fontSize: 'clamp(8px, 0.83vw, 12px)' }}>
+              {content?.labels?.stylist || 'STYLIST'}
+            </h6>
+            <p className="font-lovtony font-normal italic lowercase text-studio-blue pl-2"
+               style={{ fontSize: 'clamp(24px, 4.44vw, 64px)', lineHeight: '50%' }}>
+              {content?.stylist}
+            </p>
+            <div className="w-5/8 h-px border-b border-dotted border-studio-blue mt-1"></div>
+          </div>
+
+          {/* Date Section */}
+          <div>
+            <h6 className="font-proxima-nova font-semibold text-studio-blue uppercase tracking-wide mb-1"
+                style={{ fontSize: 'clamp(8px, 0.83vw, 12px)' }}>
+              {content?.labels?.date || 'DATE'}
+            </h6>
+            <p className="font-lovtony font-normal italic lowercase text-studio-blue pl-2"
+               style={{ fontSize: 'clamp(24px, 4.44vw, 64px)', lineHeight: '50%' }}>
+              {content?.date}
+            </p>
+            <div className="w-5/8 h-px border-b border-dotted border-studio-blue mt-1"></div>
+          </div>
         </div>
         </div>
       )}

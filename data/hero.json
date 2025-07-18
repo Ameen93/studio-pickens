@@ -3,7 +3,10 @@
   "title": "Studio Pickens",
   "subtitle": "Test Modified Subtitle",
   "atelierTitle": "atelier wigs by robert pickens",
-  "atelierDescription": "At Studio Pickens, each appointment is part atelier, part adventure: intimate, imaginative, and entirely yours. With warmth and precision, we make every client feel seen, celebrated, and more themselves than ever.",
+  "atelierDescription": [
+    "At Studio Pickens, each appointment is part atelier, part adventure: intimate, imaginative, and entirely yours.",
+    "With warmth and precision, we make every client feel seen, celebrated, and more themselves than ever."
+  ],
   "banner": {
     "logoSize": {
       "scale": 1.2,

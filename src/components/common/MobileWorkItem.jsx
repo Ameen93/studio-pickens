@@ -10,10 +10,9 @@ const MobileWorkItem = ({ project, content, onCategoryClick }) => {
 
   return (
     <div className="mb-12 last:mb-0">
-      {/* Image with tap functionality */}
+      {/* Image container */}
       <div 
-        className="relative cursor-pointer"
-        onClick={handleTap}
+        className="relative"
         style={{ aspectRatio: '9/16' }}
       >
         <img
@@ -29,7 +28,7 @@ const MobileWorkItem = ({ project, content, onCategoryClick }) => {
         <button 
           onClick={(e) => {
             e.stopPropagation();
-            onCategoryClick?.(project.category);
+            handleTap();
           }}
           className={`absolute bottom-8 w-24 h-24 rounded-full flex items-center justify-center transition-colors duration-300 cursor-pointer z-20 ${
             project.id % 2 === 1 ? 'left-4' : 'right-4'

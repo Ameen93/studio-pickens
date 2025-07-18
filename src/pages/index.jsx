@@ -59,11 +59,28 @@ const HomePage = () => {
               {loading ? 'Loading...' : (heroData.atelierTitle || 'ATELIER WIGS BY ROBERT PICKENS')}
             </h2>
             
-            <p 
-              className="text-body md:text-body sm:text-atelier-body-mobile font-proxima mb-8 max-w-3xl text-center text-studio-bg"
-            >
-              {loading ? 'Loading...' : (heroData.atelierDescription || 'Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.')}
-            </p>
+            <div className="mb-8 max-w-3xl text-center">
+              {loading ? (
+                <p className="text-body md:text-body sm:text-atelier-body-mobile font-proxima text-studio-bg">
+                  Loading...
+                </p>
+              ) : (
+                Array.isArray(heroData.atelierDescription) ? (
+                  heroData.atelierDescription.map((paragraph, index) => (
+                    <p 
+                      key={index}
+                      className="text-body md:text-body sm:text-atelier-body-mobile font-proxima text-studio-bg mb-1 last:mb-0"
+                    >
+                      {paragraph}
+                    </p>
+                  ))
+                ) : (
+                  <p className="text-body md:text-body sm:text-atelier-body-mobile font-proxima text-studio-bg">
+                    {heroData.atelierDescription || 'Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.'}
+                  </p>
+                )
+              )}
+            </div>
             
             <Button 
               href="/atelier-wigs" 
