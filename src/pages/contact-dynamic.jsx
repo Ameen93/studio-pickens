@@ -152,7 +152,7 @@ const ContactPage = () => {
               ?.sort((a, b) => a.order - b.order)
               .map((location) => {
                 const locationKey = location.name.toLowerCase().replace(/\s+/g, '');
-                const emailAddress = `${locationKey}@studiopickens.com`;
+                const emailAddress = 'hello@studiopickens.com';
                 
                 return (
                   <div key={location.id} className="text-left md:text-left md:ml-[152px]">
@@ -187,9 +187,9 @@ const ContactPage = () => {
       <section className="bg-studio-bg pt-16 pb-16">
         <div className="w-full px-4 md:px-0 md:pr-[152px]">
           {/* Press and Form Container */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             {/* Left Column - Press */}
-            <div className="ml-10 md:ml-[152px]">
+            <div className="ml-10 md:ml-[152px] hidden md:block">
               <div className="mb-8">
                 <h2 className="font-proxima-wide font-bold text-2xl text-studio-blue uppercase tracking-wide mb-4 text-left">
                   PRESS

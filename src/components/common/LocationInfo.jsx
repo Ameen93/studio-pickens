@@ -12,6 +12,7 @@ const LocationInfo = React.memo(({
   variant = 'left' // 'left' | 'right'
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isTapped, setIsTapped] = useState(false);
   const isLeft = variant === 'left';
   
   // Define hover content

@@ -132,7 +132,7 @@ const Footer = () => {
         <div className="space-y-4 mb-8">
           <div className="block">
             <button
-              onClick={() => window.open('https://instagram.com/studiopickens', '_blank')}
+              onClick={() => window.open('https://www.instagram.com/studio_pickens/', '_blank')}
               className="inline-block font-proxima-wide font-bold text-white text-lg tracking-[3%] uppercase pb-2"
             >
               INSTAGRAM

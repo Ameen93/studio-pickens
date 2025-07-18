@@ -119,7 +119,7 @@ const ContactPage = () => {
                 className="flex items-center justify-start mb-4 cursor-pointer"
                 onMouseEnter={() => setHoveredLocation('brooklyn')}
                 onMouseLeave={() => setHoveredLocation(null)}
-                onClick={() => copyToClipboard('brooklyn@studiopickens.com')}
+                onClick={() => copyToClipboard('hello@studiopickens.com')}
               >
                 <div className={`w-6 h-6 rounded-full border-2 mr-3 transition-all duration-300 ${
                   hoveredLocation === 'brooklyn' ? 'border-studio-orange bg-studio-orange' : 'border-studio-orange'
@@ -129,10 +129,10 @@ const ContactPage = () => {
                 </h2>
               </div>
               <button 
-                onClick={() => copyToClipboard('brooklyn@studiopickens.com')}
+                onClick={() => copyToClipboard('hello@studiopickens.com')}
                 className="text-white hover:text-studio-orange transition-colors duration-300 cursor-pointer"
               >
-                brooklyn@studiopickens.com
+                hello@studiopickens.com
               </button>
             </div>
 
@@ -142,7 +142,7 @@ const ContactPage = () => {
                 className="flex items-center justify-start mb-4 cursor-pointer"
                 onMouseEnter={() => setHoveredLocation('beverlyhills')}
                 onMouseLeave={() => setHoveredLocation(null)}
-                onClick={() => copyToClipboard('beverlyhills@studiopickens.com')}
+                onClick={() => copyToClipboard('hello@studiopickens.com')}
               >
                 <div className={`w-6 h-6 rounded-full border-2 mr-3 transition-all duration-300 ${
                   hoveredLocation === 'beverlyhills' ? 'border-studio-orange bg-studio-orange' : 'border-studio-orange'
@@ -152,10 +152,10 @@ const ContactPage = () => {
                 </h2>
               </div>
               <button 
-                onClick={() => copyToClipboard('beverlyhills@studiopickens.com')}
+                onClick={() => copyToClipboard('hello@studiopickens.com')}
                 className="text-white hover:text-studio-orange transition-colors duration-300 cursor-pointer"
               >
-                beverlyhills@studiopickens.com
+                hello@studiopickens.com
               </button>
             </div>
 
@@ -189,9 +189,9 @@ const ContactPage = () => {
       <section className="bg-studio-bg pt-16 pb-16">
         <div className="w-full px-4 md:px-0 md:pr-[152px]">
           {/* Press and Form Container */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             {/* Left Column - Press */}
-            <div className="ml-10 md:ml-[152px]">
+            <div className="ml-10 md:ml-[152px] hidden md:block">
               <div className="mb-8">
                 <h2 className="font-proxima-wide font-bold text-2xl text-studio-blue uppercase tracking-wide mb-4 text-left">
                   PRESS
