@@ -54,16 +54,21 @@ const LocationInfo = React.memo(({
       <style jsx>{`
         .location-info-box {
           width: 100%;
+          height: auto;
+          min-height: 250px;
         }
         .location-image {
           width: 100%;
+          height: clamp(250px, 50vw, 720px);
         }
         @media (min-width: 768px) {
           .location-info-box {
-            width: 35%;
+            width: 30%;
+            height: clamp(250px, 50vw, 720px);
           }
           .location-image {
-            width: 65%;
+            width: 70%;
+            height: clamp(250px, 50vw, 720px);
           }
         }
       `}</style>
@@ -78,7 +83,11 @@ const LocationInfo = React.memo(({
           isLeft ? 'order-1 md:order-1' : 'order-1 md:order-2'
         }`}
         style={{
-          height: 'clamp(250px, 50vw, 720px)'
+          height: 'auto',
+          minHeight: '250px',
+          '@media (min-width: 768px)': {
+            height: 'clamp(250px, 50vw, 720px)'
+          }
         }}
       >
         <div></div>
@@ -98,7 +107,7 @@ const LocationInfo = React.memo(({
           </h3>
           
           {/* Description */}
-          <div className={`${TYPOGRAPHY_CLASSES.bodyText} md:group-hover:text-studio-bg transition-colors duration-300 text-lg md:text-xl leading-tight md:leading-relaxed`}>
+          <div className={`${TYPOGRAPHY_CLASSES.bodyText} md:group-hover:text-studio-bg transition-colors duration-300 text-sm md:text-base leading-tight md:leading-relaxed`}>
             {isHovered ? (
               <div className="whitespace-pre-wrap">{displayDescription}</div>
             ) : (
