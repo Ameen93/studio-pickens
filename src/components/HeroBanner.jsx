@@ -72,10 +72,10 @@ const HeroBanner = () => {
       {
         animationDuration: 3800,
         initialOffset: { x: -60, y: 20 },
-        zIndex: 30,
+        zIndex: 60,
         size: {
-          width: 'clamp(88.5px, 12.34vw, 177.61px)',
-          height: 'clamp(133px, 18.5vw, 266.48px)'
+          width: 'clamp(110.63px, 15.43vw, 222.01px)',
+          height: 'clamp(166.25px, 23.13vw, 333.1px)'
         },
         className: "hidden md:block",
         mobileConfig: {
@@ -96,10 +96,10 @@ const HeroBanner = () => {
       {
         animationDuration: 3000,
         initialOffset: { x: -15, y: 100 },
-        zIndex: 50,
+        zIndex: 70,
         size: {
-          width: 'clamp(88.5px, 12.34vw, 177.61px)',
-          height: 'clamp(133px, 18.5vw, 266.48px)'
+          width: 'clamp(110.63px, 15.43vw, 222.01px)',
+          height: 'clamp(166.25px, 23.13vw, 333.1px)'
         },
         className: "hidden md:block",
         mobileConfig: {
@@ -120,10 +120,10 @@ const HeroBanner = () => {
       {
         animationDuration: 3800,
         initialOffset: { x: 60, y: 80 },
-        zIndex: 40,
+        zIndex: 65,
         size: {
-          width: 'clamp(88.5px, 12.34vw, 177.61px)',
-          height: 'clamp(133px, 18.5vw, 266.48px)'
+          width: 'clamp(110.63px, 15.43vw, 222.01px)',
+          height: 'clamp(166.25px, 23.13vw, 333.1px)'
         },
         className: "hidden md:block",
         mobileConfig: {
@@ -153,7 +153,19 @@ const HeroBanner = () => {
           : { src: polaroid.image }
         ),
         alt: polaroid.alt,
-        position: polaroid.position,
+        position: index === 0 ? {
+          // Top left polaroid - move more left and up, overlap navbar
+          top: "clamp(-30px, -2.08vw, -40px)",
+          left: "clamp(-20px, -1.39vw, -30px)"
+        } : index === 1 ? {
+          // Bottom center polaroid - move slightly more left
+          bottom: "clamp(-100px, -13.89vw, -200px)",
+          left: "42%"
+        } : index === 2 ? {
+          // Right polaroid - move more right
+          bottom: "clamp(40px, 5.56vw, 80px)",
+          right: "clamp(-30px, -2.08vw, -50px)"
+        } : polaroid.position,
         size: config.size,
         rotation: polaroid.rotation,
         animationDuration: config.animationDuration,

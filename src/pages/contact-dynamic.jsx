@@ -221,7 +221,7 @@ const ContactPage = () => {
                 /* Success State */
                 <div className="flex items-center justify-start h-64">
                   <div className="w-32 h-32 bg-studio-blue rounded-full flex items-center justify-center">
-                    <span className="font-proxima-wide font-bold text-studio-orange text-lg uppercase tracking-wide">
+                    <span className="font-proxima-wide font-bold text-studio-orange uppercase tracking-wide" style={{ fontSize: '1.062rem' }}>
                       ALL DONE!
                     </span>
                   </div>
