@@ -33,7 +33,7 @@ const LocationInfo = React.memo(({
   
   const hoverContent = getHoverContent();
   const displayTitle = isHovered ? hoverContent.title : location;
-  const displayDescription = isHovered ? hoverContent.description : address;
+  const displayDescription = isHovered ? hoverContent.description : '';
   
   // Validate location data in development
   if (process.env.NODE_ENV === 'development') {
@@ -101,17 +101,19 @@ const LocationInfo = React.memo(({
           </h3>
           
           {/* Description */}
-          <div className={`${TYPOGRAPHY_CLASSES.bodyText} md:group-hover:text-studio-bg transition-colors duration-300 text-sm md:text-base leading-tight md:leading-relaxed`}>
-            {isHovered ? (
-              <div className="whitespace-pre-wrap">{displayDescription}</div>
-            ) : (
-              displayDescription.split('\n').map((line, index) => (
-                <div key={index}>
-                  {line}
-                </div>
-              ))
-            )}
-          </div>
+          {displayDescription && (
+            <div className={`${TYPOGRAPHY_CLASSES.bodyText} md:group-hover:text-studio-bg transition-colors duration-300 text-sm md:text-base leading-tight md:leading-relaxed`}>
+              {isHovered ? (
+                <div className="whitespace-pre-wrap">{displayDescription}</div>
+              ) : (
+                displayDescription.split('\n').map((line, index) => (
+                  <div key={index}>
+                    {line}
+                  </div>
+                ))
+              )}
+            </div>
+          )}
         </div>
       </div>
       

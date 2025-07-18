@@ -57,7 +57,7 @@ const ContactPage = () => {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitError(false);
@@ -76,12 +76,41 @@ const ContactPage = () => {
       return;
     }
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Submit form to Vercel serverless function
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok && result.success) {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          reason: '',
+          message: ''
+        });
+      } else {
+        throw new Error(result.error || 'Failed to send message');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitError(true);
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      // Form submitted - replace with actual submission logic
-    }, 1000);
+      
+      // Reset error state after animation
+      setTimeout(() => {
+        setSubmitError(false);
+      }, 600);
+    }
   };
 
   const copyToClipboard = (email) => {
@@ -128,12 +157,6 @@ const ContactPage = () => {
                   BROOKLYN
                 </h2>
               </div>
-              <button 
-                onClick={() => copyToClipboard('hello@studiopickens.com')}
-                className="text-white hover:text-studio-orange transition-colors duration-300 cursor-pointer"
-              >
-                hello@studiopickens.com
-              </button>
             </div>
 
             {/* Beverly Hills */}
@@ -151,12 +174,6 @@ const ContactPage = () => {
                   BEVERLY HILLS
                 </h2>
               </div>
-              <button 
-                onClick={() => copyToClipboard('hello@studiopickens.com')}
-                className="text-white hover:text-studio-orange transition-colors duration-300 cursor-pointer"
-              >
-                hello@studiopickens.com
-              </button>
             </div>
 
             {/* London */}
