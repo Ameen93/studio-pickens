@@ -14,9 +14,9 @@ const WorkBanners = ({ onBannerClick }) => {
 
   return (
     <section className="bg-studio-bg pt-12 relative w-full">
-      {sectionBanners.map((banner) => (
+      {sectionBanners.map((banner, index) => (
         <div
-          key={banner.id}
+          key={`${banner.category}-${index}`}
           className="relative w-full group cursor-pointer overflow-hidden"
           onClick={() => onBannerClick && onBannerClick(banner.category)}
           style={{
