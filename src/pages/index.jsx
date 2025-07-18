@@ -46,9 +46,9 @@ const HomePage = () => {
 
       {/* Atelier Wigs Section */}
       <section 
-        className="relative flex items-center justify-center bg-nav-blue"
+        className="relative flex items-center justify-center bg-nav-blue py-8 md:py-0"
         style={{ 
-          height: 'clamp(280px, 29.17vw, 420px)'
+          height: 'clamp(420px, 43.75vw, 420px)'
         }}
       >
         <div className="max-w-screen-xl mx-auto px-4 text-center">

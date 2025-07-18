@@ -32,7 +32,7 @@ const MobileWorkItem = ({ project, content, onCategoryClick }) => {
           }}
           className={`absolute bottom-8 w-24 h-24 rounded-full flex items-center justify-center transition-colors duration-300 cursor-pointer z-20 ${
             project.id % 2 === 1 ? 'left-4' : 'right-4'
-          } ${isExpanded ? 'bg-studio-bg' : 'bg-studio-blue'}`}
+          } ${isExpanded ? 'bg-studio-bg border-2 border-studio-blue' : 'bg-studio-blue'}`}
         >
           <span 
             className={`font-proxima-wide font-bold uppercase text-center leading-tight text-xs transition-colors duration-300 ${
@@ -52,7 +52,7 @@ const MobileWorkItem = ({ project, content, onCategoryClick }) => {
       {/* Info Card - Displayed below image when expanded */}
       <div 
         className={`mt-4 bg-studio-bg p-6 transition-all duration-300 overflow-hidden ${
-          isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         {/* Title */}
