@@ -55,18 +55,18 @@ const HomePage = () => {
       <section 
         className="relative flex items-center justify-center bg-nav-blue py-2 md:py-0"
         style={{ 
-          height: 'clamp(160px, 17.5vw, 210px)'
+          height: 'clamp(280px, 28vw, 320px)'
         }}
       >
         <div className="max-w-screen-xl mx-auto px-4 text-center">
           <div className="flex flex-col items-center max-w-4xl mx-auto">
             <h2 
-              className="text-atelier-heading-mobile md:text-h3 font-proxima-wide uppercase mb-6 md:whitespace-nowrap text-center text-studio-bg"
+              className="text-atelier-heading-mobile md:text-h3 font-proxima-wide uppercase mb-4 md:whitespace-nowrap text-center text-studio-bg"
             >
               {loading ? 'Loading...' : (heroData.atelierTitle || 'ATELIER WIGS BY ROBERT PICKENS')}
             </h2>
             
-            <div className="mb-8 max-w-3xl text-center">
+            <div className="mb-6 max-w-3xl text-center">
               {loading ? (
                 <p className="text-body md:text-body sm:text-atelier-body-mobile font-proxima text-studio-bg">
                   Loading...

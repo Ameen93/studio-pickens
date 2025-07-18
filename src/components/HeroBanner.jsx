@@ -160,7 +160,7 @@ const HeroBanner = () => {
         } : index === 1 ? {
           // Bottom center polaroid - move slightly more left
           bottom: "clamp(-100px, -13.89vw, -200px)",
-          left: "42%"
+          left: "45.2%"
         } : index === 2 ? {
           // Right polaroid - move more right
           bottom: "clamp(40px, 5.56vw, 80px)",
