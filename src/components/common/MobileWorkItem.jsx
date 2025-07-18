@@ -19,7 +19,7 @@ const MobileWorkItem = ({ project, content, onCategoryClick }) => {
         <img
           src={project.mobileImage || project.image || project.src}
           alt={project.alt}
-          className="w-full h-full object-cover rounded-lg shadow-lg"
+          className="w-full h-full object-cover shadow-lg"
           style={{
             objectPosition: (project.mobileImage || project.image || project.src)?.includes('editorial2') || (project.mobileImage || project.image || project.src)?.includes('editorial3') ? 'center top' : 'center center'
           }}

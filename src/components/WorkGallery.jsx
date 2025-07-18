@@ -140,8 +140,8 @@ const WorkGallery = React.memo(({ filter = 'ALL MEDIA', onCategoryClick, project
       title: 'THE WHALE', 
       stylist: 'annemarie bradley', 
       photographer: 'brendan fraser', 
-      date: '2022',
-      labels: { stylist: 'HAIR DESIGNER', photographer: 'CAST', date: 'DATE' }
+      date: 'A24',
+      labels: { stylist: 'HAIR DESIGNER', photographer: 'CAST', date: 'DISTRIBUTED BY' }
     }
   };
 
