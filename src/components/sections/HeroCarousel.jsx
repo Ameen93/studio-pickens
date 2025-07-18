@@ -15,6 +15,9 @@ const HeroCarousel = ({ images, currentSlide, prevSlide, nextSlide, goToSlide })
                 src={image}
                 alt={`Studio Background ${index + 1}`}
                 className="w-full h-full object-cover"
+                style={{
+                  objectPosition: index === 0 ? 'center top' : 'center center'
+                }}
               />
             </div>
           ))}
