@@ -82,13 +82,6 @@ const LocationInfo = React.memo(({
         className={`location-info-box bg-white md:group-hover:bg-studio-blue transition-colors duration-300 pt-8 pr-8 pb-12 pl-12 flex flex-col justify-between relative ${
           isLeft ? 'order-1 md:order-1' : 'order-1 md:order-2'
         }`}
-        style={{
-          height: 'auto',
-          minHeight: '250px',
-          '@media (min-width: 768px)': {
-            height: 'clamp(250px, 50vw, 720px)'
-          }
-        }}
       >
         <div></div>
         
@@ -126,9 +119,6 @@ const LocationInfo = React.memo(({
         className={`location-image bg-gray-200 overflow-hidden ${
           isLeft ? 'order-2 md:order-2' : 'order-2 md:order-1'
         }`}
-        style={{
-          height: 'clamp(250px, 50vw, 720px)'
-        }}
       >
         <img
           src={`${imagePath.startsWith('/') ? imagePath : `/images/locations/${imagePath}`}?cb=${Date.now()}&r=${Math.random()}`}
