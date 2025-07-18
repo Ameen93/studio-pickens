@@ -57,10 +57,22 @@ const ContactForm = () => {
     }
     
     try {
-      // Simulate API call - replace with actual submission logic
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Submit form to Vercel serverless function
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
       
-      // Form submitted successfully - replace with actual API call
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message');
+      }
+      
+      // Form submitted successfully
       setSubmitStatus('success');
       
       // Reset form on success
