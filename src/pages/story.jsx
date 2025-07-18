@@ -120,9 +120,6 @@ const StoryPage = () => {
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
-                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-                    <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2017</span>
-                  </div>
                 </div>
               </div>
               
@@ -142,9 +139,6 @@ const StoryPage = () => {
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
-                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-                    <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2017</span>
-                  </div>
                 </div>
               </div>
               
@@ -165,9 +159,6 @@ const StoryPage = () => {
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
-                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2">
-                    <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2017</span>
-                  </div>
                 </div>
               </div>
               
@@ -267,9 +258,6 @@ const StoryPage = () => {
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
-                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-                    <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2018</span>
-                  </div>
                 </div>
               </div>
             </div>
@@ -372,9 +360,6 @@ const StoryPage = () => {
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
-                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2">
-                    <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2018</span>
-                  </div>
                 </div>
               </div>
               
@@ -493,9 +478,6 @@ const StoryPage = () => {
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
-                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-                    <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2020</span>
-                  </div>
                 </div>
               </div>
               
@@ -515,9 +497,6 @@ const StoryPage = () => {
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
-                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-                    <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2020</span>
-                  </div>
                 </div>
               </div>
               
@@ -538,9 +517,6 @@ const StoryPage = () => {
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
-                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-                    <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2024</span>
-                  </div>
                 </div>
               </div>
               
@@ -561,9 +537,6 @@ const StoryPage = () => {
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
-                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2">
-                    <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2020</span>
-                  </div>
                 </div>
               </div>
               
@@ -665,9 +638,6 @@ const StoryPage = () => {
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
-                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-                    <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2024</span>
-                  </div>
                 </div>
               </div>
               
@@ -688,9 +658,6 @@ const StoryPage = () => {
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
-                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-                    <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2024</span>
-                  </div>
                 </div>
               </div>
 
@@ -797,9 +764,6 @@ const StoryPage = () => {
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
-                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2">
-                    <span className="font-proxima text-studio-blue font-bold" style={{ fontSize: 'clamp(18px, 2vw, 24px)' }}>2024</span>
-                  </div>
                 </div>
               </div>
               
