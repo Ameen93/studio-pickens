@@ -96,7 +96,7 @@ const HeroBanner = () => {
             height: 'clamp(120px, 33.48vw, 241.03px)'
           },
           position: {
-            top: '70%',
+            top: '85%',
             left: '40%'
           },
           rotation: -10.46,
@@ -147,7 +147,7 @@ const HeroBanner = () => {
     <section 
       className="relative bg-studio-bg overflow-visible w-full z-10" 
       style={{ 
-        height: `clamp(${heroData.bannerHeight?.min || 400}px, ${heroData.bannerHeight?.preferred || 45}vw, ${heroData.bannerHeight?.max || 800}px)` 
+        height: `clamp(${heroData.bannerHeight?.min || 600}px, ${heroData.bannerHeight?.preferred || 70}vw, ${heroData.bannerHeight?.max || 1000}px)` 
       }}
     >
       {/* Desktop Background Images */}
@@ -181,7 +181,7 @@ const HeroBanner = () => {
       />
 
       {/* Center Logo */}
-      <div className="absolute inset-0 flex items-center justify-center z-20">
+      <div className="absolute inset-0 flex justify-center z-20" style={{ alignItems: 'center', paddingTop: 'clamp(180px, 35vw, 0px)' }}>
         <div className="text-center transform translate-y-0">
           <img
             src={LOGO_IMAGES.white}

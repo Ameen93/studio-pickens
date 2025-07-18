@@ -71,8 +71,8 @@
     }
   ],
   "bannerHeight": {
-    "min": 400,
-    "preferred": 45,
-    "max": 800
+    "min": 600,
+    "preferred": 70,
+    "max": 1000
   }
 }
