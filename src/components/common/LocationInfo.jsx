@@ -25,7 +25,7 @@ const LocationInfo = React.memo(({
     } else if (location === 'New York') {
       return {
         title: 'Broadway\'s Trusted Wig Makers',
-        description: 'Our New York studio, nestled in the Flatiron District, is a backstage staple for Broadway and live performance. Studio Pickens NYC is deeply rooted in the traditions of theatre, serving as the trusted source for handmade, performance-ready wigs for stage productions of every scale.\n\nWith a keen understanding of durability, design continuity, and the rhythm of live performance, our artists craft wigs that stand up to eight shows a week—transforming performers night after night.'
+        description: 'Our New York studio, nestled in the Flatiron District, is a backstage staple for Broadway and live performance. Studio Pickens NYC is deeply rooted in the traditions of theater, serving as the trusted source for handmade, performance-ready wigs for stage productions of every scale.\n\nWith a keen understanding of durability, design continuity, and the rhythm of live performance, our artists craft wigs that stand up to eight shows a week—transforming performers night after night.'
       };
     }
     return { title: location, description: address };

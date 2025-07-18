@@ -148,7 +148,7 @@ export const WORK_PROJECTS = [
   },
   {
     id: 5,
-    src: `${process.env.PUBLIC_URL}/images/work/theatre.png`,
+    src: `${process.env.PUBLIC_URL}/images/work/theater.png`,
     alt: 'Here We Are',
     left: 625,
     top: 1600,

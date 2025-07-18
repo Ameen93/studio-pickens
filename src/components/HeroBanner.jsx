@@ -7,6 +7,7 @@ import Polaroid from './common/Polaroid';
 const HeroBanner = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [bannerHeight, setBannerHeight] = useState('70vw');
   const { heroData, loading: heroLoading, error: heroError } = useHeroData();
 
   useEffect(() => {
@@ -20,14 +21,49 @@ const HeroBanner = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const calculateHeight = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        // For mobile: start at 125vw at smallest viewport for more height
+        // and gradually increase height as viewport grows
+        const minHeight = width * 1.25; // 125% of width at minimum
+        const maxHeight = window.innerHeight * 1.2; // Up to 120vh
+        const scaleFactor = (width - 320) / (768 - 320); // 0 to 1 as width increases
+        const height = minHeight + (maxHeight - minHeight) * scaleFactor * 0.3;
+        setBannerHeight(`${height}px`);
+      } else {
+        // Desktop: use the configured values
+        setBannerHeight(`clamp(${heroData.bannerHeight?.min || 600}px, ${heroData.bannerHeight?.preferred || 70}vw, ${heroData.bannerHeight?.max || 1000}px)`);
+      }
+    };
+
+    calculateHeight();
+    window.addEventListener('resize', calculateHeight);
+    return () => window.removeEventListener('resize', calculateHeight);
+  }, [heroData]);
+
   const scrollProgress = Math.min(Math.max(scrollY - 80, 0) / 80, 1);
-  const images = heroData.backgroundImages?.map(bg => bg.image) || HERO_IMAGES;
+  
+  // Always use heroData images when available, never fall back to HERO_IMAGES for consistency
+  const desktopImages = heroData.backgroundImages?.map(bg => bg.image) || [];
+  
+  // For mobile, use mobile_1 hero banner.jpg as first image, keep desktop_2 as second
+  const mobileImages = [...desktopImages];
+  if (mobileImages.length > 0) {
+    mobileImages[0] = '/images/hero/mobile_1 hero banner.jpg';
+  }
+  
+  // If hero data hasn't loaded yet, don't render the carousel
+  const hasImages = desktopImages.length > 0;
+  
+  
   const { 
     currentIndex: currentSlide, 
     goToNext: nextSlide, 
     goToPrevious: prevSlide, 
     goToSlide 
-  } = useCarousel(images, { autoPlayInterval: 4000 });
+  } = useCarousel(mobileImages, { autoPlayInterval: 4000 });
 
   // Generate polaroid configurations from heroData
   const polaroidConfigs = heroData.polaroids?.map((polaroid, index) => {
@@ -147,12 +183,13 @@ const HeroBanner = () => {
     <section 
       className="relative bg-studio-bg overflow-visible w-full z-10" 
       style={{ 
-        height: `clamp(${heroData.bannerHeight?.min || 600}px, ${heroData.bannerHeight?.preferred || 70}vw, ${heroData.bannerHeight?.max || 1000}px)` 
+        height: bannerHeight
       }}
     >
       {/* Desktop Background Images */}
-      <div className="absolute inset-0 hidden md:flex">
-        {heroData.backgroundImages?.map((bgImage, index) => (
+      {hasImages && (
+        <div className="absolute inset-0 hidden md:flex">
+          {heroData.backgroundImages?.map((bgImage, index) => (
           <div key={index} className="w-1/2 h-full relative overflow-hidden">
             <img
               src={bgImage.image}
@@ -168,20 +205,23 @@ const HeroBanner = () => {
               }}
             />
           </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
-      {/* Mobile Carousel */}
-      <HeroCarousel 
-        images={images}
-        currentSlide={currentSlide}
-        prevSlide={prevSlide}
-        nextSlide={nextSlide}
-        goToSlide={goToSlide}
-      />
+      {/* Mobile Carousel - Only render when images are loaded */}
+      {hasImages && (
+        <HeroCarousel 
+          images={mobileImages}
+          currentSlide={currentSlide}
+          prevSlide={prevSlide}
+          nextSlide={nextSlide}
+          goToSlide={goToSlide}
+        />
+      )}
 
       {/* Center Logo */}
-      <div className="absolute inset-0 flex justify-center z-20" style={{ alignItems: 'center', paddingTop: 'clamp(180px, 35vw, 0px)' }}>
+      <div className="absolute inset-0 flex justify-center items-center z-20">
         <div className="text-center transform translate-y-0">
           <img
             src={LOGO_IMAGES.white}

@@ -82,13 +82,13 @@ const HomePage = () => {
               )}
             </div>
             
-            <Button 
+            {/* <Button 
               href="/atelier-wigs" 
               variant="link"
               className="text-button-link md:text-button-link sm:text-atelier-link-mobile font-proxima-semibold"
             >
               LEARN MORE
-            </Button>
+            </Button> */}
           </div>
         </div>
       </section>
