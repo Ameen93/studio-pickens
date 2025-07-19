@@ -125,10 +125,21 @@ jwt-secret.txt
 # Debug and testing files
 debug-*.html
 debug-*.js
+debug-*.mjs
 test-*.js
+test-*.mjs
 test-*.html
 *-test.js
 validate-*.js
+decode-auth.*
+final-test.*
+package-test.json
+
+# Gmail SMTP setup documentation (contains sensitive info)
+GMAIL_SMTP_SETUP.md
+
+# Local Vercel testing
+test-vercel-local.*
 
 # Temporary API testing files
 /tmp/
