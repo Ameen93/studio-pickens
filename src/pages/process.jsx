@@ -1,11 +1,12 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import { ANIMATIONS } from '../constants/animations';
-import { useProcessData } from '../hooks';
+import { useProcessData, useHeroData } from '../hooks';
 import PageBanner from '../components/common/PageBanner';
 
 const ProcessPage = () => {
   const { processData, loading, error } = useProcessData();
+  const { heroData, loading: heroLoading } = useHeroData();
 
   return (
     <Layout title="Studio Pickens - Process">
@@ -21,16 +22,39 @@ const ProcessPage = () => {
           altText="Process banner background"
           objectFit="contain"
           height="clamp(700px, 70vw, 1200px)"
-          className="-mt-16"
+          className="-mt-16 -mb-24 lg:-mb-32"
           transform={processData.banner.transform}
         >
           {/* Rotating Dashed Circle */}
-          <div className="absolute w-full flex justify-center z-10" style={{ top: '50%', transform: 'translateY(-50%)' }}>
+          <div className="absolute w-full flex justify-center z-10 top-[42%] lg:top-1/2 -translate-y-1/2">
+            {/* Mobile Circle */}
             <svg 
-              className="animate-spin"
+              className="animate-spin lg:hidden"
               style={{
-                width: `clamp(342px, ${70 * (processData.banner.circle?.size?.scale || 1)}vw, ${513 * (processData.banner.circle?.size?.scale || 1)}px)`,
-                height: `clamp(342px, ${70 * (processData.banner.circle?.size?.scale || 1)}vw, ${513 * (processData.banner.circle?.size?.scale || 1)}px)`,
+                width: '342px',
+                height: '342px',
+                flexShrink: 0,
+                animationDuration: '60s',
+                animationTimingFunction: 'linear',
+                animationIterationCount: 'infinite'
+              }}
+            >
+              <circle
+                cx="50%"
+                cy="50%"
+                r="calc(50% - 1px)"
+                fill="none"
+                stroke="#08249F"
+                strokeWidth="1"
+                strokeDasharray="10 10"
+              />
+            </svg>
+            {/* Desktop Circle (10% larger) */}
+            <svg 
+              className="animate-spin hidden lg:block"
+              style={{
+                width: `clamp(376px, ${77 * (processData.banner.circle?.size?.scale || 1)}vw, ${564 * (processData.banner.circle?.size?.scale || 1)}px)`,
+                height: `clamp(376px, ${77 * (processData.banner.circle?.size?.scale || 1)}vw, ${564 * (processData.banner.circle?.size?.scale || 1)}px)`,
                 animationDuration: '60s',
                 animationTimingFunction: 'linear',
                 animationIterationCount: 'infinite'
@@ -49,10 +73,16 @@ const ProcessPage = () => {
           </div>
 
           {/* Center Content */}
-          <div className="text-center z-20" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-            <h1 className="font-proxima-wide font-bold text-studio-blue uppercase" style={{ fontSize: `clamp(32px, ${55 * (processData.banner.heading?.size?.scale || 1) * 100 / 1920}vw, ${80 * (processData.banner.heading?.size?.scale || 1)}px)` }}>
-              {processData.banner.title}
-            </h1>
+          <div className="text-center z-20 absolute top-[42%] lg:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <h2 className="font-proxima-wide uppercase text-center" style={{ 
+              color: '#08249F',
+              fontWeight: 600,
+              lineHeight: '100%',
+              letterSpacing: '1.44px'
+            }}>
+              <span className="lg:hidden" style={{ fontSize: '48px' }}>{processData.banner.title}</span>
+              <span className="hidden lg:inline" style={{ fontSize: `clamp(48px, ${82.5 * (processData.banner.heading?.size?.scale || 1) * 100 / 1920}vw, ${120 * (processData.banner.heading?.size?.scale || 1)}px)` }}>{processData.banner.title}</span>
+            </h2>
             {processData.banner.subtitle && (
               <p className="font-proxima text-studio-blue mt-4" style={{ fontSize: '18px' }}>
                 {processData.banner.subtitle}
@@ -61,6 +91,49 @@ const ProcessPage = () => {
           </div>
         </PageBanner>
       )}
+
+      {/* Our Approach Section - Top */}
+      <section 
+        className="relative flex items-center justify-center bg-nav-blue py-20 md:py-0 min-h-[280px] md:h-[clamp(280px,28vw,320px)]"
+      >
+        <div className="max-w-screen-xl mx-auto px-4 text-center">
+          <div className="flex flex-col items-center max-w-4xl mx-auto">
+            <h2 className="font-proxima-wide uppercase text-center mb-4 md:whitespace-nowrap">
+              <span 
+                className="md:hidden"
+                style={{
+                  color: '#F8F7F7',
+                  fontSize: '28px',
+                  fontWeight: 600,
+                  lineHeight: '107%',
+                  letterSpacing: '0.84px'
+                }}
+              >
+                Our Approach
+              </span>
+              <span className="hidden md:inline text-atelier-heading-mobile md:text-h3 text-studio-bg">
+                Our Approach
+              </span>
+            </h2>
+            
+            <div className="mb-6 max-w-3xl text-center">
+              {/* Desktop: single paragraph */}
+              <p className="hidden md:block text-body font-proxima text-studio-bg">
+                Each piece begins with a custom, hand-stitched foundation, contoured to the client's head. Every strand is knotted by hand, following natural growth patterns – cowlicks, baby hairs, and all. Hair is drawn to length, texturized without chemicals, and colored in-house when needed. The cuticle stays intact for unmatched realism and longevity.
+              </p>
+              {/* Mobile: two paragraphs */}
+              <div className="md:hidden">
+                <p className="text-atelier-body-mobile font-proxima text-studio-bg mb-3">
+                  Each piece begins with a custom, hand-stitched foundation, contoured to the client's head.
+                </p>
+                <p className="text-atelier-body-mobile font-proxima text-studio-bg">
+                  Every strand is knotted by hand, following natural growth patterns – cowlicks, baby hairs, and all. Hair is drawn to length, texturized without chemicals, and colored in-house when needed. The cuticle stays intact for unmatched realism and longevity.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Process Gallery Section */}
       <section className="pt-16 pb-10 px-4 md:px-10 max-w-full mx-auto">
@@ -90,9 +163,15 @@ const ProcessPage = () => {
                     }}
                   />
                 </div>
-                <div className={`w-full lg:w-[45%] ${step.alignment === 'right' ? 'lg:pr-3' : 'lg:pl-3'} lg:order-2 order-1 lg:text-left text-center`}>
+                <div className={`w-full lg:w-[45%] ${step.alignment === 'right' ? 'lg:pr-3' : 'lg:pl-3'} lg:order-2 order-1 lg:text-left text-center px-4 lg:px-0`}>
                   <h2 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: '24px' }}>
-                    <span className="lg:hidden">{step.title}</span>
+                    <span className="lg:hidden">
+                      {step.id === 1 ? (
+                        <>90% science.<br />10% wigmaking.<br />100% precision.</>
+                      ) : (
+                        step.title
+                      )}
+                    </span>
                     <span className="hidden lg:inline">{step.title}</span>
                   </h2>
                   <p className="font-proxima text-studio-blue leading-relaxed" style={{ fontSize: '16px' }}>
@@ -104,24 +183,65 @@ const ProcessPage = () => {
         )}
       </section>
 
+      {/* Thoughtfully Sourced Section - Before Polaroid Carousel */}
+      <section 
+        className="relative flex items-center justify-center bg-nav-blue py-20 md:py-0 min-h-[280px] md:h-[clamp(280px,28vw,320px)]"
+      >
+        <div className="max-w-screen-xl mx-auto px-4 text-center">
+          <div className="flex flex-col items-center max-w-4xl mx-auto">
+            <h2 className="font-proxima-wide uppercase text-center mb-4 md:whitespace-nowrap">
+              <span 
+                className="md:hidden"
+                style={{
+                  color: '#F8F7F7',
+                  fontSize: '28px',
+                  fontWeight: 600,
+                  lineHeight: '107%',
+                  letterSpacing: '0.84px'
+                }}
+              >
+                Thoughtfully Sourced
+              </span>
+              <span className="hidden md:inline text-atelier-heading-mobile md:text-h3 text-studio-bg">
+                Thoughtfully Sourced
+              </span>
+            </h2>
+            
+            <div className="mb-6 max-w-3xl text-center">
+              {/* Desktop: single paragraph */}
+              <p className="hidden md:block text-body font-proxima text-studio-bg">
+                We source hair directly from its country of origin—based on the client's desired texture and tone. Each bundle is hand-selected for quality and character. Nothing is off-the-shelf. Every strand is chosen with purpose, built with precision, and finished to perfection.
+              </p>
+              {/* Mobile: two paragraphs */}
+              <div className="md:hidden">
+                <p className="text-atelier-body-mobile font-proxima text-studio-bg mb-3">
+                  We source hair directly from its country of origin—based on the client's desired texture and tone.
+                </p>
+                <p className="text-atelier-body-mobile font-proxima text-studio-bg">
+                  Each bundle is hand-selected for quality and character. Nothing is off-the-shelf. Every strand is chosen with purpose, built with precision, and finished to perfection.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Polaroid Carousel Section */}
-      <section className="py-16 bg-studio-bg overflow-hidden">
+      <section className="pt-16 pb-0 bg-studio-bg overflow-hidden">
         <div className="relative">
           <div className="flex animate-scroll space-x-8 hover:pause-animation">
             {/* First set of polaroids */}
             <div className="flex space-x-8 flex-shrink-0">
               {[
-                'polaroid1.png', 'polaroid2.png', 'polaroid3.png', 'polaroid4.JPG',
-                'polaroid5.JPG', 'polaroid6.JPG', 'polaroid7.JPG', 'polaroid8.JPG',
-                'polaroid9.JPG', 'polaroid10.JPG', 'polaroid11.JPG', 'polaroid12.JPG', 'polaroid13.JPG'
+                'process-polaroid1.png', 'process-polaroid2.png', 'process-polaroid3.png', 'process-polaroid4.png',
+                'process-polaroid5.png', 'process-polaroid6.png', 'process-polaroid7.png', 'process-polaroid8.png'
               ].map((filename, index) => {
-                const isHorizontal = filename === 'polaroid1.png' || filename === 'polaroid3.png';
                 return (
                   <div key={`polaroid-${index}`} className="flex-shrink-0 w-48 flex justify-center items-center">
                     <img
-                      src={`${process.env.PUBLIC_URL}/images/polaroids/${filename}`}
-                      alt={`Polaroid ${index + 1}`}
-                      className={`h-64 w-auto object-contain ${isHorizontal ? 'rotate-90' : ''}`}
+                      src={`${process.env.PUBLIC_URL}/images/process/polaroids/${filename}`}
+                      alt={`Process Polaroid ${index + 1}`}
+                      className="h-64 w-auto object-contain"
                     />
                   </div>
                 );
@@ -130,17 +250,15 @@ const ProcessPage = () => {
             {/* Duplicate set for seamless loop */}
             <div className="flex space-x-8 flex-shrink-0">
               {[
-                'polaroid1.png', 'polaroid2.png', 'polaroid3.png', 'polaroid4.JPG',
-                'polaroid5.JPG', 'polaroid6.JPG', 'polaroid7.JPG', 'polaroid8.JPG',
-                'polaroid9.JPG', 'polaroid10.JPG', 'polaroid11.JPG', 'polaroid12.JPG', 'polaroid13.JPG'
+                'process-polaroid1.png', 'process-polaroid2.png', 'process-polaroid3.png', 'process-polaroid4.png',
+                'process-polaroid5.png', 'process-polaroid6.png', 'process-polaroid7.png', 'process-polaroid8.png'
               ].map((filename, index) => {
-                const isHorizontal = filename === 'polaroid1.png' || filename === 'polaroid3.png';
                 return (
                   <div key={`polaroid-duplicate-${index}`} className="flex-shrink-0 w-48 flex justify-center items-center">
                     <img
-                      src={`${process.env.PUBLIC_URL}/images/polaroids/${filename}`}
-                      alt={`Polaroid ${index + 1}`}
-                      className={`h-64 w-auto object-contain ${isHorizontal ? 'rotate-90' : ''}`}
+                      src={`${process.env.PUBLIC_URL}/images/process/polaroids/${filename}`}
+                      alt={`Process Polaroid ${index + 1}`}
+                      className="h-64 w-auto object-contain"
                     />
                   </div>
                 );
@@ -149,17 +267,15 @@ const ProcessPage = () => {
             {/* Third set for seamless loop */}
             <div className="flex space-x-8 flex-shrink-0">
               {[
-                'polaroid1.png', 'polaroid2.png', 'polaroid3.png', 'polaroid4.JPG',
-                'polaroid5.JPG', 'polaroid6.JPG', 'polaroid7.JPG', 'polaroid8.JPG',
-                'polaroid9.JPG', 'polaroid10.JPG', 'polaroid11.JPG', 'polaroid12.JPG', 'polaroid13.JPG'
+                'process-polaroid1.png', 'process-polaroid2.png', 'process-polaroid3.png', 'process-polaroid4.png',
+                'process-polaroid5.png', 'process-polaroid6.png', 'process-polaroid7.png', 'process-polaroid8.png'
               ].map((filename, index) => {
-                const isHorizontal = filename === 'polaroid1.png' || filename === 'polaroid3.png';
                 return (
                   <div key={`polaroid-triple-${index}`} className="flex-shrink-0 w-48 flex justify-center items-center">
                     <img
-                      src={`${process.env.PUBLIC_URL}/images/polaroids/${filename}`}
-                      alt={`Polaroid ${index + 1}`}
-                      className={`h-64 w-auto object-contain ${isHorizontal ? 'rotate-90' : ''}`}
+                      src={`${process.env.PUBLIC_URL}/images/process/polaroids/${filename}`}
+                      alt={`Process Polaroid ${index + 1}`}
+                      className="h-64 w-auto object-contain"
                     />
                   </div>
                 );
@@ -185,58 +301,71 @@ const ProcessPage = () => {
       <section className="py-16 px-4 max-w-6xl mx-auto relative" style={{ minHeight: '800px' }}>
         {/* Decorative Circles - fixed position */}
         <div className="absolute inset-0 pointer-events-none z-20">
-          <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ 
-            top: processData.teamCircles?.position?.top || '340px'
-          }}>
+          <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[300px] lg:top-[340px]">
             {/* Small circle */}
-            <div className="absolute rounded-full border-studio-blue lg:hidden" style={{ 
-              width: `${(220 * (processData.teamCircles?.size?.scale || 1))}px`, 
-              height: `${(220 * (processData.teamCircles?.size?.scale || 1))}px`,
-              borderWidth: `${processData.teamCircles?.strokeWidth || 2}px`,
+            <div className="absolute rounded-full lg:hidden" style={{ 
+              width: '207px',
+              height: '207px',
+              flexShrink: 0,
+              borderWidth: '1px',
+              borderStyle: 'solid',
+              borderColor: '#08249F',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
             }}></div>
-            <div className="hidden lg:block absolute rounded-full border-studio-blue" style={{ 
-              width: `${(280 * (processData.teamCircles?.size?.scale || 1))}px`, 
-              height: `${(280 * (processData.teamCircles?.size?.scale || 1))}px`,
-              borderWidth: `${processData.teamCircles?.strokeWidth || 2}px`,
+            <div className="hidden lg:block absolute rounded-full" style={{ 
+              width: `clamp(236px, ${236 * 100 / 1920}vw, ${236 * 1.5}px)`, 
+              height: `clamp(236px, ${236 * 100 / 1920}vw, ${236 * 1.5}px)`,
+              borderWidth: '1.5px',
+              borderStyle: 'solid',
+              borderColor: '#08249F',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
             }}></div>
             
             {/* Medium circle */}
-            <div className="absolute rounded-full border-studio-blue lg:hidden" style={{ 
-              width: `${(220 + (processData.teamCircles?.gap || 20) * 2) * (processData.teamCircles?.size?.scale || 1)}px`, 
-              height: `${(220 + (processData.teamCircles?.gap || 20) * 2) * (processData.teamCircles?.size?.scale || 1)}px`,
-              borderWidth: `${processData.teamCircles?.strokeWidth || 2}px`,
+            <div className="absolute rounded-full lg:hidden" style={{ 
+              width: '264px',
+              height: '264px',
+              flexShrink: 0,
+              borderWidth: '1px',
+              borderStyle: 'solid',
+              borderColor: '#08249F',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
             }}></div>
-            <div className="hidden lg:block absolute rounded-full border-studio-blue" style={{ 
-              width: `${(280 + (processData.teamCircles?.gap || 20) * 2) * (processData.teamCircles?.size?.scale || 1)}px`, 
-              height: `${(280 + (processData.teamCircles?.gap || 20) * 2) * (processData.teamCircles?.size?.scale || 1)}px`,
-              borderWidth: `${processData.teamCircles?.strokeWidth || 2}px`,
+            <div className="hidden lg:block absolute rounded-full" style={{ 
+              width: `clamp(306.92px, ${306.92 * 100 / 1920}vw, ${306.92 * 1.5}px)`, 
+              height: `clamp(306.92px, ${306.92 * 100 / 1920}vw, ${306.92 * 1.5}px)`,
+              borderWidth: '1.5px',
+              borderStyle: 'solid',
+              borderColor: '#08249F',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
             }}></div>
             
             {/* Large circle */}
-            <div className="absolute rounded-full border-studio-blue lg:hidden" style={{ 
-              width: `${(220 + (processData.teamCircles?.gap || 20) * 4) * (processData.teamCircles?.size?.scale || 1)}px`, 
-              height: `${(220 + (processData.teamCircles?.gap || 20) * 4) * (processData.teamCircles?.size?.scale || 1)}px`,
-              borderWidth: `${processData.teamCircles?.strokeWidth || 2}px`,
+            <div className="absolute rounded-full lg:hidden" style={{ 
+              width: '326px',
+              height: '326px',
+              flexShrink: 0,
+              borderWidth: '1px',
+              borderStyle: 'solid',
+              borderColor: '#08249F',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
             }}></div>
-            <div className="hidden lg:block absolute rounded-full border-studio-blue" style={{ 
-              width: `${(280 + (processData.teamCircles?.gap || 20) * 4) * (processData.teamCircles?.size?.scale || 1)}px`, 
-              height: `${(280 + (processData.teamCircles?.gap || 20) * 4) * (processData.teamCircles?.size?.scale || 1)}px`,
-              borderWidth: `${processData.teamCircles?.strokeWidth || 2}px`,
+            <div className="hidden lg:block absolute rounded-full" style={{ 
+              width: `clamp(377px, ${377 * 100 / 1920}vw, ${377 * 1.5}px)`, 
+              height: `clamp(377px, ${377 * 100 / 1920}vw, ${377 * 1.5}px)`,
+              borderWidth: '1.5px',
+              borderStyle: 'solid',
+              borderColor: '#08249F',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)'
@@ -247,8 +376,22 @@ const ProcessPage = () => {
         {/* Content */}
         <div className="relative z-0">
           {/* Title */}
-          <h1 className="font-proxima-wide font-bold text-studio-blue uppercase text-center lg:text-left mb-12 text-[32px] lg:text-[64px]" style={{ lineHeight: '1.1' }}>
-            meet our<br />inner circle
+          <h1 className="font-proxima-wide font-bold uppercase text-center lg:text-left mb-12 relative top-6">
+            <span 
+              className="lg:hidden"
+              style={{
+                color: '#08249F',
+                fontSize: '32px',
+                fontWeight: 700,
+                lineHeight: '110%',
+                letterSpacing: '0.96px'
+              }}
+            >
+              meet our<br />inner circle
+            </span>
+            <span className="hidden lg:inline text-studio-blue text-[64px]" style={{ lineHeight: '1.1' }}>
+              meet our<br />inner circle
+            </span>
           </h1>
           
           {/* Images and Subheading */}
@@ -271,8 +414,21 @@ const ProcessPage = () => {
 
             {/* Center Subheading */}
             <div className="lg:w-1/4 text-center lg:relative lg:static absolute lg:top-auto lg:left-auto top-[220px] left-1/2 lg:transform-none -translate-x-1/2 -translate-y-1/2 lg:z-auto z-30" style={{ paddingTop: '30px' }}>
-              <p className="font-proxima text-studio-blue text-center uppercase" style={{ fontWeight: 600, fontSize: '24px', lineHeight: '125%', letterSpacing: '4%' }}>
-                The trusted<br />hands behind<br />every strand.
+              <p className="font-proxima text-center uppercase">
+                <span 
+                  className="lg:hidden"
+                  style={{
+                    color: '#08249F',
+                    fontSize: '24px',
+                    fontWeight: 500,
+                    lineHeight: '110%'
+                  }}
+                >
+                  The trusted<br />hands behind<br />every strand.
+                </span>
+                <span className="hidden lg:inline text-studio-blue" style={{ fontWeight: 600, fontSize: '24px', lineHeight: '125%', letterSpacing: '4%' }}>
+                  The trusted<br />hands behind<br />every strand.
+                </span>
               </p>
             </div>
 

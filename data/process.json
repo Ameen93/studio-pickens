@@ -28,17 +28,17 @@
   "processSteps": [
     {
       "id": 1,
-      "title": "90% science / 10% wigmaking",
-      "description": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.",
+      "title": "90% science. 10% wigmaking. 100% precision.",
+      "description": "Behind every effortless look is a refined process. At Studio Pickens, technical mastery meets personal artistry—because no two heads (or stories) are alike.",
       "image": "/images/process/process-page2.jpg",
-      "alt": "90% science / 10% wigmaking",
+      "alt": "90% science. 10% wigmaking. 100% precision.",
       "alignment": "left",
       "order": 1
     },
     {
       "id": 2,
       "title": "Consultation",
-      "description": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.",
+      "description": "We begin with you. A deep-dive into your needs, lifestyle, and look. Expect questions. And good ones.",
       "image": "/images/process/process-page3.jpg",
       "alt": "Consultation",
       "alignment": "right",
@@ -46,31 +46,31 @@
     },
     {
       "id": 3,
-      "title": "mapping the head",
-      "description": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.",
+      "title": "Mapping the Head",
+      "description": "This is where the science comes in. Every contour is captured for a flawless, custom fit – no shortcuts, no guesswork.",
       "image": "/images/process/process-page4.jpg",
-      "alt": "mapping the head",
+      "alt": "Mapping the Head",
       "alignment": "left",
       "order": 3
     },
     {
       "id": 4,
-      "title": "treatment",
-      "description": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.",
+      "title": "Artistry",
+      "description": "We tailor the foundation, and tie each hair by hand. Comfort and longevity are built in from the ground up.",
       "image": "/images/process/process-page5.jpg",
-      "alt": "treatment",
+      "alt": "Artistry",
       "alignment": "right",
       "order": 4
     },
     {
       "id": 5,
-      "title": "approval",
-      "description": "Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.",
+      "title": "Refinement",
+      "description": "You see it. You feel it. You sign off when it's perfect.",
       "image": "/images/process/process-page6.png",
-      "alt": "approval",
+      "alt": "Refinement",
       "alignment": "left",
       "order": 5
     }
   ],
-  "updatedAt": "2025-07-17T13:25:07.631Z"
+  "updatedAt": "2025-07-19T12:00:00.000Z"
 }

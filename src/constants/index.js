@@ -28,15 +28,19 @@ export const CONTACT_INFO = {
 export const NAVIGATION_LINKS = {
   left: [
     { name: 'WORK', href: '/work' },
-    { name: 'LOCATIONS', href: '/locations' }
+    { name: 'PROCESS', href: '/process' },
+    { name: 'STORY', href: '/story' }
   ],
   right: [
+    { name: 'LOCATIONS', href: '/locations' },
     { name: 'CONTACT', href: '/contact' },
     { name: 'FAQ', href: '/faq' }
   ],
   // All links combined for footer use
   all: [
     { name: 'WORK', href: '/work' },
+    { name: 'PROCESS', href: '/process' },
+    { name: 'STORY', href: '/story' },
     { name: 'LOCATIONS', href: '/locations' },
     { name: 'CONTACT', href: '/contact' },
     { name: 'FAQ', href: '/faq' }
