@@ -171,7 +171,7 @@ const StoryPage = () => {
                   transform: 'translate(50%, -50%) rotate(-8.79deg)'
                 }}
               >
-                <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px' }}>process</span>
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px' }}>always in the wings</span>
               </div>
               
               {/* Process 2017 text at 1:20 - Desktop Position */}
@@ -183,7 +183,7 @@ const StoryPage = () => {
                   transform: 'translate(50%, -50%)'
                 }}
               >
-                <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)' }}>process</span>
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)' }}>always in the wings</span>
               </div>
               
               {/* Word of mouth spreads text at 7:20 */}
@@ -196,8 +196,8 @@ const StoryPage = () => {
                 }}
               >
                 <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.3' }}>word of mouth</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.3' }}>spreads</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.3' }}>first obsessions</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.3' }}>never leave</span>
                 </div>
               </div>
               
@@ -285,13 +285,15 @@ const StoryPage = () => {
                 }}
               >
                 {/* Circle Content */}
-                <div className="flex flex-col items-center justify-center text-center px-6 max-w-lg">
-                  <h3 className="font-proxima-wide font-bold text-studio-blue uppercase text-center mb-4" style={{ fontSize: 'clamp(24px, 5vw, 30px)', lineHeight: '1.1' }}>
-                    The Art of<br />Figuring It Out
-                  </h3>
-                  <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
-                    Robert learned the craft the old-fashioned way: from out-of-print manuals and archival literature. His technique sharpened over time and his skills were later refined alongside some of the industry's most admired artists.
-                  </p>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="flex flex-col items-center justify-center text-center px-6 max-w-lg">
+                    <h3 className="font-proxima-wide font-bold text-studio-blue uppercase text-center mb-4" style={{ fontSize: 'clamp(24px, 5vw, 30px)', lineHeight: '1.1' }}>
+                      The Art of<br />Figuring It Out
+                    </h3>
+                    <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
+                      Robert learned the craft the old-fashioned way: from out-of-print manuals and archival literature. His technique sharpened over time and his skills were later refined alongside some of the industry's most admired artists.
+                    </p>
+                  </div>
                 </div>
               </div>
               
@@ -299,12 +301,15 @@ const StoryPage = () => {
               <div 
                 className="absolute whitespace-nowrap"
                 style={{
-                  bottom: '5%',
-                  left: '65%',
+                  bottom: '15%',
+                  left: '70%',
                   transform: 'translate(-50%, 50%) rotate(7.56deg)'
                 }}
               >
-                <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)' }}>first milestone order</span>
+                <div className="flex flex-col items-center">
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.5' }}>muscle memory</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.5' }}>led the way</span>
+                </div>
               </div>
             </div>
           </div>
@@ -383,8 +388,8 @@ const StoryPage = () => {
                 }}
               >
                 <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>word of mouth</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>spreads</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>first obsessions</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>never leave</span>
                 </div>
               </div>
               
@@ -569,7 +574,10 @@ const StoryPage = () => {
               {/* Center Content - positioned absolutely to avoid rotation */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center text-center px-6 max-w-lg">
-                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 3.5vw, 24px)', lineHeight: '1.1' }}>
+                  <h3 className="hidden md:block font-proxima-wide font-bold text-studio-blue uppercase text-center mb-4" style={{ fontSize: 'clamp(24px, 5vw, 30px)', lineHeight: '1.1' }}>
+                    The First Studio:<br />Beverly Hills
+                  </h3>
+                  <h5 className="md:hidden font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 3.5vw, 24px)', lineHeight: '1.1' }}>
                     The First Studio:<br />Beverly Hills
                   </h5>
                   <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
@@ -626,8 +634,8 @@ const StoryPage = () => {
                 }}
               >
                 <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.3' }}>requested by</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.3' }}>name</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.5' }}>broadway needed</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.5' }}>its own</span>
                 </div>
               </div>
 
@@ -792,11 +800,11 @@ const StoryPage = () => {
                 className="absolute whitespace-nowrap"
                 style={{
                   top: '50%',
-                  right: '25%',
-                  transform: 'translate(50%, -50%) rotate(5deg)'
+                  right: '14%',
+                  transform: 'translate(50%, -50%)'
                 }}
               >
-                <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)' }}>first milestone order</span>
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)' }}>seamless under pressure</span>
               </div>
             </div>
           </div>
@@ -813,13 +821,15 @@ const StoryPage = () => {
                 }}
               >
                 {/* Circle Content */}
-                <div className="flex flex-col items-center justify-center text-center px-6 max-w-lg">
-                  <h3 className="font-proxima-wide font-bold text-studio-blue uppercase text-center mb-4" style={{ fontSize: 'clamp(24px, 5vw, 30px)', lineHeight: '1.1' }}>
-                    Broadway Calls,<br />Again
-                  </h3>
-                  <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
-                    As the clientele moved from screen to stage, their hair teams followed. Studio Pickens NYC expanded to meet the moment — crafting performance-ready wigs built for quick changes, strong lighting, and eight-show weeks.
-                  </p>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="flex flex-col items-center justify-center text-center px-6 max-w-lg">
+                    <h3 className="font-proxima-wide font-bold text-studio-blue uppercase text-center mb-4" style={{ fontSize: 'clamp(24px, 5vw, 30px)', lineHeight: '1.1' }}>
+                      Broadway Calls,<br />Again
+                    </h3>
+                    <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
+                      As the clientele moved from screen to stage, their hair teams followed. Studio Pickens NYC expanded to meet the moment — crafting performance-ready wigs built for quick changes, strong lighting, and eight-show weeks.
+                    </p>
+                  </div>
                 </div>
               </div>
               
@@ -871,6 +881,18 @@ const StoryPage = () => {
                 />
               </svg>
               
+              {/* Full feature text above left polaroid */}
+              <div 
+                className="absolute"
+                style={{
+                  top: '20%',
+                  left: '15%',
+                  transform: 'translate(-50%, -50%)'
+                }}
+              >
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)' }}>full feature</span>
+              </div>
+              
               {/* Polaroid at 9:15 - Desktop Only */}
               <div 
                 className="absolute"
@@ -914,7 +936,10 @@ const StoryPage = () => {
               {/* Center Content - positioned absolutely to avoid rotation */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center text-center px-6 max-w-lg">
-                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 3.5vw, 24px)', lineHeight: '1.1' }}>
+                  <h3 className="hidden md:block font-proxima-wide font-bold text-studio-blue uppercase text-center mb-4" style={{ fontSize: 'clamp(24px, 5vw, 30px)', lineHeight: '1.1' }}>
+                    In the Press
+                  </h3>
+                  <h5 className="md:hidden font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 3.5vw, 24px)', lineHeight: '1.1' }}>
                     In the Press
                   </h5>
                   <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
@@ -937,7 +962,7 @@ const StoryPage = () => {
                 }}
               >
                 {/* Circle Content */}
-                <div className="flex flex-col items-center justify-center text-center px-6" style={{ maxWidth: 'calc(48rem * 0.9)' }}>
+                <div className="flex flex-col items-center justify-center text-center px-6 max-w-lg">
                   <h3 className="font-proxima-wide font-bold text-studio-blue uppercase text-center mb-4" style={{ fontSize: 'clamp(24px, 5vw, 30px)', lineHeight: '1.1' }}>
                     Still Personal with Precision
                   </h3>
@@ -957,8 +982,8 @@ const StoryPage = () => {
                 }}
               >
                 <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.3' }}>requested by</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.3' }}>name</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.5' }}>every detail</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.5' }}>deliberate</span>
                 </div>
               </div>
 
@@ -1013,8 +1038,8 @@ const StoryPage = () => {
                 }}
               >
                 <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.3' }}>custom visions</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.3' }}>and requests</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.5' }}>the right piece</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.5' }}>begins here</span>
                 </div>
               </div>
               
