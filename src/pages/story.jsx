@@ -938,26 +938,19 @@ const StoryPage = () => {
               <div 
                 className="absolute"
                 style={{
-                  bottom: '5%',
+                  bottom: '-2%',
                   left: '50%',
                   transform: 'translate(-50%, 50%)',
                   zIndex: 10
                 }}
               >
                 <div className="relative">
-                  <a 
-                    href="https://www.allure.com/story/ana-de-armas-marilyn-monroe-blonde-transformation?fbclid=PAZXh0bgNhZW0CMTEAAacQMyTFpVUk_FiqRdYa9Kfq1VVVxx-surm1lHgFmJo5oYccYXsOodFM937HDw_aem_4ocuWdFcsaSXpW_QH6870g"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block hover:opacity-80 transition-opacity duration-300"
-                  >
-                    <img
-                      src={`${process.env.PUBLIC_URL}/images/story/story-polaroid11.png`}
-                      alt="Story Polaroid 11"
-                      className="h-auto object-contain"
-                      style={{ width: 'clamp(160px, 16vw, 320px)' }}
-                    />
-                  </a>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/story/story-polaroid10.png`}
+                    alt="Story Polaroid 10"
+                    className="h-auto object-contain"
+                    style={{ width: 'clamp(160px, 16vw, 320px)' }}
+                  />
                 </div>
               </div>
               
@@ -965,8 +958,8 @@ const StoryPage = () => {
               <div 
                 className="absolute text-center"
                 style={{
-                  top: '18%',
-                  left: '65%',
+                  top: '16%',
+                  left: '60%',
                   transform: 'translate(-50%, -50%)',
                   width: '200px'
                 }}
@@ -993,6 +986,13 @@ const StoryPage = () => {
 
           {/* Ninth Circle - Desktop version (matching rotating circles) */}
           <div className="circle9-new-container w-full hidden md:block" style={{ marginTop: 'clamp(-100px, -15vw, -150px)', display: 'flex', justifyContent: 'center', position: 'relative', left: '50%', transform: 'translateX(-50%)' }}>
+            <style jsx>{`
+              @media (max-width: 768px) {
+                .circle9-new-container {
+                  display: none !important;
+                }
+              }
+            `}</style>
             <div className="relative flex items-center justify-center">
               {/* Layout Container */}
               <div 
@@ -1242,99 +1242,7 @@ const StoryPage = () => {
           </div>
 
           {/* Circle 11 - Dashed circle with In the Press content (mobile only) */}
-          <div className="circle11-mobile-container flex justify-center w-full md:hidden" style={{ marginTop: '-60px' }}>
-            <div className="relative flex items-center justify-center">
-              {/* Layout Container */}
-              <div 
-                className="rounded-full"
-                style={{
-                  width: 'clamp(478px, 80vw, 961px)',
-                  height: 'clamp(478px, 80vw, 961px)',
-                }}
-              />
-              
-              {/* Large Dashed Rotating Circle - SVG Overlay */}
-              <svg 
-                className="absolute inset-0"
-                style={{
-                  width: 'clamp(478px, 80vw, 961px)',
-                  height: 'clamp(478px, 80vw, 961px)',
-                  transform: `rotate(${scrollY * 0.1}deg)`,
-                  willChange: 'transform'
-                }}
-              >
-                <circle
-                  cx="50%"
-                  cy="50%"
-                  r="calc(50% - 2px)"
-                  fill="none"
-                  stroke="#0025B8"
-                  strokeWidth="2"
-                  strokeDasharray="10 10"
-                />
-              </svg>
-              
-              {/* Polaroid at 6 o'clock - Bottom */}
-              <div 
-                className="absolute"
-                style={{
-                  bottom: '5%',
-                  left: '50%',
-                  transform: 'translate(-50%, 50%)',
-                  zIndex: 10
-                }}
-              >
-                <div className="relative">
-                  <a 
-                    href="https://www.hollywoodreporter.com/lifestyle/style/jamie-lee-curtis-wigmaker-the-bear-hair-1235544655/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block hover:opacity-80 transition-opacity duration-300"
-                  >
-                    <img
-                      src={`${process.env.PUBLIC_URL}/images/story/story-polaroid12.png`}
-                      alt="Story Polaroid 12"
-                      className="h-auto object-contain"
-                      style={{ width: 'clamp(160px, 16vw, 320px)' }}
-                    />
-                  </a>
-                </div>
-              </div>
-
-              {/* Center Content - positioned absolutely to avoid rotation */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex flex-col items-center justify-center text-center px-6">
-                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1' }}>
-                    In the Press
-                  </h5>
-                  <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(16px, 2.5vw, 16px)', lineHeight: '1.5' }}>
-                    We let the work speak for itself. A behind-the-scenes feature by Business Insider and collaborations with well-known performers brought Studio Pickens into the wider spotlight.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Circle 12 - Small full circle offset left (mobile only) */}
-          <div className="circle12-mobile-container flex justify-start w-full md:hidden" style={{ marginTop: '-80px', marginLeft: '-20px' }}>
-            <div className="relative flex items-center justify-center">
-              {/* Blue Outline Circle */}
-              <div 
-                className="rounded-full border border-studio-blue"
-                style={{
-                  width: 'clamp(324px, 65vw, 648px)',
-                  height: 'clamp(324px, 65vw, 648px)'
-                }}
-              />
-            </div>
-          </div>
-
-
-
-
-
-          {/* Circle 13 - Dashed circle with Still Personal Precision content (mobile only) */}
-          <div className="circle13-mobile-container flex justify-center w-full md:hidden" style={{ marginTop: '-60px' }}>
+          <div className="circle11-mobile-container flex justify-center w-full md:hidden" style={{ marginTop: '20px' }}>
             <div className="relative flex items-center justify-center">
               {/* Layout Container */}
               <div 
@@ -1372,15 +1280,120 @@ const StoryPage = () => {
                 className="absolute"
                 style={{
                   bottom: '5%',
-                  left: '50%',
+                  left: '65%',
                   transform: 'translate(-50%, 50%)',
                   zIndex: 10
                 }}
               >
                 <div className="relative">
+                  <a 
+                    href="https://www.allure.com/story/ana-de-armas-marilyn-monroe-blonde-transformation?fbclid=PAZXh0bgNhZW0CMTEAAacQMyTFpVUk_FiqRdYa9Kfq1VVVxx-surm1lHgFmJo5oYccYXsOodFM937HDw_aem_4ocuWdFcsaSXpW_QH6870g"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block hover:opacity-80 transition-opacity duration-300"
+                  >
+                    <img
+                      src={`${process.env.PUBLIC_URL}/images/story/story-polaroid11.png`}
+                      alt="Story Polaroid 11"
+                      className="h-auto object-contain"
+                      style={{ width: 'clamp(160px, 16vw, 320px)' }}
+                    />
+                  </a>
+                </div>
+              </div>
+              
+              {/* Full feature text - Mobile Only */}
+              <div 
+                className="absolute text-center"
+                style={{
+                  bottom: '20%',
+                  left: '35%',
+                  transform: 'translate(-50%, 50%)'
+                }}
+              >
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>full feature</span>
+              </div>
+
+              {/* Center Content - positioned absolutely to avoid rotation */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center text-center px-6" style={{ maxWidth: '320px' }}>
+                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1' }}>
+                    In the Press
+                  </h5>
+                  <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(16px, 2.5vw, 16px)', lineHeight: '1.5' }}>
+                    We let the work speak for itself. A behind-the-scenes feature by Business Insider and collaborations with well-known performers brought Studio Pickens into the wider spotlight.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Circle 12 - Small full circle offset left (mobile only) */}
+          <div className="circle12-mobile-container flex justify-start w-full md:hidden" style={{ marginTop: '-40px', marginLeft: '-40px' }}>
+            <div className="relative flex items-center justify-center">
+              {/* Blue Outline Circle */}
+              <div 
+                className="rounded-full border border-studio-blue"
+                style={{
+                  width: 'clamp(324px, 65vw, 648px)',
+                  height: 'clamp(324px, 65vw, 648px)'
+                }}
+              />
+            </div>
+          </div>
+
+
+
+
+
+          {/* Circle 13 - Dashed circle with Still Personal Precision content (mobile only) */}
+          <div className="circle13-mobile-container flex justify-center w-full md:hidden" style={{ marginTop: '40px' }}>
+            <div className="relative flex items-center justify-center">
+              {/* Layout Container */}
+              <div 
+                className="rounded-full"
+                style={{
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
+                }}
+              />
+              
+              {/* Large Dashed Rotating Circle - SVG Overlay */}
+              <svg 
+                className="absolute inset-0"
+                style={{
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
+                  transform: `rotate(${scrollY * 0.1}deg)`,
+                  willChange: 'transform'
+                }}
+              >
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="calc(50% - 2px)"
+                  fill="none"
+                  stroke="#0025B8"
+                  strokeWidth="1"
+                  strokeDasharray="5 5"
+                  className="md:hidden"
+                />
+              </svg>
+              
+              {/* Polaroid at top of circle */}
+              <div 
+                className="absolute"
+                style={{
+                  top: '-5%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  zIndex: 10
+                }}
+              >
+                <div className="relative">
                   <img
-                    src={`${process.env.PUBLIC_URL}/images/story/story-polaroid15.png`}
-                    alt="Story Polaroid 15"
+                    src={`${process.env.PUBLIC_URL}/images/story/story-polaroid13.png`}
+                    alt="Story Polaroid 13"
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
@@ -1397,6 +1410,42 @@ const StoryPage = () => {
                     Today, Studio Pickens continues to serve film, television, editorial, and theatre while expanding services for private clients. Whether for the stage, the screen, or everyday expression, every piece is built with care, character, and intention.
                   </p>
                 </div>
+              </div>
+              
+              {/* Lovtony text - "the right piece begins here" */}
+              <div 
+                className="absolute text-center"
+                style={{
+                  bottom: '20%',
+                  left: '45%',
+                  transform: 'translate(-50%, 50%)'
+                }}
+              >
+                <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>the right piece<br />begins here</span>
+              </div>
+              
+              {/* Contact button at 6 o'clock */}
+              <div 
+                className="absolute"
+                style={{
+                  bottom: '-35px',
+                  left: '50%',
+                  transform: 'translate(-50%, 0%)'
+                }}
+              >
+                <button
+                  onClick={() => {
+                    window.history.pushState({}, '', '/contact');
+                    window.dispatchEvent(new PopStateEvent('popstate'));
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="bg-studio-blue rounded-full flex items-center justify-center hover:bg-studio-orange transition-colors duration-300 group"
+                  style={{ width: 'clamp(80px, 8vw, 96px)', height: 'clamp(80px, 8vw, 96px)' }}
+                >
+                  <span className="font-proxima-wide text-studio-orange group-hover:text-studio-blue font-bold uppercase transition-colors duration-300" style={{ fontSize: 'clamp(12px, 1.5vw, 14px)' }}>
+                    Contact
+                  </span>
+                </button>
               </div>
             </div>
           </div>
