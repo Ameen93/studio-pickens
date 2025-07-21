@@ -32,3 +32,18 @@ html {
 * {
   box-sizing: border-box;
 }
+
+/* Prevent orphaned words on mobile */
+@media (max-width: 768px) {
+  p, h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  
+  /* Fallback for browsers that don't support text-wrap: balance */
+  @supports not (text-wrap: balance) {
+    p, h1, h2, h3, h4, h5, h6 {
+      /* Add non-breaking space between last two words to prevent orphans */
+      word-spacing: -0.05em;
+    }
+  }
+}

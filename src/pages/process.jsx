@@ -28,27 +28,19 @@ const ProcessPage = () => {
           {/* Rotating Dashed Circle */}
           <div className="absolute w-full flex justify-center z-10 top-[42%] lg:top-1/2 -translate-y-1/2">
             {/* Mobile Circle */}
-            <svg 
+            <div 
               className="animate-spin lg:hidden"
               style={{
                 width: '342px',
                 height: '342px',
                 flexShrink: 0,
+                borderRadius: '342px',
+                border: '1px dashed #08249F',
                 animationDuration: '60s',
                 animationTimingFunction: 'linear',
                 animationIterationCount: 'infinite'
               }}
-            >
-              <circle
-                cx="50%"
-                cy="50%"
-                r="calc(50% - 1px)"
-                fill="none"
-                stroke="#08249F"
-                strokeWidth="1"
-                strokeDasharray="10 10"
-              />
-            </svg>
+            />
             {/* Desktop Circle (10% larger) */}
             <svg 
               className="animate-spin hidden lg:block"
@@ -210,12 +202,12 @@ const ProcessPage = () => {
             <div className="mb-6 max-w-3xl text-center">
               {/* Desktop: single paragraph */}
               <p className="hidden md:block text-body font-proxima text-studio-bg">
-                We source hair directly from its country of origin—based on the client's desired texture and tone. Each bundle is hand-selected for quality and character. Nothing is off-the-shelf. Every strand is chosen with purpose, built with precision, and finished to perfection.
+                We source hair directly from its country of origin - based on the client's desired texture and tone. Each bundle is hand-selected for quality and character. Nothing is off-the-shelf. Every strand is chosen with purpose, built with precision, and finished to perfection.
               </p>
               {/* Mobile: two paragraphs */}
               <div className="md:hidden">
                 <p className="text-atelier-body-mobile font-proxima text-studio-bg mb-3">
-                  We source hair directly from its country of origin—based on the client's desired texture and tone.
+                  We source hair directly from its country of origin - based on the client's desired texture and tone.
                 </p>
                 <p className="text-atelier-body-mobile font-proxima text-studio-bg">
                   Each bundle is hand-selected for quality and character. Nothing is off-the-shelf. Every strand is chosen with purpose, built with precision, and finished to perfection.
@@ -288,7 +280,13 @@ const ProcessPage = () => {
           ${ANIMATIONS.keyframes.scroll}
           
           .animate-scroll {
-            animation: scroll 30s linear infinite;
+            animation: scroll 21s linear infinite;
+          }
+          
+          @media (max-width: 768px) {
+            .animate-scroll {
+              animation: scroll 5.25s linear infinite;
+            }
           }
           
           .hover\\:pause-animation:hover {
