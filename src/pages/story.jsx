@@ -154,8 +154,8 @@ const StoryPage = () => {
               >
                 <div className="relative">
                   <img
-                    src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid7.JPG`}
-                    alt="Polaroid 7"
+                    src={`${process.env.PUBLIC_URL}/images/story/story-polaroid2.png`}
+                    alt="Story Polaroid 2"
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
@@ -166,12 +166,15 @@ const StoryPage = () => {
               <div 
                 className="absolute md:hidden"
                 style={{
-                  top: '10%',
+                  top: '15%',
                   right: '30%',
-                  transform: 'translate(50%, -50%) rotate(-8.79deg)'
+                  transform: 'translate(50%, -50%)'
                 }}
               >
-                <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px' }}>always in the wings</span>
+                <div className="flex flex-col items-center">
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>always in</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>the wings</span>
+                </div>
               </div>
               
               {/* Process 2017 text at 1:20 - Desktop Position */}
@@ -190,31 +193,32 @@ const StoryPage = () => {
               <div 
                 className="absolute text-center hidden md:block"
                 style={{
-                  bottom: '20%',
-                  left: '0%',
-                  transform: 'translate(-50%, 50%) rotate(-8deg)'
+                  bottom: '18%',
+                  left: '2%',
+                  transform: 'translate(-50%, 50%)'
                 }}
               >
                 <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.3' }}>first obsessions</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.3' }}>never leave</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.5' }}>first obsessions</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: 'clamp(40px, 8vw, 135px)', lineHeight: '0.5' }}>never leave</span>
                 </div>
               </div>
+              
               
               {/* Center Content - positioned absolutely to avoid rotation */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center text-center px-6 md:max-w-xl" style={{ width: 'clamp(320px, 65vw, 100%)' }}>
-                  {/* Mobile: Keep original title */}
+                  {/* Mobile: Updated to match desktop title */}
                   <h5 className="md:hidden font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1' }}>
-                    First Major Movie Set
+                    The Fascination Stage
                   </h5>
                   {/* Desktop: New title */}
                   <h5 className="hidden md:block font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1' }}>
                     The Fascination Stage
                   </h5>
-                  {/* Mobile: Keep original description */}
+                  {/* Mobile: Updated to match desktop description */}
                   <p className="md:hidden font-proxima text-studio-blue" style={{ fontSize: 'clamp(16px, 2.5vw, 16px)', lineHeight: '1.5' }}>
-                    Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
+                    It all started with a kid obsessed with illusion, engineering, and theatre. Long before the first lace front, Robert was captivated by transformation.
                   </p>
                   {/* Desktop: New description */}
                   <p className="hidden md:block font-proxima text-studio-blue" style={{ fontSize: 'clamp(16px, 2.5vw, 16px)', lineHeight: '1.5' }}>
@@ -250,6 +254,21 @@ const StoryPage = () => {
                   height: 'clamp(324px, 65vw, 648px)'
                 }}
               />
+              
+              {/* first obsessions never leave text at 8 o'clock - Mobile Only */}
+              <div 
+                className="absolute md:hidden text-center"
+                style={{
+                  bottom: '30%',
+                  left: '15%',
+                  transform: 'translate(-50%, 50%)'
+                }}
+              >
+                <div className="flex flex-col items-center">
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>first obsessions</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>never leave</span>
+                </div>
+              </div>
               
               {/* Polaroid at 6:10 - Desktop Only */}
               <div 
@@ -303,7 +322,7 @@ const StoryPage = () => {
                 style={{
                   bottom: '15%',
                   left: '70%',
-                  transform: 'translate(-50%, 50%) rotate(7.56deg)'
+                  transform: 'translate(-50%, 50%)'
                 }}
               >
                 <div className="flex flex-col items-center">
@@ -370,37 +389,23 @@ const StoryPage = () => {
               >
                 <div className="relative">
                   <img
-                    src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid6.JPG`}
-                    alt="Polaroid 6"
+                    src={`${process.env.PUBLIC_URL}/images/story/story-polaroid3.png`}
+                    alt="Story Polaroid 3"
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
                 </div>
               </div>
               
-              {/* Word of mouth spreads text at 11 o'clock - Mobile Only */}
-              <div 
-                className="absolute md:hidden text-center"
-                style={{
-                  top: '12%',
-                  left: '25%',
-                  transform: 'translate(-50%, -50%) rotate(-8.79deg)'
-                }}
-              >
-                <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>first obsessions</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>never leave</span>
-                </div>
-              </div>
               
               {/* Center Content - positioned absolutely to avoid rotation */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex flex-col items-center justify-center text-center px-6" style={{ width: 'clamp(320px, 65vw, 100%)' }}>
+                <div className="flex flex-col items-center justify-center text-center px-6" style={{ width: 'clamp(340px, 70vw, 100%)' }}>
                   <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1' }}>
-                    Mastering The Texture Craft
+                    The Art of<br />Figuring It Out
                   </h5>
                   <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(16px, 2.5vw, 16px)', lineHeight: '1.5' }}>
-                    Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
+                    Robert learned the craft the old-fashioned way: from out-of-print manuals and archival literature. His technique sharpened over time and his skills were later refined alongside some of the industry's most admired artists.
                   </p>
                 </div>
               </div>
@@ -418,6 +423,21 @@ const StoryPage = () => {
                   height: 'clamp(324px, 65vw, 648px)'
                 }}
               />
+              
+              {/* muscle memory led the way text at 3 o'clock - Mobile Only */}
+              <div 
+                className="absolute text-center"
+                style={{
+                  top: '50%',
+                  right: '3%',
+                  transform: 'translate(50%, -50%)'
+                }}
+              >
+                <div className="flex flex-col items-center">
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>muscle memory</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>led the way</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -540,36 +560,21 @@ const StoryPage = () => {
                 className="absolute md:hidden"
                 style={{
                   bottom: '-10%',
-                  left: '50%',
+                  left: '55%',
                   transform: 'translate(-50%, 50%)',
                   zIndex: 10
                 }}
               >
                 <div className="relative">
                   <img
-                    src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid9.JPG`}
-                    alt="Polaroid 9"
+                    src={`${process.env.PUBLIC_URL}/images/story/story-polaroid4.png`}
+                    alt="Story Polaroid 4"
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
                 </div>
               </div>
               
-              {/* First milestone order text at 1 o'clock - Mobile Only */}
-              <div 
-                className="absolute md:hidden text-center"
-                style={{
-                  top: '8%',
-                  right: '25%',
-                  transform: 'translate(50%, -50%) rotate(8.79deg)'
-                }}
-              >
-                <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>first</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>milestone</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>order</span>
-                </div>
-              </div>
               
               {/* Center Content - positioned absolutely to avoid rotation */}
               <div className="absolute inset-0 flex items-center justify-center">
@@ -580,7 +585,10 @@ const StoryPage = () => {
                   <h5 className="md:hidden font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 3.5vw, 24px)', lineHeight: '1.1' }}>
                     The First Studio:<br />Beverly Hills
                   </h5>
-                  <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
+                  <p className="md:hidden font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5', maxWidth: '320px' }}>
+                    Studio Pickens, then known as Wigmaker Associates, opened its doors in Beverly Hills and quickly caught the attention of stylists, designers, and department heads who valued precision, artistry, and discretion. From day one, the studio became a name whispered in dressing rooms and production trailers.
+                  </p>
+                  <p className="hidden md:block font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
                     Studio Pickens, then known as Wigmaker Associates, opened its doors in Beverly Hills and quickly caught the attention of stylists, designers, and department heads who valued precision, artistry, and discretion. From day one, the studio became a name whispered in dressing rooms and production trailers.
                   </p>
                 </div>
@@ -588,9 +596,9 @@ const StoryPage = () => {
             </div>
           </div>
 
-          {/* New Circle Above Circle 6 - Mobile only, offset right, matching circle 3 */}
-          <div className="new-circle-above-6-container flex justify-end w-full md:hidden" style={{ marginTop: '-80px' }}>
-            <div className="relative flex items-center justify-center" style={{ transform: 'translateX(80px)' }}>
+          {/* New Circle Above Circle 6 - Mobile only, centered and lower */}
+          <div className="new-circle-above-6-container flex justify-center w-full md:hidden" style={{ marginTop: '50px' }}>
+            <div className="relative flex items-center justify-center">
               {/* Blue Outline Circle */}
               <div 
                 className="rounded-full border border-studio-blue"
@@ -599,11 +607,33 @@ const StoryPage = () => {
                   height: 'clamp(324px, 65vw, 648px)'
                 }}
               />
+              
+              {/* muscle memory led the way text at 7 o'clock - Mobile Only */}
+              <div 
+                className="absolute text-center"
+                style={{
+                  bottom: '35%',
+                  left: '15%',
+                  transform: 'translate(-50%, 50%)'
+                }}
+              >
+                <div className="flex flex-col items-center">
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>muscle memory</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>led the way</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Sixth Circle - Desktop version (unchanged) */}
-          <div className="circle6-container flex justify-center w-full hidden md:block" style={{ marginTop: 'clamp(25px, 5vw, 50px)' }}>
+          {/* Sixth Circle - Desktop version - HIDDEN ON MOBILE */}
+          <div className="circle6-desktop-container flex justify-center w-full hidden md:block" style={{ marginTop: 'clamp(25px, 5vw, 50px)' }}>
+            <style jsx>{`
+              @media (max-width: 768px) {
+                .circle6-desktop-container {
+                  display: none !important;
+                }
+              }
+            `}</style>
             <div className="relative flex items-center justify-center" style={{ zIndex: 1 }}>
               {/* Blue Outline Circle */}
               <div 
@@ -683,8 +713,8 @@ const StoryPage = () => {
             </div>
           </div>
 
-          {/* Sixth Circle - Mobile version (matching circle 2) */}
-          <div className="circle6-container flex justify-center w-full md:hidden" style={{ marginTop: '-140px' }}>
+          {/* Sixth Circle - Mobile version (matching circle 2) - THIS IS THE 8TH CIRCLE FOR MOBILE */}
+          <div className="circle6-mobile-container flex justify-center w-full md:hidden" style={{ marginTop: '-50px' }}>
             <div className="relative flex items-center justify-center" style={{ zIndex: 1 }}>
               {/* Layout Container */}
               <div 
@@ -732,15 +762,15 @@ const StoryPage = () => {
                 className="absolute"
                 style={{
                   bottom: '5%',
-                  left: '50%',
+                  left: '43%',
                   transform: 'translate(-50%, 50%)',
                   zIndex: 10
                 }}
               >
                 <div className="relative">
                   <img
-                    src={`${process.env.PUBLIC_URL}/images/polaroids/polaroid13.JPG`}
-                    alt="Polaroid 13"
+                    src={`${process.env.PUBLIC_URL}/images/story/story-polaroid7.png`}
+                    alt="Story Polaroid 7"
                     className="h-auto object-contain"
                     style={{ width: 'clamp(160px, 16vw, 320px)' }}
                   />
@@ -749,13 +779,12 @@ const StoryPage = () => {
               
               {/* Center Content - positioned absolutely to avoid rotation */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex flex-col items-center justify-center text-center px-6" style={{ width: 'clamp(320px, 65vw, 100%)' }}>
-                  <div className="mb-4">
-                    <div className="font-proxima-wide font-bold text-studio-blue uppercase" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1' }}>In his</div>
-                    <div className="font-proxima-wide font-bold text-studio-blue uppercase" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1' }}>signature era</div>
-                  </div>
+                <div className="flex flex-col items-center justify-center text-center px-6" style={{ width: 'clamp(420px, 80vw, 100%)' }}>
+                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1', maxWidth: '375px' }}>
+                    East Coast by<br />Request
+                  </h5>
                   <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(16px, 2.5vw, 16px)', lineHeight: '1.5' }}>
-                    Lorem ipsum dolor sit amet consectetur. Et habitant bibendum arcu nec elit eu. Donec quis in neque ligula id nunc in non lacus. Amet sed risus lacinia sed. Quis ultricies vestibulum eleifend dignissim auctor laoreet feugiat.
+                    As demand grew, so did the footprint. With clients regularly crossing coasts, a second studio opened in New York City, bringing Robert's signature craftsmanship to Broadway's backstage world.
                   </p>
                 </div>
               </div>
@@ -809,6 +838,42 @@ const StoryPage = () => {
             </div>
           </div>
 
+          {/* Circle 9 - Small full circle offset left (mobile only) */}
+          <div className="circle9-mobile-container flex justify-start w-full md:hidden" style={{ marginTop: '-55px' }}>
+            <style jsx>{`
+              @media (max-width: 768px) {
+                .circle9-mobile-container {
+                  margin-left: -40px;
+                }
+              }
+            `}</style>
+            <div className="relative flex items-center justify-center">
+              {/* Blue Outline Circle */}
+              <div 
+                className="rounded-full border border-studio-blue"
+                style={{
+                  width: 'clamp(324px, 65vw, 648px)',
+                  height: 'clamp(324px, 65vw, 648px)'
+                }}
+              />
+              
+              {/* Broadway needed its own text - Mobile Only */}
+              <div 
+                className="absolute text-center"
+                style={{
+                  top: '52%',
+                  left: '35%',
+                  transform: 'translate(-50%, -50%)'
+                }}
+              >
+                <div className="flex flex-col items-center">
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>broadway needed</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>its own</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Eighth Circle - Desktop version (matching circle 4) */}
           <div className="circle8-container flex justify-center lg:justify-center w-full hidden md:block" style={{ marginTop: 'clamp(-250px, -40vw, -350px)', marginLeft: 'clamp(100px, 10vw, 200px)' }}>
             <div className="relative flex items-center justify-center">
@@ -832,24 +897,102 @@ const StoryPage = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Circle 10 - Large dashed circle with Broadway Calls Again content (mobile only) */}
+          <div className="circle10-mobile-container flex justify-center w-full md:hidden" style={{ marginTop: '-60px' }}>
+            <div className="relative flex items-center justify-center">
+              {/* Layout Container */}
+              <div 
+                className="rounded-full"
+                style={{
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
+                }}
+              />
               
+              {/* Large Dashed Rotating Circle - SVG Overlay */}
+              <svg 
+                className="absolute inset-0"
+                style={{
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
+                  transform: `rotate(${scrollY * 0.1}deg)`,
+                  willChange: 'transform'
+                }}
+              >
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="calc(50% - 2px)"
+                  fill="none"
+                  stroke="#0025B8"
+                  strokeWidth="1"
+                  strokeDasharray="5 5"
+                  className="md:hidden"
+                />
+              </svg>
+              
+              {/* Polaroid at 6 o'clock - Bottom */}
+              <div 
+                className="absolute"
+                style={{
+                  bottom: '5%',
+                  left: '50%',
+                  transform: 'translate(-50%, 50%)',
+                  zIndex: 10
+                }}
+              >
+                <div className="relative">
+                  <a 
+                    href="https://www.allure.com/story/ana-de-armas-marilyn-monroe-blonde-transformation?fbclid=PAZXh0bgNhZW0CMTEAAacQMyTFpVUk_FiqRdYa9Kfq1VVVxx-surm1lHgFmJo5oYccYXsOodFM937HDw_aem_4ocuWdFcsaSXpW_QH6870g"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block hover:opacity-80 transition-opacity duration-300"
+                  >
+                    <img
+                      src={`${process.env.PUBLIC_URL}/images/story/story-polaroid11.png`}
+                      alt="Story Polaroid 11"
+                      className="h-auto object-contain"
+                      style={{ width: 'clamp(160px, 16vw, 320px)' }}
+                    />
+                  </a>
+                </div>
+              </div>
+              
+              {/* Seamless under press text - Mobile Only */}
+              <div 
+                className="absolute text-center"
+                style={{
+                  top: '18%',
+                  left: '65%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '200px'
+                }}
+              >
+                <div className="flex flex-col items-center">
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>seamless under</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>press</span>
+                </div>
+              </div>
+              
+              {/* Center Content - positioned absolutely to avoid rotation */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center text-center px-6" style={{ maxWidth: '400px' }}>
+                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1' }}>
+                    Broadway Calls,<br />Again
+                  </h5>
+                  <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(16px, 2.5vw, 16px)', lineHeight: '1.5' }}>
+                    As the clientele moved from screen to stage, their hair teams followed. Studio Pickens NYC expanded to meet the moment — crafting performance-ready wigs built for quick changes, strong lighting, and eight-show weeks.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Ninth Circle - Desktop version (matching rotating circles) */}
           <div className="circle9-new-container w-full hidden md:block" style={{ marginTop: 'clamp(-100px, -15vw, -150px)', display: 'flex', justifyContent: 'center', position: 'relative', left: '50%', transform: 'translateX(-50%)' }}>
-            <style jsx>{`
-              @media (min-width: 1024px) {
-                .circle9-new-container {
-                  margin-top: clamp(-100px, -15vw, -150px) !important;
-                }
-              }
-              @media (max-width: 1023px) {
-                .circle9-new-container {
-                  margin-top: -60px !important;
-                }
-              }
-            `}</style>
             <div className="relative flex items-center justify-center">
               {/* Layout Container */}
               <div 
@@ -903,12 +1046,19 @@ const StoryPage = () => {
                 }}
               >
                 <div className="relative">
-                  <img
-                    src={`${process.env.PUBLIC_URL}/images/story/story-polaroid11.png`}
-                    alt="Story Polaroid 11"
-                    className="h-auto object-contain"
-                    style={{ width: 'clamp(160px, 16vw, 320px)' }}
-                  />
+                  <a 
+                    href="https://www.allure.com/story/ana-de-armas-marilyn-monroe-blonde-transformation?fbclid=PAZXh0bgNhZW0CMTEAAacQMyTFpVUk_FiqRdYa9Kfq1VVVxx-surm1lHgFmJo5oYccYXsOodFM937HDw_aem_4ocuWdFcsaSXpW_QH6870g"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block hover:opacity-80 transition-opacity duration-300"
+                  >
+                    <img
+                      src={`${process.env.PUBLIC_URL}/images/story/story-polaroid11.png`}
+                      alt="Story Polaroid 11"
+                      className="h-auto object-contain"
+                      style={{ width: 'clamp(160px, 16vw, 320px)' }}
+                    />
+                  </a>
                 </div>
               </div>
               
@@ -922,26 +1072,28 @@ const StoryPage = () => {
                 }}
               >
                 <div className="relative">
-                  <img
-                    src={`${process.env.PUBLIC_URL}/images/story/story-polaroid12.png`}
-                    alt="Story Polaroid 12"
-                    className="h-auto object-contain"
-                    style={{ width: 'clamp(160px, 16vw, 320px)' }}
-                  />
+                  <a 
+                    href="https://www.hollywoodreporter.com/lifestyle/style/jamie-lee-curtis-wigmaker-the-bear-hair-1235544655/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block hover:opacity-80 transition-opacity duration-300"
+                  >
+                    <img
+                      src={`${process.env.PUBLIC_URL}/images/story/story-polaroid12.png`}
+                      alt="Story Polaroid 12"
+                      className="h-auto object-contain"
+                      style={{ width: 'clamp(160px, 16vw, 320px)' }}
+                    />
+                  </a>
                 </div>
               </div>
-              
-
 
               {/* Center Content - positioned absolutely to avoid rotation */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center text-center px-6 max-w-lg">
-                  <h3 className="hidden md:block font-proxima-wide font-bold text-studio-blue uppercase text-center mb-4" style={{ fontSize: 'clamp(24px, 5vw, 30px)', lineHeight: '1.1' }}>
+                  <h3 className="font-proxima-wide font-bold text-studio-blue uppercase text-center mb-4" style={{ fontSize: 'clamp(24px, 5vw, 30px)', lineHeight: '1.1' }}>
                     In the Press
                   </h3>
-                  <h5 className="md:hidden font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 3.5vw, 24px)', lineHeight: '1.1' }}>
-                    In the Press
-                  </h5>
                   <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(14px, 2.5vw, 16px)', lineHeight: '1.5' }}>
                     We let the work speak for itself. A behind-the-scenes feature by Business Insider and collaborations with well-known performers brought Studio Pickens into the wider spotlight.
                   </p>
@@ -1089,9 +1241,82 @@ const StoryPage = () => {
             </div>
           </div>
 
+          {/* Circle 11 - Dashed circle with In the Press content (mobile only) */}
+          <div className="circle11-mobile-container flex justify-center w-full md:hidden" style={{ marginTop: '-60px' }}>
+            <div className="relative flex items-center justify-center">
+              {/* Layout Container */}
+              <div 
+                className="rounded-full"
+                style={{
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
+                }}
+              />
+              
+              {/* Large Dashed Rotating Circle - SVG Overlay */}
+              <svg 
+                className="absolute inset-0"
+                style={{
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
+                  transform: `rotate(${scrollY * 0.1}deg)`,
+                  willChange: 'transform'
+                }}
+              >
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="calc(50% - 2px)"
+                  fill="none"
+                  stroke="#0025B8"
+                  strokeWidth="2"
+                  strokeDasharray="10 10"
+                />
+              </svg>
+              
+              {/* Polaroid at 6 o'clock - Bottom */}
+              <div 
+                className="absolute"
+                style={{
+                  bottom: '5%',
+                  left: '50%',
+                  transform: 'translate(-50%, 50%)',
+                  zIndex: 10
+                }}
+              >
+                <div className="relative">
+                  <a 
+                    href="https://www.hollywoodreporter.com/lifestyle/style/jamie-lee-curtis-wigmaker-the-bear-hair-1235544655/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block hover:opacity-80 transition-opacity duration-300"
+                  >
+                    <img
+                      src={`${process.env.PUBLIC_URL}/images/story/story-polaroid12.png`}
+                      alt="Story Polaroid 12"
+                      className="h-auto object-contain"
+                      style={{ width: 'clamp(160px, 16vw, 320px)' }}
+                    />
+                  </a>
+                </div>
+              </div>
 
-          {/* New Last Circle - Mobile only, centered, matching smaller circles */}
-          <div className="new-last-circle-container flex justify-center w-full md:hidden" style={{ marginTop: '-80px' }}>
+              {/* Center Content - positioned absolutely to avoid rotation */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center text-center px-6">
+                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1' }}>
+                    In the Press
+                  </h5>
+                  <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(16px, 2.5vw, 16px)', lineHeight: '1.5' }}>
+                    We let the work speak for itself. A behind-the-scenes feature by Business Insider and collaborations with well-known performers brought Studio Pickens into the wider spotlight.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Circle 12 - Small full circle offset left (mobile only) */}
+          <div className="circle12-mobile-container flex justify-start w-full md:hidden" style={{ marginTop: '-80px', marginLeft: '-20px' }}>
             <div className="relative flex items-center justify-center">
               {/* Blue Outline Circle */}
               <div 
@@ -1101,32 +1326,81 @@ const StoryPage = () => {
                   height: 'clamp(324px, 65vw, 648px)'
                 }}
               />
+            </div>
+          </div>
+
+
+
+
+
+          {/* Circle 13 - Dashed circle with Still Personal Precision content (mobile only) */}
+          <div className="circle13-mobile-container flex justify-center w-full md:hidden" style={{ marginTop: '-60px' }}>
+            <div className="relative flex items-center justify-center">
+              {/* Layout Container */}
+              <div 
+                className="rounded-full"
+                style={{
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
+                }}
+              />
               
-              {/* Contact button at bottom */}
+              {/* Large Dashed Rotating Circle - SVG Overlay */}
+              <svg 
+                className="absolute inset-0"
+                style={{
+                  width: 'clamp(478px, 80vw, 961px)',
+                  height: 'clamp(478px, 80vw, 961px)',
+                  transform: `rotate(${scrollY * 0.1}deg)`,
+                  willChange: 'transform'
+                }}
+              >
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="calc(50% - 2px)"
+                  fill="none"
+                  stroke="#0025B8"
+                  strokeWidth="1"
+                  strokeDasharray="5 5"
+                  className="md:hidden"
+                />
+              </svg>
+              
+              {/* Polaroid at 6 o'clock - Bottom */}
               <div 
                 className="absolute"
                 style={{
-                  bottom: '0%',
+                  bottom: '5%',
                   left: '50%',
-                  transform: 'translate(-50%, 50%)'
+                  transform: 'translate(-50%, 50%)',
+                  zIndex: 10
                 }}
               >
-                <button
-                  onClick={() => {
-                    window.history.pushState({}, '', '/contact');
-                    window.dispatchEvent(new PopStateEvent('popstate'));
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className="bg-studio-blue rounded-full flex items-center justify-center hover:bg-studio-orange transition-colors duration-300 group"
-                  style={{ width: 'clamp(80px, 8vw, 96px)', height: 'clamp(80px, 8vw, 96px)' }}
-                >
-                  <span className="font-proxima-wide text-studio-orange group-hover:text-studio-blue font-bold uppercase transition-colors duration-300" style={{ fontSize: 'clamp(12px, 1.5vw, 14px)' }}>
-                    Contact
-                  </span>
-                </button>
+                <div className="relative">
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/story/story-polaroid15.png`}
+                    alt="Story Polaroid 15"
+                    className="h-auto object-contain"
+                    style={{ width: 'clamp(160px, 16vw, 320px)' }}
+                  />
+                </div>
+              </div>
+              
+              {/* Center Content - positioned absolutely to avoid rotation */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center text-center px-6">
+                  <h5 className="font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1' }}>
+                    Still Personal<br />with Precision
+                  </h5>
+                  <p className="font-proxima text-studio-blue" style={{ fontSize: 'clamp(16px, 2.5vw, 16px)', lineHeight: '1.5' }}>
+                    Today, Studio Pickens continues to serve film, television, editorial, and theatre while expanding services for private clients. Whether for the stage, the screen, or everyday expression, every piece is built with care, character, and intention.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
 
       </section>
