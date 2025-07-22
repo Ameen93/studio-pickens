@@ -388,7 +388,7 @@ const ProcessPage = () => {
               meet our inner circle
             </span>
             <span className="hidden lg:inline text-studio-blue text-[64px]" style={{ lineHeight: '1.1' }}>
-              meet our inner circle
+              meet our<br />inner circle
             </span>
           </h1>
           

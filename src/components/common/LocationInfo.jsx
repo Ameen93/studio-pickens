@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { TYPOGRAPHY_CLASSES } from '../../constants/typography';
 import ImageWithPath from './ImageWithPath';
 import { validateLocationData } from '../../utils/validation';
@@ -13,7 +13,25 @@ const LocationInfo = React.memo(({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isTapped, setIsTapped] = useState(false);
+  const componentRef = useRef(null);
   const isLeft = variant === 'left';
+  
+  // Determine if we should show the expanded state
+  const isExpanded = isHovered || isTapped;
+  
+  // Handle click outside to ensure state consistency
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (componentRef.current && !componentRef.current.contains(e.target)) {
+        setIsTapped(false);
+      }
+    };
+    
+    if (window.innerWidth < 768) {
+      document.addEventListener('click', handleClick);
+      return () => document.removeEventListener('click', handleClick);
+    }
+  }, []);
   
   // Define hover content
   const getHoverContent = () => {
@@ -32,8 +50,8 @@ const LocationInfo = React.memo(({
   };
   
   const hoverContent = getHoverContent();
-  const displayTitle = isHovered ? hoverContent.title : location;
-  const displayDescription = isHovered ? hoverContent.description : '';
+  const displayTitle = isExpanded ? hoverContent.title : location;
+  const displayDescription = isExpanded ? hoverContent.description : address;
   
   // Validate location data in development
   if (process.env.NODE_ENV === 'development') {
@@ -74,13 +92,29 @@ const LocationInfo = React.memo(({
         }
       `}</style>
       <div 
-        className={`flex flex-col gap-4 md:gap-0 md:flex-row items-center group px-0`}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        ref={componentRef}
+        className={`flex flex-col gap-4 md:gap-0 md:flex-row items-center group px-0 cursor-pointer md:cursor-auto`}
+        onMouseEnter={() => {
+          if (window.innerWidth >= 768) {
+            setIsHovered(true);
+          }
+        }}
+        onMouseLeave={() => {
+          if (window.innerWidth >= 768) {
+            setIsHovered(false);
+          }
+        }}
+        onClick={(e) => {
+          // Only toggle on mobile/touch devices
+          if (window.innerWidth < 768) {
+            e.preventDefault();
+            setIsTapped(!isTapped);
+          }
+        }}
       >
       {/* Info Box */}
       <div 
-        className={`location-info-box bg-white md:group-hover:bg-studio-blue transition-colors duration-300 pt-8 pr-8 pb-12 pl-12 flex flex-col justify-between relative ${
+        className={`location-info-box ${isExpanded ? 'bg-studio-blue' : 'bg-white'} md:bg-white md:group-hover:bg-studio-blue transition-colors duration-300 pt-8 pr-8 pb-12 pl-12 flex flex-col justify-between relative ${
           isLeft ? 'order-1 md:order-1' : 'order-1 md:order-2'
         }`}
       >
@@ -96,14 +130,14 @@ const LocationInfo = React.memo(({
           </div>
           
           {/* Title */}
-          <h3 className={`${TYPOGRAPHY_CLASSES.headingPrimary} md:group-hover:text-studio-bg transition-colors duration-300 text-xl md:text-2xl mb-2 md:mb-4`}>
+          <h3 className={`font-proxima-wide font-bold uppercase ${isExpanded ? 'text-studio-bg' : 'text-studio-blue'} md:text-studio-blue md:group-hover:text-studio-bg transition-colors duration-300 text-xl md:text-2xl mb-2 md:mb-4`}>
             {displayTitle}
           </h3>
           
           {/* Description */}
           {displayDescription && (
-            <div className={`${TYPOGRAPHY_CLASSES.bodyText} md:group-hover:text-studio-bg transition-colors duration-300 text-sm md:text-base leading-tight md:leading-relaxed`}>
-              {isHovered ? (
+            <div className={`font-proxima ${isExpanded ? 'text-studio-bg' : 'text-studio-blue'} md:text-studio-blue md:group-hover:text-studio-bg transition-colors duration-300 text-sm md:text-base leading-tight md:leading-relaxed`}>
+              {isExpanded ? (
                 <div className="whitespace-pre-wrap">{displayDescription}</div>
               ) : (
                 displayDescription.split('\n').map((line, index) => (

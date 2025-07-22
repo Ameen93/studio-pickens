@@ -242,7 +242,7 @@ const WorkGallery = React.memo(forwardRef(({ filter = 'ALL MEDIA', onCategoryCli
   }), [filteredProjects]);
 
   return (
-    <section className="bg-studio-bg pt-12 pb-16 relative w-full overflow-visible">
+    <section className="bg-studio-bg pt-2 pb-2 relative w-full overflow-visible">
       {/* Desktop Layout */}
       <div className="hidden md:block max-w-[1440px] mx-auto">
         <div 
@@ -266,7 +266,7 @@ const WorkGallery = React.memo(forwardRef(({ filter = 'ALL MEDIA', onCategoryCli
       </div>
 
       {/* Mobile Layout */}
-      <div className="md:hidden px-4 pb-4">
+      <div className="md:hidden px-4 pb-0">
         {filteredProjects.map((project) => (
           <div key={project.id} id={`work-item-${project.id}`}>
             <MobileWorkItem 

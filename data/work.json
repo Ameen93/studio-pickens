@@ -73,7 +73,7 @@
         "photographer": "jamie lee curtis",
         "date": "hulu",
         "labels": {
-          "stylist": "HAIR STYLIST",
+          "stylist": "HAIR DESIGNER",
           "photographer": "CAST",
           "date": "NETWORK"
         }
@@ -94,13 +94,13 @@
       "side": "right",
       "order": 2,
       "content": {
-        "stylist": "Jane krakowski. Jesse Tyler Ferguson. Martha plimpton",
-        "photographer": "Katie Gell",
-        "date": "west end plays",
+        "photographer": "Jane krakowski. Jesse Tyler Ferguson. Martha plimpton",
+        "stylist": "studio pickens",
+        "date": "broadway and west end theatre",
         "labels": {
-          "stylist": "FEATURING",
-          "photographer": "HAIR DESIGNER",
-          "date": "CATEGORY"
+          "photographer": "FEATURING",
+          "stylist": "HAIR AND MAKEUP DESIGN",
+          "date": "PRESENTED AT"
         }
       }
     },
@@ -134,11 +134,11 @@
       "side": "right",
       "order": 4,
       "content": {
-        "stylist": "emmie america",
+        "stylist": "Jamie Leigh McIntosh",
         "photographer": "Michelle Pfeiffer, Dakota fanning",
         "date": "showtime",
         "labels": {
-          "stylist": "HAIRDRESSER",
+          "stylist": "HAIR DESIGNER",
           "photographer": "ACTRESS",
           "date": "NETWORK"
         }
