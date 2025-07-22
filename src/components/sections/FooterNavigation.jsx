@@ -8,7 +8,13 @@ const FooterNavigation = ({ links, onNavigate, variant = 'desktop' }) => {
         {links.map((link) => (
           <button
             key={link.name}
-            onClick={() => onNavigate(link.href)}
+            onClick={() => {
+              if (link.external) {
+                window.open(link.href, '_blank', 'noopener,noreferrer');
+              } else {
+                onNavigate(link.href);
+              }
+            }}
             className={`relative ${TYPOGRAPHY_CLASSES.navLink} hover:text-studio-orange transition-colors duration-200 text-left`}
           >
             {link.name}

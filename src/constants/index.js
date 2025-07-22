@@ -44,6 +44,15 @@ export const NAVIGATION_LINKS = {
     { name: 'LOCATIONS', href: '/locations' },
     { name: 'CONTACT', href: '/contact' },
     { name: 'FAQ', href: '/faq' }
+  ],
+  // Desktop footer links (updated layout)
+  desktop: [
+    { name: 'WORK', href: '/work' },
+    { name: 'PROCESS', href: '/process' },
+    { name: 'CONTACT', href: '/contact' },
+    { name: 'FAQ', href: '/faq' },
+    { name: 'STORY', href: '/story' },
+    { name: 'INSTAGRAM', href: 'https://www.instagram.com/studio_pickens/', external: true }
   ]
 };
 

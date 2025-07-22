@@ -11,6 +11,7 @@ const navigate = (path) => {
 
 const Footer = () => {
   const pageLinks = NAVIGATION_LINKS.all;
+  const desktopLinks = NAVIGATION_LINKS.desktop;
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -29,7 +30,7 @@ const Footer = () => {
 
           {/* Center Column - Page Links */}
           <FooterNavigation 
-            links={pageLinks}
+            links={desktopLinks}
             onNavigate={navigate}
             variant="desktop"
           />
