@@ -3,10 +3,8 @@ import { useWorkData } from '../hooks';
 
 const WorkBanners = ({ onBannerClick }) => {
   const { workData, loading, error } = useWorkData();
-  // Filter out MUSIC VIDEO banner
-  const sectionBanners = (workData.sectionBanners || []).filter(
-    banner => banner.category !== 'MUSIC VIDEO'
-  );
+  // Include all banners including MUSIC VIDEO
+  const sectionBanners = workData.sectionBanners || [];
 
   if (loading) {
     return <div className="bg-studio-bg pt-16 relative w-full h-64">Loading...</div>;

@@ -19,7 +19,8 @@ const WorkItem = ({ project, content, getCirclePosition, getTextRotation, getTex
           alt={project.alt}
           className="w-full h-full object-cover"
           style={{
-            objectPosition: (project.image || project.src)?.includes('editorial2') || (project.image || project.src)?.includes('editorial3') ? 'center top' : 'center center'
+            objectPosition: (project.image || project.src)?.includes('editorial2') || (project.image || project.src)?.includes('editorial3') || (project.image || project.src)?.includes('nine-perfect-strangers') ? 'center top' : (project.image || project.src)?.includes('beyonce-editorial') ? 'center 10%' : 'center center',
+            transform: project.transform ? `scale(${project.transform.scale || 1}) translateX(${project.transform.translateX || 0}px) translateY(${project.transform.translateY || 0}px) ${project.transform.flip ? 'scaleX(-1)' : ''}` : 'none'
           }}
         />
         

@@ -86,7 +86,7 @@ const ProcessPage = () => {
 
       {/* Our Approach Section - Top */}
       <section 
-        className="relative flex items-center justify-center bg-nav-blue py-20 md:py-0 min-h-[280px] md:h-[clamp(280px,28vw,320px)]"
+        className="relative flex items-center justify-center bg-nav-blue pt-20 pb-16 md:py-0 min-h-[280px] md:h-[clamp(280px,28vw,320px)]"
       >
         <div className="max-w-screen-xl mx-auto px-4 text-center">
           <div className="flex flex-col items-center max-w-4xl mx-auto">
@@ -177,7 +177,7 @@ const ProcessPage = () => {
 
       {/* Thoughtfully Sourced Section - Before Polaroid Carousel */}
       <section 
-        className="relative flex items-center justify-center bg-nav-blue py-20 md:py-0 min-h-[280px] md:h-[clamp(280px,28vw,320px)]"
+        className="relative flex items-center justify-center bg-nav-blue pt-20 pb-16 md:py-0 min-h-[280px] md:h-[clamp(280px,28vw,320px)]"
       >
         <div className="max-w-screen-xl mx-auto px-4 text-center">
           <div className="flex flex-col items-center max-w-4xl mx-auto">
@@ -385,10 +385,10 @@ const ProcessPage = () => {
                 letterSpacing: '0.96px'
               }}
             >
-              meet our<br />inner circle
+              meet our inner circle
             </span>
             <span className="hidden lg:inline text-studio-blue text-[64px]" style={{ lineHeight: '1.1' }}>
-              meet our<br />inner circle
+              meet our inner circle
             </span>
           </h1>
           
@@ -422,10 +422,10 @@ const ProcessPage = () => {
                     lineHeight: '110%'
                   }}
                 >
-                  The trusted<br />hands behind<br />every strand.
+                  The trusted hands behind every strand.
                 </span>
                 <span className="hidden lg:inline text-studio-blue" style={{ fontWeight: 600, fontSize: '24px', lineHeight: '125%', letterSpacing: '4%' }}>
-                  The trusted<br />hands behind<br />every strand.
+                  The trusted hands behind every strand.
                 </span>
               </p>
             </div>

@@ -608,7 +608,7 @@ const StoryPage = () => {
                 }}
               />
               
-              {/* muscle memory led the way text at 7 o'clock - Mobile Only */}
+              {/* broadway needed its own text at 7 o'clock - Mobile Only */}
               <div 
                 className="absolute text-center"
                 style={{
@@ -618,8 +618,8 @@ const StoryPage = () => {
                 }}
               >
                 <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>muscle memory</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>led the way</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>broadway needed</span>
+                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>its own</span>
                 </div>
               </div>
             </div>
@@ -857,20 +857,6 @@ const StoryPage = () => {
                 }}
               />
               
-              {/* Broadway needed its own text - Mobile Only */}
-              <div 
-                className="absolute text-center"
-                style={{
-                  top: '52%',
-                  left: '35%',
-                  transform: 'translate(-50%, -50%)'
-                }}
-              >
-                <div className="flex flex-col items-center">
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>broadway needed</span>
-                  <span className="font-lovtony text-studio-blue" style={{ fontSize: '61px', lineHeight: '0.3' }}>its own</span>
-                </div>
-              </div>
             </div>
           </div>
 

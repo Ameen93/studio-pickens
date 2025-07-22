@@ -5,14 +5,18 @@ const MobileWorkItem = ({ project, content, onCategoryClick }) => {
   
 
   const handleTap = () => {
-    setIsExpanded(!isExpanded);
+    // Only allow expansion if the item has content info
+    const hasContent = content && (content.stylist || content.photographer || content.date);
+    if (hasContent) {
+      setIsExpanded(!isExpanded);
+    }
   };
 
   return (
     <div className="mb-12 last:mb-0">
       {/* Image container */}
       <div 
-        className="relative"
+        className="relative overflow-hidden"
         style={{ aspectRatio: '9/16' }}
       >
         <img
@@ -20,7 +24,8 @@ const MobileWorkItem = ({ project, content, onCategoryClick }) => {
           alt={project.alt}
           className="w-full h-full object-cover shadow-lg"
           style={{
-            objectPosition: (project.mobileImage || project.image || project.src)?.includes('editorial2') || (project.mobileImage || project.image || project.src)?.includes('editorial3') ? 'center top' : 'center center'
+            objectPosition: (project.mobileImage || project.image || project.src)?.includes('editorial2') || (project.mobileImage || project.image || project.src)?.includes('editorial3') || (project.mobileImage || project.image || project.src)?.includes('nine-perfect-strangers') ? 'center top' : (project.mobileImage || project.image || project.src)?.includes('beyonce-editorial') ? '40% 0%' : (project.mobileImage || project.image || project.src)?.includes('the-last-show-girl') ? '10% center' : (project.mobileImage || project.image || project.src)?.includes('stereo-phonic') ? '30% center' : (project.mobileImage || project.image || project.src)?.includes('house-of-david') ? '25% center' : (project.mobileImage || project.image || project.src)?.includes('the-killer') ? '75% center' : (project.mobileImage || project.image || project.src)?.includes('bullet-train') ? '32% center' : 'center center',
+            transform: (project.mobileImage || project.image || project.src)?.includes('beyonce-editorial') ? 'scale(1.4) translateY(10%)' : 'none'
           }}
         />
         

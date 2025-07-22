@@ -5,9 +5,8 @@ const WorkFilterNav = ({ onFilterChange, activeFilter }) => {
     'ALL MEDIA',
     'FILM & TV',
     'THEATRE',
-    'CONCERT',
     'EDITORIAL',
-    'LIVE PERFORMANCE'
+    'MUSIC VIDEO'
   ];
 
   return (

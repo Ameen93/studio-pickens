@@ -51,10 +51,18 @@ export const useWorkData = () => {
     fetchWorkData();
   }, []);
 
-  // Filter out MUSIC VIDEO projects from featured projects
-  const featuredProjects = workData.projects?.filter(
-    project => project.featured && project.category !== 'MUSIC VIDEO'
+  // Get home page projects (original 6 items with IDs 1-6)
+  const homeProjects = workData.projects?.filter(
+    project => project.id <= 6 && project.category !== 'MUSIC VIDEO'
   ) || [];
   
-  return { workData, featuredProjects, loading, error };
+  // Get work page projects (new items with IDs 7+)
+  const workPageProjects = workData.projects?.filter(
+    project => project.id >= 7
+  ) || [];
+  
+  // Keep featuredProjects for backward compatibility
+  const featuredProjects = homeProjects;
+  
+  return { workData, featuredProjects, homeProjects, workPageProjects, loading, error };
 };

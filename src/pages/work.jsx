@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import WorkGallery from '../components/WorkGallery';
-import WorkBanners from '../components/WorkBanners';
 import WorkFilterNav from '../components/WorkFilterNav';
 import PageBanner from '../components/common/PageBanner';
 import { useWorkData } from '../hooks/useWorkData';
@@ -10,7 +9,19 @@ const WorkPage = () => {
   const galleryRef = useRef(null);
   const workGalleryRef = useRef(null);
   const [activeFilter, setActiveFilter] = useState('ALL MEDIA');
-  const { workData, loading, error, featuredProjects } = useWorkData();
+  const { workData, loading, error, workPageProjects, homeProjects } = useWorkData();
+  
+  // Combine all projects for filtering
+  const allProjects = [...homeProjects, ...workPageProjects];
+  
+  // Filter projects based on active filter
+  const filteredProjects = activeFilter === 'ALL MEDIA' 
+    ? workPageProjects  // Show only work page items when no filter is selected
+    : allProjects.filter(project => {
+        return project.category === activeFilter || 
+               (activeFilter === 'MUSIC VIDEO' && project.category === 'MUSIC VIDEO') ||
+               (activeFilter === 'LIVE PERFORMANCE' && project.category === 'LIVE');
+      });
 
   // Map project categories to filter categories
   const categoryToFilterMap = {
@@ -30,23 +41,6 @@ const WorkPage = () => {
       setActiveFilter(filterParam);
     }
   }, []);
-
-  const handleBannerClick = (category) => {
-    // First scroll to the gallery section
-    if (galleryRef.current) {
-      galleryRef.current.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-    
-    // Then scroll to the specific category work item
-    setTimeout(() => {
-      if (workGalleryRef.current) {
-        workGalleryRef.current.scrollToCategory(category);
-      }
-    }, 1000); // Wait for initial scroll to complete
-  };
 
   const handleFilterChange = (filter) => {
     setActiveFilter(filter);
@@ -92,11 +86,11 @@ const WorkPage = () => {
         </PageBanner>
       )}
 
-      {/* Work Filter Navigation (Hidden) */}
-      {/* <WorkFilterNav 
+      {/* Work Filter Navigation */}
+      <WorkFilterNav 
         onFilterChange={handleFilterChange}
         activeFilter={activeFilter}
-      /> */}
+      />
 
       {/* Work Gallery - Original (Hidden) */}
       {/* <div ref={galleryRef}>
@@ -108,12 +102,9 @@ const WorkPage = () => {
         <WorkGallery 
           ref={workGalleryRef}
           onCategoryClick={handleCategoryClick} 
-          projects={featuredProjects} 
+          projects={filteredProjects} 
         />
       </div>
-      
-      {/* Work Banners */}
-      <WorkBanners onBannerClick={handleBannerClick} />
     </Layout>
   );
 };

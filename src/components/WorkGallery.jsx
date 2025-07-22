@@ -37,14 +37,19 @@ const WorkGallery = React.memo(forwardRef(({ filter = 'ALL MEDIA', onCategoryCli
     const projectsToPosition = filter === 'ALL MEDIA' ? projects : rawFilteredProjects;
     
     return projectsToPosition.map((project, index) => {
-      // Use original side from project data for better layout control
+      let assignedSide;
       let positionIndex;
+      
+      // Keep center items centered
       if (project.side === 'center') {
+        assignedSide = 'center';
         positionIndex = 2;
-      } else if (project.side === 'left') {
-        positionIndex = 0;
       } else {
-        positionIndex = 1;
+        // For non-center items, alternate left/right based on their position in the filtered list
+        // Count non-center items before this one
+        const nonCenterItemsBefore = projectsToPosition.slice(0, index).filter(p => p.side !== 'center').length;
+        assignedSide = nonCenterItemsBefore % 2 === 0 ? 'left' : 'right';
+        positionIndex = assignedSide === 'left' ? 0 : 1;
       }
       
       const position = positions[positionIndex];
@@ -54,7 +59,8 @@ const WorkGallery = React.memo(forwardRef(({ filter = 'ALL MEDIA', onCategoryCli
         ...project,
         left: position.left,
         top: top,
-        side: project.side || position.side
+        side: assignedSide,
+        originalSide: project.side // Keep track of original side for reference
       };
     });
   }, [filter, rawFilteredProjects]);
@@ -65,9 +71,10 @@ const WorkGallery = React.memo(forwardRef(({ filter = 'ALL MEDIA', onCategoryCli
       return 'clamp(600px, 45vw, 600px)';
     }
     
-    const minHeight = Math.max((filteredProjects.length - 1) * 425 + 200, 400);
-    const vwHeight = (filteredProjects.length - 1) * 29.51 + 20;
-    const maxHeight = (filteredProjects.length - 1) * 425 + 300;
+    // Add sufficient bottom padding: 425px for each item + 400px bottom buffer
+    const minHeight = Math.max((filteredProjects.length - 1) * 425 + 400, 400);
+    const vwHeight = (filteredProjects.length - 1) * 29.51 + 25; // Increase vw buffer
+    const maxHeight = (filteredProjects.length - 1) * 425 + 500; // Increase max buffer
     
     return `clamp(${minHeight}px, ${vwHeight}vw, ${maxHeight}px)`;
   }, [filteredProjects.length]);
@@ -105,45 +112,115 @@ const WorkGallery = React.memo(forwardRef(({ filter = 'ALL MEDIA', onCategoryCli
   const projectContent = {
     1: { 
       title: 'THE BEAR', 
-      stylist: 'ally vickers', 
-      photographer: 'jamie lee curtis', 
-      date: 'hulu',
-      labels: { stylist: 'HAIR STYLIST', photographer: 'CAST', date: 'NETWORK' }
+      stylist: 'Ally Vickers', 
+      photographer: 'Jamie Lee Curtis', 
+      date: 'Hulu',
+      labels: { stylist: 'HAIR DESIGNER', photographer: 'CAST', date: 'NETWORK' }
     },
     2: { 
       title: 'HERE WE ARE', 
-      stylist: 'Katie Gell', 
-      photographer: 'Jane krakowski. Jesse Tyler Ferguson. Martha plimpton', 
-      date: 'west end plays',
-      labels: { stylist: 'HAIR DESIGNER', photographer: 'FEATURING', date: 'CATEGORY' }
+      stylist: 'Studio Pickens', 
+      photographer: 'Jane Krakowski, Jesse Tyler Ferguson, Martha Plimpton', 
+      date: 'Broadway and West End Theatre',
+      labels: { stylist: 'HAIR AND MAKEUP DESIGN', photographer: 'FEATURING', date: 'PRESENTED AT' }
     },
     3: { 
       title: 'L\'OFFICIEL', 
-      stylist: 'adir abergel', 
-      photographer: 'nicole kidman', 
-      date: 'april 2024',
-      labels: { stylist: 'HAIRDRESSER', photographer: 'ACTRESS', date: 'ISSUE' }
+      stylist: 'Adir Abergel', 
+      photographer: 'Nicole Kidman', 
+      date: 'Sept 2024',
+      labels: { stylist: 'HAIR DESIGNER', photographer: 'ACTRESS', date: 'ISSUE' }
     },
     4: { 
       title: 'THE FIRST LADY', 
-      stylist: 'emmie america', 
-      photographer: 'Michelle Pfeiffer, Dakota fanning', 
-      date: 'showtime',
-      labels: { stylist: 'HAIRDRESSER', photographer: 'ACTRESS', date: 'NETWORK' }
+      stylist: 'Jaime Leigh McIntosh', 
+      photographer: 'Michelle Pfeiffer, Dakota Fanning', 
+      date: 'Showtime',
+      labels: { stylist: 'HAIR DESIGNER', photographer: 'CAST', date: 'NETWORK' }
     },
     5: { 
       title: 'LOEWE', 
-      stylist: 'michelle ceglia', 
-      photographer: 'dan levy, aubrey plaza', 
-      date: 'march 2024',
+      stylist: 'Michelle Ceglia', 
+      photographer: 'Dan Levy, Aubrey Plaza', 
+      date: 'March 2024',
       labels: { stylist: 'HAIR DESIGNER', photographer: 'ACTOR/ACTRESS', date: 'ISSUE' }
     },
     6: { 
       title: 'THE WHALE', 
-      stylist: 'annemarie bradley', 
-      photographer: 'brendan fraser', 
+      stylist: 'Annemarie Bradley', 
+      photographer: 'Brendan Fraser', 
       date: 'A24',
       labels: { stylist: 'HAIR DESIGNER', photographer: 'CAST', date: 'DISTRIBUTED BY' }
+    },
+    7: { 
+      title: 'NINE PERFECT STRANGERS', 
+      stylist: 'Nicki Gooley', 
+      photographer: 'Christine Baranski', 
+      date: 'Hulu',
+      labels: { stylist: 'HAIR DESIGNER', photographer: 'CAST', date: 'NETWORK' }
+    },
+    8: { 
+      title: 'EDITORIAL', 
+      stylist: '', 
+      photographer: '', 
+      date: '',
+      labels: { stylist: '', photographer: '', date: '' }
+    },
+    9: { 
+      title: 'THE LAST SHOWGIRL', 
+      stylist: 'Katy McClintock', 
+      photographer: 'Jamie Lee Curtis', 
+      date: 'Independent',
+      labels: { stylist: 'HAIR DESIGNER', photographer: 'CAST', date: 'NETWORK' }
+    },
+    10: { 
+      title: 'STEREOPHONIC', 
+      stylist: 'Studio Pickens', 
+      photographer: 'Will Brill, Andrew R. Butler And Eli Gelb', 
+      date: 'Broadway and West End Theatre',
+      labels: { stylist: 'HAIR & MAKEUP DESIGN', photographer: 'FEATURING', date: 'PRESENTED AT' }
+    },
+    11: { 
+      title: 'HOUSE OF DAVID', 
+      stylist: 'Chris Glimsdale', 
+      photographer: 'Stephen Lang', 
+      date: 'Amazon Prime Video',
+      labels: { stylist: 'HAIR DESIGNER', photographer: 'CAST', date: 'NETWORK' }
+    },
+    12: { 
+      title: 'MUSIC VIDEO', 
+      stylist: '', 
+      photographer: '', 
+      date: '',
+      labels: { stylist: '', photographer: '', date: '' }
+    },
+    13: { 
+      title: 'THE KILLER', 
+      stylist: 'Shannon Bakeman', 
+      photographer: 'Nathalie Emmanuel', 
+      date: 'Universal Pictures',
+      labels: { stylist: 'HAIR DESIGNER', photographer: 'CAST', date: 'NETWORK' }
+    },
+    14: { 
+      title: 'ROMEO & JULIET', 
+      stylist: 'Studio Pickens', 
+      photographer: 'Kit Connor, Rachel Zegler', 
+      date: 'Broadway and West End Theatre',
+      labels: { stylist: 'HAIR & MAKEUP DESIGN', photographer: 'FEATURING', date: 'PRESENTED AT' }
+    },
+    15: { 
+      title: 'BULLET TRAIN', 
+      stylist: 'Janine Rath Thompson', 
+      photographer: 'Brian Tyree Henry', 
+      date: 'Sony Pictures',
+      labels: { stylist: 'HAIR DESIGNER', photographer: 'CAST', date: 'NETWORK' }
+    },
+    16: { 
+      title: 'TEETH', 
+      stylist: 'Studio Pickens', 
+      photographer: 'Alyse Alan Louis', 
+      date: 'Playwrights Horizons',
+      labels: { stylist: 'HAIR & MAKEUP DESIGN', photographer: 'CAST', date: 'PRODUCED BY' }
     }
   };
 
@@ -165,7 +242,7 @@ const WorkGallery = React.memo(forwardRef(({ filter = 'ALL MEDIA', onCategoryCli
   }), [filteredProjects]);
 
   return (
-    <section className="bg-studio-bg py-12 relative w-full overflow-visible">
+    <section className="bg-studio-bg pt-12 pb-16 relative w-full overflow-visible">
       {/* Desktop Layout */}
       <div className="hidden md:block max-w-[1440px] mx-auto">
         <div 
@@ -189,7 +266,7 @@ const WorkGallery = React.memo(forwardRef(({ filter = 'ALL MEDIA', onCategoryCli
       </div>
 
       {/* Mobile Layout */}
-      <div className="md:hidden px-4">
+      <div className="md:hidden px-4 pb-4">
         {filteredProjects.map((project) => (
           <div key={project.id} id={`work-item-${project.id}`}>
             <MobileWorkItem 

@@ -11,7 +11,7 @@ const HomePage = () => {
   const galleryRef = useRef(null);
   const workGalleryRef = useRef(null);
   const { heroData, loading } = useHeroData();
-  const { featuredProjects } = useWorkData();
+  const { homeProjects } = useWorkData();
 
   // Map project categories to filter categories (same as work page)
   const categoryToFilterMap = {
@@ -23,20 +23,9 @@ const HomePage = () => {
   };
 
   const handleBannerClick = (category) => {
-    // First scroll to the gallery section
-    if (galleryRef.current) {
-      galleryRef.current.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-    
-    // Then scroll to the specific category work item
-    setTimeout(() => {
-      if (workGalleryRef.current) {
-        workGalleryRef.current.scrollToCategory(category);
-      }
-    }, 1000); // Wait for initial scroll to complete
+    // Navigate to work page with the filter as URL parameter
+    window.history.pushState({}, '', `/work?filter=${encodeURIComponent(category)}`);
+    window.dispatchEvent(new PopStateEvent('popstate'));
   };
 
   const handleCategoryClick = (category) => {
@@ -105,7 +94,7 @@ const HomePage = () => {
         <WorkGallery 
           ref={workGalleryRef}
           onCategoryClick={handleCategoryClick} 
-          projects={featuredProjects} 
+          projects={homeProjects} 
         />
       </div>
 
