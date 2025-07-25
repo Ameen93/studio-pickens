@@ -51,7 +51,7 @@ const LocationInfo = React.memo(({
   
   const hoverContent = getHoverContent();
   const displayTitle = isExpanded ? hoverContent.title : location;
-  const displayDescription = isExpanded ? hoverContent.description : address;
+  const displayDescription = isExpanded ? hoverContent.description : null; // address;
   
   // Validate location data in development
   if (process.env.NODE_ENV === 'development') {

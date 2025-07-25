@@ -53,17 +53,17 @@ const Footer = () => {
         <div className="flex justify-between">
           <div className="w-[600px]"></div> {/* Match left column width */}
           <div 
-            className="flex justify-center group cursor-pointer"
-            onClick={() => navigate('/story')}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                navigate('/story');
-              }
-            }}
-            tabIndex={0}
-            role="button"
-            aria-label="Navigate to story page"
+            className="flex justify-center group"
+            // onClick={() => navigate('/story')}
+            // onKeyDown={(e) => {
+            //   if (e.key === 'Enter' || e.key === ' ') {
+            //     e.preventDefault();
+            //     navigate('/story');
+            //   }
+            // }}
+            // tabIndex={0}
+            // role="button"
+            // aria-label="Navigate to story page"
           >
             <img
               src={`${process.env.PUBLIC_URL}/images/footer/footer-signature.png`}

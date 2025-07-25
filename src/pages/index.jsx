@@ -78,19 +78,19 @@ const HomePage = () => {
               )}
             </div>
             
-            <Button 
+            {/* <Button 
               href="/process" 
               variant="link"
               className="text-button-link md:text-button-link sm:text-atelier-link-mobile font-proxima-semibold"
             >
               LEARN MORE
-            </Button>
+            </Button> */}
           </div>
         </div>
       </section>
 
       {/* Work Gallery */}
-      <div ref={galleryRef}>
+      <div ref={galleryRef} style={{ paddingTop: '56px' }}>
         <WorkGallery 
           ref={workGalleryRef}
           onCategoryClick={handleCategoryClick} 
