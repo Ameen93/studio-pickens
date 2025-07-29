@@ -207,7 +207,7 @@ const StoryPage = () => {
               
               {/* Center Content - positioned absolutely to avoid rotation */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex flex-col items-center justify-center text-center px-6 md:max-w-xl" style={{ width: 'clamp(320px, 65vw, 100%)' }}>
+                <div className="flex flex-col items-center justify-center text-center px-2 md:px-6 w-[95vw] md:w-[65vw] md:max-w-xl">
                   {/* Mobile: Updated to match desktop title */}
                   <h5 className="md:hidden font-proxima-wide font-bold text-studio-blue uppercase mb-4" style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.1' }}>
                     The Fascination Stage
@@ -218,11 +218,11 @@ const StoryPage = () => {
                   </h5>
                   {/* Mobile: Updated to match desktop description */}
                   <p className="md:hidden font-proxima text-studio-blue" style={{ fontSize: 'clamp(16px, 2.5vw, 16px)', lineHeight: '1.5' }}>
-                    It all started with a kid obsessed with illusion, engineering, and theatre. Long before the first lace front, Robert was captivated by transformation.
+                    Robert has always been captivated by illusion, architecture, and theatre. His early days were filled with a fascination by how things were made and how they could be made better. This curiosity laid the foundation for a mastery of his craft.
                   </p>
                   {/* Desktop: New description */}
                   <p className="hidden md:block font-proxima text-studio-blue" style={{ fontSize: 'clamp(16px, 2.5vw, 16px)', lineHeight: '1.5' }}>
-                    It all started with a kid obsessed with illusion, engineering, and theatre. Long before the first lace front, Robert was captivated by transformation.
+                    Robert has always been captivated by illusion, architecture, and theatre. His early days were filled with a fascination by how things were made and how they could be made better. This curiosity laid the foundation for a mastery of his craft.
                   </p>
                 </div>
               </div>
